@@ -10,7 +10,8 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Main_Screen_Mockup" />
+        android:background="@drawable/main_screen"
+        app:srcCompat="@drawable/main_screen" />
 
     <Button
         android:id="@+id/button2"
