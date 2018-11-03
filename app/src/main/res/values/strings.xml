@@ -87,13 +87,14 @@
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="search_home">Home</string>
+    <string name="search_trainer">Search Trainer</string>
+    <string name="search_facilities">Search Facilities</string>
+    <string name="search_event">Search Event</string>
+    <string name="search_scenario">Search Scenario</string>
+    <string name="my_account">My Account</string>
+    <string name="settings">Settings</string>
+    <string name="login">Login</string>
 
 
-    <string name="search_home">Inicio</string>
-    <string name="search_trainer">Buscar Entrenador</string>
-    <string name="search_facilities">Buscar Instalacion</string>
-    <string name="search_event">Buscar Evento</string>
-    <string name="search_scenario">Buscar Escenario</string>
-    <string name="settings">Ajustes</string>
-    <string name="my_account">Mi Cuenta</string>
 </resources>

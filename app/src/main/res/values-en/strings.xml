@@ -4,9 +4,10 @@
     <string name="search_home">Home</string>
     <string name="search_trainer">Search Trainer</string>
     <string name="search_facilities">Search Facilities</string>
-    <string name="search_event">_Search Event</string>
+    <string name="search_event">Search Event</string>
     <string name="search_scenario">Search Scenario</string>
     <string name="settings">Settings</string>
     <string name="my_account">My Account</string>
+    <string name="login">Login</string>
 
 </resources>
