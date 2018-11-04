@@ -23,4 +23,29 @@ public class ActivityMainMock extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void facilitieOnclick(View v) {
+        Intent intent = new Intent(ActivityMainMock.this, FacilitiesMock.class);
+        startActivity(intent);
+    }
+
+    public void scenarioOnclick(View v) {
+        Intent intent = new Intent(ActivityMainMock.this, ScenarioMock.class);
+        startActivity(intent);
+    }
+
+    public void trainerOnclick(View v) {
+        Intent intent = new Intent(ActivityMainMock.this, TrainerMock.class);
+        startActivity(intent);
+    }
+
+//    public void loginOnclick(View v) {
+//        Intent intent = new Intent(ActivityMainMock.this, LoginMock.class);
+//        startActivity(intent);
+//    }
+//
+//    public void loginOnclick(View v) {
+//        Intent intent = new Intent(ActivityMainMock.this, LoginMock.class);
+//        startActivity(intent);
+//    }
+
 }
