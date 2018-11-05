@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".EventFinder">
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@mipmap/back_icon"
+        android:onClick="@string/title_activity_main2" />
+
+    <TextView
+        android:id="@+id/TitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/backBtn"
+        android:layout_margin="3dp"
+        android:text="Search Facilities"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+    <RelativeLayout
+        android:id="@+id/facilityILwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backBtn"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded">
+
+        <ImageView
+            android:id="@+id/FacilityIImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@mipmap/stadium" />
+
+
+        <Button
+            android:id="@+id/bookFacilityI"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Book!"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/FacilityIImg"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+        <Button
+            android:id="@+id/scenarioFacilityI"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Scenario"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/bookFacilityI"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="#FF40AA"/>
+
+        <TextView
+            android:id="@+id/facilityITitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/FacilityIImg"
+            android:text="Lleida Soccer Field I"
+            android:textSize="15sp"/>
+
+        <ImageView
+            android:id="@+id/starFacilityIImg"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/facilityITitleText"
+            android:layout_toRightOf="@+id/FacilityIImg"
+            android:background="@mipmap/star_selected" />
+
+        <TextView
+            android:id="@+id/facilityIPlaceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/starFacilityIImg"
+            android:layout_toRightOf="@+id/FacilityIImg"
+            android:text="Address: Rambla Ferran no. 24"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/facilityIHoursText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facilityIPlaceText"
+            android:layout_toRightOf="@+id/FacilityIImg"
+            android:text="Open - Closes: 09:00 - 23:00"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/facilityIText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facilityIHoursText"
+            android:layout_toRightOf="@+id/FacilityIImg"
+            android:text="Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/facilityIILwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/facilityILwt"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded">
+
+        <ImageView
+            android:id="@+id/FacilityIIImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@mipmap/stadium" />
+
+
+        <Button
+            android:id="@+id/bookFacilityII"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Book!"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/FacilityIIImg"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+        <Button
+            android:id="@+id/scenarioFacilityII"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Scenario"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/bookFacilityII"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="#FF40AA"/>
+
+        <TextView
+            android:id="@+id/facilityIITitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/FacilityIIImg"
+            android:text="Lleida Soccer Field II"
+            android:textSize="15sp"/>
+
+        <ImageView
+            android:id="@+id/starFacilityIIImg"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/facilityIITitleText"
+            android:layout_toRightOf="@+id/FacilityIIImg"
+            android:background="@mipmap/star_selected" />
+
+        <TextView
+            android:id="@+id/facilityIIPlaceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/starFacilityIIImg"
+            android:layout_toRightOf="@+id/FacilityIIImg"
+            android:text="Address: Rambla Ferran no. 24"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/facilityIIHoursText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facilityIIPlaceText"
+            android:layout_toRightOf="@+id/FacilityIIImg"
+            android:text="Open - Closes: 09:00 - 23:00"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/facilityIIText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facilityIIHoursText"
+            android:layout_toRightOf="@+id/FacilityIIImg"
+            android:text="Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/facilityIIILwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/facilityIILwt"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded">
+
+        <ImageView
+            android:id="@+id/FacilityIIIImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@mipmap/stadium" />
+
+
+        <Button
+            android:id="@+id/bookFacilityIII"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Book!"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/FacilityIIIImg"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+        <Button
+            android:id="@+id/scenarioFacilityIII"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Scenario"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/bookFacilityIII"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="#FF40AA"/>
+
+        <TextView
+            android:id="@+id/facilityIIITitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/FacilityIIIImg"
+            android:text="Lleida Soccer Field III"
+            android:textSize="15sp"/>
+
+        <ImageView
+            android:id="@+id/starFacilityIIIImg"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/facilityIIITitleText"
+            android:layout_toRightOf="@+id/FacilityIIIImg"
+            android:background="@mipmap/star_selected" />
+
+        <TextView
+            android:id="@+id/facilityIIIPlaceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/starFacilityIIIImg"
+            android:layout_toRightOf="@+id/FacilityIIIImg"
+            android:text="Address: Rambla Ferran no. 24"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/facilityIIIHoursText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facilityIIIPlaceText"
+            android:layout_toRightOf="@+id/FacilityIIIImg"
+            android:text="Open - Closes: 09:00 - 23:00"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/facilityIIIText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facilityIIIHoursText"
+            android:layout_toRightOf="@+id/FacilityIIIImg"
+            android:text="Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/monthSelect"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@mipmap/home_icon"/>
+
+        <TextView
+            android:id="@+id/homeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/homeButton"
+            android:paddingHorizontal="17dp"
+            android:text="Home"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@mipmap/settings_icon"
+            android:layout_toRightOf="@id/homeButton" />
+
+        <TextView
+            android:id="@+id/settingsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/settingsButton"
+            android:layout_toRightOf="@+id/homeTxt"
+            android:paddingHorizontal="14dp"
+            android:text="Settings"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@mipmap/login_icon"
+            android:layout_toRightOf="@id/settingsButton" />
+
+        <TextView
+            android:id="@+id/loginTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loginButton"
+            android:layout_toRightOf="@+id/settingsTxt"
+            android:text="Login / Register"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/accountButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@mipmap/my_account_icon"
+            android:layout_toRightOf="@id/loginButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountButton"
+            android:layout_toRightOf="@+id/loginTxt"
+            android:paddingHorizontal="10dp"
+            android:text="My Account"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+</RelativeLayout>

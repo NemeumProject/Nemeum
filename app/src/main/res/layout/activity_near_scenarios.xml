@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".EventFinder">
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@mipmap/back_icon"
+        android:onClick="@string/title_activity_main2" />
+
+    <TextView
+        android:id="@+id/TitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/backBtn"
+        android:layout_margin="3dp"
+        android:text="Search Scenario"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+    <GridLayout
+        android:id="@+id/refineLwt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backBtn"
+        android:layout_centerHorizontal="true"
+        android:columnCount="2">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Sport Type"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="City"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Price Range"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+    </GridLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/refineLwt"
+        android:layout_alignParentStart="true" />
+
+    <RelativeLayout
+        android:id="@+id/companyILwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mapView"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded">
+
+        <ImageView
+            android:id="@+id/companyIImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@mipmap/stadium" />
+
+
+        <Button
+            android:id="@+id/bookCompanyI"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Book!"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/companyIImg"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+        <TextView
+            android:id="@+id/companyITitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/companyIImg"
+            android:text="Lleida Gym Center"
+            android:textColor="#FF40AA"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/companyIScenarioText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyITitleText"
+            android:layout_toRightOf="@+id/companyIImg"
+            android:text="Scenario 1"
+            android:textSize="14sp"
+            android:textColor="@color/design_default_color_primary"/>
+
+        <TextView
+            android:id="@+id/companyIText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyIScenarioText"
+            android:layout_toRightOf="@+id/companyIImg"
+            android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $2.100"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/companyIILwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/companyILwt"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded">
+
+        <ImageView
+            android:id="@+id/companyIIImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="@mipmap/stadium" />
+
+
+        <Button
+            android:id="@+id/bookCompanyII"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="Book!"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/companyIIImg"
+            android:textColor="@android:color/black"
+            android:background="@drawable/months_rounded" />
+
+        <TextView
+            android:id="@+id/companyIITitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/companyIIImg"
+            android:text="Soccer Center of Lleida"
+            android:textSize="15sp"
+            android:textColor="#FF40AA"/>
+
+        <TextView
+        android:id="@+id/companyIIScenarioText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/companyIITitleText"
+        android:layout_toRightOf="@+id/companyIIImg"
+        android:text="Scenario 2"
+        android:textSize="14sp"
+        android:textColor="@color/design_default_color_primary"/>
+
+        <TextView
+            android:id="@+id/companyIIText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyIIScenarioText"
+            android:layout_toRightOf="@+id/companyIIImg"
+            android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/monthSelect"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@mipmap/home_icon"/>
+
+        <TextView
+            android:id="@+id/homeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/homeButton"
+            android:paddingHorizontal="17dp"
+            android:text="Home"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@mipmap/settings_icon"
+            android:layout_toRightOf="@id/homeButton" />
+
+        <TextView
+            android:id="@+id/settingsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/settingsButton"
+            android:layout_toRightOf="@+id/homeTxt"
+            android:paddingHorizontal="14dp"
+            android:text="Settings"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@mipmap/login_icon"
+            android:layout_toRightOf="@id/settingsButton" />
+
+        <TextView
+            android:id="@+id/loginTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loginButton"
+            android:layout_toRightOf="@+id/settingsTxt"
+            android:text="Login / Register"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/accountButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@mipmap/my_account_icon"
+            android:layout_toRightOf="@id/loginButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountButton"
+            android:layout_toRightOf="@+id/loginTxt"
+            android:paddingHorizontal="10dp"
+            android:text="My Account"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+</RelativeLayout>
