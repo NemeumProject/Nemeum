@@ -31,6 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginMock" />
+        <activity android:name=".EventFinder" />
         <activity android:name=".FacilitiesMock" />
         <activity android:name=".ScenarioMock"></activity>
     </application>

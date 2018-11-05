@@ -37,6 +37,10 @@ public class ActivityMainMock extends AppCompatActivity {
         Intent intent = new Intent(ActivityMainMock.this, TrainerMock.class);
         startActivity(intent);
     }
+    public void findEventOnclick(View v) {
+        Intent intent = new Intent(ActivityMainMock.this, EventFinder.class);
+        startActivity(intent);
+    }
 
 //    public void loginOnclick(View v) {
 //        Intent intent = new Intent(ActivityMainMock.this, LoginMock.class);
