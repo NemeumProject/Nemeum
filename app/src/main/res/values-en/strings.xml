@@ -10,4 +10,37 @@
     <string name="my_account">My Account</string>
     <string name="login">Login</string>
 
+    <!-- Strings for Action Bar -->
+    <string name="menuHome">Home</string>
+    <string name="menuSettings">Settings</string>
+    <string name="menuLogin">Login / Register</string>
+    <string name="menuAccount">My Account</string>
+
+    <!-- Strings for Company Scenarios -->
+    <string name="compScenarioTitle">Company Scenario</string>
+
+    <!-- Strings for Event Finder -->
+    <string name="findEventTitle">Find Events</string>
+
+    <!-- Strings for Facility Finder -->
+    <string name="findFacilityTitle">Search Facilities</string>
+
+    <!-- Strings for Scenario Finder -->
+    <string name="findScenarioTitle">Search Scenario</string>
+    <string name="scenarioFilterSport">Sport Type</string>
+    <string name="scenarioFilterCity">City</string>
+    <string name="scenarioFilterPrice">Price Range</string>
+
+    <!-- Strings for Trainer Finder -->
+    <string name="findTrainerTitle">Search Trainer</string>
+    <string name="trainerFilterName">Trainer name</string>
+    <string name="trainerFilterSport">Sport Type</string>
+    <string name="trainerFilterCity">City</string>
+    <string name="trainerFilterPrice">Price Range</string>
+
+    <!-- Strings for Buttons -->
+    <string name="buttonBook">Book!</string>
+    <string name="buttonSchedule">Schedule</string>
+    <string name="buttonScenario">Scenario</string>
+
 </resources>

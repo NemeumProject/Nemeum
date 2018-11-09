@@ -8,4 +8,38 @@
     <string name="settings">Ajustes</string>
     <string name="my_account">Mi Cuenta</string>
     <string name="login">Conectar</string>
+
+    <!-- Strings for Action Bar -->
+    <string name="menuHome">Início</string>
+    <string name="menuSettings">Configuración</string>
+    <string name="menuLogin">Login / Registre</string>
+    <string name="menuAccount">Mi Cuenta</string>
+
+    <!-- Strings for Company Scenarios -->
+    <string name="compScenarioTitle">Buscar Escenarios</string>
+
+    <!-- Strings for Event Finder -->
+    <string name="findEventTitle">Buscar Eventos</string>
+
+    <!-- Strings for Facility Finder -->
+    <string name="findFacilityTitle">Buscar Instalaciones</string>
+
+    <!-- Strings for Scenario Finder -->
+    <string name="findScenarioTitle">Buscar Escenarios</string>
+    <string name="scenarioFilterSport">Tipo de desporto</string>
+    <string name="scenarioFilterCity">Ciudad</string>
+    <string name="scenarioFilterPrice">Gama de precios</string>
+
+    <!-- Strings for Trainer Finder -->
+    <string name="findTrainerTitle">Buscar Entrenador</string>
+    <string name="trainerFilterName">Nome del entrenador</string>
+    <string name="trainerFilterSport">Tipo de desporto</string>
+    <string name="trainerFilterCity">Ciudad</string>
+    <string name="trainerFilterPrice">Gama de Precios</string>
+
+    <!-- Strings for Buttons -->
+    <string name="buttonBook">Citar!</string>
+    <string name="buttonSchedule">Agenda</string>
+    <string name="buttonScenario">Escenario</string>
+
 </resources>

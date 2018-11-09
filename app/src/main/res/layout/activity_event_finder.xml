@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorBackground"
     tools:context=".EventFinder">
 
     <Button
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/backBtn"
         android:layout_margin="3dp"
-        android:text="Find Events"
-        android:textColor="@android:color/white"
+        android:text=""
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textAlignment="center"/>
 
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/swimImg"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@color/colorRed"
             android:text="Recommennded Event"
             android:textSize="10sp"/>
 
@@ -223,7 +223,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
             android:text="2018"
-            android:textColor="#FF40AA"
+            android:textColor="@color/colorPink"
             android:textSize="15sp"/>
 
         <ImageView
@@ -241,7 +241,7 @@
             android:layout_below="@id/yearText"
             android:layout_centerHorizontal="true"
             android:text="Select Month"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/colorBlue"
             android:textSize="12sp"/>
 
     </RelativeLayout>
@@ -261,7 +261,7 @@
             android:text="January 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -271,7 +271,7 @@
             android:text="February 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -281,7 +281,7 @@
             android:text="March 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -291,7 +291,7 @@
             android:text="April 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -301,7 +301,7 @@
             android:text="May 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -311,7 +311,7 @@
             android:text="June 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -321,7 +321,7 @@
             android:text="July 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -331,7 +331,7 @@
             android:text="August 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -341,7 +341,7 @@
             android:text="September 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -351,7 +351,7 @@
             android:text="October 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded"
             />
 
@@ -361,7 +361,7 @@
             android:text="November 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/selected_month"
             />
 
@@ -371,7 +371,7 @@
             android:text="December 2018"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded" />
 
     </GridLayout>
@@ -395,8 +395,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/homeButton"
             android:paddingHorizontal="17dp"
-            android:text="Home"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuHome"
+            android:textColor="@color/colorWhite" />
 
     <Button
         android:id="@+id/settingsButton"
@@ -413,8 +413,8 @@
             android:layout_below="@id/settingsButton"
             android:layout_toRightOf="@+id/homeTxt"
             android:paddingHorizontal="14dp"
-            android:text="Settings"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuSettings"
+            android:textColor="@color/colorWhite" />
 
     <Button
         android:id="@+id/loginButton"
@@ -430,8 +430,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/loginButton"
             android:layout_toRightOf="@+id/settingsTxt"
-            android:text="Login / Register"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuLogin"
+            android:textColor="@color/colorWhite" />
 
     <Button
         android:id="@+id/accountButton"
@@ -447,8 +447,8 @@
             android:layout_below="@id/accountButton"
             android:layout_toRightOf="@+id/loginTxt"
             android:paddingHorizontal="10dp"
-            android:text="My Account"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuAccount"
+            android:textColor="@color/colorWhite" />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorBackground"
     tools:context=".EventFinder">
 
     <Button
@@ -26,7 +26,7 @@
         android:layout_toRightOf="@+id/backBtn"
         android:layout_margin="3dp"
         android:text="Search Trainer"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textAlignment="center"/>
 
@@ -41,37 +41,37 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="Trainer Name"
+            android:text="@string/trainerFilterName"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="City"
+            android:text="@string/trainerFilterCity"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="Price Range"
+            android:text="@string/trainerFilterPrice"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="Sport Type"
+            android:text="@string/trainerFilterSport"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
     </GridLayout>
@@ -94,36 +94,35 @@
             android:layout_margin="8dp"
             android:background="@mipmap/ronaldo" />
 
-
         <Button
             android:id="@+id/bookTrainerI"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/trainerIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:id="@+id/scheduleTrainerI"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Schedule"
+            android:text="@string/buttonSchedule"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/bookTrainerI"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded"
-            android:backgroundTint="#FF40AA"/>
+            android:backgroundTint="@color/colorPink"/>
 
         <TextView
             android:id="@+id/trainerITitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/trainerIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:text="Ronaldinho"
             android:textSize="15sp"/>
 
@@ -141,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/starTrainerIImg"
             android:layout_toRightOf="@+id/trainerIImg"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/colorBlue"
             android:text="Soccer Trainer"
             android:textSize="13sp"/>
 
@@ -151,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/trainerISpecialtyText"
             android:layout_toRightOf="@+id/trainerIImg"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/colorBlue"
             android:text="Address: Rambla Ferran no. 24"
             android:textSize="13sp"/>
 
@@ -161,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/trainerIPlaceText"
             android:layout_toRightOf="@+id/trainerIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:text="Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."
             android:textSize="12sp"/>
     </RelativeLayout>
@@ -188,31 +187,31 @@
             android:id="@+id/bookTrainerII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/trainerIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:id="@+id/scheduleTrainerII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Schedule"
+            android:text="@string/buttonSchedule"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/bookTrainerII"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded"
-            android:backgroundTint="#FF40AA"/>
+            android:backgroundTint="@color/colorPink"/>
 
         <TextView
             android:id="@+id/trainerIITitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/trainerIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:text="Cristiano Messi"
             android:textSize="15sp"/>
 
@@ -230,7 +229,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/starTrainerIIImg"
             android:layout_toRightOf="@+id/trainerIIImg"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/colorBlue"
             android:text="Basketball Trainer"
             android:textSize="13sp"/>
 
@@ -240,7 +239,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/trainerIISpecialtyText"
             android:layout_toRightOf="@+id/trainerIIImg"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/colorBlue"
             android:text="Address: Rambla Ferran no. 24"
             android:textSize="13sp"/>
 
@@ -250,7 +249,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/trainerIIPlaceText"
             android:layout_toRightOf="@+id/trainerIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:text="Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."
             android:textSize="12sp"/>
     </RelativeLayout>
@@ -277,24 +276,24 @@
             android:id="@+id/bookTrainerIII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/trainerIIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:id="@+id/scheduleTrainerIII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Schedule"
+            android:text="@string/buttonSchedule"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/bookTrainerIII"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded"
-            android:backgroundTint="#FF40AA"/>
+            android:backgroundTint="@color/colorPink"/>
 
         <TextView
             android:id="@+id/trainerIIITitleText"
@@ -302,7 +301,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/trainerIIIImg"
             android:text="Mr. Bean"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:textSize="15sp"/>
 
         <ImageView
@@ -320,7 +319,7 @@
             android:layout_below="@+id/starTrainerIIIImg"
             android:layout_toRightOf="@+id/trainerIIIImg"
             android:text="Rugby Trainer"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/colorBlue"
             android:textSize="13sp"/>
 
         <TextView
@@ -330,7 +329,7 @@
             android:layout_below="@+id/trainerIIISpecialtyText"
             android:layout_toRightOf="@+id/trainerIIIImg"
             android:text="Address: Rambla Ferran no. 24"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/colorFont"
             android:textSize="13sp"/>
 
         <TextView
@@ -339,7 +338,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/trainerIIIPlaceText"
             android:layout_toRightOf="@+id/trainerIIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:text="Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."
             android:textSize="12sp"/>
     </RelativeLayout>
@@ -351,7 +350,7 @@
         android:layout_alignParentBottom="true"
         android:paddingTop="5dp"
         android:paddingLeft="18dp"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorBackground">
 
         <Button
             android:id="@+id/homeButton"
@@ -366,8 +365,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/homeButton"
             android:paddingHorizontal="17dp"
-            android:text="Home"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuHome"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/settingsButton"
@@ -384,8 +383,8 @@
             android:layout_below="@id/settingsButton"
             android:layout_toRightOf="@+id/homeTxt"
             android:paddingHorizontal="14dp"
-            android:text="Settings"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuSettings"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/loginButton"
@@ -401,8 +400,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/loginButton"
             android:layout_toRightOf="@+id/settingsTxt"
-            android:text="Login / Register"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuLogin"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/accountButton"
@@ -418,8 +417,8 @@
             android:layout_below="@id/accountButton"
             android:layout_toRightOf="@+id/loginTxt"
             android:paddingHorizontal="10dp"
-            android:text="My Account"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuAccount"
+            android:textColor="@color/colorWhite" />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorBackground"
     tools:context=".EventFinder">
 
     <Button
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/backBtn"
         android:layout_margin="3dp"
-        android:text="Search Facilities"
-        android:textColor="@android:color/white"
+        android:text="@string/findFacilityTitle"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textAlignment="center"/>
 
@@ -53,24 +53,24 @@
             android:id="@+id/bookFacilityI"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/FacilityIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:id="@+id/scenarioFacilityI"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Scenario"
+            android:text="@string/buttonScenario"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/bookFacilityI"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded"
-            android:backgroundTint="#FF40AA"/>
+            android:backgroundTint="@color/colorPink"/>
 
         <TextView
             android:id="@+id/facilityITitleText"
@@ -139,24 +139,24 @@
             android:id="@+id/bookFacilityII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/FacilityIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:id="@+id/scenarioFacilityII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Scenario"
+            android:text="@string/buttonScenario"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/bookFacilityII"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded"
-            android:backgroundTint="#FF40AA"/>
+            android:backgroundTint="@color/colorPink"/>
 
         <TextView
             android:id="@+id/facilityIITitleText"
@@ -220,29 +220,28 @@
             android:layout_margin="8dp"
             android:background="@mipmap/stadium" />
 
-
         <Button
             android:id="@+id/bookFacilityIII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/FacilityIIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:id="@+id/scenarioFacilityIII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Scenario"
+            android:text="@string/buttonScenario"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/bookFacilityIII"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded"
-            android:backgroundTint="#FF40AA"/>
+            android:backgroundTint="@color/colorPink"/>
 
         <TextView
             android:id="@+id/facilityIIITitleText"
@@ -308,8 +307,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/homeButton"
             android:paddingHorizontal="17dp"
-            android:text="Home"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuHome"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/settingsButton"
@@ -326,8 +325,8 @@
             android:layout_below="@id/settingsButton"
             android:layout_toRightOf="@+id/homeTxt"
             android:paddingHorizontal="14dp"
-            android:text="Settings"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuSettings"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/loginButton"
@@ -343,8 +342,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/loginButton"
             android:layout_toRightOf="@+id/settingsTxt"
-            android:text="Login / Register"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuLogin"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/accountButton"
@@ -360,8 +359,8 @@
             android:layout_below="@id/accountButton"
             android:layout_toRightOf="@+id/loginTxt"
             android:paddingHorizontal="10dp"
-            android:text="My Account"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuAccount"
+            android:textColor="@color/colorWhite" />
 
     </RelativeLayout>
 </RelativeLayout>

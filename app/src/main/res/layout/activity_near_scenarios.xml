@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorBackground"
     tools:context=".EventFinder">
 
     <Button
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/backBtn"
         android:layout_margin="3dp"
-        android:text="Search Scenario"
-        android:textColor="@android:color/white"
+        android:text="@string/findScenarioTitle"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textAlignment="center"/>
 
@@ -38,31 +38,29 @@
         android:layout_centerHorizontal="true"
         android:columnCount="2">
 
-        <Button
+        <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="Sport Type"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="City"
+            android:text="@string/scenarioFilterCity"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:text="Price Range"
+            android:text="@string/scenarioFilterPrice"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
     </GridLayout>
@@ -97,11 +95,11 @@
             android:id="@+id/bookCompanyI"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/companyIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <TextView
@@ -110,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/companyIImg"
             android:text="Lleida Gym Center"
-            android:textColor="#FF40AA"
+            android:textColor="@color/colorPink"
             android:textSize="15sp"/>
 
         <TextView
@@ -121,7 +119,7 @@
             android:layout_toRightOf="@+id/companyIImg"
             android:text="Scenario 1"
             android:textSize="14sp"
-            android:textColor="@color/design_default_color_primary"/>
+            android:textColor="@color/colorBlue"/>
 
         <TextView
             android:id="@+id/companyIText"
@@ -156,11 +154,11 @@
             android:id="@+id/bookCompanyII"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="Book!"
+            android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:layout_below="@+id/companyIIImg"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <TextView
@@ -170,7 +168,7 @@
             android:layout_toRightOf="@+id/companyIIImg"
             android:text="Soccer Center of Lleida"
             android:textSize="15sp"
-            android:textColor="#FF40AA"/>
+            android:textColor="@color/colorPink"/>
 
         <TextView
         android:id="@+id/companyIIScenarioText"
@@ -180,7 +178,7 @@
         android:layout_toRightOf="@+id/companyIIImg"
         android:text="Scenario 2"
         android:textSize="14sp"
-        android:textColor="@color/design_default_color_primary"/>
+        android:textColor="@color/colorBlue"/>
 
         <TextView
             android:id="@+id/companyIIText"
@@ -212,8 +210,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/homeButton"
             android:paddingHorizontal="17dp"
-            android:text="Home"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuHome"
+            android:textColor="@color/colorWhite"/>
 
         <Button
             android:id="@+id/settingsButton"
@@ -230,8 +228,8 @@
             android:layout_below="@id/settingsButton"
             android:layout_toRightOf="@+id/homeTxt"
             android:paddingHorizontal="14dp"
-            android:text="Settings"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuSettings"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/loginButton"
@@ -247,8 +245,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/loginButton"
             android:layout_toRightOf="@+id/settingsTxt"
-            android:text="Login / Register"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuLogin"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/accountButton"
@@ -264,8 +262,8 @@
             android:layout_below="@id/accountButton"
             android:layout_toRightOf="@+id/loginTxt"
             android:paddingHorizontal="10dp"
-            android:text="My Account"
-            android:textColor="@android:color/white" />
+            android:text="@string/menuAccount"
+            android:textColor="@color/colorWhite" />
 
     </RelativeLayout>
 </RelativeLayout>
