@@ -7,10 +7,9 @@
     tools:context=".EventFinder">
 
     <ImageView
-        android:id="@+id/imgvCompanyLogoBehind"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@mipmap/decathlon_back" />
+        android:background="@mipmap/decathlon_back"/>
 
     <RelativeLayout
         android:id="@+id/companyDataLwt"
@@ -22,57 +21,88 @@
         android:background="@drawable/results_rounded"
         android:backgroundTint="@color/colorBackground">
 
-        <TextView
-            android:id="@+id/companyTitleText"
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginVertical="5dp"
+            android:layout_toEndOf="@+id/companyTitleEditText"
+            android:background="@drawable/selected_month"
+            android:text="@string/buttonSave"
+            android:textColor="@color/colorFont"
+            android:textSize="10dp" />
+
+
+        <EditText
+            android:id="@+id/companyTitleEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="98dp"
             android:layout_marginTop="60dp"
+            android:inputType="text"
             android:text="Decathlon Sport Center"
-            android:textColor="@color/colorBlue"
-            android:textSize="25sp"
-            android:layout_centerHorizontal="true"/>
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/fields_edition" />
+          <!--  -->
 
-        <TextView
-            android:id="@+id/companySloganText"
+
+        <EditText
+            android:id="@+id/companySloganEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/companyTitleText"
+            android:layout_below="@+id/companyTitleEditText"
+            android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="128dp"
+            android:inputType="text"
             android:text="Sports for all"
-            android:textColor="@color/colorPink"
-            android:textSize="20sp"/>
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/fields_edition" />
 
-        <TextView
-            android:id="@+id/companyPlaceText"
+
+        <EditText
+            android:id="@+id/companyPlaceEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/companySloganText"
+            android:layout_below="@+id/companySloganEditText"
+            android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="-2dp"
+            android:layout_marginEnd="86dp"
+            android:inputType="text"
             android:text="Villeneuve D'Ascq, France"
             android:textColor="@color/colorWhite"
-            android:textSize="15sp"/>
+            android:textSize="@dimen/fields_edition" />
 
-        <TextView
-            android:id="@+id/trainerIIIText"
+        <EditText
+            android:id="@+id/companyPhoneEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/companyPlaceText"
-            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/companyPlaceEditText"
+            android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="107dp"
+            android:inputType="text"
             android:text="+33 155359755"
-            android:textSize="15sp"/>
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/fields_edition" />
+
+
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/companyLogoImg"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
         android:background="@mipmap/decathlon_logo" />
+
+
 
     <RelativeLayout
         android:id="@+id/companyDescriptionLwt"
@@ -93,12 +123,13 @@
             android:textColor="@color/colorBlue"
             android:textSize="15sp"/>
 
-        <TextView
-            android:id="@+id/scenarioDescriptionText"
+        <EditText
+            android:id="@+id/scenarioDescriptionEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/scenarioDescrTitleText"
             android:textColor="@color/colorWhite"
+            android:inputType="textMultiLine"
             android:text="@string/facilitiesDescription"
             android:textSize="12sp"/>
     </RelativeLayout>
@@ -181,4 +212,5 @@
             android:textColor="@color/colorWhite" />
 
     </RelativeLayout>
+
 </RelativeLayout>

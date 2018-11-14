@@ -128,5 +128,12 @@
     <string name="buttonBook">Book!</string>
     <string name="buttonSchedule">Schedule</string>
     <string name="buttonScenario">Scenario</string>
+    <string name="buttonSave">Save</string>
+
+
+    <!-- Strings for Company Profile -->
+
+    <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of excercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificient Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>
+
 
 </resources>
