@@ -19,7 +19,7 @@ public class ActivityMainMock extends AppCompatActivity {
     }
 
     public void loginOnclick(View v) {
-        Intent intent = new Intent(ActivityMainMock.this, LoginMock.class);
+        Intent intent = new Intent(ActivityMainMock.this, Login.class);
         startActivity(intent);
     }
 
@@ -41,15 +41,5 @@ public class ActivityMainMock extends AppCompatActivity {
         Intent intent = new Intent(ActivityMainMock.this, EventFinder.class);
         startActivity(intent);
     }
-
-//    public void loginOnclick(View v) {
-//        Intent intent = new Intent(ActivityMainMock.this, LoginMock.class);
-//        startActivity(intent);
-//    }
-//
-//    public void loginOnclick(View v) {
-//        Intent intent = new Intent(ActivityMainMock.this, LoginMock.class);
-//        startActivity(intent);
-//    }
 
 }
