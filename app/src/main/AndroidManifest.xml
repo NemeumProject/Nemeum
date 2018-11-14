@@ -34,7 +34,8 @@
         <activity android:name=".EventFinder" />
         <activity android:name=".FacilitiesMock" />
         <activity android:name=".ScenarioMock" />
-        <activity android:name=".activity_company_editionp"></activity>
+        <activity android:name=".activity_company_editionp" />
+        <activity android:name=".activity_user_editionp"></activity>
     </application>
 
 </manifest>

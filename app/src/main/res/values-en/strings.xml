@@ -43,7 +43,8 @@
     <string name="buttonSchedule">Schedule</string>
     <string name="buttonScenario">Scenario</string>
     <string name="buttonSave">Save</string>
-
+    <string name="buttonRegister">Register</string>
+    <string name="buttonCancel">Cancel</string>
     <!-- Strings for Company Profile -->
 
     <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym,

@@ -42,6 +42,8 @@
     <string name="buttonSchedule">Agenda</string>
     <string name="buttonScenario">Escenario</string>
     <string name="buttonSave">Guardar</string>
+    <string name="buttonRegister">Registrar</string>
+    <string name="buttonCancel">Cancelar</string>
 
     <!-- Strings for Company Profile -->
 
