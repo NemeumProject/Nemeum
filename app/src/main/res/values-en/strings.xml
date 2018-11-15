@@ -54,4 +54,20 @@
         in 1929 by the duke of York , has played host to some of the world\'s greatests boxers
         with fights taking place in the grand main hall.</string>
 
+    <!-- Strings for User and Trainer Profile -->
+    <string name="personalInfo">Personal Information</string>
+    <string name="dniPassport">DNI/NIE/Passport</string>
+    <string name="user_Full_Name">Name</string>
+    <string name="user_Last_Name">Last Name</string>
+    <string name="contactInfo">Contact Information</string>
+    <string name="user_Email">Email</string>
+    <string name="user_Phone">Phone</string>
+    <string name="user_Address">Address</string>
+    <string name="user_City">City</string>
+    <string name="user_Postal_Code">Postal Code</string>
+    <string name="user_Gender">Gender</string>
+    <string name="user_Birthday">Birthday</string>
+    <string name="user_Male">Male</string>
+    <string name="user_Female">Female</string>
+
 </resources>
