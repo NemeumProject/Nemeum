@@ -34,7 +34,7 @@ public class EventFinder extends AppCompatActivity {
                 this.startActivity(intentSettings);
                 return true;
             case R.id.loginButton:
-                Intent intentLogin = new Intent(this, LoginActivity.class);
+                Intent intentLogin = new Intent(this, Login.class);
                 this.startActivity(intentLogin);
                 return true;
             case R.id.accountButton:

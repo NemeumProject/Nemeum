@@ -15,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/app_name" />
         <activity android:name=".Trainer" />
         <activity android:name=".TrainerMock" />
         <activity
@@ -38,7 +35,6 @@
         <activity android:name=".FacilitiesMock" />
         <activity android:name=".ScenarioMock" />
         <activity android:name=".TrainerDetail" />
-        <activity android:name=".ScenarioMock" />
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp"></activity>
     </application>
