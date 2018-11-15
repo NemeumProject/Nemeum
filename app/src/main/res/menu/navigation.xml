@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/homeButton"
         android:icon="@mipmap/home_icon"
-        android:title="@string/menuHome"/>
+        android:title="@string/menuHome"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/settingsButton"
         android:icon="@mipmap/settings_icon"
-        android:title="@string/menuSettings"/>
+        android:title="@string/menuSettings"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/loginButton"
         android:icon="@mipmap/login_icon"
-        android:title="@string/menuLogin"/>
+        android:title="@string/menuLogin"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/accountButton"
         android:icon="@mipmap/my_account_icon"
-        android:title="@string/menuAccount"/>
+        android:title="@string/menuAccount"
+        app:showAsAction="always" />
 
 </menu>

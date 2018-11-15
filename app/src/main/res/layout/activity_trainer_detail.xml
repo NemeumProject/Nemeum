@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    tools:context=".EventFinder">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@mipmap/stadium"/>
+
+    <RelativeLayout
+        android:id="@+id/companyDataLwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="130dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBackground">
+
+        <Button
+            android:id="@+id/editTrainerData"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@mipmap/pencil_button"/>
+
+        <TextView
+            android:id="@+id/companyTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Ronaldo"
+            android:textColor="@color/colorBlue"
+            android:textSize="25sp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/companySloganText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyTitleText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Soccer Trainer"
+            android:textColor="@color/colorPink"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/companyPlaceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/companySloganText"
+            android:layout_centerHorizontal="true"
+            android:text="Rio de Janeiro, Brazil"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/trainerIIIText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/companyPlaceText"
+            android:textColor="@color/colorWhite"
+            android:layout_centerHorizontal="true"
+            android:text="+33 155359755"
+            android:textSize="15sp"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/companyLogoImg"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@mipmap/ronaldo" />
+
+    <RelativeLayout
+        android:id="@+id/companyDescriptionLwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/companyDataLwt"
+        android:padding="10dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBackground">
+
+        <TextView
+            android:id="@+id/scenarioDescrTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About me"
+            android:textColor="@color/colorBlue"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/editTrainerAbout"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@mipmap/pencil_button"/>
+
+        <TextView
+            android:id="@+id/scenarioDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scenarioDescrTitleText"
+            android:textColor="@color/colorWhite"
+            android:text="I'm a Brazilian soccer manager and former professional player. I have played for several Brazilian and European known teas, like Cruzeiro, Bracelona and Real Madrid. I the Brazilian national team, I've participated of the campaigns of the vice-campaign in 1997 and winner campaign in 2002."
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/trainerScheduleTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scenarioDescriptionText"
+            android:text="Schedule"
+            android:textColor="@color/colorBlue"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/editTrainerSchedule"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/scenarioDescriptionText"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/pencil_button"/>
+
+        <GridLayout
+            android:id="@+id/scheduleGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainerScheduleTitleText"
+            android:layout_centerHorizontal="true"
+            android:columnCount="2"
+            android:rowCount="4">
+
+            <TextView
+                android:id="@+id/trainerScheduleDayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monday"
+                android:textColor="@color/colorBlue"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/trainerScheduleDay2Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tuesday"
+                android:textColor="@color/colorBlue"
+                android:textSize="15sp"/>
+        </GridLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
+<!--
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/monthSelect"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="5dp"
+        android:paddingLeft="18dp"
+        android:background="@color/colorBackground">
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@mipmap/home_icon"/>
+
+        <TextView
+            android:id="@+id/homeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/homeButton"
+            android:paddingHorizontal="17dp"
+            android:text="@string/menuHome"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@mipmap/settings_icon"
+            android:layout_toRightOf="@id/homeButton" />
+
+        <TextView
+            android:id="@+id/settingsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/settingsButton"
+            android:layout_toRightOf="@+id/homeTxt"
+            android:paddingHorizontal="14dp"
+            android:text="@string/menuSettings"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@mipmap/login_icon"
+            android:layout_toRightOf="@id/settingsButton" />
+
+        <TextView
+            android:id="@+id/loginTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loginButton"
+            android:layout_toRightOf="@+id/settingsTxt"
+            android:text="@string/menuLogin"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            android:id="@+id/accountButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@mipmap/my_account_icon"
+            android:layout_toRightOf="@id/loginButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountButton"
+            android:layout_toRightOf="@+id/loginTxt"
+            android:paddingHorizontal="10dp"
+            android:text="@string/menuAccount"
+            android:textColor="@color/colorWhite" />
+
+    </RelativeLayout>
+-->
+</RelativeLayout>

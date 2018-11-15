@@ -7,12 +7,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class EventFinder extends AppCompatActivity {
+public class TrainerDetail extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_finder);
+        setContentView(R.layout.activity_trainer_detail);
     }
 
     @Override

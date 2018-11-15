@@ -33,7 +33,8 @@
         <activity android:name=".LoginMock" />
         <activity android:name=".EventFinder" />
         <activity android:name=".FacilitiesMock" />
-        <activity android:name=".ScenarioMock"></activity>
+        <activity android:name=".ScenarioMock" />
+        <activity android:name=".TrainerDetail" />
     </application>
 
 </manifest>
