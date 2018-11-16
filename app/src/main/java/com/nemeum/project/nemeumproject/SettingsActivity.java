@@ -120,8 +120,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBar();
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**

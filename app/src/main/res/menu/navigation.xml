@@ -4,26 +4,33 @@
 
     <item
         android:id="@+id/homeButton"
+        android:enabled="true"
         android:icon="@mipmap/home_icon"
         android:title="@string/menuHome"
-        app:showAsAction="always"/>
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/settingsButton"
+        android:enabled="true"
         android:icon="@mipmap/settings_icon"
         android:title="@string/menuSettings"
-        app:showAsAction="always"/>
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/loginButton"
+        android:enabled="true"
         android:icon="@mipmap/login_icon"
         android:title="@string/menuLogin"
-        app:showAsAction="always" />
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/accountButton"
+        android:enabled="true"
         android:icon="@mipmap/my_account_icon"
         android:title="@string/menuAccount"
-        app:showAsAction="always" />
-
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 </menu>

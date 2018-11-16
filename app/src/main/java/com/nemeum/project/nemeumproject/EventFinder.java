@@ -1,6 +1,8 @@
 package com.nemeum.project.nemeumproject;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,35 +15,32 @@ public class EventFinder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_finder);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.navigation, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.homeButton:
-                Intent intentMain = new Intent(this, MainActivity.class);
-                this.startActivity(intentMain);
-                return true;
-            case R.id.settingsButton:
-                Intent intentSettings = new Intent(this, SettingsActivity.class);
-                this.startActivity(intentSettings);
-                return true;
-            case R.id.loginButton:
-                Intent intentLogin = new Intent(this, Login.class);
-                this.startActivity(intentLogin);
-                return true;
-            case R.id.accountButton:
-                //Intent intentAccount = new Intent(this, .class);
-                //this.startActivity(intentAccount);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+        BottomNavigationView menu = findViewById(R.id.navigation);
+        menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.homeButton:
+                        Intent intentMain = new Intent(getApplicationContext(), ActivityMainMock.class);
+                        getApplicationContext().startActivity(intentMain);
+                        return true;
+                    case R.id.settingsButton:
+                        Intent intentSettings = new Intent(getApplicationContext(), SettingsActivity.class);
+                        getApplicationContext().startActivity(intentSettings);
+                        return true;
+                    case R.id.loginButton:
+                        Intent intentLogin = new Intent(getApplicationContext(), Login.class);
+                        getApplicationContext().startActivity(intentLogin);
+                        return true;
+                    case R.id.accountButton:
+                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
+                        getApplicationContext().startActivity(intentAccount);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
     }
 }

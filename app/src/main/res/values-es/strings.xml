@@ -46,12 +46,26 @@
     <string name="buttonCancel">Cancelar</string>
 
     <!-- Strings for Company Profile -->
-
     <string name="facilitiesDescription">Decathlon Sport Centre en Bethral Green incluye un gimnasio,
         día de spa, piscina de 33 metros, Sauna Turca y ofrece variedad de ejercicios, pero es mayormente
         conocida por su arena para boxeo, donde los futuros campeones como Lenoxx Lewis y Audley Harrisson
         aprendieron lo que hacen. El magnifico edificio Georgian, abierto desde 1929 por el duque de York ,
         ha acogido a algunos de los mas grandes boxeadores con combates en el salon principal.</string>
 
+    <!-- Strings for Trainer Detail screen -->
+    <string name="aboutTrainerTitle">Sobre mí</string>
+    <string name="scheduleTrainerTitle">Agenda</string>
+    <string-array name="weekDaysTrainer">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miércoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sabado</item>
+        <item>Domingo</item>
+    </string-array>
+
+    <!-- Error Strings -->
+    <string name="alreadyOnProfileErr">Erro - Ya estás en tu perfil.</string>
 
 </resources>

@@ -133,8 +133,22 @@
     <string name="buttonCancel">Cancel</string>
 
     <!-- Strings for Company Profile -->
+    <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of exercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificent Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>
 
-    <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of excercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificient Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>
+    <!-- Strings for Trainer Detail screen -->
+    <string name="aboutTrainerTitle">About me</string>
+    <string name="scheduleTrainerTitle">Schedule</string>
+    <string-array name="weekDaysTrainer">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
 
+    <!-- Error Strings -->
+    <string name="alreadyOnProfileErr">Error - You are already in your profile.</string>
 
 </resources>
