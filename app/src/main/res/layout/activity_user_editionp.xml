@@ -4,83 +4,340 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/nemeum_background"
+    android:background="@color/colorBackground"
     tools:context=".activity_user_editionp">
 
-    <EditText
-        android:id="@+id/EmailRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textEmailAddress"
-        android:hint="Your Email"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="318dp"
-        android:textColor="#ffffff"/>
+    <RelativeLayout
+        android:id="@+id/personal_Info_Lyt"
+        android:layout_width="360dp"
+        android:layout_height="226dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="11dp"
+        android:background="@drawable/results_rounded"
+        android:padding="3dp">
 
-    <EditText
-        android:id="@+id/PasswordRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="268dp"
-        android:textColor="#ffffff"/>
+        <ImageView
+            android:id="@+id/userPicture"
+            android:layout_width="78dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@mipmap/ronaldo" />
 
-    <EditText
-        android:id="@+id/PasswordRegisterConfirmation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPassword"
-        android:hint="Password Validation"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="218dp"
-        android:textColor="#ffffff"/>
 
-    <EditText
-        android:id="@+id/FirstNameRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPersonName"
-        android:hint="First Name"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="168dp"
-        android:textColor="#ffffff"/>
+        <TextView
+            android:id="@+id/facilityITitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/userPicture"
+            android:text="@string/personalInfo"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font20"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/LastNameRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPersonName"
-        android:hint="Last Name"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="118dp"
-        android:textColor="#ffffff"/>
+        <TextView
+            android:id="@+id/full_User_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userPicture"
+            android:layout_alignStart="@+id/facilityITitleText"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="-50dp"
+            android:text="@string/user_Full_Name"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dni_passport"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userPicture"
+            android:layout_alignEnd="@+id/userPicture"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="-4dp"
+            android:text="@string/dniPassport"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/user_Name_Edit"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/full_User_Name"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="-34dp"
+            android:layout_marginTop="59dp"
+            android:layout_marginEnd="148dp"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:text="@string/user_Full_Name"
+            android:textSize="@dimen/font15" />
+
+        <EditText
+            android:id="@+id/user_LastName_Edit"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/full_User_Name"
+            android:layout_alignStart="@+id/user_Name_Edit"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="15dp"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:text="@string/user_Last_Name"
+            android:textSize="@dimen/font15" />
+
+        <EditText
+            android:id="@+id/user_DniPassport_Edit"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_Name_Edit"
+            android:layout_alignStart="@+id/dni_passport"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="89dp"
+            android:layout_marginTop="95dp"
+            android:layout_marginEnd="15dp"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:text="@string/dniPassport"
+            android:textSize="@dimen/font15" />
+
+        <TextView
+            android:id="@+id/user_birthdayTv"
+            android:layout_width="82dp"
+            android:layout_height="40dp"
+            android:layout_alignStart="@+id/userPicture"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-1dp"
+            android:layout_marginBottom="36dp"
+            android:text="@string/user_Birthday"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/user_birthday_Edit"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_DniPassport_Edit"
+            android:layout_alignStart="@+id/user_birthdayTv"
+            android:layout_marginStart="93dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="15dp"
+            android:ems="8"
+            android:inputType="date"
+            android:textSize="@dimen/font15" />
+
+        <TextView
+            android:id="@+id/user_Gender"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/user_birthdayTv"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/user_Gender"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/user_RbtG_Gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/user_DniPassport_Edit"
+            android:layout_alignTop="@+id/user_Gender"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/user_Rbtn_Male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/user_Male" />
+
+            <RadioButton
+                android:id="@+id/user_Rbtn_Female"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/user_Female" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/contact_Info_Lyt"
+        android:layout_width="361dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/personal_Info_Lyt"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/results_rounded"
+        android:padding="3dp">
+
+
+        <TextView
+            android:id="@+id/contactInfoTv"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/contactInfo"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font20"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/email_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contactInfoTv"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/user_Email"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/email_User_Edit"
+            android:layout_width="158dp"
+            android:layout_height="29dp"
+            android:layout_below="@id/email_user"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="108dp"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+
+        <TextView
+            android:id="@+id/phone_userTv"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contactInfoTv"
+            android:layout_alignStart="@+id/email_user"
+            android:layout_marginStart="175dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/user_Phone"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phone_User_Edit"
+            android:layout_width="138dp"
+            android:layout_height="29dp"
+            android:layout_below="@+id/phone_userTv"
+            android:layout_alignStart="@+id/email_User_Edit"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="191dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="106dp"
+            android:ems="10"
+            android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/address_User"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email_User_Edit"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+
+            android:layout_marginTop="94dp"
+            android:text="@string/user_Address"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/user_address_Edit"
+            android:layout_width="326dp"
+            android:layout_height="27dp"
+            android:layout_alignStart="@+id/email_User_Edit"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-6dp"
+            android:layout_marginBottom="53dp"
+            android:ems="8"
+            android:inputType="text"
+            android:textSize="@dimen/font15" />
+
+        <TextView
+            android:id="@+id/user_City"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_address_Edit"
+            android:layout_alignStart="@+id/email_User_Edit"
+            android:layout_marginTop="-53dp"
+            android:text="@string/user_City"
+            android:textStyle="bold"
+            android:textColor="@color/colorFont"/>
+
+        <TextView
+            android:id="@+id/user_PostalCodeTv"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/phone_userTv"
+            android:layout_alignTop="@+id/user_City"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="-6dp"
+            android:text="@string/user_Postal_Code"
+            android:textColor="@color/colorFont"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/user_PostalCode_Edit"
+            android:layout_width="138dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/user_address_Edit"
+            android:layout_alignEnd="@+id/phone_User_Edit"
+            android:layout_marginTop="-30dp"
+            android:layout_marginEnd="0dp"
+            android:layout_alignParentBottom="true"
+            android:ems="10"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/user_City_Edit"
+            android:layout_width="158dp"
+            android:layout_height="26dp"
+            android:layout_alignBottom="@+id/user_PostalCode_Edit"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="17dp"
+            android:layout_marginBottom="2dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/btn_save_user_edition"
@@ -89,7 +346,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="37dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/selected_month"
         android:text="@string/buttonSave"
         android:textColor="@color/colorWhite"
@@ -102,7 +359,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="14dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/selected_month"
         android:text="@string/buttonCancel"
         android:textColor="@color/colorWhite"
