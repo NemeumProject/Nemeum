@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nemeum_background"
+    tools:context=".activity_login_edition">
+
+    <EditText
+        android:id="@+id/EmailRegisterEdition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="@color/colorBlue"
+        android:inputType="textEmailAddress"
+        android:hint="@string/login_Username"
+        android:textColorHint="@color/colorHint"
+        android:textSize="@dimen/font15"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="318dp"
+        android:textColor="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/password_Edition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="@color/colorBlue"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:textColorHint="@color/colorHint"
+        android:textSize="@dimen/font15"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="268dp"
+        android:textColor="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/new_password_Edition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="205dp"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:hint="@string/new_Password"
+        android:inputType="textPassword"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHint"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/password_Confirmation_edition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="148dp"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:hint="@string/password_Validation"
+        android:inputType="textPassword"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHint"
+        android:textSize="@dimen/font15" />
+
+    <Button
+        android:id="@+id/buttonregister"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_background1"
+        android:text="@string/buttonSave"
+        android:textColor="@color/colorWhite"
+        android:textSize="12dp"/>
+
+</RelativeLayout>

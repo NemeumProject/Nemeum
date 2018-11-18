@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".activity_Trainer_Posting">
+
+
+    <TextView
+        android:id="@+id/posting_Name_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1dp"
+        android:text="@string/trainer_posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font30"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/companyLogoImg"
+        android:layout_width="139dp"
+        android:layout_height="113dp"
+        android:layout_below="@+id/posting_Name_Tv"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="127dp"
+        android:layout_marginLeft="127dp"
+        android:layout_marginTop="3dp"
+        android:background="@mipmap/group_of_men_running" />
+
+    <TextView
+        android:id="@+id/posting_Title_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/companyLogoImg"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="168dp"
+        android:layout_marginLeft="168dp"
+        android:layout_marginTop="172dp"
+        android:text="@string/title_posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/title_Edit"
+        android:layout_width="333dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/posting_Title_Tv"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/sport_TypeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/companyLogoImg"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="221dp"
+        android:text="@string/sport_Type"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/capacity_ScenarioTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/companyLogoImg"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="250dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="224dp"
+        android:text="@string/capacity_scenario"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+
+    <Spinner
+        android:id="@+id/sports_Spinner"
+        android:layout_width="145dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/sport_TypeTv"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/capacity_Edit"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/capacity_ScenarioTv"
+        android:layout_alignEnd="@+id/title_Edit"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/location_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginLeft="154dp"
+        android:layout_marginTop="272dp"
+        android:text="@string/location_scenario"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/location_Edit"
+        android:layout_width="333dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/location_Tv"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/date_postingTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/location_Edit"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="327dp"
+        android:text="@string/date_posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/price_postingTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/location_Edit"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="262dp"
+        android:layout_marginLeft="262dp"
+        android:layout_marginTop="326dp"
+        android:text="@string/price_Posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/price_Edit"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_postingTv"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="-1dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/price_Edit"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price_postingTv"
+        android:layout_alignEnd="@+id/title_Edit"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/description_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="145dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="373dp"
+        android:text="@string/description_Posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/description_Edit"
+        android:layout_width="334dp"
+        android:layout_height="93dp"
+        android:layout_below="@+id/description_Tv"
+        android:layout_alignEnd="@+id/capacity_ScenarioTv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-50dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <Button
+        android:id="@+id/btn_finish_posting"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/selected_month"
+        android:text="@string/buttonFinish"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/fields_edition" />
+
+    <Button
+        android:id="@+id/btn_cancel_posting"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/selected_month"
+        android:text="@string/buttonCancel"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/fields_edition" />
+
+</RelativeLayout>

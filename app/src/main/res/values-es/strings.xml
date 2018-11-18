@@ -44,6 +44,7 @@
     <string name="buttonSave">Guardar</string>
     <string name="buttonRegister">Registrar</string>
     <string name="buttonCancel">Cancelar</string>
+    <string name="buttonFinish">Finalizar</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre en Bethral Green incluye un gimnasio,
@@ -83,4 +84,30 @@
     <string name="user_Birthday">Fecha de nacimiento</string>
     <string name="user_Male">Hombre</string>
     <string name="user_Female">Mujer</string>
+    <string name="password">Contraseña</string>
+    <string name="login_Username">Usuario (Correo Eléctronico)</string>
+    <string name="new_Password">Nueva Contraseña </string>
+    <string name="password_Validation">Repita Contraseña</string>
+
+
+    <!-- Strings for Trainer Posting -->
+    <string name="trainer_posting">Nueva Publicación</string>
+    <string name="title_posting">Título</string>
+    <string name="sport_Type">Tipo de deporte</string>
+    <string name="capacity_scenario">Capacidad</string>
+    <string name="location_scenario">Ubicación</string>
+    <string name="date_posting">Fecha</string>
+    <string name="price_Posting">Precio</string>
+    <string name="description_Posting">Descripción</string>
+    <string-array name="sports_array">
+        <item>Boxeo</item>
+        <item>Boliche</item>
+        <item>Golf</item>
+        <item>Artes Marciales </item>
+        <item>Paddle</item>
+        <item>Ping Pong</item>
+        <item>Yoga</item>
+    </string-array>
+
+
 </resources>

@@ -45,6 +45,7 @@
     <string name="buttonSave">Save</string>
     <string name="buttonRegister">Register</string>
     <string name="buttonCancel">Cancel</string>
+    <string name="buttonFinish">Finish</string>
 
     <!-- Strings for Company Profile -->
 
@@ -86,5 +87,27 @@
     <string name="user_Birthday">Birthday</string>
     <string name="user_Male">Male</string>
     <string name="user_Female">Female</string>
+    <string name="password">Password</string>
+    <string name="login_Username">Login username (Email)</string>
+    <string name="new_Password">New Password </string>
+    <string name="password_Validation">Repeat New Password</string>
 
+    <!-- Strings for Trainer Posting -->
+    <string name="trainer_posting">Trainer Posting</string>
+    <string name="title_posting">Title</string>
+    <string name="sport_Type">Sport Type</string>
+    <string name="capacity_scenario">Capacity</string>
+    <string name="location_scenario">Location</string>
+    <string name="date_posting">Date</string>
+    <string name="price_Posting">Price</string>
+    <string name="description_Posting">Description</string>
+    <string-array name="sports_array">
+        <item>Boxing</item>
+        <item>Bowling</item>
+        <item>Golf</item>
+        <item>Martial Arts</item>
+        <item>Paddle</item>
+        <item>Table Tennis</item>
+        <item>Yoga</item>
+    </string-array>
 </resources>
