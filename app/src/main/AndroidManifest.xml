@@ -32,13 +32,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".ActivityMainMock">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ActivityMainMock"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".NormalUserRegistration" />
         <activity android:name=".CompanyUserRegistration" />
         <activity android:name=".TrainerUserRegistration" />
@@ -51,7 +46,13 @@
         <activity android:name=".FacilityFinder" />
         <activity android:name=".NearScenarios" />
         <activity android:name=".ScenarioMock" />
-        <activity android:name=".TrainerDetail" />
+        <activity android:name=".TrainerDetail" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
         <activity android:name=".activity_login_edition" />
