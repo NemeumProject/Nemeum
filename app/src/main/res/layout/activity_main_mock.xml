@@ -1,77 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rightLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityMainMock">
+    android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/main_screen"
-        android:contentDescription="@string/title_activity_main2"
-        app:srcCompat="@drawable/main_screen" />
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.35"
+        android:orientation="vertical"
+        android:background="#17252a">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="96dp"
-        android:text="@string/settings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="272dp"
-        android:onClick="findEventOnclick"
-        android:text="@string/search_event"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/adsbar"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="#00ff00" >
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:onClick="facilitieOnclick"
-        android:text="@string/search_facilities"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toTopOf="@+id/button4" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/decathlon_back"/>
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:onClick="scenarioOnclick"
-        android:text="@string/search_scenario"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toTopOf="@+id/button5" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:onClick="trainerOnclick"
-        android:text="@string/search_trainer"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button6" />
+    <LinearLayout
+        android:id="@+id/menubar"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="#eeeeee">
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content"
-        android:onClick="loginOnclick"
-        android:text="@string/login"
+        <ImageButton
+            android:id="@+id/findeventicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           />
 
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
-</android.support.constraint.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/findfacilitiesicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageButton
+            android:id="@+id/findscrenarioicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageButton
+            android:id="@+id/findtrainericon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.35"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="#17252a" >
+
+        <ImageButton
+            android:id="@+id/homeicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/home_icon"/>
+
+        <ImageButton
+            android:id="@+id/settingsicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/settings_icon"/>
+
+        <ImageButton
+            android:id="@+id/loginicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/login_icon"/>
+
+        <ImageButton
+            android:id="@+id/myaccounticon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/my_account_icon" />
+    </LinearLayout>
+
+</LinearLayout>
