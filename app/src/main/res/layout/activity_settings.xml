@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackground"
+    tools:context=".Settings">
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@mipmap/back_icon"
+        android:onClick="getBack" />
+
+    <TextView
+        android:id="@+id/TitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/backBtn"
+        android:layout_margin="3dp"
+        android:text="@string/settingsTitle"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/languageButton"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/TitleText"
+        android:text="@string/languageButtonTitle"
+        android:textSize="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorPink" />
+
+    <Button
+        android:id="@+id/notificationButton"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/languageButton"
+        android:text="@string/notificationButtonTitle"
+        android:textSize="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorPink" />
+
+
+    <Button
+        android:id="@+id/currencyButton"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/notificationButton"
+        android:text="@string/languageButtonTitle"
+        android:textSize="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorPink" />
+
+    <Button
+        android:id="@+id/versionButton"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/currencyButton"
+        android:text="@string/versionButtonTitle"
+        android:textSize="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorPink" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/versionButton"
+        android:text="@string/aboutButtonTitle"
+        android:textSize="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorPink" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/aboutButton"
+        android:text="@string/backButtonTitle"
+        android:textSize="10dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorPink" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
+</RelativeLayout>

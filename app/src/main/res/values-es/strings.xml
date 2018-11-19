@@ -73,12 +73,59 @@
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Buscar Instalaciones</string>
+    <string name="findFacilityDescr">"Capacidad oficial de cerca de 100.000, haciendo-lo el segundo mas grande estadio en Inglaterra después del Crystal Palace. Fue usado como local de la final de la copa del mundo."</string>
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Buscar Escenarios</string>
-    <string name="scenarioFilterSport">Tipo de desporto</string>
-    <string name="scenarioFilterCity">Ciudad</string>
     <string name="scenarioFilterPrice">Gama de precios</string>
+    <string name="scenarioFindDescr">"Pon tu corazón a latir y eleve tu metabolismo con una seleción de ejercicios quemadores de grasa en flex. Nuestro paquete especial para el nuevo año inclui 12 clases de tu opción de abdominales, quema grasa, BLT y barra Xtend por tan solo $4.200"</string>
+    <string-array name="sportFilter">
+        <item>Tipo de desporto</item>
+        <item>Arco y flecha</item>
+        <item>Badminton</item>
+        <item>Baseball</item>
+        <item>Baloncesto</item>
+        <item>Boxing</item>
+        <item>Cricket</item>
+        <item>Ciclismo</item>
+        <item>Esgrima</item>
+        <item>Futbol Americano</item>
+        <item>Golf</item>
+        <item>Ginastica</item>
+        <item>Handebol</item>
+        <item>Hockey</item>
+        <item>Judo</item>
+        <item>Karate</item>
+        <item>Rugby</item>
+        <item>Corrida</item>
+        <item>Tiro</item>
+        <item>Skateboarding</item>
+        <item>Futbol</item>
+        <item>Tenis de mesa</item>
+        <item>Taekwondo</item>
+        <item>Tennis</item>
+        <item>Volley</item>
+        <item>Wheightlifting</item>
+        <item>Wrestling</item>
+    </string-array>
+    <string-array name="cityFilter">
+        <item>Ciudad</item>
+        <item>Alfarrás</item>
+        <item>Balaguer</item>
+        <item>Barcelona</item>
+        <item>Guissona</item>
+        <item>Lleida</item>
+        <item>Zaragoza</item>
+    </string-array>
+    <string-array name="priceFilter">
+        <item>Gama de Precios</item>
+        <item>Hasta 10€</item>
+        <item>Entre 10 y 20€</item>
+        <item>Entre 20 y 40€</item>
+        <item>Entre 40 y 80€</item>
+        <item>Entre 80 y 160€</item>
+        <item>Más de 160€</item>
+    </string-array>
 
     <!-- Strings for Trainer Finder -->
     <string name="findTrainerTitle">Buscar Entrenador</string>
@@ -159,5 +206,13 @@
         <item>Yoga</item>
     </string-array>
 
+    <!-- Settings Strings -->
+    <string name="settingsTitle">Ajustes</string>
+    <string name="languageButtonTitle">Idioma</string>
+    <string name="notificationButtonTitle">Notificaciones</string>v
+    <string name="currencyButtonTitle">Moneda</string>
+    <string name="versionButtonTitle">Version</string>
+    <string name="aboutButtonTitle">Sobre nosotros</string>v
+    <string name="backButtonTitle">Volver</string>
 
 </resources>

@@ -110,12 +110,58 @@
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Search Facilities</string>
+    <string name="findFacilityDescr">"Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."</string>
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Search Scenario</string>
-    <string name="scenarioFilterSport">Sport Type</string>
-    <string name="scenarioFilterCity">City</string>
-    <string name="scenarioFilterPrice">Price Range</string>
+    <string name="scenarioFindDescr">"Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"</string>
+    <string-array name="sportFilter">
+        <item>Sport Type</item>
+        <item>Archery</item>
+        <item>Badminton</item>
+        <item>Baseball</item>
+        <item>Basketball</item>
+        <item>Boxing</item>
+        <item>Cricket</item>
+        <item>Cycling</item>
+        <item>Fencing</item>
+        <item>Football</item>
+        <item>Golf</item>
+        <item>Gymnastics</item>
+        <item>Handball</item>
+        <item>Hockey</item>
+        <item>Judo</item>
+        <item>Karate</item>
+        <item>Rugby</item>
+        <item>Running</item>
+        <item>Shooting</item>
+        <item>Skateboarding</item>
+        <item>Soccer</item>
+        <item>Table Tenis</item>
+        <item>Taekwondo</item>
+        <item>Tennis</item>
+        <item>Volleyball</item>
+        <item>Wheightlifting</item>
+        <item>Wrestling</item>
+    </string-array>
+    <string-array name="cityFilter">
+        <item>City</item>
+        <item>Alfarrás</item>
+        <item>Balaguer</item>
+        <item>Barcelona</item>
+        <item>Guissona</item>
+        <item>Lleida</item>
+        <item>Zaragoza</item>
+    </string-array>
+    <string-array name="priceFilter">
+        <item>Price range</item>
+        <item>Until 10€</item>
+        <item>Between 10 and 20€</item>
+        <item>Between 20 and 40€</item>
+        <item>Between 40 and 80€</item>
+        <item>Between 80 and 160€</item>
+        <item>More than 160€</item>
+    </string-array>
 
     <!-- Strings for Trainer Finder -->
     <string name="findTrainerTitle">Search Trainer</string>
@@ -191,4 +237,14 @@
         <item>Table Tennis</item>
         <item>Yoga</item>
     </string-array>
+
+    <!-- Settings Strings -->
+    <string name="settingsTitle">Settings</string>
+    <string name="languageButtonTitle">Language</string>
+    <string name="notificationButtonTitle">Notification</string>
+    <string name="currencyButtonTitle">Currency</string>
+    <string name="versionButtonTitle">Version & Update</string>
+    <string name="aboutButtonTitle">About Us</string>v
+    <string name="backButtonTitle">Back</string>
+
 </resources>

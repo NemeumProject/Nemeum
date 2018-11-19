@@ -106,8 +106,8 @@ public class ActivityMainMock extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void findscenarioOnclick() {
-        Intent intent = new Intent(ActivityMainMock.this, ScenarioMock.class);
+    public void scenarioOnclick(View v) {
+        Intent intent = new Intent(ActivityMainMock.this, NearScenarios.class);
         startActivity(intent);
     }
 
