@@ -1,6 +1,7 @@
 package com.nemeum.project.nemeumproject;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,41 +14,41 @@ public class ActivityMainMock extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mock);
 
-        ImageButton findevent_btn = findViewById(R.id.findeventicon);
-        ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
-        ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
-        ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
+        ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
+        ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
+        ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
+        ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
 
-        ImageButton home_btn = findViewById(R.id.homeicon);
-        ImageButton settings_btn =  findViewById(R.id.settingsicon);
-        ImageButton login_btn = findViewById(R.id.loginicon);
-        ImageButton myaccount_btn = findViewById(R.id.myaccounticon);
+        ImageButton home_btn = (ImageButton) findViewById(R.id.homeicon);
+        ImageButton settings_btn = (ImageButton)  findViewById(R.id.settingsicon);
+        ImageButton login_btn = (ImageButton) findViewById(R.id.loginicon);
+        ImageButton myaccount_btn = (ImageButton) findViewById(R.id.myaccounticon);
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                findEventOnclick();
             }
         });
 
         findfacilities_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                findFacilitiesOnclick();
             }
         });
 
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                findScenarioOnclick();
             }
         });
 
         findtrainer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                findTrainerOnclick();
             }
         });
 
@@ -82,12 +83,12 @@ public class ActivityMainMock extends AppCompatActivity {
     }
 
     public void homeOnclick() {
-        Intent intent1 = new Intent(ActivityMainMock.this, ActivityMainMock.class);
+        Intent intent1 = new Intent(this, ActivityMainMock.class);
         startActivity(intent1);
     }
 
     public void loginOnclick() {
-        Intent intent2 = new Intent(ActivityMainMock.this, Login.class);
+        Intent intent2 = new Intent(this, Login.class);
         startActivity(intent2);
     }
 
@@ -101,23 +102,23 @@ public class ActivityMainMock extends AppCompatActivity {
         //startActivity(intent4);
     }
 
-    public void findfacilitiesOnclick() {
-        Intent intent = new Intent(ActivityMainMock.this, FacilitiesMock.class);
-        startActivity(intent);
+    public void findFacilitiesOnclick() {
+        Intent intent5 = new Intent(this,FacilityFinder.class);
+        startActivity(intent5);
     }
 
-    public void scenarioOnclick(View v) {
-        Intent intent = new Intent(ActivityMainMock.this, NearScenarios.class);
-        startActivity(intent);
+    public void findScenarioOnclick() {
+        Intent intent6 = new Intent(this,NearScenarios.class);
+        startActivity(intent6);
     }
 
-    public void findtrainerOnclick() {
-        Intent intent = new Intent(ActivityMainMock.this, TrainerMock.class);
-        startActivity(intent);
+    public void findTrainerOnclick() {
+        Intent intent7 = new Intent(this,SearchTrainer.class);
+        startActivity(intent7);
     }
     public void findEventOnclick() {
-        Intent intent = new Intent(ActivityMainMock.this, EventFinder.class);
-        startActivity(intent);
+        Intent intent8 = new Intent(this, EventFinder.class);
+        startActivity(intent8);
     }
 
 }
