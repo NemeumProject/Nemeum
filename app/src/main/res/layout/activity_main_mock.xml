@@ -26,7 +26,7 @@
         android:layout_height="0dip"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:background="#00ff00" >
+        android:background="#17252a" >
 
         <ImageView
             android:layout_width="match_parent"
@@ -53,19 +53,43 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:background="@mipmap/search_event" />
+            android:background="@mipmap/search_event"
+            />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/findeventicon"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:text="Find Event"
+            android:textColor="#17252a" />
 
         <ImageButton
             android:id="@+id/findfacilitiesicon"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_toEndOf="@+id/findeventicon"
             android:layout_toRightOf="@id/findeventicon"
             android:background="@mipmap/search_facilities" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/findfacilitiesicon"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toEndOf="@+id/findeventicon"
+            android:layout_toRightOf="@id/findeventicon"
+            android:text="F. Facilities"
+            android:textColor="#17252a" />
 
         <ImageButton
             android:id="@+id/findscrenarioicon"
@@ -77,6 +101,18 @@
             android:layout_toLeftOf="@id/findtrainericon"
             android:background="@mipmap/search_scenario" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/findscrenarioicon"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_toLeftOf="@id/findtrainericon"
+            android:text="F. Scenario"
+            android:textColor="#17252a" />
+
+
+
         <ImageButton
             android:id="@+id/findtrainericon"
             android:layout_width="65dp"
@@ -87,6 +123,19 @@
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:background="@mipmap/search_trainer" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/findtrainericon"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:text="F. Trainer"
+            android:textColor="#17252a" />
+
+
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
