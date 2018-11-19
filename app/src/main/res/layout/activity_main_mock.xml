@@ -44,26 +44,26 @@
 
         <ImageButton
             android:id="@+id/findeventicon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
            />
 
         <ImageButton
             android:id="@+id/findfacilitiesicon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             />
 
         <ImageButton
             android:id="@+id/findscrenarioicon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             />
 
         <ImageButton
             android:id="@+id/findtrainericon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             />
     </LinearLayout>
 
@@ -78,27 +78,41 @@
 
         <ImageButton
             android:id="@+id/homeicon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/home_icon"/>
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:background="@mipmap/home_icon"/>
+
 
         <ImageButton
             android:id="@+id/settingsicon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/settings_icon"/>
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_toRightOf="@id/homeicon"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:background="@mipmap/settings_icon"/>
+
 
         <ImageButton
             android:id="@+id/loginicon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/login_icon"/>
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_toRightOf="@id/settingsicon"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:background="@mipmap/login_icon"/>
+
 
         <ImageButton
             android:id="@+id/myaccounticon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/my_account_icon" />
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:background="@mipmap/my_account_icon" />
+
     </LinearLayout>
 
 </LinearLayout>
