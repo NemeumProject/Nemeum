@@ -59,5 +59,12 @@ public class TrainerDetail extends AppCompatActivity {
                 }
             }
         });
+
+
+    }
+
+    public void editPersonalInfo(View view) {
+        Intent intentEditPersonalInfo = new Intent(appContext, activity_user_editionp.class);
+        appContext.startActivity(intentEditPersonalInfo);
     }
 }

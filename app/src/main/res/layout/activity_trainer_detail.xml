@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
-    tools:context=".EventFinder">
+    tools:context=".TrainerDetail">
 
     <ImageView
         android:layout_width="match_parent"
@@ -30,7 +30,9 @@
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:onClick="editPersonalInfo"
             android:background="@mipmap/pencil_button"
+
             android:layout_alignParentEnd="true" />
 
         <TextView
