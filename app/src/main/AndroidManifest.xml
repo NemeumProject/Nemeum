@@ -27,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".NormalUserRegistration"/>
+        <activity android:name=".CompanyUserRegistration"/>
+        <activity android:name="TrainerUserRegistration"/>
         <activity android:name=".Login" />
         <activity android:name=".ForgetPassActivity" />
         <activity android:name=".RegisterActivity" />
