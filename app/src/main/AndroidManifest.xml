@@ -46,7 +46,8 @@
         <activity android:name=".FacilityFinder" />
         <activity android:name=".NearScenarios" />
         <activity android:name=".ScenarioMock" />
-        <activity android:name=".TrainerDetail" >
+        <activity android:name=".TrainerDetail" />
+        <activity android:name=".CompanyDetail">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
