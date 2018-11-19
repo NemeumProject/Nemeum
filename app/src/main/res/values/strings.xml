@@ -243,8 +243,8 @@
     <string name="languageButtonTitle">Language</string>
     <string name="notificationButtonTitle">Notification</string>
     <string name="currencyButtonTitle">Currency</string>
-    <string name="versionButtonTitle">Version and Update</string>
-    <string name="aboutButtonTitle">About Us</string>
+    <string name="versionButtonTitle">Version</string>
+    <string name="aboutButtonTitle">About Us</string>v
     <string name="backButtonTitle">Back</string>
 
 </resources>

@@ -18,7 +18,7 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="3dp"
         android:background="@mipmap/back_icon"
-        android:onClick="@string/title_activity_main2" />
+        android:onClick="getBack" />
 
     <TextView
         android:id="@+id/TitleText"
@@ -63,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/recommendedText"
             android:layout_toRightOf="@+id/swimImg"
+            android:textColor="@color/colorFont"
             android:text="Lleida Swimming Competition"
             android:textSize="13sp"/>
 
@@ -72,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/swimTitleText"
             android:layout_toRightOf="@+id/swimImg"
+            android:textColor="@color/colorFont"
             android:text="Description: Swimming competition for child"
             android:textSize="10sp"/>
 
@@ -81,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/swimDescriptionText"
             android:layout_toRightOf="@+id/swimImg"
+            android:textColor="@color/colorFont"
             android:text="Date: 1 November 2018"
             android:textSize="10sp"/>
 
@@ -91,6 +94,7 @@
             android:layout_below="@+id/swimDateText"
             android:layout_toRightOf="@+id/swimImg"
             android:text="Place: Lleida swimming center"
+            android:textColor="@color/colorFont"
             android:textSize="10sp"/>
 
     </RelativeLayout>
@@ -117,6 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/marathonImg"
+
             android:text="Lleida Half Marathon"
             android:textSize="13sp"/>
 
