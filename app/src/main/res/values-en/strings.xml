@@ -72,7 +72,6 @@
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Search Scenario</string>
-
     <string name="scenarioFindDescr">"Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"</string>
     <string-array name="sportFilter">
         <item>Sport Type</item>
@@ -205,8 +204,8 @@
     <string name="languageButtonTitle">Language</string>
     <string name="notificationButtonTitle">Notification</string>
     <string name="currencyButtonTitle">Currency</string>
-    <string name="versionButtonTitle">Version and Update</string>
-    <string name="aboutButtonTitle">About Us</string>
+    <string name="versionButtonTitle">Version</string>
+    <string name="aboutButtonTitle">About Us</string>v
     <string name="backButtonTitle">Back</string>
 
 </resources>

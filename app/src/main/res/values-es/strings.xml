@@ -77,7 +77,6 @@
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Buscar Escenarios</string>
-    <string name="scenarioFilterPrice">Gama de precios</string>
     <string name="scenarioFindDescr">"Pon tu corazón a latir y eleve tu metabolismo con una seleción de ejercicios quemadores de grasa en flex. Nuestro paquete especial para el nuevo año inclui 12 clases de tu opción de abdominales, quema grasa, BLT y barra Xtend por tan solo $4.200"</string>
     <string-array name="sportFilter">
         <item>Tipo de desporto</item>
