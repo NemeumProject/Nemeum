@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nemeum_background">
+
+    <EditText
+        android:id="@+id/CompanyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Company Name"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="320dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/EmailCompanyRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="textEmailAddress"
+        android:hint="Company Email"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="270dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/CompanyAddressRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Company Address"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="220dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/CompanyTelephoneRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="number"
+        android:hint="Company No. Telephone"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="170dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/CompanyPasswordRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="textPassword"
+        android:hint="Company Password"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/CompanyPasswordValidation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="textPassword"
+        android:hint="Company Password Validation"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        android:textColor="#ffffff"/>
+
+    <Button
+        android:id="@+id/submitdatacompany"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/button_background1"
+        android:text="Submit"
+        android:textColor="#25274d"
+        android:textSize="12dp"/>
+
+</RelativeLayout>

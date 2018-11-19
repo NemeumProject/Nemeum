@@ -7,90 +7,39 @@
     android:background="@drawable/nemeum_background"
     tools:context=".RegisterActivity">
 
-    <EditText
-        android:id="@+id/EmailRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textEmailAddress"
-        android:hint="Your Email"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="318dp"
-        android:textColor="#ffffff"/>
-
-    <EditText
-        android:id="@+id/PasswordRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="268dp"
-        android:textColor="#ffffff"/>
-
-    <EditText
-        android:id="@+id/PasswordRegisterConfirmation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPassword"
-        android:hint="Password Validation"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="218dp"
-        android:textColor="#ffffff"/>
-
-    <EditText
-        android:id="@+id/FirstNameRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPersonName"
-        android:hint="First Name"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="168dp"
-        android:textColor="#ffffff"/>
-
-    <EditText
-        android:id="@+id/LastNameRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPersonName"
-        android:hint="Last Name"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="118dp"
-        android:textColor="#ffffff"/>
-
     <Button
-        android:id="@+id/buttonregister"
+        android:id="@+id/normaluserregister"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="220dp"
+        android:background="@drawable/button_background"
+        android:text="User Register"
+        android:textColor="#25274d"
+        android:textSize="12dp"/>
+
+    <Button
+        android:id="@+id/traineruserregister"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/button_background2"
+        android:text="Trainer Register"
+        android:textColor="#25274d"
+        android:textSize="12dp"/>
+
+    <Button
+        android:id="@+id/companyuserregister"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/button_background1"
-        android:text="Register"
+        android:text="Company Register"
         android:textColor="#ffffff"
         android:textSize="12dp"/>
 
