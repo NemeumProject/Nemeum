@@ -30,7 +30,9 @@
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:onClick="editPersonalInfo"
             android:background="@mipmap/pencil_button"
+
             android:layout_alignParentEnd="true" />
 
         <TextView
