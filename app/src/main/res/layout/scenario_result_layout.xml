@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/companyResLwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded">
+
+        <ImageView
+            android:id="@+id/companyResImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp" />
+
+        <TextView
+            android:id="@+id/companyScenarioPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyResImg"
+            android:textSize="12sp"
+            android:textColor="@color/colorFont"/>
+
+        <Button
+            android:id="@+id/bookCompany"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="@string/buttonBook"
+            android:layout_margin="5dp"
+            android:textSize="10sp"
+            android:layout_below="@+id/companyScenarioPrice"
+            android:textColor="@color/colorFont"
+            android:background="@drawable/months_rounded" />
+
+        <TextView
+            android:id="@+id/companyResTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/companyResImg"
+            android:textSize="15sp"
+            android:textColor="@color/colorPink"/>
+
+        <TextView
+            android:id="@+id/companyResScenarioText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyResTitle"
+            android:layout_toRightOf="@+id/companyResImg"
+            android:textSize="14sp"
+            android:textColor="@color/colorBlue"/>
+
+        <TextView
+            android:id="@+id/companyResDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyResScenarioText"
+            android:layout_toRightOf="@+id/companyResImg"
+            android:textSize="12sp"
+            android:textColor="@color/colorFont"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -3,21 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorBackground"
-    tools:context=".EventFinder">
+    tools:context=".NearScenarios">
 
     <Button
         android:id="@+id/backBtn"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="3dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
         android:background="@mipmap/back_icon"
-        android:onClick="@string/title_activity_main2" />
+        android:onClick="getBack" />
 
     <TextView
         android:id="@+id/TitleText"
@@ -39,30 +35,28 @@
         android:columnCount="2">
 
         <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/colorFont"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="@string/scenarioFilterCity"
+            android:id="@+id/scenarioBySport"
+            android:layout_width="130dp"
+            android:layout_height="25dp"
             android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorFont"
+            android:spinnerMode="dropdown"
             android:background="@drawable/months_rounded" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="@string/scenarioFilterPrice"
+        <Spinner
+            android:id="@+id/scenarioByCity"
+            android:layout_width="130dp"
+            android:layout_height="25dp"
             android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorFont"
+            android:spinnerMode="dropdown"
             android:background="@drawable/months_rounded" />
 
+        <Spinner
+            android:id="@+id/scenarioByPrice"
+            android:layout_width="130dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/months_rounded" />
     </GridLayout>
 
     <com.google.android.gms.maps.MapView
@@ -70,200 +64,23 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_below="@+id/refineLwt"
-        android:layout_alignParentStart="true" />
-
-    <RelativeLayout
-        android:id="@+id/companyILwt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mapView"
-        android:layout_alignParentStart="true"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="5dp"
-        android:padding="3dp"
-        android:background="@drawable/results_rounded">
+        android:layout_marginVertical="5dp"/>
 
-        <ImageView
-            android:id="@+id/companyIImg"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="8dp"
-            android:background="@mipmap/stadium" />
+    <ListView
+        android:id="@+id/scenariosList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mapView"
+        android:layout_above="@id/navigation"
+        android:divider="@null"/>
 
-
-        <Button
-            android:id="@+id/bookCompanyI"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text="@string/buttonBook"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:layout_below="@+id/companyIImg"
-            android:textColor="@color/colorFont"
-            android:background="@drawable/months_rounded" />
-
-        <TextView
-            android:id="@+id/companyITitleText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/companyIImg"
-            android:text="Lleida Gym Center"
-            android:textColor="@color/colorPink"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:id="@+id/companyIScenarioText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companyITitleText"
-            android:layout_toRightOf="@+id/companyIImg"
-            android:text="Scenario 1"
-            android:textSize="14sp"
-            android:textColor="@color/colorBlue"/>
-
-        <TextView
-            android:id="@+id/companyIText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companyIScenarioText"
-            android:layout_toRightOf="@+id/companyIImg"
-            android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $2.100"
-            android:textSize="12sp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/companyIILwt"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/companyILwt"
-        android:layout_alignParentStart="true"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="5dp"
-        android:padding="3dp"
-        android:background="@drawable/results_rounded">
-
-        <ImageView
-            android:id="@+id/companyIIImg"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="8dp"
-            android:background="@mipmap/stadium" />
-
-
-        <Button
-            android:id="@+id/bookCompanyII"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text="@string/buttonBook"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:layout_below="@+id/companyIIImg"
-            android:textColor="@color/colorFont"
-            android:background="@drawable/months_rounded" />
-
-        <TextView
-            android:id="@+id/companyIITitleText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/companyIIImg"
-            android:text="Soccer Center of Lleida"
-            android:textSize="15sp"
-            android:textColor="@color/colorPink"/>
-
-        <TextView
-        android:id="@+id/companyIIScenarioText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/companyIITitleText"
-        android:layout_toRightOf="@+id/companyIIImg"
-        android:text="Scenario 2"
-        android:textSize="14sp"
-        android:textColor="@color/colorBlue"/>
-
-        <TextView
-            android:id="@+id/companyIIText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companyIIScenarioText"
-            android:layout_toRightOf="@+id/companyIIImg"
-            android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"
-            android:textSize="12sp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/monthSelect"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
 
-        <Button
-            android:id="@+id/homeButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@mipmap/home_icon"/>
-
-        <TextView
-            android:id="@+id/homeTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/homeButton"
-            android:paddingHorizontal="17dp"
-            android:text="@string/menuHome"
-            android:textColor="@color/colorWhite"/>
-
-        <Button
-            android:id="@+id/settingsButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@mipmap/settings_icon"
-            android:layout_toRightOf="@id/homeButton" />
-
-        <TextView
-            android:id="@+id/settingsTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/settingsButton"
-            android:layout_toRightOf="@+id/homeTxt"
-            android:paddingHorizontal="14dp"
-            android:text="@string/menuSettings"
-            android:textColor="@color/colorWhite" />
-
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="20dp"
-            android:background="@mipmap/login_icon"
-            android:layout_toRightOf="@id/settingsButton" />
-
-        <TextView
-            android:id="@+id/loginTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/loginButton"
-            android:layout_toRightOf="@+id/settingsTxt"
-            android:text="@string/menuLogin"
-            android:textColor="@color/colorWhite" />
-
-        <Button
-            android:id="@+id/accountButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="20dp"
-            android:background="@mipmap/my_account_icon"
-            android:layout_toRightOf="@id/loginButton" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/accountButton"
-            android:layout_toRightOf="@+id/loginTxt"
-            android:paddingHorizontal="10dp"
-            android:text="@string/menuAccount"
-            android:textColor="@color/colorWhite" />
-
-    </RelativeLayout>
 </RelativeLayout>

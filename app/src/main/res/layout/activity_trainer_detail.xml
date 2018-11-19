@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@mipmap/stadium"/>
+        android:background="@drawable/stadium"/>
 
     <RelativeLayout
         android:id="@+id/companyDataLwt"
@@ -85,7 +85,7 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@mipmap/ronaldo" />
+        android:background="@drawable/ronaldo" />
 
     <RelativeLayout
         android:id="@+id/companyDescriptionLwt"

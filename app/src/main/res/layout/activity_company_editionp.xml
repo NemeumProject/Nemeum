@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@mipmap/decathlon_back"/>
+        android:background="@drawable/decathlon_back"/>
 
     <RelativeLayout
         android:id="@+id/companyDataLwt"
@@ -100,7 +100,7 @@
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:background="@mipmap/decathlon_logo" />
+        android:background="@drawable/decathlon_logo" />
 
 
 

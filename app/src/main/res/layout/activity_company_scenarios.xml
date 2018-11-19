@@ -42,7 +42,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:background="@mipmap/stadium" />
+            android:background="@drawable/stadium" />
 
         <TextView
             android:id="@+id/companyName"

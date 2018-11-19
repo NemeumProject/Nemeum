@@ -92,7 +92,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
-            android:background="@mipmap/ronaldo" />
+            android:background="@drawable/ronaldo" />
 
         <Button
             android:id="@+id/bookTrainerI"
@@ -181,7 +181,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
-            android:background="@mipmap/cristiano" />
+            android:background="@drawable/cristiano" />
 
         <Button
             android:id="@+id/bookTrainerII"
@@ -270,7 +270,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
-            android:background="@mipmap/bean" />
+            android:background="@drawable/bean" />
 
         <Button
             android:id="@+id/bookTrainerIII"
