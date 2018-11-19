@@ -52,6 +52,7 @@
         <activity android:name=".NearScenarios" />
         <activity android:name=".ScenarioMock" />
         <activity android:name=".TrainerDetail" />
+        <activity android:name=".SearchTrainer" />
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
         <activity android:name=".activity_login_edition" />

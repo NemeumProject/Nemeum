@@ -1,9 +1,9 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rightLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/topbar"
@@ -15,7 +15,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:src="@mipmap/nemeum_logo"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -33,86 +35,66 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/menubar"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
         android:layout_gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="#eeeeee">
+        android:layout_weight="1"
+        android:background="#eeeeee"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/findeventicon"
             android:layout_width="65dp"
             android:layout_height="65dp"
-           />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/search_event" />
+
 
         <ImageButton
             android:id="@+id/findfacilitiesicon"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            />
+            android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_toEndOf="@+id/findeventicon"
+            android:layout_toRightOf="@id/findeventicon"
+            android:background="@mipmap/search_facilities" />
 
         <ImageButton
             android:id="@+id/findscrenarioicon"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            />
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_toLeftOf="@id/findtrainericon"
+            android:background="@mipmap/search_scenario" />
 
         <ImageButton
             android:id="@+id/findtrainericon"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            />
-    </LinearLayout>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/search_trainer" />
+    </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/bottombar"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="0.35"
-        android:layout_gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="#17252a" >
-
-        <ImageButton
-            android:id="@+id/homeicon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:background="@mipmap/home_icon"/>
-
-
-        <ImageButton
-            android:id="@+id/settingsicon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_toRightOf="@id/homeicon"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:background="@mipmap/settings_icon"/>
-
-
-        <ImageButton
-            android:id="@+id/loginicon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_toRightOf="@id/settingsicon"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:background="@mipmap/login_icon"/>
-
-
-        <ImageButton
-            android:id="@+id/myaccounticon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:background="@mipmap/my_account_icon" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
 
 </LinearLayout>
