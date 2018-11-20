@@ -10,20 +10,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class ActivityMainMock extends AppCompatActivity {
+public class UserLoginActivity extends AppCompatActivity {
 
     Context appContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_mock);
+        setContentView(R.layout.activity_main_after_login);
         appContext = getApplicationContext();
 
         ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
         ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
+        ImageButton createpost_btn = (ImageButton) findViewById(R.id.createposticon);
 
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +52,13 @@ public class ActivityMainMock extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findTrainerOnclick();
+            }
+        });
+
+        createpost_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //createpostOnclick();
             }
         });
 
@@ -97,9 +105,15 @@ public class ActivityMainMock extends AppCompatActivity {
         Intent intent7 = new Intent(this,SearchTrainer.class);
         startActivity(intent7);
     }
+
     public void findEventOnclick() {
         Intent intent8 = new Intent(this, EventFinder.class);
         startActivity(intent8);
     }
+
+    /*public void createpostOnclick(){
+        Intent intent9 = new Intent(this, .class);
+        startActivity(intent9);
+    }*/
 
 }

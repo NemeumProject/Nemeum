@@ -46,7 +46,7 @@
         <activity android:name=".Login" />
         <activity android:name=".ForgetPassActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".UserActivity" />
+        <activity android:name=".UserLoginActivity" />
         <activity android:name=".EventFinder" />
         <activity android:name=".FacilitiesMock" />
         <activity android:name=".FacilityFinder" />

@@ -64,7 +64,7 @@ public class Login extends AppCompatActivity {
 
     private void LoginValidation(String UserEmail,String UserPassword) {
         if((UserEmail.equals("admin")) && (UserEmail.equals("admin"))){
-            Intent intent1 = new Intent(this, UserActivity.class);
+            Intent intent1 = new Intent(this, UserLoginActivity.class);
             startActivity(intent1);
         }
         else{
