@@ -58,7 +58,7 @@ public class UserLoginActivity extends AppCompatActivity {
         createpost_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //createpostOnclick();
+                createpostOnclick();
             }
         });
 
@@ -111,9 +111,9 @@ public class UserLoginActivity extends AppCompatActivity {
         startActivity(intent8);
     }
 
-    /*public void createpostOnclick(){
-        Intent intent9 = new Intent(this, .class);
+    public void createpostOnclick(){
+        Intent intent9 = new Intent(this, activity_Trainer_Posting.class);
         startActivity(intent9);
-    }*/
+    }
 
 }
