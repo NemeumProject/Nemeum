@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/marathonImg"
-
+            android:textColor="@color/colorFont"
             android:text="Lleida Half Marathon"
             android:textSize="13sp"/>
 
@@ -127,6 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/marathonTitleText"
             android:layout_toRightOf="@+id/marathonImg"
+            android:textColor="@color/colorFont"
             android:text="Description: Half marathon for 18-55 y.o."
             android:textSize="10sp"/>
 
@@ -136,6 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/marathonDescriptionText"
             android:layout_toRightOf="@+id/marathonImg"
+            android:textColor="@color/colorFont"
             android:text="Date: 3 November 2018"
             android:textSize="10sp"/>
 
@@ -145,6 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/marathonDateText"
             android:layout_toRightOf="@+id/marathonImg"
+            android:textColor="@color/colorFont"
             android:text="Place: Lleida running track"
             android:textSize="10sp"/>
 
@@ -172,6 +175,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/cyclingImg"
+            android:textColor="@color/colorFont"
             android:text="Lleida Cycling Competition"
             android:textSize="13sp"/>
 
@@ -181,6 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cyclingTitleText"
             android:layout_toRightOf="@+id/cyclingImg"
+            android:textColor="@color/colorFont"
             android:text="Description: Cycling competition"
             android:textSize="10sp"/>
 
@@ -190,6 +195,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cyclingDescriptionText"
             android:layout_toRightOf="@+id/cyclingImg"
+            android:textColor="@color/colorFont"
             android:text="Date: 24 November 2018"
             android:textSize="10sp"/>
 
@@ -199,6 +205,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cyclingDateText"
             android:layout_toRightOf="@+id/cyclingImg"
+            android:textColor="@color/colorFont"
             android:text="Place: Lleida running track"
             android:textSize="10sp"/>
 
