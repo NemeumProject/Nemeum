@@ -10,14 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class Settings extends AppCompatActivity {
+public class Currency extends AppCompatActivity {
 
     Context appContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_currency);
 
         appContext = getApplicationContext();
 
@@ -31,8 +31,8 @@ public class Settings extends AppCompatActivity {
                         appContext.startActivity(intentMain);
                         return true;
                     case R.id.settingsButton:
-                        Toast toast = Toast.makeText(appContext, R.string.alreadyOnSettingsErr, Toast.LENGTH_LONG);
-                        toast.show();
+                        Intent intentSettings = new Intent(appContext, Settings.class);
+                        appContext.startActivity(intentSettings);
                         return true;
                     case R.id.loginButton:
                         Intent intentLogin = new Intent(appContext, Login.class);
@@ -47,37 +47,22 @@ public class Settings extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     public void getBack(View view) {
+
         finish();
+
     }
 
-    public void seeAbout(View view) {
-        Intent intentAbout = new Intent(appContext, About.class);
-        appContext.startActivity(intentAbout);
-    }
-
-    public void seeVersion(View view) {
-        Intent intentVersion = new Intent(appContext, Version.class);
-        appContext.startActivity(intentVersion);
-    }
-
-    public void changeLogin(View view) {
-    }
-
-    public void changeCurrency(View view) {
-        Intent intentCurrency = new Intent(appContext, Currency.class);
-        appContext.startActivity(intentCurrency);
-    }
-
-    public void changeNotification(View view) {
-        Intent intentNotification = new Intent(appContext, Notification.class);
-        appContext.startActivity(intentNotification);
-    }
-
-    public void changeLanguage(View view) {
-        Intent intentLanguage = new Intent(appContext, LanguageSelect.class);
-        appContext.startActivity(intentLanguage);
+    public void setExchange(View view) {
+        if(view.getId() == R.id.euroButton){
+            Toast toast = Toast.makeText(appContext, R.string.selectedEuroToast, Toast.LENGTH_SHORT);
+            toast.show();
+        } else{
+            Toast toast = Toast.makeText(appContext, R.string.selectedDollarToast, Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }
