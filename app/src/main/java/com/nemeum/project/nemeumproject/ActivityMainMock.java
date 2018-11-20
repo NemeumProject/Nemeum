@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class ActivityMainMock extends AppCompatActivity {
 
@@ -60,11 +61,11 @@ public class ActivityMainMock extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        Toast toast = Toast.makeText(appContext, R.string.alreadyOnHomeErr, Toast.LENGTH_LONG);
+                        toast.show();
                         return true;
                     case R.id.settingsButton:
-                        Intent intentSettings = new Intent(appContext, SettingsActivity.class);
+                        Intent intentSettings = new Intent(appContext, Settings.class);
                         appContext.startActivity(intentSettings);
                         return true;
                     case R.id.loginButton:

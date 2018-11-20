@@ -2,24 +2,37 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.VersionedPackage;
+import android.icu.util.VersionInfo;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class Settings extends AppCompatActivity {
+public class Version extends AppCompatActivity {
 
     Context appContext;
+    TextView versionView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_version);
 
         appContext = getApplicationContext();
+        versionView = findViewById(R.id.versionCodeText);
+
+        try {
+            versionView.setText(getText(R.string.versionButtonTitle) + ": " + appContext.getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -31,8 +44,8 @@ public class Settings extends AppCompatActivity {
                         appContext.startActivity(intentMain);
                         return true;
                     case R.id.settingsButton:
-                        Toast toast = Toast.makeText(appContext, R.string.alreadyOnSettingsErr, Toast.LENGTH_LONG);
-                        toast.show();
+                        Intent intentSettings = new Intent(appContext, Settings.class);
+                        appContext.startActivity(intentSettings);
                         return true;
                     case R.id.loginButton:
                         Intent intentLogin = new Intent(appContext, Login.class);
@@ -47,37 +60,17 @@ public class Settings extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     public void getBack(View view) {
         finish();
     }
 
-    public void seeAbout(View view) {
-        Intent intentAbout = new Intent(appContext, About.class);
-        appContext.startActivity(intentAbout);
-    }
+    public void updateCheck(View view) {
 
-    public void seeVersion(View view) {
-        Intent intentVersion = new Intent(appContext, Version.class);
-        appContext.startActivity(intentVersion);
-    }
+        Toast toast = Toast.makeText(appContext, R.string.newFuncionalityErr, Toast.LENGTH_LONG);
+        toast.show();
 
-    public void changeLogin(View view) {
-    }
-
-    public void changeCurrency(View view) {
-        Intent intentCurrency = new Intent(appContext, Currency.class);
-        appContext.startActivity(intentCurrency);
-    }
-
-    public void changeNotification(View view) {
-        Intent intentNotification = new Intent(appContext, Notification.class);
-        appContext.startActivity(intentNotification);
-    }
-
-    public void changeLanguage(View view) {
-        Intent intentLanguage = new Intent(appContext, LanguageSelect.class);
-        appContext.startActivity(intentLanguage);
     }
 }

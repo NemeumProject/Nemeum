@@ -43,7 +43,7 @@ public class TrainerDetail extends AppCompatActivity {
                         appContext.startActivity(intentMain);
                         return true;
                     case R.id.settingsButton:
-                        Intent intentSettings = new Intent(appContext, SettingsActivity.class);
+                        Intent intentSettings = new Intent(appContext, Settings.class);
                         appContext.startActivity(intentSettings);
                         return true;
                     case R.id.loginButton:

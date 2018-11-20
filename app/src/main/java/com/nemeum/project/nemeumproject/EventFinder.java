@@ -25,7 +25,7 @@ public class EventFinder extends AppCompatActivity {
                         getApplicationContext().startActivity(intentMain);
                         return true;
                     case R.id.settingsButton:
-                        Intent intentSettings = new Intent(getApplicationContext(), SettingsActivity.class);
+                        Intent intentSettings = new Intent(getApplicationContext(), Settings.class);
                         getApplicationContext().startActivity(intentSettings);
                         return true;
                     case R.id.loginButton:

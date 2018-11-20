@@ -162,8 +162,18 @@
         <item>Domingo</item>
     </string-array>
 
-    <!-- Error Strings -->
+    <!-- Toast Error Strings -->
     <string name="alreadyOnProfileErr">Erro - Ya estás en tu perfil.</string>
+    <string name="alreadyOnHomeErr">Erro - Ya estás en la pantalla inicial.</string>
+    <string name="alreadyOnSettingsErr">Erro - Ya estás en las configuraciones.</string>
+    <string name="alreadyOnLoginErr">Erro - Ya estás en la pantalla de login.</string>
+    <string name="newFuncionalityErr">Erro - Aun estamos desarrolando esta funcionalidad.</string>
+
+    <!-- Toast Message Strings -->
+    <string name="selectedDollarToast">Moneda en Dollar.</string>
+    <string name="selectedEuroToast">Moneda en Euro.</string>
+    <string name="selectedNotifOnToast">Notificaciones encendidas.</string>
+    <string name="selectedNotifOffToast">Notificaciones apagadas.</string>
 
     <!-- Strings for User and Trainer Profile -->
     <string name="personalInfo">Información Personal </string>
@@ -210,8 +220,26 @@
     <string name="languageButtonTitle">Idioma</string>
     <string name="notificationButtonTitle">Notificaciones</string>v
     <string name="currencyButtonTitle">Moneda</string>
+    <string name="changeLoginButtonTitle">Configuración de cuenta</string>
     <string name="versionButtonTitle">Version</string>
     <string name="aboutButtonTitle">Sobre nosotros</string>v
     <string name="backButtonTitle">Volver</string>
+    <string name="englishButtonTitle">Inglés</string>
+    <string name="spanishButtonTitle">Español</string>
+    <string name="saveBackButtonTitle">Guardar y volver</string>
+    <string name="onNotificationButtonTitle">Notificaciones ligadas</string>
+    <string name="offNotificationButtonTitle">Notificaciones apagadas</string>
+    <string name="euroButtonTitle">Euro</string>
+    <string name="dollarButtonTitle">Dollar</string>
+    <string name="updateButtonTitle">Actualizar</string>
+
+    <string name="aboutUsText">Nemeum team is a multi-skilled group created in 2018 with the main objective of
+            changing the way that people look for sport related services, while we improve our skills.\n
+            The Nemeum app has the objective of be your first and most accessed place to find personal
+            trainers, look for events and rent facilities to do your favorite sport.\n
+            We hope that you are enjoying our services,\n
+            Best regards;\n
+            Nemeum Team
+    </string>
 
 </resources>

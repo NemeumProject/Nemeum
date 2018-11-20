@@ -157,8 +157,18 @@
         <item>Sunday</item>
     </string-array>
 
-    <!-- Error Strings -->
+    <!-- Toast Error Strings -->
     <string name="alreadyOnProfileErr">Error - You are already in your profile.</string>
+    <string name="alreadyOnHomeErr">Error - You are already in home.</string>
+    <string name="alreadyOnSettingsErr">Error - You are already in settings.</string>
+    <string name="alreadyOnLoginErr">Error - You are already in the login page.</string>
+    <string name="newFuncionalityErr">Error - We are still developing this functionality.</string>
+
+    <!-- Toast Message Strings -->
+    <string name="selectedDollarToast">Dollar selected succesfully.</string>
+    <string name="selectedEuroToast">Euro selected succesfully.</string>
+    <string name="selectedNotifOnToast">Notification turned on.</string>
+    <string name="selectedNotifOffToast">Notification turned off.</string>
 
     <!-- Strings for User and Trainer Profile -->
     <string name="personalInfo">Personal Information</string>
@@ -204,8 +214,26 @@
     <string name="languageButtonTitle">Language</string>
     <string name="notificationButtonTitle">Notification</string>
     <string name="currencyButtonTitle">Currency</string>
+    <string name="changeLoginButtonTitle">Sign configurations</string>
     <string name="versionButtonTitle">Version</string>
-    <string name="aboutButtonTitle">About Us</string>v
+    <string name="aboutButtonTitle">About Us</string>
     <string name="backButtonTitle">Back</string>
+    <string name="englishButtonTitle">English</string>
+    <string name="spanishButtonTitle">Spanish</string>
+    <string name="saveBackButtonTitle">Save and back</string>
+    <string name="onNotificationButtonTitle">Notification on</string>
+    <string name="offNotificationButtonTitle">Notification off</string>
+    <string name="euroButtonTitle">Euro</string>
+    <string name="dollarButtonTitle">Dollar</string>
+    <string name="updateButtonTitle">Update</string>
+
+    <string name="aboutUsText">Nemeum team is a multi-skilled group created in 2018 with the main objective of
+            changing the way that people look for sport related services, while we improve our skills.\n
+            The Nemeum app has the objective of be your first and most accessed place to find personal
+            trainers, look for events and rent facilities to do your favorite sport.\n
+            We hope that you are enjoying our services,\n
+            Best regards;\n
+            Nemeum Team
+    </string>
 
 </resources>
