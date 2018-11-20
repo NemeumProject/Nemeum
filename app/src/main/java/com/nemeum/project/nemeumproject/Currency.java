@@ -39,8 +39,8 @@ public class Currency extends AppCompatActivity {
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
-                        getApplicationContext().startActivity(intentAccount);
+                        Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                        appContext.startActivity(intentAccount);
                         return true;
                     default:
                         return false;

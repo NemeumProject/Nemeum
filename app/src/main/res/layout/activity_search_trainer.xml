@@ -19,11 +19,11 @@
         android:id="@+id/TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/backBtn"
         android:layout_margin="3dp"
         android:text="Search Trainer"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="@dimen/font25"
+        android:textStyle="bold"
         android:textAlignment="center"/>
 
     <GridLayout

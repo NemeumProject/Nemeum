@@ -1,5 +1,6 @@
 package com.nemeum.project.nemeumproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,10 +11,14 @@ import android.view.View;
 
 public class EventFinder extends AppCompatActivity {
 
+    Context appContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_finder);
+
+        appContext = getApplicationContext();
 
         BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -21,26 +26,27 @@ public class EventFinder extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(getApplicationContext(), ActivityMainMock.class);
-                        getApplicationContext().startActivity(intentMain);
+                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                        appContext.startActivity(intentMain);
                         return true;
                     case R.id.settingsButton:
-                        Intent intentSettings = new Intent(getApplicationContext(), Settings.class);
-                        getApplicationContext().startActivity(intentSettings);
+                        Intent intentSettings = new Intent(appContext, Settings.class);
+                        appContext.startActivity(intentSettings);
                         return true;
                     case R.id.loginButton:
-                        Intent intentLogin = new Intent(getApplicationContext(), Login.class);
-                        getApplicationContext().startActivity(intentLogin);
+                        Intent intentLogin = new Intent(appContext, Login.class);
+                        appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
-                        getApplicationContext().startActivity(intentAccount);
+                        Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                        appContext.startActivity(intentAccount);
                         return true;
                     default:
                         return false;
                 }
             }
         });
+
     }
 
     public void getBack(View view) {

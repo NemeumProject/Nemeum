@@ -23,7 +23,7 @@
         android:layout_margin="3dp"
         android:text="@string/versionButtonTitle"
         android:textColor="@color/colorWhite"
-        android:textSize="25sp"
+        android:textSize="@dimen/font25"
         android:textAlignment="center"
         android:textStyle="bold"/>
 
@@ -31,14 +31,15 @@
         android:id="@+id/versionCodeText"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_margin="5dp"
+        android:paddingVertical="10dp"
         android:layout_above="@+id/updateButton"
         android:layout_centerHorizontal="true"
         android:textSize="15dp"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/colorFont"
-        android:background="@drawable/months_rounded" />
+        android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorWhite"/>
 
     <Button
         android:id="@+id/updateButton"

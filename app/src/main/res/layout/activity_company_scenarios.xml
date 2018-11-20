@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorBackground"
     tools:context=".EventFinder">
 
@@ -23,11 +24,10 @@
         android:id="@+id/TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/backBtn"
-        android:layout_margin="3dp"
         android:text="@string/compScenarioTitle"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="@dimen/font25"
+        android:textStyle="bold"
         android:textAlignment="center"/>
 
     <RelativeLayout
@@ -130,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/scenarioITitleText"
             android:layout_toRightOf="@+id/scenarioIImg"
+            android:textColor="@color/colorFont"
             android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $2.100"
             android:textSize="12sp"/>
     </RelativeLayout>
@@ -179,84 +180,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/scenarioIITitleText"
             android:layout_toRightOf="@+id/scenarioIIImg"
+            android:textColor="@color/colorFont"
             android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"
             android:textSize="12sp"/>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/monthSelect"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
 
-        <Button
-            android:id="@+id/homeButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@mipmap/home_icon"/>
-
-        <TextView
-            android:id="@+id/homeTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/homeButton"
-            android:paddingHorizontal="17dp"
-            android:text="@string/menuHome"
-            android:textColor="@color/colorWhite" />
-
-        <Button
-            android:id="@+id/settingsButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@mipmap/settings_icon"
-            android:layout_toRightOf="@id/homeButton" />
-
-        <TextView
-            android:id="@+id/settingsTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/settingsButton"
-            android:layout_toRightOf="@+id/homeTxt"
-            android:paddingHorizontal="14dp"
-            android:text="@string/menuSettings"
-            android:textColor="@color/colorWhite" />
-
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="20dp"
-            android:background="@mipmap/login_icon"
-            android:layout_toRightOf="@id/settingsButton" />
-
-        <TextView
-            android:id="@+id/loginTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/loginButton"
-            android:layout_toRightOf="@+id/settingsTxt"
-            android:text="@string/menuLogin"
-            android:textColor="@color/colorWhite" />
-
-        <Button
-            android:id="@+id/accountButton"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="20dp"
-            android:background="@mipmap/my_account_icon"
-            android:layout_toRightOf="@id/loginButton" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/accountButton"
-            android:layout_toRightOf="@+id/loginTxt"
-            android:paddingHorizontal="10dp"
-            android:text="@string/menuAccount"
-            android:textColor="@color/colorWhite" />
-
-    </RelativeLayout>
 </RelativeLayout>

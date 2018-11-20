@@ -70,6 +70,20 @@
 
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Buscar Eventos</string>
+    <string-array name="monthsEvents">
+        <item>Enero</item>
+        <item>Febrero</item>
+        <item>Marzo</item>
+        <item>Abril</item>
+        <item>Mayo</item>
+        <item>Junio</item>
+        <item>Julio</item>
+        <item>Agosto</item>
+        <item>Septiembre</item>
+        <item>Octubre</item>
+        <item>Noviembre</item>
+        <item>Diciembre</item>
+    </string-array>
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Buscar Instalaciones</string>

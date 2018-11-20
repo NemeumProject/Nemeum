@@ -107,6 +107,20 @@
 
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Find Events</string>
+    <string-array name="monthsEvents">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>Octuber</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Search Facilities</string>
@@ -202,7 +216,7 @@
     <string name="user_Last_Name">Last Name</string>
     <string name="contactInfo">Contact Information</string>
     <string name="user_Email">Email</string>
-    <string name="user_Phone">Phone</string>
+    <string name="user_Phone">Phone</string>f
     <string name="user_Address">Address</string>
     <string name="user_City">City</string>
     <string name="user_Postal_Code">Postal Code</string>
