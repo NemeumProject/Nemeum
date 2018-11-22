@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +28,6 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/ronaldo" />
-
 
         <TextView
             android:id="@+id/facilityITitleText"
@@ -162,7 +160,6 @@
             android:layout_alignTop="@+id/user_Gender"
             android:orientation="horizontal">
 
-
             <RadioButton
                 android:id="@+id/user_Rbtn_Male"
                 android:layout_width="wrap_content"
@@ -173,14 +170,11 @@
             <RadioButton
                 android:id="@+id/user_Rbtn_Female"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/user_Female" />
         </RadioGroup>
-
     </RelativeLayout>
-
 
     <RelativeLayout
         android:id="@+id/contact_Info_Lyt"
@@ -195,7 +189,6 @@
         android:layout_marginTop="26dp"
         android:background="@drawable/results_rounded"
         android:padding="3dp">
-
 
         <TextView
             android:id="@+id/contactInfoTv"
@@ -234,7 +227,6 @@
             android:ems="10"
             android:inputType="textEmailAddress" />
 
-
         <TextView
             android:id="@+id/phone_userTv"
             android:layout_width="121dp"
@@ -269,7 +261,6 @@
             android:layout_below="@+id/email_User_Edit"
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
-
             android:layout_marginTop="94dp"
             android:text="@string/user_Address"
             android:textColor="@color/colorFont"
@@ -335,9 +326,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
-
     </RelativeLayout>
-
 
     <Button
         android:id="@+id/btn_save_user_edition"

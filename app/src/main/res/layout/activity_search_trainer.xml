@@ -69,7 +69,6 @@
             android:textSize="10dp"
             android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded" />
-
     </GridLayout>
 
     <RelativeLayout

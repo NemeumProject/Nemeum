@@ -91,7 +91,6 @@
             android:text="Place: Lleida swimming center"
             android:textColor="@color/colorFont"
             android:textSize="10sp"/>
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -149,7 +148,6 @@
             android:textColor="@color/colorFont"
             android:text="Place: Lleida running track"
             android:textSize="10sp"/>
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -207,7 +205,6 @@
             android:textColor="@color/colorFont"
             android:text="Place: Lleida running track"
             android:textSize="10sp"/>
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -251,7 +248,6 @@
             android:text="Select Month"
             android:textColor="@color/colorBlue"
             android:textSize="12sp"/>
-
     </RelativeLayout>
 
     <GridLayout
@@ -270,8 +266,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -280,8 +275,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -290,8 +284,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -300,8 +293,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -310,8 +302,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -320,8 +311,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -330,8 +320,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -340,8 +329,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -350,8 +338,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -360,8 +347,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded"
-            />
+            android:background="@drawable/months_rounded" />
 
         <Button
             android:layout_width="wrap_content"
@@ -370,8 +356,7 @@
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:textColor="@color/colorFont"
-            android:background="@drawable/selected_month"
-            />
+            android:background="@drawable/selected_month" />
 
         <Button
             android:layout_width="wrap_content"
@@ -381,7 +366,6 @@
             android:textSize="10dp"
             android:textColor="@color/colorWhite"
             android:background="@drawable/months_rounded" />
-
     </GridLayout>
 
     <android.support.design.widget.BottomNavigationView

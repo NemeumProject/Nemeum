@@ -1,58 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-    <string name="app_name">NemeumProject</string>
+
+    <!-- App Name Strings -->
+    <string name="app_name">Nemeum</string>
+
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_account">Account</string>
-    <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
-
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <!-- Strings related to home screen -->
     <string name="search_home">Home</string>
     <string name="search_trainer">Search Trainer</string>
     <string name="search_facilities">Search Facilities</string>
     <string name="search_event">Search Event</string>
     <string name="search_scenario">Search Scenario</string>
-    <string name="settings">Settings</string>
     <string name="my_account">My Account</string>
+    <string name="settings">Settings</string>
     <string name="login">Login</string>
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-    <string name="pref_title_vibrate">Vibrate</string>
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
 
     <!-- Strings for Action Bar -->
     <string name="menuHome">Home</string>
@@ -79,7 +43,6 @@
         <item>November</item>
         <item>December</item>
     </string-array>
-
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Search Facilities</string>
@@ -135,6 +98,7 @@
         <item>Between 80 and 160€</item>
         <item>More than 160€</item>
     </string-array>
+
     <!-- Strings for Trainer Finder -->
     <string name="findTrainerTitle">Search Trainer</string>
     <string name="trainerFilterName">Trainer name</string>
@@ -152,12 +116,7 @@
     <string name="buttonFinish">Finish</string>
 
     <!-- Strings for Company Profile -->
-    <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym,
-        day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of exercise
-        classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis
-        and Audley Harrisson learned they craft. the magnificent Georgian building, opened
-        in 1929 by the duke of York , has played host to some of the world\'s greatests boxers
-        with fights taking place in the grand main hall.</string>
+    <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of exercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificent Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>
 
     <!-- Strings for Trainer Detail screen -->
     <string name="aboutTrainerTitle">About me</string>
@@ -171,19 +130,6 @@
         <item>Saturday</item>
         <item>Sunday</item>
     </string-array>
-
-    <!-- Toast Error Strings -->
-    <string name="alreadyOnProfileErr">Error - You are already in your profile.</string>
-    <string name="alreadyOnHomeErr">Error - You are already in home.</string>
-    <string name="alreadyOnSettingsErr">Error - You are already in settings.</string>
-    <string name="alreadyOnLoginErr">Error - You are already in the login page.</string>
-    <string name="newFuncionalityErr">Error - We are still developing this functionality.</string>
-
-    <!-- Toast Message Strings -->
-    <string name="selectedDollarToast">Dollar selected succesfully.</string>
-    <string name="selectedEuroToast">Euro selected succesfully.</string>
-    <string name="selectedNotifOnToast">Notification turned on.</string>
-    <string name="selectedNotifOffToast">Notification turned off.</string>
 
     <!-- Strings for User and Trainer Profile -->
     <string name="personalInfo">Personal Information</string>
@@ -204,6 +150,19 @@
     <string name="login_Username">Login username (Email)</string>
     <string name="new_Password">New Password </string>
     <string name="password_Validation">Repeat New Password</string>
+
+    <!-- Toast Error Strings -->
+    <string name="alreadyOnProfileErr">Error - You are already in your profile.</string>
+    <string name="alreadyOnHomeErr">Error - You are already in home.</string>
+    <string name="alreadyOnSettingsErr">Error - You are already in settings.</string>
+    <string name="alreadyOnLoginErr">Error - You are already in the login page.</string>
+    <string name="newFuncionalityErr">Error - We are still developing this functionality.</string>
+
+    <!-- Toast Message Strings -->
+    <string name="selectedDollarToast">Dollar selected succesfully.</string>
+    <string name="selectedEuroToast">Euro selected succesfully.</string>
+    <string name="selectedNotifOnToast">Notification turned on.</string>
+    <string name="selectedNotifOffToast">Notification turned off.</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Trainer Posting</string>

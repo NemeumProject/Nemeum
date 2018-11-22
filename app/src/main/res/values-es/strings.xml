@@ -1,55 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
 
+    <!-- App Name Strings -->
     <string name="app_name">Nemeum</string>
+
     <!-- Strings related to login -->
-    <string name="prompt_email">Correo Eléctronico</string>
-    <string name="prompt_password">Contraseña (opcional)</string>
-    <string name="action_sign_in">Iniciar Sesión o Registrarse</string>
-    <string name="action_sign_in_short">Iniciar</string>
-    <string name="error_invalid_email">Dirección de correo invalida</string>
-    <string name="error_invalid_password">La contraseña es muy corta</string>
-    <string name="error_incorrect_password">La contraseña es incorreca</string>
-    <string name="error_field_required">Este campo es obligatorio</string>
-    <string name="permission_rationale">"Permiso de contactos es necesario para agregar al mensaje."
-    </string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_home">Incio</string>
-    <string name="title_dashboard">Tablero</string>
-    <string name="title_notifications">Notificaciones</string>
-    <string name="title_account">Cuenta</string>
-    <string name="title_activity_settings">Configuración</string>
-    <string name="pref_title_system_sync_settings">Configuración de sincronización</string>
 
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notificaciones</string>
-    <string name="pref_title_new_message_notifications">Nuevo mensaje</string>
-    <string name="pref_title_ringtone">Tono</string>
-    <string name="pref_ringtone_silent">Silencio</string>
-    <string name="pref_title_vibrate">Vibración</string>
-
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Datos y sincronización</string>
-
-    <string name="pref_title_sync_frequency">Frequencia de sincronización</string>
-
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
-
-    <string name="pref_title_social_recommendations">Habilitar recomendaciones de red social</string>
-    <string name="pref_description_social_recommendations">Recomendaciones de contacto
-        basado en tu historial de mensajes
-    </string>
-
-    <string name="pref_title_display_name">Nombre</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Agregar amigos al mensaje</string>
-
-
+    <!-- Strings related to home screen -->
     <string name="search_home">Inicio</string>
     <string name="search_trainer">Buscar Entrenador</string>
     <string name="search_facilities">Buscar Instalacion</string>
@@ -66,7 +25,7 @@
     <string name="menuAccount">Mi Cuenta</string>
 
     <!-- Strings for Company Scenarios -->
-    <string name="compScenarioTitle">Buscar Escenarios</string>
+    <string name="compScenarioTitle">Escenarios de la companhia</string>
 
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Buscar Eventos</string>
@@ -142,7 +101,7 @@
 
     <!-- Strings for Trainer Finder -->
     <string name="findTrainerTitle">Buscar Entrenador</string>
-    <string name="trainerFilterName">Nome del entrenador</string>
+    <string name="trainerFilterName">Nombre del entrenador</string>
     <string name="trainerFilterSport">Tipo de desporto</string>
     <string name="trainerFilterCity">Ciudad</string>
     <string name="trainerFilterPrice">Gama de Precios</string>
@@ -157,11 +116,7 @@
     <string name="buttonFinish">Finalizar</string>
 
     <!-- Strings for Company Profile -->
-    <string name="facilitiesDescription">Decathlon Sport Centre en Bethral Green incluye un gimnasio,
-        día de spa, piscina de 33 metros, Sauna Turca y ofrece variedad de ejercicios, pero es mayormente
-        conocida por su arena para boxeo, donde los futuros campeones como Lenoxx Lewis y Audley Harrisson
-        aprendieron lo que hacen. El magnifico edificio Georgian, abierto desde 1929 por el duque de York ,
-        ha acogido a algunos de los mas grandes boxeadores con combates en el salon principal.</string>
+    <string name="facilitiesDescription">Decathlon Sport Centre en Bethral Green incluye un gimnasio, día de spa, piscina de 33 metros, Sauna Turca y ofrece variedad de ejercicios, pero es mayormente conocida por su arena para boxeo, donde los futuros campeones como Lenoxx Lewis y Audley Harrisson aprendieron lo que hacen. El magnifico edificio Georgian, abierto desde 1929 por el duque de York, ha acogido a algunos de los mas grandes boxeadores con combates en el salon principal.</string>
 
     <!-- Strings for Trainer Detail screen -->
     <string name="aboutTrainerTitle">Sobre mí</string>
@@ -175,19 +130,6 @@
         <item>Sabado</item>
         <item>Domingo</item>
     </string-array>
-
-    <!-- Toast Error Strings -->
-    <string name="alreadyOnProfileErr">Erro - Ya estás en tu perfil.</string>
-    <string name="alreadyOnHomeErr">Erro - Ya estás en la pantalla inicial.</string>
-    <string name="alreadyOnSettingsErr">Erro - Ya estás en las configuraciones.</string>
-    <string name="alreadyOnLoginErr">Erro - Ya estás en la pantalla de login.</string>
-    <string name="newFuncionalityErr">Erro - Aun estamos desarrolando esta funcionalidad.</string>
-
-    <!-- Toast Message Strings -->
-    <string name="selectedDollarToast">Moneda en Dollar.</string>
-    <string name="selectedEuroToast">Moneda en Euro.</string>
-    <string name="selectedNotifOnToast">Notificaciones encendidas.</string>
-    <string name="selectedNotifOffToast">Notificaciones apagadas.</string>
 
     <!-- Strings for User and Trainer Profile -->
     <string name="personalInfo">Información Personal </string>
@@ -209,6 +151,18 @@
     <string name="new_Password">Nueva Contraseña </string>
     <string name="password_Validation">Repita Contraseña</string>
 
+    <!-- Toast Error Strings -->
+    <string name="alreadyOnProfileErr">Erro - Ya estás en tu perfil.</string>
+    <string name="alreadyOnHomeErr">Erro - Ya estás en la pantalla inicial.</string>
+    <string name="alreadyOnSettingsErr">Erro - Ya estás en las configuraciones.</string>
+    <string name="alreadyOnLoginErr">Erro - Ya estás en la pantalla de login.</string>
+    <string name="newFuncionalityErr">Erro - Aun estamos desarrolando esta funcionalidad.</string>
+
+    <!-- Toast Message Strings -->
+    <string name="selectedDollarToast">Moneda en Dollar.</string>
+    <string name="selectedEuroToast">Moneda en Euro.</string>
+    <string name="selectedNotifOnToast">Notificaciones encendidas.</string>
+    <string name="selectedNotifOffToast">Notificaciones apagadas.</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Nueva Publicación</string>

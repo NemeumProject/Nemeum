@@ -32,7 +32,6 @@
             android:layout_alignParentTop="true"
             android:onClick="editPersonalInfo"
             android:background="@mipmap/pencil_button"
-
             android:layout_alignParentEnd="true" />
 
         <TextView

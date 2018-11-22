@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorBackground"
-    tools:context=".EventFinder">
+    android:background="@color/colorBackground">
 
     <Button
         android:id="@+id/backBtn"
@@ -83,7 +81,6 @@
             android:text="Open - Closes: 09:00 - 23:00"
             android:textSize="15sp"
             android:textColor="@color/colorBlue" />
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -152,7 +149,6 @@
             android:layout_height="60dp"
             android:layout_margin="8dp"
             android:background="@mipmap/weightlifting" />
-
 
         <Button
             android:id="@+id/bookScenarioII"

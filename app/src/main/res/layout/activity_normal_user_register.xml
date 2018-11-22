@@ -19,7 +19,6 @@
         android:layout_marginBottom="300dp"
         android:textColor="#ffffff"/>
 
-
     <EditText
         android:id="@+id/UserEmailAddressRegister"
         android:layout_width="wrap_content"

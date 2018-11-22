@@ -46,8 +46,6 @@
             android:text="Decathlon Sport Center"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
-          <!--  -->
-
 
         <EditText
             android:id="@+id/companySloganEditText"
@@ -62,7 +60,6 @@
             android:text="Sports for all"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
-
 
         <EditText
             android:id="@+id/companyPlaceEditText"
@@ -91,8 +88,6 @@
             android:text="+33 155359755"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
-
-
     </RelativeLayout>
 
     <ImageView
@@ -102,8 +97,6 @@
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/decathlon_logo" />
-
-
 
     <RelativeLayout
         android:id="@+id/companyDescriptionLwt"

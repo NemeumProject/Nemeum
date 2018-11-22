@@ -64,11 +64,13 @@ public class Settings extends AppCompatActivity {
     }
 
     public void changeLogin(View view) {
+        Intent intentCurrency = new Intent(appContext, activity_login_edition.class);
+        appContext.startActivity(intentCurrency);
     }
 
     public void changeCurrency(View view) {
-        Intent intentCurrency = new Intent(appContext, Currency.class);
-        appContext.startActivity(intentCurrency);
+        Intent intentLogEdiion = new Intent(appContext, Currency.class);
+        appContext.startActivity(intentLogEdiion);
     }
 
     public void changeNotification(View view) {

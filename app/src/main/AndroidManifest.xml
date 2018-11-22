@@ -19,22 +19,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/nemeum_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/nemeum_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <uses-library android:name="com.google.android.maps" />
 
         <activity android:name=".ActivityMainMock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity_Trainer_Posting"/>
+        <activity android:name=".activity_Trainer_Posting" />
         <activity android:name=".NormalUserRegistration" />
         <activity android:name=".CompanyUserRegistration" />
         <activity android:name=".TrainerUserRegistration" />

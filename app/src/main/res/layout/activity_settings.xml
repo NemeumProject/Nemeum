@@ -57,7 +57,6 @@
         android:backgroundTint="@color/colorPink"
         android:onClick="changeNotification" />
 
-
     <Button
         android:id="@+id/currencyButton"
         android:layout_width="200dp"
@@ -140,4 +139,5 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorBackground"
         app:menu="@menu/navigation"/>
+
 </RelativeLayout>

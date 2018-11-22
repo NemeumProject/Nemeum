@@ -54,7 +54,6 @@
         android:backgroundTint="@color/colorBlue"
         android:onClick="getBack" />
 
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
@@ -62,4 +61,5 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorBackground"
         app:menu="@menu/navigation"/>
+
 </RelativeLayout>
