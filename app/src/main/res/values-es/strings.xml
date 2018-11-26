@@ -157,6 +157,10 @@
     <string name="alreadyOnSettingsErr">Erro - Ya estás en las configuraciones.</string>
     <string name="alreadyOnLoginErr">Erro - Ya estás en la pantalla de login.</string>
     <string name="newFuncionalityErr">Erro - Aun estamos desarrolando esta funcionalidad.</string>
+    <string name="username_Empty">Su nombre de usuario no puede estar en blanco.</string>
+    <string name="password_Empty">El campo contraseña no puede estar en blanco.</string>
+    <string name="new_Password_Empty">El campo nueva contraseña no puede estar en blanco.</string>
+    <string name="rp_newPass_Empty">El campo repita su nueva contraseña no puede estar en blanco..</string>
 
     <!-- Toast Message Strings -->
     <string name="selectedDollarToast">Moneda en Dollar.</string>
@@ -201,13 +205,13 @@
     <string name="dollarButtonTitle">Dollar</string>
     <string name="updateButtonTitle">Actualizar</string>
 
-    <string name="aboutUsText">Nemeum team is a multi-skilled group created in 2018 with the main objective of
-            changing the way that people look for sport related services, while we improve our skills.\n
-            The Nemeum app has the objective of be your first and most accessed place to find personal
-            trainers, look for events and rent facilities to do your favorite sport.\n
-            We hope that you are enjoying our services,\n
-            Best regards;\n
-            Nemeum Team
-    </string>
+    <string name="aboutUsText">El equipo de Nemeum es un grupo con multiples habilidades creado en 2018
+            con el objetivo principal de cambiar la manera que las personas buscan servicios relacionados
+        al deporte, mientras nosotros mejoramos nuestras habilidades.\n
+            La aplicacion mobil Nemeum tiene por objetivo ser la primera y el sitio mas accedido para
+        encontrar entrenadores personales, buscar eventor y reservar escenarios deportivos para tu deporte faorito.\n
+            Esperamos que disfrutes nuestros servicios,\n
+            Nuestros mejores deseos;\n
+            El equipo de Nemeum    </string>
 
 </resources>

@@ -157,6 +157,11 @@
     <string name="alreadyOnSettingsErr">Error - You are already in settings.</string>
     <string name="alreadyOnLoginErr">Error - You are already in the login page.</string>
     <string name="newFuncionalityErr">Error - We are still developing this functionality.</string>
+    <string name="username_Empty">Your login username cannot be empty.</string>
+    <string name="password_Empty">Password field cannot be empty.</string>
+    <string name="new_Password_Empty">New password field cannot be empty.</string>
+    <string name="rp_newPass_Empty">Field repeat your password cannot be empty.</string>
+
 
     <!-- Toast Message Strings -->
     <string name="selectedDollarToast">Dollar selected succesfully.</string>
