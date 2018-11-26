@@ -34,6 +34,7 @@
             </intent-filter>
         </activity>
 
+
         <activity android:name=".activity_Trainer_Posting" />
         <activity android:name=".NormalUserRegistration" />
         <activity android:name=".CompanyUserRegistration" />
@@ -51,6 +52,7 @@
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
         <activity android:name=".activity_login_edition" />
+
         <activity android:name=".Settings" />
         <activity android:name=".LanguageSelect" />
         <activity android:name=".Notification" />
