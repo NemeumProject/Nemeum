@@ -160,7 +160,13 @@
     <string name="username_Empty">Su nombre de usuario no puede estar en blanco.</string>
     <string name="password_Empty">El campo contraseña no puede estar en blanco.</string>
     <string name="new_Password_Empty">El campo nueva contraseña no puede estar en blanco.</string>
-    <string name="rp_newPass_Empty">El campo repita su nueva contraseña no puede estar en blanco..</string>
+    <string name="rp_newPass_Empty">El campo repita su nueva contraseña no puede estar en blanco.</string>
+    <string name="title_Post_Empty">El campo título no puede estar en blanco.</string>
+    <string name="capacity_Post_Empty">El campo capacidad no puede estar en blanco.</string>
+    <string name="location_Post_Empty">El campo ubicación no puede estar en blanco.</string>
+    <string name="price_Post_Empty">El campo precio no puede estar en blanco.</string>
+    <string name="description_Post_Empty">El campo descripción no puede estar en blanco.</string>
+    <string name="date_Post_Empty">El campo fecha no puede estar en blanco.</string>
 
     <!-- Toast Message Strings -->
     <string name="selectedDollarToast">Moneda en Dollar.</string>

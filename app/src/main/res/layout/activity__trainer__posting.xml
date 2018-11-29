@@ -252,7 +252,8 @@
         android:background="@drawable/button_background1"
         android:text="@string/buttonFinish"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/fields_edition" />
+        android:textSize="@dimen/fields_edition"
+        android:onClick="posting_Trainer"/>
 
     <Button
         android:id="@+id/btn_cancel_posting"

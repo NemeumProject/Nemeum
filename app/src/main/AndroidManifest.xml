@@ -27,15 +27,16 @@
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".ActivityMainMock">
+        <activity android:name=".ActivityMainMock"/>
+
+
+
+        <activity android:name=".activity_Trainer_Posting" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".activity_Trainer_Posting" />
         <activity android:name=".NormalUserRegistration" />
         <activity android:name=".CompanyUserRegistration" />
         <activity android:name=".TrainerUserRegistration" />

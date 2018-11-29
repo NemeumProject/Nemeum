@@ -161,6 +161,12 @@
     <string name="password_Empty">Password field cannot be empty.</string>
     <string name="new_Password_Empty">New password field cannot be empty.</string>
     <string name="rp_newPass_Empty">Field repeat your password cannot be empty.</string>
+    <string name="title_Post_Empty">Field title cannot be empty.</string>
+    <string name="capacity_Post_Empty">Field capacity cannot be empty.</string>
+    <string name="location_Post_Empty">Field location cannot be empty.</string>
+    <string name="price_Post_Empty">Field price cannot be empty.</string>
+    <string name="description_Post_Empty">Field description cannot be empty.</string>
+    <string name="date_Post_Empty">Field date cannot be empty.</string>
 
     <!-- Toast Message Strings -->
     <string name="selectedDollarToast">Dollar selected succesfully.</string>
