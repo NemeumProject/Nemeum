@@ -167,6 +167,10 @@
     <string name="price_Post_Empty">El campo precio no puede estar en blanco.</string>
     <string name="description_Post_Empty">El campo descripción no puede estar en blanco.</string>
     <string name="date_Post_Empty">El campo fecha no puede estar en blanco.</string>
+    <string name="name_UserEdition_Empty">El campo nombre no puede estar en blanco.</string>
+    <string name="lastname_UserEdition_Empty">El campo apellido no puede estar en blanco.</string>
+    <string name="email_UserEdition_Empty">El campo correo electrónico no puede estar en blanco.</string>
+    <string name="gender_UserEdition_Empty">Debe seleccionar su género Hombre/Mujer .</string>
 
     <!-- Toast Message Strings -->
     <string name="selectedDollarToast">Moneda en Dollar.</string>
@@ -219,5 +223,6 @@
             Esperamos que disfrutes nuestros servicios,\n
             Nuestros mejores deseos;\n
             El equipo de Nemeum    </string>
+    <string name="date_format" > dd/mm/aaaa</string>
 
 </resources>

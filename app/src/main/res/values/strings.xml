@@ -167,6 +167,10 @@
     <string name="price_Post_Empty">Field price cannot be empty.</string>
     <string name="description_Post_Empty">Field description cannot be empty.</string>
     <string name="date_Post_Empty">Field date cannot be empty.</string>
+    <string name="name_UserEdition_Empty">Field name cannot be empty.</string>
+    <string name="lastname_UserEdition_Empty">Field last name cannot be empty.</string>
+    <string name="email_UserEdition_Empty">Field email cannot be empty.</string>
+    <string name="gender_UserEdition_Empty">Select your gender.</string>
 
     <!-- Toast Message Strings -->
     <string name="selectedDollarToast">Dollar selected succesfully.</string>
@@ -219,5 +223,6 @@
             Best regards;\n
             Nemeum Team
     </string>
+    <string name="date_format" > dd/mm/yyyy</string>
 
 </resources>

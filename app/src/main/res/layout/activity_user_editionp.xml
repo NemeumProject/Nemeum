@@ -70,15 +70,17 @@
             android:layout_width="113dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/full_User_Name"
-
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="-34dp"
             android:layout_marginTop="59dp"
             android:layout_marginEnd="148dp"
             android:ems="8"
+            android:backgroundTint="@color/colorBlue"
             android:inputType="textPersonName"
-            android:text="@string/user_Full_Name"
+            android:hint="@string/user_Full_Name"
+            android:textColor="@color/colorFont"
+            android:textColorHint="@color/colorHint"
             android:textSize="@dimen/font15" />
 
         <EditText
@@ -92,9 +94,12 @@
             android:layout_marginStart="121dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:ems="8"
             android:inputType="textPersonName"
-            android:text="@string/user_Last_Name"
+            android:hint="@string/user_Last_Name"
+            android:textColorHint="@color/colorHint"
             android:textSize="@dimen/font15" />
 
         <EditText
@@ -108,9 +113,12 @@
             android:layout_marginStart="89dp"
             android:layout_marginTop="95dp"
             android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:ems="8"
             android:inputType="textPersonName"
-            android:text="@string/dniPassport"
+            android:hint="@string/dniPassport"
+            android:textColorHint="@color/colorHint"
             android:textSize="@dimen/font15" />
 
         <TextView
@@ -135,9 +143,15 @@
             android:layout_marginStart="93dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:ems="8"
             android:inputType="date"
-            android:textSize="@dimen/font15" />
+            android:hint="@string/date_format"
+            android:textColorHint="@color/colorHint"
+            android:textSize="@dimen/font15"
+            android:clickable="true"
+            />
 
         <TextView
             android:id="@+id/user_Gender"
@@ -158,6 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/user_DniPassport_Edit"
             android:layout_alignTop="@+id/user_Gender"
+
             android:orientation="horizontal">
 
             <RadioButton
@@ -165,12 +180,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/colorBlue"
+                android:textColor="@color/colorFont"
                 android:text="@string/user_Male" />
 
             <RadioButton
                 android:id="@+id/user_Rbtn_Female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorBlue"
+                android:textColor="@color/colorFont"
                 android:layout_weight="1"
                 android:text="@string/user_Female" />
         </RadioGroup>
@@ -224,6 +243,8 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="108dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:ems="10"
             android:inputType="textEmailAddress" />
 
@@ -251,6 +272,8 @@
             android:layout_marginStart="191dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="106dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:ems="10"
             android:inputType="phone" />
 
@@ -275,6 +298,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="-6dp"
             android:layout_marginBottom="53dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:ems="8"
             android:inputType="text"
             android:textSize="@dimen/font15" />
@@ -313,6 +338,8 @@
             android:layout_marginEnd="0dp"
             android:layout_alignParentBottom="true"
             android:ems="10"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:inputType="textPostalAddress" />
 
         <EditText
@@ -323,6 +350,8 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="17dp"
             android:layout_marginBottom="2dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
@@ -338,6 +367,7 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/selected_month"
         android:text="@string/buttonSave"
+        android:onClick="save_Button_UserEditionP"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/fields_edition" />
 
