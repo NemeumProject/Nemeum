@@ -5,7 +5,7 @@
     android:background="@drawable/nemeum_background">
 
     <EditText
-        android:id="@+id/CompanyName"
+        android:id="@+id/CompanyNameRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -20,7 +20,7 @@
         android:textColor="#ffffff"/>
 
     <EditText
-        android:id="@+id/EmailCompanyRegister"
+        android:id="@+id/CompanyEmailAddressRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

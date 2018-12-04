@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class TrainerUserRegistration extends AppCompatActivity {
 
@@ -39,7 +40,15 @@ public class TrainerUserRegistration extends AppCompatActivity {
     {
         if(Trainer_Pass != Trainer_Pass_Vall)
         {
-
+            Toast.makeText(TrainerUserRegistration.this,"Your Password or Password Validation doesn't match, Please Try Again!",Toast.LENGTH_LONG).show();
+        }
+        if(Trainer_Pass.length()<6)
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your Password is too short. Minimum length of password is 6 letters! Please Try Again!",Toast.LENGTH_LONG).show();
+        }
+        if(Trainer_Pass.length()>22)
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your Password is too long. Maximum length of password is 22 letters!, Please Try Again!",Toast.LENGTH_LONG).show();
         }
     }
 }
