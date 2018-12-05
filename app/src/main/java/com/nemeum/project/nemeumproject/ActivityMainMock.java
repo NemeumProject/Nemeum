@@ -2,6 +2,8 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -11,15 +13,26 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class ActivityMainMock extends AppCompatActivity {
 
     Context appContext;
+    SharedPreferences SP;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        appContext = getApplicationContext();
+
+        if(!LocaleManager.getLanguage(appContext).equals(Locale.getDefault().getLanguage())) {
+            LocaleManager.setLocale(appContext);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mock);
-        appContext = getApplicationContext();
+        SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
         ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
         ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);

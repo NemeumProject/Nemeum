@@ -2,6 +2,7 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -56,10 +57,57 @@ public class LanguageSelect extends AppCompatActivity {
 
     }
 
-    public void changeLang(View view){
+    public void changeLangEs(View view){
 
-        Toast toast = Toast.makeText(appContext, R.string.newFuncionalityErr, Toast.LENGTH_LONG);
-        toast.show();
+        if(LocaleManager.getLanguage(appContext).equals("es")) {
+
+            Toast toast = Toast.makeText(appContext, R.string.changeLanguageErr, Toast.LENGTH_LONG);
+            toast.show();
+
+        } else {
+            Toast toast = Toast.makeText(appContext, R.string.selectedSpanishToast, Toast.LENGTH_SHORT);
+            toast.show();
+
+            LocaleManager.setNewLocale(appContext, "es");
+
+            restart();
+        }
+    }
+
+    public void changeLangEn(View view){
+
+        if(LocaleManager.getLanguage(appContext).equals("en")) {
+
+            Toast toast = Toast.makeText(appContext, R.string.changeLanguageErr, Toast.LENGTH_LONG);
+            toast.show();
+
+        } else {
+            Toast toast = Toast.makeText(appContext, R.string.selectedEnglishToast, Toast.LENGTH_SHORT);
+            toast.show();
+
+            LocaleManager.setNewLocale(appContext, "en");
+
+            restart();
+        }
 
     }
+
+    private void restart(){
+
+        new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                Intent i = getBaseContext().getPackageManager()
+                        .getLaunchIntentForPackage(getBaseContext().getPackageName());
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                startActivity(i);
+            }
+        }.start();
+    }
+
 }
