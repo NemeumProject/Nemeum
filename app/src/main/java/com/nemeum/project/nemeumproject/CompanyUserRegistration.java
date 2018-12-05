@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CompanyUserRegistration extends AppCompatActivity {
 
@@ -39,9 +40,17 @@ public class CompanyUserRegistration extends AppCompatActivity {
 
     private void CompanyRegisterValidation(String Company_Name, String Company_Email, String Company_Address, String Company_Telephone, String Company_Pass, String Company_Pass_Val)
     {
-        if(Company_Pass!=Company_Pass_Val)
+        if(Company_Pass != Company_Pass_Val)
         {
-
+            Toast.makeText(CompanyUserRegistration.this,"Your Password or Password Validation doesn't match, Please Try Again!",Toast.LENGTH_LONG).show();
+        }
+        if(Company_Pass.length()<6)
+        {
+            Toast.makeText(CompanyUserRegistration.this,"Your Password is too short. Minimum length of password is 6 letters! Please Try Again!",Toast.LENGTH_LONG).show();
+        }
+        if(Company_Pass.length()>22)
+        {
+            Toast.makeText(CompanyUserRegistration.this,"Your Password is too long. Maximum length of password is 22 letters!, Please Try Again!",Toast.LENGTH_LONG).show();
         }
     }
 
