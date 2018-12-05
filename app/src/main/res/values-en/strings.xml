@@ -172,6 +172,11 @@
     <string name="lastname_UserEdition_Empty">Field last name cannot be empty.</string>
     <string name="email_UserEdition_Empty">Field email cannot be empty.</string>
     <string name="gender_UserEdition_Empty">Select your gender.</string>
+    <string name="name_Company_Empty">Field name of company is mandatory</string>
+    <string name="company_Address_Empty">Field address is mandatory</string>
+    <string name="company_Phone_Empty">Field company phone number is mandatory</string>
+
+
 
     <!-- Toast Message Strings -->
     <string name="selectedEnglishToast">Changing the language to English, restarting...</string>
