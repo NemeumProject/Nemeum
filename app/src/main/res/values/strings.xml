@@ -157,6 +157,7 @@
     <string name="alreadyOnSettingsErr">Error - You are already in settings.</string>
     <string name="alreadyOnLoginErr">Error - You are already in the login page.</string>
     <string name="newFuncionalityErr">Error - We are still developing this functionality.</string>
+    <string name="changeLanguageErr">Error - The application is already at this language.</string>
     <string name="username_Empty">Your login username cannot be empty.</string>
     <string name="password_Empty">Password field cannot be empty.</string>
     <string name="new_Password_Empty">New password field cannot be empty.</string>
@@ -173,6 +174,8 @@
     <string name="gender_UserEdition_Empty">Select your gender.</string>
 
     <!-- Toast Message Strings -->
+    <string name="selectedEnglishToast">Changing the language to English, restarting...</string>
+    <string name="selectedSpanishToast">Changing the language to Spanish, restarting...</string>
     <string name="selectedDollarToast">Dollar selected succesfully.</string>
     <string name="selectedEuroToast">Euro selected succesfully.</string>
     <string name="selectedNotifOnToast">Notification turned on.</string>

@@ -40,7 +40,7 @@
         android:textColor="@color/colorFont"
         android:background="@drawable/months_rounded"
         android:backgroundTint="@color/colorPink"
-        android:onClick="changeLang"/>
+        android:onClick="changeLangEn"/>
 
     <Button
         android:id="@+id/spanishButton"
@@ -55,7 +55,7 @@
         android:textColor="@color/colorFont"
         android:background="@drawable/months_rounded"
         android:backgroundTint="@color/colorPink"
-        android:onClick="changeLang"/>
+        android:onClick="changeLangEs"/>
 
     <Button
         android:id="@+id/backButton"
@@ -64,7 +64,7 @@
         android:layout_margin="5dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/spanishButton"
-        android:text="@string/saveBackButtonTitle"
+        android:text="@string/backButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
         android:textColor="@color/colorFont"

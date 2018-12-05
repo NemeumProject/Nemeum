@@ -156,7 +156,8 @@
     <string name="alreadyOnHomeErr">Erro - Ya estás en la pantalla inicial.</string>
     <string name="alreadyOnSettingsErr">Erro - Ya estás en las configuraciones.</string>
     <string name="alreadyOnLoginErr">Erro - Ya estás en la pantalla de login.</string>
-    <string name="newFuncionalityErr">Erro - Aun estamos desarrolando esta funcionalidad.</string>
+    <string name="newFuncionalityErr">Erro - Aun estamos desarrollando esta funcionalidad.</string>
+    <string name="changeLanguageErr">Erro - La aplicación ya está en esta lenguaje.</string>
     <string name="username_Empty">Su nombre de usuario no puede estar en blanco.</string>
     <string name="password_Empty">El campo contraseña no puede estar en blanco.</string>
     <string name="new_Password_Empty">El campo nueva contraseña no puede estar en blanco.</string>
@@ -173,6 +174,8 @@
     <string name="gender_UserEdition_Empty">Debe seleccionar su género Hombre/Mujer .</string>
 
     <!-- Toast Message Strings -->
+    <string name="selectedEnglishToast">Cambiando la lenguaje al Inglés, reiniciando...</string>
+    <string name="selectedSpanishToast">Cambiando la lenguaje al Español, reiniciando...</string>
     <string name="selectedDollarToast">Moneda en Dollar.</string>
     <string name="selectedEuroToast">Moneda en Euro.</string>
     <string name="selectedNotifOnToast">Notificaciones encendidas.</string>
