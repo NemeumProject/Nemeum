@@ -158,6 +158,7 @@
     <string name="alreadyOnLoginErr">Erro - Ya estás en la pantalla de login.</string>
     <string name="newFuncionalityErr">Erro - Aun estamos desarrollando esta funcionalidad.</string>
     <string name="changeLanguageErr">Erro - La aplicación ya está en esta lenguaje.</string>
+    <string name="playServicesErr">Erro - No pudemos conectar a PlayServices.</string>
     <string name="username_Empty">Su nombre de usuario no puede estar en blanco.</string>
     <string name="password_Empty">El campo contraseña no puede estar en blanco.</string>
     <string name="new_Password_Empty">El campo nueva contraseña no puede estar en blanco.</string>

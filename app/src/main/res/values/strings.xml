@@ -158,6 +158,7 @@
     <string name="alreadyOnLoginErr">Error - You are already in the login page.</string>
     <string name="newFuncionalityErr">Error - We are still developing this functionality.</string>
     <string name="changeLanguageErr">Error - The application is already at this language.</string>
+    <string name="playServicesErr">Error - Cannot connect with PlayServices.</string>
     <string name="username_Empty">Your login username cannot be empty.</string>
     <string name="password_Empty">Password field cannot be empty.</string>
     <string name="new_Password_Empty">New password field cannot be empty.</string>
