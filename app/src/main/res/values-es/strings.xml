@@ -173,6 +173,9 @@
     <string name="lastname_UserEdition_Empty">El campo apellido no puede estar en blanco.</string>
     <string name="email_UserEdition_Empty">El campo correo electrónico no puede estar en blanco.</string>
     <string name="gender_UserEdition_Empty">Debe seleccionar su género Hombre/Mujer .</string>
+    <string name="name_Company_Empty">El nombre de la empresa es obligatorio</string>
+    <string name="company_Address_Empty">La dirección de la empresa es obligatoria</string>
+    <string name="company_Phone_Empty">El numéro de teléfono de la empresa es obligatorio</string>
 
     <!-- Toast Message Strings -->
     <string name="selectedEnglishToast">Cambiando la lenguaje al Inglés, reiniciando...</string>
