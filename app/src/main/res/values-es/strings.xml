@@ -158,6 +158,7 @@
     <string name="alreadyOnLoginErr">Erro - Ya estás en la pantalla de login.</string>
     <string name="newFuncionalityErr">Erro - Aun estamos desarrollando esta funcionalidad.</string>
     <string name="changeLanguageErr">Erro - La aplicación ya está en esta lenguaje.</string>
+    <string name="playServicesErr">Erro - No pudemos conectar a PlayServices.</string>
     <string name="username_Empty">Su nombre de usuario no puede estar en blanco.</string>
     <string name="password_Empty">El campo contraseña no puede estar en blanco.</string>
     <string name="new_Password_Empty">El campo nueva contraseña no puede estar en blanco.</string>
@@ -172,6 +173,9 @@
     <string name="lastname_UserEdition_Empty">El campo apellido no puede estar en blanco.</string>
     <string name="email_UserEdition_Empty">El campo correo electrónico no puede estar en blanco.</string>
     <string name="gender_UserEdition_Empty">Debe seleccionar su género Hombre/Mujer .</string>
+    <string name="name_Company_Empty">El nombre de la empresa es obligatorio</string>
+    <string name="company_Address_Empty">La dirección de la empresa es obligatoria</string>
+    <string name="company_Phone_Empty">El numéro de teléfono de la empresa es obligatorio</string>
 
     <!-- Toast Message Strings -->
     <string name="selectedEnglishToast">Cambiando la lenguaje al Inglés, reiniciando...</string>

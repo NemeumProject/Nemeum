@@ -6,7 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 public class activity_company_editionp extends AppCompatActivity {
 
@@ -45,6 +48,38 @@ public class activity_company_editionp extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    public void save_CompanyEditionP(View view) {
+
+        //set up the variables to validate not empty fields and strings to show as error messages
+        EditText etCompanyName = (EditText) findViewById(R.id.companyTitleEditText);
+        String strCompanyName = etCompanyName.getText().toString();
+        String company_Name_Error = getString(R.string.name_Company_Empty);
+
+        EditText etCompanyAddress = (EditText) findViewById(R.id.companyPlaceEditText);
+        String strCompanyAddress = etCompanyAddress.getText().toString();
+        String company_Address_Error = getString(R.string.company_Address_Empty);
+
+        EditText etCompanyPhone = (EditText) findViewById(R.id.companyPhoneEditText);
+        String strCompanyPhone = etCompanyPhone.getText().toString();
+        String company_Phone_Error = getString(R.string.company_Phone_Empty);
+
+
+        if(TextUtils.isEmpty(strCompanyName)) {
+            etCompanyName.setError(company_Name_Error);
+            return;
+        }
+        else  if(TextUtils.isEmpty(strCompanyAddress)) {
+            etCompanyAddress.setError(company_Address_Error);
+            return;
+        }
+        else  if(TextUtils.isEmpty(strCompanyPhone)) {
+            etCompanyPhone.setError(company_Phone_Error);
+            return;
+        }
+
 
     }
 }

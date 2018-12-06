@@ -22,16 +22,7 @@
         android:background="@drawable/results_rounded"
         android:backgroundTint="@color/colorBackground">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginVertical="5dp"
-            android:layout_toEndOf="@+id/companyTitleEditText"
-            android:background="@drawable/selected_month"
-            android:text="@string/buttonSave"
-            android:textColor="@color/colorFont"
-            android:textSize="10dp" />
+
 
 
         <EditText
@@ -88,6 +79,19 @@
             android:text="+33 155359755"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
+
+        <Button
+            android:id="@+id/btn_save_CompanyEditionP"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="260dp"
+             android:layout_marginTop="8dp"
+            android:background="@drawable/selected_month"
+            android:onClick="save_CompanyEditionP"
+            android:text="@string/buttonSave"
+            android:textColor="@color/colorFont"
+            android:textSize="10dp" />
     </RelativeLayout>
 
     <ImageView
