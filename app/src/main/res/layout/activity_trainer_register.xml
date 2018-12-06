@@ -50,21 +50,6 @@
         android:textColor="#ffffff"/>
 
     <EditText
-        android:id="@+id/TrainerSportType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="text"
-        android:hint="Trainer Sports Type"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="170dp"
-        android:textColor="#ffffff"/>
-
-    <EditText
         android:id="@+id/TrainerPasswordRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +61,7 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="170dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -91,7 +76,7 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="120dp"
         android:textColor="#ffffff"/>
 
     <Button

@@ -38,6 +38,29 @@ public class TrainerUserRegistration extends AppCompatActivity {
 
     private void TrainerRegisterValidation(String Trainer_Name,String Trainer_Email,String Trainer_Telp,String Trainer_Pass,String Trainer_Pass_Vall)
     {
-        
+        if(Trainer_Name.length()<3)
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your input name less than 3 characters, please input more than 2 characters!",Toast.LENGTH_LONG).show();
+        }
+        if(Trainer_Name.length()>22)
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+        }
+        if(Trainer_Email.length()==0)
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+        }
+        if(Trainer_Telp.length()<7)
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your input telephone number less than 7 characters, please input more than 6 characters!",Toast.LENGTH_LONG).show();
+        }
+        if(Trainer_Pass.length()<6)
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
+        }
+        if(!Trainer_Pass.equals(Trainer_Pass_Vall))
+        {
+            Toast.makeText(TrainerUserRegistration.this,"Your password and your password validation doesn't match",Toast.LENGTH_LONG).show();
+        }
     }
 }
