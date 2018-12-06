@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/trainerResultLwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/results_rounded"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/trainerResultImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/bookTrainerResult"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="@string/buttonBook"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/trainerResultImg"
+            android:textColor="@color/colorFont"
+            android:background="@drawable/months_rounded" />
+
+        <Button
+            android:id="@+id/scheduleTrainerResult"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="@string/buttonSchedule"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:layout_below="@+id/bookTrainerResult"
+            android:textColor="@color/colorFont"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="@color/colorPink"/>
+
+        <TextView
+            android:id="@+id/trainerResultName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/trainerResultImg"
+            android:textColor="@color/colorFont"
+            android:textSize="15sp"/>
+
+        <RatingBar
+            android:id="@+id/starTrainerRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainerResultName"
+            android:layout_toRightOf="@+id/trainerResultImg"
+            android:numStars="5"
+            android:stepSize=".1" />
+
+        <TextView
+            android:id="@+id/trainerResultSportText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/starTrainerRating"
+            android:layout_toRightOf="@+id/trainerResultImg"
+            android:textColor="@color/colorBlue"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/trainerResultPlaceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainerResultSportText"
+            android:layout_toRightOf="@+id/trainerResultImg"
+            android:textColor="@color/colorBlue"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/trainerResultDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainerResultPlaceText"
+            android:layout_toRightOf="@+id/trainerResultImg"
+            android:textColor="@color/colorFont"
+            android:textSize="12sp"/>
+
+    </RelativeLayout>
+</LinearLayout>

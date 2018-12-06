@@ -115,5 +115,46 @@ public class ActivityMainMock extends AppCompatActivity {
         Intent intent8 = new Intent(this, EventFinder.class);
         startActivity(intent8);
     }
+/*
+    public void checkPermissions() {
+
+        final List<String> permissionsList = new ArrayList<String>();
+        addPermission(permissionsList, Manifest.permission.MAPS_RECEIVE);
+
+        if (permissionsList.size() > 0) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(permissionsList.toArray(new String[permissionsList.size()]),
+                        REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);
+            }
+            return;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS:
+            {
+                Map<String, Integer> perms = new HashMap<String, Integer>();
+                // Initial
+                perms.put(Manifest.permission.MAPS_RECEIVE, PackageManager.PERMISSION_GRANTED);
+                // Fill with results
+                for (int i = 0; i < permissions.length; i++)
+                    perms.put(permissions[i], grantResults[i]);
+                // Check for ACCESS_FINE_LOCATION
+                if (perms.get(Manifest.permission.MAPS_RECEIVE) == PackageManager.PERMISSION_GRANTED) {
+                    mPermissionGranted = true;
+                    Toast.makeText(this, "Permissão aceita", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Permission Denied
+                    mPermissionGranted = false;
+                    Toast.makeText(this, "Permissão negada", Toast.LENGTH_SHORT).show();
+                }
+            }
+            break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }*/
 
 }
