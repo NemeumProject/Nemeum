@@ -29,6 +29,7 @@
 
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Find Events</string>
+    <string name="recommendedEventTitle">Recommended Event</string>
     <string-array name="monthsEvents">
         <item>January</item>
         <item>February</item>
@@ -102,9 +103,6 @@
     <!-- Strings for Trainer Finder -->
     <string name="findTrainerTitle">Search Trainer</string>
     <string name="trainerFilterName">Trainer name</string>
-    <string name="trainerFilterSport">Sport Type</string>
-    <string name="trainerFilterCity">City</string>
-    <string name="trainerFilterPrice">Price Range</string>
 
     <!-- Strings for Buttons -->
     <string name="buttonBook">Book!</string>

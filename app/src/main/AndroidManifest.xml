@@ -4,7 +4,7 @@
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <permission
-        android:name="com.nemeum.project.nemeumproject.pemission.MAPS_RECEIVE"
+        android:name="com.nemeum.project.nemeumproject.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

@@ -29,6 +29,7 @@
 
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Buscar Eventos</string>
+    <string name="recommendedEventTitle">Evento recomendado</string>
     <string-array name="monthsEvents">
         <item>Enero</item>
         <item>Febrero</item>

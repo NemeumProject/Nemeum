@@ -99,7 +99,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
-            android:background="@mipmap/exercise" />
+            android:background="@drawable/exercise" />
 
         <Button
             android:id="@+id/bookScenarioI"
@@ -148,7 +148,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
-            android:background="@mipmap/weightlifting" />
+            android:background="@drawable/weightlifting" />
 
         <Button
             android:id="@+id/bookScenarioII"
