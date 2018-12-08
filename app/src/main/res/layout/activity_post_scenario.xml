@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#17252a">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:textSize="25dp"
+        android:textColor="#eeeeee"
+        android:gravity="center_horizontal"
+        android:text="POST SCENARIO"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/screen_background"
+        />
+
+    <ImageView
+        android:id="@+id/image_scenario_post"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="375dp"
+        android:background="@drawable/bean"
+        android:gravity="center"
+       />
+
+    <EditText
+        android:id="@+id/edit_scenario_title"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="280dp"
+        android:background="@drawable/text_box"
+        android:gravity="center"
+        android:textColorHint="#17252a"
+        android:hint="Title of Your Scenario"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edit_scenario_desc"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="240dp"
+        android:background="@drawable/text_box"
+        android:gravity="center"
+        android:textColorHint="#17252a"
+        android:hint="Write your scenario description here..."
+        android:inputType="text"/>
+
+
+    <EditText
+        android:id="@+id/scenario_capacity"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/text_box"
+        android:gravity="center"
+        android:textColorHint="#17252a"
+        android:hint="Scenario Capacity"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/scenario_price"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/text_box"
+        android:gravity="center"
+        android:textColorHint="#17252a"
+        android:hint="Scenario Price"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/submit_scenario_post"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/button_background1"
+        android:layout_centerHorizontal="true"
+        android:textColor="#17252a"
+        android:text="POST" />
+
+</RelativeLayout>
