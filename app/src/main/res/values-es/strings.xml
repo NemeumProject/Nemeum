@@ -232,5 +232,18 @@
             Nuestros mejores deseos;\n
             El equipo de Nemeum    </string>
     <string name="date_format" > dd/mm/aaaa</string>
-
+    <string name="daily_Schedule_Title">Reservaciones</string>
+    <string name="scenario_Daily_Schedule">Escenario</string>
+    <string name="starting_Time">Hora inicio</string>
+    <string name="ending_Time">Hora finalización</string>
+    <string name="customer_name">Nombre del cliente</string>
+    <string name="user_Phone_Empty">El campo teléfono no puede estar en blanco</string>
+    <string name="stime_error">El campo hora de inicio no puede estar en blanco</string>
+    <string name="etime_error">El campo hora finalizacion no puede estar en blanco</string>
+    <string name="scenarios_spinner_Error">Seleccione un escenario</string>
+    <string-array name="scenarios_array">
+        <item>Centro de Boxeo Lleida</item>
+        <item>Gimnasio  Centro de Lleida</item>
+        <item>Centro de Futbol de Lleida</item>
+    </string-array>
 </resources>
