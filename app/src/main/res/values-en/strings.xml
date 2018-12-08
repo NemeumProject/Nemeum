@@ -233,5 +233,20 @@
             Nemeum Team
     </string>
     <string name="date_format" > dd/mm/yyyy</string>
+    <string name="daily_Schedule_Title">Daily Schedule</string>
+    <string name="scenario_Daily_Schedule">Scenario</string>
+    <string name="starting_Time">Starting Time</string>
+    <string name="ending_Time">Ending Time</string>
+    <string name="customer_name">Customer name</string>
+    <string name="user_Phone_Empty">Field phone cannot be empty</string>
+    <string name="stime_error">Starting time cannot be empty</string>
+    <string name="etime_error">Ending time cannot be empty</string>
+    <string name="scenarios_spinner_Error">Select a scenario</string>
+
+    <string-array name="scenarios_array">
+        <item>Boxing ring of Lleida</item>
+        <item>Lleida Gym Center</item>
+        <item>Soccer center of Lleida</item>
+    </string-array>
 
 </resources>
