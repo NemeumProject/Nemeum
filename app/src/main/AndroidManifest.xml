@@ -4,7 +4,7 @@
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <permission
-        android:name="com.nemeum.project.nemeumproject.pemission.MAPS_RECEIVE"
+        android:name="com.nemeum.project.nemeumproject.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -28,7 +28,12 @@
         android:theme="@style/AppTheme">
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".ActivityMainMock"/>
+        <activity android:name=".ActivityMainMock">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".activity_Trainer_Posting" />
@@ -47,7 +52,6 @@
         <activity android:name=".CompanyDetail" />
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
-
         <activity android:name=".activity_login_edition" />
         <activity android:name=".Settings" />
         <activity android:name=".LanguageSelect" />
@@ -63,13 +67,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".activity_edit_daily_schedule">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+        <activity android:name=".activity_edit_daily_schedule"/>
+        <activity android:name=".BookScenarios" />
+        <activity android:name=".BookScenarioPayment"></activity>
     </application>
 
 </manifest>

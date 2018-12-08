@@ -29,6 +29,7 @@
 
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Find Events</string>
+    <string name="recommendedEventTitle">Recommended Event</string>
     <string-array name="monthsEvents">
         <item>January</item>
         <item>February</item>
@@ -99,21 +100,37 @@
         <item>More than 160€</item>
     </string-array>
 
+    <!-- Strings for Booking Scenarios-->
+    <string name="scenarioBookTitle">Book Scenario</string>
+    <string-array name="hourStartFilter">
+        <item>Starting Time</item>
+    </string-array>
+    <string-array name="hourEndFilter">
+        <item>Finish Time</item>
+    </string-array>
+    <string-array name="paymentMethodsFilter">
+        <item>Payment Method</item>
+        <item>Credit Card</item>
+        <item>Debit Card</item>
+        <item>Google Pay</item>
+        <item>Pay at the partner</item>
+        <item>Paypal</item>
+    </string-array>
+
     <!-- Strings for Trainer Finder -->
     <string name="findTrainerTitle">Search Trainer</string>
     <string name="trainerFilterName">Trainer name</string>
-    <string name="trainerFilterSport">Sport Type</string>
-    <string name="trainerFilterCity">City</string>
-    <string name="trainerFilterPrice">Price Range</string>
 
     <!-- Strings for Buttons -->
     <string name="buttonBook">Book!</string>
     <string name="buttonSchedule">Schedule</string>
     <string name="buttonScenario">Scenario</string>
+    <string name="buttonSubmit">Submit</string>
     <string name="buttonSave">Save</string>
     <string name="buttonRegister">Register</string>
     <string name="buttonCancel">Cancel</string>
     <string name="buttonFinish">Finish</string>
+    <string name="buttonDatePayment">Choose date and \n Payment method</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of exercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificent Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>

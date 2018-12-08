@@ -9,6 +9,7 @@
     <dimen name="fields_edition">15sp</dimen>
 
     <!-- Font Size. -->
+    <dimen name="font12">12sp</dimen>
     <dimen name="font15">15sp</dimen>
     <dimen name="font20">20sp</dimen>
     <dimen name="font25">25sp</dimen>

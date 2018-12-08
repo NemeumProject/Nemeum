@@ -13,6 +13,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import url.UrlServer;
+
 public class Login extends AppCompatActivity {
 
     private EditText Email;
@@ -31,7 +43,13 @@ public class Login extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoginValidation(Email.getText().toString(), Password.getText().toString());
+                try {
+                    LoginValidation(Email.getText().toString(), Password.getText().toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -62,19 +80,44 @@ public class Login extends AppCompatActivity {
         startActivity(intent2);
     }
 
-    private void LoginValidation(String UserEmail,String UserPassword) {
-        if((UserEmail.equals("admin")) && (UserPassword.equals("admin"))){
-            Intent intent1 = new Intent(this, UserLoginActivity.class);
-            startActivity(intent1);
-        }
-        else{
-            Toast.makeText(Login.this,"Your Input Email or Input Password is incorrect, Please Try Again!",Toast.LENGTH_LONG).show();
-        }
+    private void LoginValidation(final String Email, final String UserPassword) throws IOException, JSONException {
+        new Thread(new Runnable() {
+            public void run() {
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpPost httppost = new HttpPost(UrlServer.url + "/login");
+
+                JSONObject postData = new JSONObject();
+                try {
+                    postData.put("email", Email);
+                    postData.put("password", UserPassword);
+
+                    StringEntity se = null;
+                    se = new StringEntity(postData.toString());
+                    httppost.setHeader("Accept", "application/json");
+                    httppost.setHeader("Content-type", "application/json");
+                    httppost.setEntity(se);
+                    HttpResponse response = httpclient.execute(httppost);
+                    if(response.getStatusLine().getStatusCode() == 200){
+                        Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
+                        startActivity(intent1);
+                    }else{
+                        Login.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(Login.this,"Your Input Email or Input Password is incorrect, Please Try Again!",Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     private void openForgetPassActivity(){
         Intent intent3 = new Intent(this,ForgetPassActivity.class);
         startActivity( intent3);
     }
-
 }

@@ -35,6 +35,7 @@
             android:textSize="10sp"
             android:layout_below="@+id/companyScenarioPrice"
             android:textColor="@color/colorFont"
+            android:onClick="bookNow"
             android:background="@drawable/months_rounded" />
 
         <TextView

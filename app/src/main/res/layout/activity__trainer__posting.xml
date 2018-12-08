@@ -25,7 +25,7 @@
         android:layout_below="@+id/posting_Name_Tv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:background="@mipmap/group_of_men_running" />
+        android:background="@drawable/group_of_men_running" />
 
     <TextView
         android:id="@+id/posting_Title_Tv"

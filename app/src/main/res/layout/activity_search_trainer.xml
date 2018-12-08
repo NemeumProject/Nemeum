@@ -40,9 +40,9 @@
             android:layout_height="25dp"
             android:layout_margin="5dp"
             android:cursorVisible="true"
-            android:text="Trainer Name"
-            android:textCursorDrawable="@color/colorWhite"
-            android:focusedByDefault="false"
+            android:hint="@string/trainerFilterName"
+            android:textColorHint="@color/colorWhite"
+            android:textCursorDrawable="@color/colorFont"
             android:background="@drawable/months_rounded" />
 
         <Spinner
