@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    tools:context=".activity_edit_daily_schedule">
+
+    <RelativeLayout
+        android:id="@+id/companyScheduleLyt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBackground"
+        android:padding="3dp">
+
+
+        <EditText
+            android:id="@+id/et_customerEmail"
+            android:layout_width="211dp"
+            android:layout_height="29dp"
+
+            android:layout_alignBaseline="@+id/tv_customerEmail_Daily_Schedule"
+            android:layout_alignEnd="@+id/glyt_Buttons"
+            android:background="@drawable/results_rounded"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorFont"
+            android:textColorHint="@color/colorHint"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <EditText
+            android:id="@+id/et_customerPhone"
+            android:layout_width="211dp"
+            android:layout_height="29dp"
+            android:layout_alignBaseline="@+id/tv_customerPhone_Daily_Schedule"
+            android:layout_alignEnd="@+id/glyt_Buttons"
+            android:background="@drawable/results_rounded"
+            android:inputType="phone"
+            android:textColor="@color/colorFont"
+            android:textColorHint="@color/colorHint"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <EditText
+            android:id="@+id/et_customerName"
+            android:layout_width="221dp"
+            android:layout_height="29dp"
+            android:layout_alignTop="@+id/tv_customerName_Daily_Schedule"
+            android:layout_alignEnd="@+id/glyt_Buttons"
+            android:background="@drawable/results_rounded"
+            android:inputType="text"
+            android:textColor="@color/colorFont"
+            android:textColorHint="@color/colorHint"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <EditText
+            android:id="@+id/et_EndingTime_Daily_Schedule"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="219dp"
+            android:layout_marginEnd="159dp"
+            android:layout_marginRight="159dp"
+            android:backgroundTint="@color/colorBlue"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="time"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorHint"
+            android:textSize="@dimen/font15" />
+
+        <EditText
+            android:id="@+id/et_StartingTime_Daily_Schedule"
+            android:layout_width="138dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="166dp"
+            android:layout_marginEnd="151dp"
+            android:layout_marginRight="151dp"
+            android:backgroundTint="@color/colorBlue"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="time"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorHint"
+            android:textSize="@dimen/font15" />
+
+        <TextView
+            android:id="@+id/tv_startingTime_Daily_Schedule"
+            android:layout_width="64dp"
+            android:layout_height="37dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="170dp"
+            android:text="@string/starting_Time"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_endingTime_Daily_Schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="220dp"
+            android:text="@string/ending_Time"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_customerName_Daily_Schedule"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="272dp"
+            android:text="@string/customer_name"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_customerPhone_Daily_Schedule"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="334dp"
+            android:text="@string/user_Phone"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_customerEmail_Daily_Schedule"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="393dp"
+            android:text="@string/user_Email"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_scenario_Daily_Schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="109dp"
+            android:text="@string/scenario_Daily_Schedule"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_title_Daily_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/companyScheduleLyt"
+            android:layout_centerHorizontal="true"
+            android:text="@string/daily_Schedule_Title"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font25"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_Date_Daily_Schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="59dp"
+            android:text="@string/date_posting"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font15"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_Date_Daily_Schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="51dp"
+            android:backgroundTint="@color/colorBlue"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="date"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorHint"
+            android:textSize="@dimen/font15" />
+
+        <android.support.v7.widget.GridLayout
+
+            android:layout_width="259dp"
+            android:layout_height="40dp"
+            android:layout_alignStart="@+id/et_Date_Daily_Schedule"
+            android:layout_alignTop="@+id/tv_scenario_Daily_Schedule">
+
+            <Spinner
+                android:id="@+id/scenarios_Spinner_Daily_Schedule"
+                android:layout_width="227dp"
+                android:layout_height="23dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/results_rounded"
+                android:backgroundTint="@color/colorBlue"
+                android:textSize="8dp" />
+        </android.support.v7.widget.GridLayout>
+
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/glyt_Buttons"
+            android:layout_width="293dp"
+            android:layout_height="60dp"
+            android:layout_alignStart="@+id/tv_customerName_Daily_Schedule"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="31dp">
+
+            <Button
+                android:id="@+id/btn_save_user_edition"
+                android:layout_width="134dp"
+                android:layout_height="40dp"
+
+                android:background="@drawable/selected_month"
+                android:onClick="save_Button_Daily_Schedule"
+                android:text="@string/buttonSave"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/fields_edition"
+                app:layout_column="0"
+                app:layout_row="0" />
+
+            <Button
+                android:id="@+id/btn_cancel_user_edition"
+                android:layout_width="134dp"
+                android:layout_height="40dp"
+
+                android:background="@drawable/selected_month"
+                android:text="@string/buttonCancel"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/fields_edition"
+                app:layout_column="2"
+                app:layout_row="0" />
+
+        </android.support.v7.widget.GridLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
