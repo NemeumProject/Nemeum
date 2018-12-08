@@ -37,6 +37,6 @@ public class PostScenario extends AppCompatActivity {
     }
 
     private void SubmitNewScenario(String title,String desc,String capacity,String price){
-        
+
     }
 }
