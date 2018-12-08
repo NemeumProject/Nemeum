@@ -100,21 +100,37 @@
         <item>Más de 160€</item>
     </string-array>
 
+    <!-- Strings for Booking Scenarios-->
+    <string name="scenarioBookTitle">Citar Escenario</string>
+    <string-array name="hourStartFilter">
+        <item>Inicio</item>
+    </string-array>
+    <string-array name="hourEndFilter">
+        <item>Hasta</item>
+    </string-array>
+    <string-array name="paymentMethodsFilter">
+        <item>Metodo de pago</item>
+        <item>Tarjeta de credito</item>
+        <item>Tarjeta de debito</item>
+        <item>Google Pay</item>
+        <item>Pago en el sitio</item>
+        <item>Paypal</item>
+    </string-array>
+
     <!-- Strings for Trainer Finder -->
     <string name="findTrainerTitle">Buscar Entrenador</string>
     <string name="trainerFilterName">Nombre del entrenador</string>
-    <string name="trainerFilterSport">Tipo de desporto</string>
-    <string name="trainerFilterCity">Ciudad</string>
-    <string name="trainerFilterPrice">Gama de Precios</string>
 
     <!-- Strings for Buttons -->
     <string name="buttonBook">Citar!</string>
     <string name="buttonSchedule">Agenda</string>
     <string name="buttonScenario">Escenario</string>
+    <string name="buttonSubmit">Enviar</string>
     <string name="buttonSave">Guardar</string>
     <string name="buttonRegister">Registrar</string>
     <string name="buttonCancel">Cancelar</string>
     <string name="buttonFinish">Finalizar</string>
+    <string name="buttonDatePayment">Elegir fecha y \n Metodo de pago</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre en Bethral Green incluye un gimnasio, día de spa, piscina de 33 metros, Sauna Turca y ofrece variedad de ejercicios, pero es mayormente conocida por su arena para boxeo, donde los futuros campeones como Lenoxx Lewis y Audley Harrisson aprendieron lo que hacen. El magnifico edificio Georgian, abierto desde 1929 por el duque de York, ha acogido a algunos de los mas grandes boxeadores con combates en el salon principal.</string>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackground"
+    tools:context=".BookScenarios">
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@mipmap/back_icon"
+        android:onClick="getBack" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="3dp"
+        android:text="@string/scenarioBookTitle"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font25"
+        android:textAlignment="center"
+        android:textStyle="bold"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_below="@+id/backBtn"
+        android:layout_above="@+id/navigation"
+        android:background="@drawable/results_rounded">
+
+        <ImageView
+            android:id="@+id/bookScenarioImg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/starScenarioRating"/>
+
+        <RatingBar
+            android:id="@+id/starScenarioRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/scenarioBookTitleText"
+            android:numStars="5"
+            android:stepSize=".1" />
+
+        <TextView
+            android:id="@+id/scenarioBookTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorFont"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/scenarioBookDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/scenarioBookTitleText"
+            android:textColor="@color/colorFont"
+            android:textSize="12sp"/>
+
+        <Button
+            android:id="@+id/paymentButton"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/scenarioBookDescriptionText"
+            android:text="@string/buttonDatePayment"
+            android:textSize="15dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorFont"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="@color/colorPink"
+            android:onClick="scenarioBookPayment" />
+    </RelativeLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
+
+</RelativeLayout>

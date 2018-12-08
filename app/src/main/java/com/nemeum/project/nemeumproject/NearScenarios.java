@@ -11,6 +11,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +35,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
+
 public class NearScenarios extends AppCompatActivity implements OnMapReadyCallback {
 
-    int[] scenarioPicture = {R.drawable.stadium, R.drawable.stadium, R.drawable.stadium};
+    int[] scenarioPicture = {R.drawable.swimming_silhouette, R.drawable.stadium, R.drawable.decathlon_logo};
     String[] scenarioName = {"Lleida Gym Center", "Soccer center of Lleida", "Boxing ring of Lleida"};
     String[] scenarioPrice = {"39€ / month", "14€ / month", "60€ / month"};
     String[] scenarioSubtitle = {"Scenario 1", "Scenario 2", "Scenario 3"};
@@ -51,6 +56,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         setContentView(R.layout.activity_near_scenarios);
 
         appContext = getApplicationContext();
+
+        getAllScenarios();
 
         nearMap = findViewById(R.id.mapView);
         nearMap.onCreate(savedInstanceState);
@@ -113,6 +120,31 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
     }
 
+    public void getAllScenarios() {
+        BufferedReader in = null;
+        String data = null;
+
+        /*try{
+            HttpClient httpclient = new DefaultHttpClient();
+
+            HttpGet request = new HttpGet();
+            URI website = new URI("http://alanhardin.comyr.com/matt24/matt28.php");
+            request.setURI(website);
+            HttpResponse response = httpclient.execute(request);
+            in = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            // NEW CODE
+            String line = in.readLine();
+            textv.append(" First line: " + line);
+            // END OF NEW CODE
+
+            textv.append(" Connected ");
+        }catch(Exception e){
+            Log.e("log_tag", "Error in http connection "+e.toString());
+        }*/
+    }
+
     public void getBack(View view) {
         finish();
     }
@@ -134,6 +166,9 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        double latitude, longitude;
+
         gMap = googleMap;
 
         //gMap.addMarker(new MarkerOptions()
@@ -159,8 +194,13 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
         Location location = locationManager.getLastKnownLocation(locationManager
                 .getBestProvider(criteria, false));
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
+        if(location != null) {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+        } else {
+            latitude = 0;
+            longitude = 0;
+        }
 
         MapsInitializer.initialize(appContext);
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -177,7 +217,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
         @Override
         public int getCount() {
-            return 3;
+            return scenarioName.length;
         }
 
         @Override
@@ -191,7 +231,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             convertView = getLayoutInflater().inflate(R.layout.scenario_result_layout, null);
 
@@ -208,6 +248,17 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             scenarioTitleDescr.setText(scenarioSubtitle[position]);
             scenarioDescription.setText(R.string.scenarioFindDescr);
 
+            bookBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intentBook = new Intent(appContext, BookScenarios.class);
+                    intentBook.putExtra("chooseImg", scenarioPicture[position]);
+                    intentBook.putExtra("chooseRating", 2);
+                    intentBook.putExtra("chooseName", scenarioName[position]);
+                    intentBook.putExtra("chooseDescr", "Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200");
+                    appContext.startActivity(intentBook);
+                }
+            });
             return convertView;
         }
     }

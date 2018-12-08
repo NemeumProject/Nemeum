@@ -52,7 +52,6 @@
         <activity android:name=".CompanyDetail" />
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
-
         <activity android:name=".activity_login_edition" />
         <activity android:name=".Settings" />
         <activity android:name=".LanguageSelect" />
@@ -69,6 +68,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".activity_edit_daily_schedule"/>
+        <activity android:name=".BookScenarios" />
+        <activity android:name=".BookScenarioPayment"></activity>
     </application>
 
 </manifest>
