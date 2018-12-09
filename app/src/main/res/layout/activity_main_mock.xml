@@ -63,7 +63,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_gravity="center"
-            android:text="Find Event"
+            android:text="@string/search_event"
             android:textColor="#17252a" />
 
         <ImageButton
@@ -85,7 +85,7 @@
             android:layout_marginLeft="20dp"
             android:layout_toEndOf="@+id/findeventicon"
             android:layout_toRightOf="@id/findeventicon"
-            android:text="F. Facilities"
+            android:text="@string/search_facilities"
             android:textColor="#17252a" />
 
         <ImageButton
@@ -105,7 +105,7 @@
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
             android:layout_toLeftOf="@id/findtrainericon"
-            android:text="F. Scenario"
+            android:text="@string/search_scenario"
             android:textColor="#17252a" />
 
         <ImageButton
@@ -127,7 +127,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
-            android:text="F. Trainer"
+            android:text="@string/search_trainer"
             android:textColor="#17252a" />
     </RelativeLayout>
 

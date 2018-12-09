@@ -58,9 +58,5 @@ public class NormalUserRegistration extends AppCompatActivity {
         {
             Toast.makeText(NormalUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
         }
-        if(!password.equals(password_validation))
-        {
-
-        }
     }
 }
