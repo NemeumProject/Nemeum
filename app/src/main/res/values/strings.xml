@@ -257,6 +257,7 @@
     <string name="stime_error">Starting time cannot be empty</string>
     <string name="etime_error">Ending time cannot be empty</string>
     <string name="scenarios_spinner_Error">Select a scenario</string>
+    <string name="scenarios_edition">Scenarios Edition</string>
     <string-array name="scenarios_array">
         <item>Boxing ring of Lleida</item>
         <item>Lleida Gym Center</item>

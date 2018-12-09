@@ -257,6 +257,7 @@
     <string name="stime_error">El campo hora de inicio no puede estar en blanco</string>
     <string name="etime_error">El campo hora finalizacion no puede estar en blanco</string>
     <string name="scenarios_spinner_Error">Seleccione un escenario</string>
+    <string name="scenarios_edition">Edición de Escenarios </string>
     <string-array name="scenarios_array">
         <item>Centro de Boxeo Lleida</item>
         <item>Gimnasio  Centro de Lleida</item>
