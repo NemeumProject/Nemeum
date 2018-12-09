@@ -80,7 +80,9 @@ public class Login extends AppCompatActivity {
         startActivity(intent2);
     }
 
-    private void LoginValidation(final String Email, final String UserPassword) throws IOException, JSONException {
+    private void LoginValidation(String Email, String UserPassword) throws IOException, JSONException {
+        final String email = Email;
+        final String password = UserPassword;
         new Thread(new Runnable() {
             public void run() {
                 HttpClient httpclient = new DefaultHttpClient();
@@ -88,8 +90,8 @@ public class Login extends AppCompatActivity {
 
                 JSONObject postData = new JSONObject();
                 try {
-                    postData.put("email", Email);
-                    postData.put("password", UserPassword);
+                    postData.put("email", email);
+                    postData.put("password", password);
 
                     StringEntity se = null;
                     se = new StringEntity(postData.toString());
