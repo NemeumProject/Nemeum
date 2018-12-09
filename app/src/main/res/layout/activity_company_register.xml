@@ -4,96 +4,207 @@
     android:layout_height="match_parent"
     android:background="@drawable/nemeum_background">
 
-    <EditText
-        android:id="@+id/CompanyNameRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="text"
-        android:hint="Company Name"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="320dp"
-        android:textColor="#ffffff"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/CompanyNameRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="Company Name"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="675dp"
+                    android:textColor="#ffffff"/>
 
-    <EditText
-        android:id="@+id/CompanyEmailAddressRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textEmailAddress"
-        android:hint="Company Email"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"
-        android:textColor="#ffffff"/>
+                <EditText
+                    android:id="@+id/CompanyComercialNameRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="Comercial Name"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="625dp"
+                    android:textColor="#ffffff"/>
 
-    <EditText
-        android:id="@+id/CompanyAddressRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="text"
-        android:hint="Company Address"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="220dp"
-        android:textColor="#ffffff"/>
+                <EditText
+                    android:id="@+id/CompanyContactPersonRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="Contact Person"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="575dp"
+                    android:textColor="#ffffff"/>
 
-    <EditText
-        android:id="@+id/CompanyTelephoneRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="number"
-        android:hint="Company No. Telephone"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="170dp"
-        android:textColor="#ffffff"/>
+                <EditText
+                    android:id="@+id/CompanySsnRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="Ssn"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="525dp"
+                    android:textColor="#ffffff"/>
 
-    <EditText
-        android:id="@+id/CompanyPasswordRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPassword"
-        android:hint="Company Password"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
-        android:textColor="#ffffff"/>
+                <EditText
+                    android:id="@+id/CompanyEmailAddressRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="textEmailAddress"
+                    android:hint="Company Email Address"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="475dp"
+                    android:textColor="#ffffff"/>
 
-    <EditText
-        android:id="@+id/CompanyPasswordValidation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:backgroundTint="#2e9cca"
-        android:inputType="textPassword"
-        android:hint="Company Password Validation"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
-        android:textColor="#ffffff"/>
+                <EditText
+                    android:id="@+id/CompanyTelephoneRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="number"
+                    android:hint="User No. Telephone"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="425dp"
+                    android:textColor="#ffffff"/>
 
+                <EditText
+                    android:id="@+id/CompanyCityRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="City"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="375dp"
+                    android:textColor="#ffffff"/>
+
+                <EditText
+                    android:id="@+id/CompanyAddressRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="Address"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="325dp"
+                    android:textColor="#ffffff"/>
+
+                <EditText
+                    android:id="@+id/CompanyPostalCodeRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="Postal code"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="275dp"
+                    android:textColor="#ffffff"/>
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="text"
+                    android:hint="Username"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="225dp"
+                    android:textColor="#ffffff"/>
+
+                <EditText
+                    android:id="@+id/CompanyPasswordRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="textPassword"
+                    android:hint="Company Password"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="175dp"
+                    android:textColor="#ffffff"/>
+
+                <EditText
+                    android:id="@+id/CompanyPasswordValidation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:backgroundTint="#2e9cca"
+                    android:inputType="textPassword"
+                    android:hint="Company Password Validation"
+                    android:textColorHint="#9d8d8f"
+                    android:textSize="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="125dp"
+                    android:textColor="#ffffff"/>
+
+                <CheckBox android:id="@+id/Premium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="Premium?"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="75dp"/>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
     <Button
         android:id="@+id/submitdatacompany"
         android:layout_width="160dp"

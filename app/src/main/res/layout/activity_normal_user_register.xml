@@ -16,7 +16,22 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="575dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/UserLastNameRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Last surname"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="525dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -31,7 +46,7 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="475dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -46,7 +61,67 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="425dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/UserCityRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="City"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="375dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/UserAddressRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Address"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="325dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/UserPostalCodeRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Postal code"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="275dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Username"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="225dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -61,7 +136,7 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="175dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -76,8 +151,17 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="125dp"
         android:textColor="#ffffff"/>
+
+    <CheckBox android:id="@+id/Premium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Premium?"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"/>
 
     <Button
         android:id="@+id/submitdatauser"

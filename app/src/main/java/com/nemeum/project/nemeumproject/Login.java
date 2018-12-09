@@ -21,7 +21,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import url.UrlServer;
 
@@ -92,7 +94,8 @@ public class Login extends AppCompatActivity {
                 try {
                     postData.put("email", email);
                     postData.put("password", password);
-
+                    String line;
+                    String result = "";
                     StringEntity se = null;
                     se = new StringEntity(postData.toString());
                     httppost.setHeader("Accept", "application/json");
@@ -100,6 +103,10 @@ public class Login extends AppCompatActivity {
                     httppost.setEntity(se);
                     HttpResponse response = httpclient.execute(httppost);
                     if(response.getStatusLine().getStatusCode() == 200){
+                        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                        while((line = in.readLine()) != null){
+                            result += line;
+                        }
                         Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
                         startActivity(intent1);
                     }else{

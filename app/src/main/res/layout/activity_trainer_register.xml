@@ -11,12 +11,27 @@
         android:ems="10"
         android:backgroundTint="#2e9cca"
         android:inputType="text"
-        android:hint="Trainer Name"
+        android:hint="User Name"
         android:textColorHint="#9d8d8f"
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="575dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/TrainerLastNameRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Last surname"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="525dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -26,12 +41,12 @@
         android:ems="10"
         android:backgroundTint="#2e9cca"
         android:inputType="textEmailAddress"
-        android:hint="Trainer Email Address"
+        android:hint="User Email Address"
         android:textColorHint="#9d8d8f"
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"
+        android:layout_marginBottom="475dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -41,12 +56,72 @@
         android:ems="10"
         android:backgroundTint="#2e9cca"
         android:inputType="number"
-        android:hint="Trainer No. Telephone"
+        android:hint="User No. Telephone"
         android:textColorHint="#9d8d8f"
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="425dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/TrainerCityRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="City"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="375dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/TrainerAddressRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Address"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="325dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/TrainerPostalCodeRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Postal code"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="275dp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="#2e9cca"
+        android:inputType="text"
+        android:hint="Username"
+        android:textColorHint="#9d8d8f"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="225dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -56,12 +131,12 @@
         android:ems="10"
         android:backgroundTint="#2e9cca"
         android:inputType="textPassword"
-        android:hint="Trainer Password"
+        android:hint="User Password"
         android:textColorHint="#9d8d8f"
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="170dp"
+        android:layout_marginBottom="175dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -71,13 +146,22 @@
         android:ems="10"
         android:backgroundTint="#2e9cca"
         android:inputType="textPassword"
-        android:hint="Trainer Password Validation"
+        android:hint="User Password Validation"
         android:textColorHint="#9d8d8f"
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="125dp"
         android:textColor="#ffffff"/>
+
+    <CheckBox android:id="@+id/Premium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Premium?"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"/>
 
     <Button
         android:id="@+id/submitdatatrainer"
