@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/nemeum_background">
+    android:background="@drawable/nemeum_registration_background3">
 
     <EditText
         android:id="@+id/TrainerNameRegister"
@@ -12,11 +12,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="text"
         android:hint="User Name"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="575dp"
+        android:layout_marginBottom="395dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -27,11 +28,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="text"
         android:hint="Last surname"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="525dp"
+        android:layout_marginBottom="365dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -42,11 +44,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="textEmailAddress"
         android:hint="User Email Address"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="475dp"
+        android:layout_marginBottom="335dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -57,11 +60,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="number"
         android:hint="User No. Telephone"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="425dp"
+        android:layout_marginBottom="305dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -72,11 +76,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="text"
         android:hint="City"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="375dp"
+        android:layout_marginBottom="275dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -87,11 +92,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="text"
         android:hint="Address"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="325dp"
+        android:layout_marginBottom="245dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -102,11 +108,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="text"
         android:hint="Postal code"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="275dp"
+        android:layout_marginBottom="215dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -117,11 +124,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="text"
         android:hint="Username"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="225dp"
+        android:layout_marginBottom="185dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -132,11 +140,12 @@
         android:backgroundTint="#2e9cca"
         android:inputType="textPassword"
         android:hint="User Password"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="175dp"
+        android:layout_marginBottom="155dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -147,21 +156,23 @@
         android:backgroundTint="#2e9cca"
         android:inputType="textPassword"
         android:hint="User Password Validation"
-        android:textColorHint="#9d8d8f"
-        android:textSize="15dp"
+        android:textColorHint="#2e9cca"
+        android:textColorHighlight="#17252a"
+        android:textSize="13dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="125dp"
         android:textColor="#ffffff"/>
 
     <CheckBox android:id="@+id/Premium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:text="Premium?"
+        android:textColor="#263d45"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp"/>
+        android:layout_marginBottom="90dp"/>
 
     <Button
         android:id="@+id/submitdatatrainer"
@@ -169,7 +180,7 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="45dp"
         android:background="@drawable/button_background1"
         android:text="Submit"
         android:textColor="#25274d"
