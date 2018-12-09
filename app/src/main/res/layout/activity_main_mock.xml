@@ -1,142 +1,223 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rightLayout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="#eeeeee">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1" />
 
     <LinearLayout
         android:id="@+id/topbar"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="0.35"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:background="#17252a">
-
+        android:background="#17252a"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10">
+        
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/nemeum_logo" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nemeum_logo"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#000000"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/guideline10">
+        
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/decathlon_back"/>
+        
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/adsbar"
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
+        android:id="@+id/linear_menu_book_1"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
-        android:background="#17252a" >
+        android:gravity="center_horizontal"
+        android:padding="2dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/decathlon_back"/>
-    </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/guideline11"
 
-    <RelativeLayout
-        android:id="@+id/menubar"
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:background="#eeeeee"
-        android:orientation="horizontal">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/linear_menu_book_2"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.25">
 
         <ImageButton
             android:id="@+id/findeventicon"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@mipmap/search_event" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/search_event"
+            android:contentDescription="Search Event" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/findeventicon"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center"
-            android:text="@string/search_event"
-            android:textColor="#17252a" />
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:text="Find Event"
+            android:textColor="#17252a"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_menu_book_2"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="2dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="@id/linear_menu_book_1"
+        app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_1"
+        app:layout_constraintStart_toEndOf="@id/linear_menu_book_1"
+        app:layout_constraintEnd_toStartOf="@id/linear_menu_book_3">
 
         <ImageButton
             android:id="@+id/findfacilitiesicon"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_toEndOf="@+id/findeventicon"
-            android:layout_toRightOf="@id/findeventicon"
-            android:background="@mipmap/search_facilities" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/search_facilities"
+            android:contentDescription="Search Facilities" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/findfacilitiesicon"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_toEndOf="@+id/findeventicon"
-            android:layout_toRightOf="@id/findeventicon"
-            android:text="@string/search_facilities"
-            android:textColor="#17252a" />
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:text="Search Facilities"
+            android:textColor="#17252a"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_menu_book_3"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="2dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="@id/linear_menu_book_1"
+        app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_1"
+        app:layout_constraintStart_toEndOf="@id/linear_menu_book_2"
+        app:layout_constraintEnd_toStartOf="@id/linear_menu_book_4">
 
         <ImageButton
             android:id="@+id/findscrenarioicon"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_toLeftOf="@id/findtrainericon"
-            android:background="@mipmap/search_scenario" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/search_scenario"
+            android:contentDescription="Search Scenario" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/findscrenarioicon"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_toLeftOf="@id/findtrainericon"
-            android:text="@string/search_scenario"
-            android:textColor="#17252a" />
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:text="Search Scenario"
+            android:textColor="#17252a"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_menu_book_4"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="2dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="@id/linear_menu_book_1"
+        app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_1"
+        app:layout_constraintStart_toEndOf="@id/linear_menu_book_3"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
             android:id="@+id/findtrainericon"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@mipmap/search_trainer" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/search_trainer"
+            android:contentDescription="Search Trainer" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/findtrainericon"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            android:text="@string/search_trainer"
-            android:textColor="#17252a" />
-    </RelativeLayout>
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:text="Search Trainer"
+            android:textColor="#17252a"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/colorBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline13"
         app:menu="@menu/navigation"/>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
