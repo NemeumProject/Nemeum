@@ -6,15 +6,23 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/TitleText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
-        android:textSize="25dp"
-        android:textColor="#eeeeee"
-        android:gravity="center_horizontal"
-        android:text="POST SCENARIO"/>
+        android:layout_margin="3dp"
+        android:text="Post Scenario"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font25"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@mipmap/back_icon"
+        android:onClick="getBack" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +38,7 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="375dp"
+        android:layout_marginBottom="390dp"
         android:background="@drawable/bean"
         android:gravity="center"
        />
@@ -41,11 +49,26 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="310dp"
         android:background="@drawable/text_box"
         android:gravity="center"
         android:textColorHint="#17252a"
         android:hint="Title of Your Scenario"
+        android:textSize="10sp"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/scenario_location"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="270dp"
+        android:background="@drawable/text_box"
+        android:gravity="center"
+        android:textColorHint="#17252a"
+        android:hint="Scenario Location"
+        android:textSize="10sp"
         android:inputType="text"/>
 
     <EditText
@@ -54,11 +77,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="230dp"
         android:background="@drawable/text_box"
         android:gravity="center"
         android:textColorHint="#17252a"
         android:hint="Write your scenario description here..."
+        android:textSize="10sp"
         android:inputType="text"/>
 
 
@@ -68,11 +92,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="190dp"
         android:background="@drawable/text_box"
         android:gravity="center"
         android:textColorHint="#17252a"
         android:hint="Scenario Capacity"
+        android:textSize="10sp"
         android:inputType="number"/>
 
     <EditText
@@ -81,11 +106,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/text_box"
         android:gravity="center"
         android:textColorHint="#17252a"
         android:hint="Scenario Price"
+        android:textSize="10sp"
         android:inputType="number"/>
 
     <Button
@@ -93,7 +119,7 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="90dp"
         android:background="@drawable/button_background1"
         android:layout_centerHorizontal="true"
         android:textColor="#17252a"

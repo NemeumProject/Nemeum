@@ -234,7 +234,7 @@
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_7"
         >
         <ImageButton
-            android:id="@+id/postservice"
+            android:id="@+id/postserviceicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@mipmap/post_service"
@@ -266,7 +266,7 @@
         app:layout_constraintEnd_toEndOf="@id/linear_menu_book_8"
         >
         <ImageButton
-            android:id="@+id/mybooking"
+            android:id="@+id/editscenarioicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@mipmap/edit_scenario"
@@ -331,7 +331,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/guideline12"
         >
         <ImageButton
-            android:id="@+id/updateschedule"
+            android:id="@+id/updatescheduleicon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@mipmap/update"

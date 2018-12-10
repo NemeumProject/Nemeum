@@ -36,6 +36,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".PostScenario"/>
+        <activity android:name=".activity_edit_scenario"/>
+        <activity android:name=".activity_edit_daily_schedule"/>
         <activity android:name=".UserTrainerLoginActivity"/>
         <activity android:name=".UserCompanyLoginActivity"/>
         <activity android:name=".UserLoginActivity"/>
@@ -70,10 +73,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".activity_edit_daily_schedule" />
         <activity android:name=".BookScenarios" />
         <activity android:name=".BookScenarioPayment" />
-        <activity android:name=".activity_edit_scenario"/>
+
 
     </application>
 

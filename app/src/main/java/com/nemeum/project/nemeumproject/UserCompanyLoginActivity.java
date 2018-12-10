@@ -24,7 +24,9 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
-
+        ImageButton postscenario_btn = (ImageButton) findViewById(R.id.postserviceicon);
+        ImageButton editscenario_btn = (ImageButton) findViewById(R.id.editscenarioicon);
+        ImageButton updateschedule_btn = (ImageButton) findViewById(R.id.updatescheduleicon);
 
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +57,26 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
             }
         });
 
+        postscenario_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postScenarioOnclick();
+            }
+        });
+
+        editscenario_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editScenarioOnclick();
+            }
+        });
+
+        updateschedule_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateScheduleOnclick();
+            }
+        });
 
         BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -104,6 +126,25 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         Intent intent8 = new Intent(this, EventFinder.class);
         startActivity(intent8);
     }
+
+    public void  postScenarioOnclick()
+    {
+        Intent intent10 = new Intent(this, PostScenario.class);
+        startActivity(intent10);
+    }
+
+    public void  editScenarioOnclick()
+    {
+        Intent intent11 = new Intent(this, activity_edit_scenario.class);
+        startActivity(intent11);
+    }
+
+    public void  updateScheduleOnclick()
+    {
+        Intent intent13 = new Intent(this, activity_edit_daily_schedule.class);
+        startActivity(intent13);
+    }
+
 
 
 
