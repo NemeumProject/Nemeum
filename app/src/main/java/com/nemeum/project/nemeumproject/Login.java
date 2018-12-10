@@ -107,20 +107,28 @@ public class Login extends AppCompatActivity {
                         while((line = in.readLine()) != null){
                             result += line;
                         }
-                        if(result.equals("individualuser"))
+                        if(result.equals("Individual"))
                         {
                             Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
                             startActivity(intent1);
                         }
-                        else if(result.equals("traineruser"))
+                        else if(result.equals("Trainer"))
                         {
                             Intent intent2 = new Intent(Login.this, UserTrainerLoginActivity.class);
                             startActivity(intent2);
                         }
-                        else if (result.equals("companyuser"))
+                        else if (result.equals("Company"))
                         {
                             Intent intent3 = new Intent(Login.this, UserCompanyLoginActivity.class);
                             startActivity(intent3);
+                        }
+                        else
+                        {
+                            Login.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(Login.this,"Your Input Email or Input Password is incorrect, Please Try Again!",Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
 
                     }else{
