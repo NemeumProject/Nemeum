@@ -266,5 +266,12 @@
         <item>Lleida Gym Center</item>
         <item>Soccer center of Lleida</item>
     </string-array>
-
+    <string name="company_name">Company name</string>
+    <string name="comercial_name">Comercial name</string>
+    <string name="contact_person">Contact person</string>
+    <string name="ssn">Ssn</string>
+    <string name="username">username</string>
+    <string name="repeat_password">Repeat your password</string>
+    <string name="premium">Premium?</string>
+    <string name="forgot_password">Forgot password?</string>
 </resources>

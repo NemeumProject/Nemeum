@@ -86,8 +86,20 @@ public class CompanyUserRegistration extends AppCompatActivity {
             Toast.makeText(CompanyUserRegistration.this,"Your input telephone number less than 7 characters, please input more than 6 characters!",Toast.LENGTH_LONG).show();
         }else if(com_password.length()<6){
             Toast.makeText(CompanyUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
-        }else if(!com_password.equals(com_password_validation)){
-            Toast.makeText(CompanyUserRegistration.this,"The passwords must be equals",Toast.LENGTH_LONG).show();
+        }else if(!com_password.equals(com_password_validation)) {
+            Toast.makeText(CompanyUserRegistration.this, "The passwords must be equals", Toast.LENGTH_LONG).show();
+        }else if(ssn.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, "The Ssn is empty", Toast.LENGTH_LONG).show();
+        }else if(comercialName.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, "The Comercial Name is empty", Toast.LENGTH_LONG).show();
+        }else if(ContactPerson.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, "The Contact Person is empty", Toast.LENGTH_LONG).show();
+        }else if(city.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, "The City is empty", Toast.LENGTH_LONG).show();
+        }else if(postalCode.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, "The Postal Code is empty", Toast.LENGTH_LONG).show();
+        }else if(username.length() == 0){
+            Toast.makeText(CompanyUserRegistration.this, "The Username is empty", Toast.LENGTH_LONG).show();
         }else{
             final String nameUser = com_name;
             final String ComercialName = comercialName;

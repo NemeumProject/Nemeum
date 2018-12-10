@@ -84,6 +84,16 @@ public class TrainerUserRegistration extends AppCompatActivity {
             Toast.makeText(TrainerUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
         }else if(!Trainer_Pass.equals(Trainer_Pass_Vall)){
             Toast.makeText(TrainerUserRegistration.this,"The passwords must be equals",Toast.LENGTH_LONG).show();
+        }else if(username.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, "The Username is empty", Toast.LENGTH_LONG).show();
+        }else if(surname.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, "The Surname is empty", Toast.LENGTH_LONG).show();
+        }else if(address.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, "The Address is empty", Toast.LENGTH_LONG).show();
+        }else if(city.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, "The City is empty", Toast.LENGTH_LONG).show();
+        }else if(postalCode.length() == 0){
+            Toast.makeText(TrainerUserRegistration.this, "The Postal Code is empty", Toast.LENGTH_LONG).show();
         }else{
             final String nameUser = Trainer_Name;
             final String emailUser = Trainer_Email;

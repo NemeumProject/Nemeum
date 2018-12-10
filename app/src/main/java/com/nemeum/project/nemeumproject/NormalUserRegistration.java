@@ -84,8 +84,18 @@ public class NormalUserRegistration extends AppCompatActivity {
             Toast.makeText(NormalUserRegistration.this,"Your input telephone number less than 7 characters, please input more than 6 characters!",Toast.LENGTH_LONG).show();
         }else if(password.length()<6){
             Toast.makeText(NormalUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
-        }else if(!password.equals(password_validation)){
-            Toast.makeText(NormalUserRegistration.this,"The passwords must be equals",Toast.LENGTH_LONG).show();
+        }else if(!password.equals(password_validation)) {
+            Toast.makeText(NormalUserRegistration.this, "The passwords must be equals", Toast.LENGTH_LONG).show();
+        }else if(username.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, "The Username is empty", Toast.LENGTH_LONG).show();
+        }else if(surname.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, "The Surname is empty", Toast.LENGTH_LONG).show();
+        }else if(address.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, "The Address is empty", Toast.LENGTH_LONG).show();
+        }else if(city.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, "The City is empty", Toast.LENGTH_LONG).show();
+        }else if(postalCode.length() == 0){
+            Toast.makeText(NormalUserRegistration.this, "The Postal Code is empty", Toast.LENGTH_LONG).show();
         }else{
             final String nameUser = name;
             final String emailUser = email;
