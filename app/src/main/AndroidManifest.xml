@@ -28,7 +28,13 @@
         android:theme="@style/AppTheme">
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".ActivityMainMock"/>
+        <activity android:name=".ActivityMainMock">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".activity_Trainer_Posting" />
         <activity android:name=".NormalUserRegistration" />
@@ -65,13 +71,8 @@
         <activity android:name=".activity_edit_daily_schedule" />
         <activity android:name=".BookScenarios" />
         <activity android:name=".BookScenarioPayment" />
-        <activity android:name=".activity_edit_scenario">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".activity_edit_scenario"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
