@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".activity_edit_scenario">
+
+    <EditText
+        android:id="@+id/capacity_Edit_Scenarios"
+        android:layout_width="130dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="284dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/posting_Name_Tv_EditScenario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:text="@string/scenarios_edition"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font25"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/companyLogoImg_EditScenario"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="114dp"
+        android:layout_toEndOf="@+id/btn_finish_posting_EditScenario"
+        android:src="@drawable/stadium"
+        android:onClick="openGallery"/>
+
+    <TextView
+        android:id="@+id/posting_Title_Tv_EditScenario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="203dp"
+        android:text="@string/title_posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/title_Edit_Scenario"
+        android:layout_width="333dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/posting_Title_Tv_EditScenario"
+        android:layout_alignStart="@+id/location_Edit_Scenario"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/scenarioList_Tv_Edition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/location_Edit_Scenario"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/scenario_Daily_Schedule"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/capacity_ScenarioTv_EditScenario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/location_Edit_Scenario"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="259dp"
+        android:text="@string/capacity_scenario"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <GridLayout
+        android:layout_width="325dp"
+        android:layout_height="34dp"
+        android:layout_below="@+id/title_Edit_Scenario"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-178dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:columnCount="2">
+
+        <Spinner
+            android:id="@+id/scenarios_Spinner_EditScenario"
+            android:layout_width="313dp"
+            android:layout_height="27dp"
+            android:layout_below="@+id/scenarioList_Tv_Edition"
+            android:layout_margin="5dp"
+            android:background="@drawable/results_rounded"
+            android:backgroundTint="@color/colorBlue"
+            android:textSize="8dp" />
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/location_Tv_EditScenario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btn_finish_posting_EditScenario"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="316dp"
+        android:text="@string/location_scenario"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/description_Tv_EditScenario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btn_finish_posting_EditScenario"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="371dp"
+        android:text="@string/description_Posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/location_Edit_Scenario"
+        android:layout_width="333dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="339dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/description_Edit_Scenario"
+        android:layout_width="335dp"
+        android:layout_height="91dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="395dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/price_postingTv_EditScenario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/capacity_ScenarioTv_EditScenario"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:text="@string/price_Posting"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font15" />
+
+    <EditText
+        android:id="@+id/price_Edit_Scenario"
+        android:layout_width="130dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/capacity_ScenarioTv_EditScenario"
+        android:layout_alignEnd="@+id/title_Edit_Scenario"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBlue"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="@dimen/font15" />
+
+    <Button
+        android:id="@+id/btn_finish_posting_EditScenario"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_background1"
+        android:text="@string/buttonSave"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/fields_edition"
+        android:onClick="edit_scenario"/>
+
+    <Button
+        android:id="@+id/btn_cancel_posting_EditScenario"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_background1"
+        android:text="@string/buttonCancel"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/fields_edition" />
+
+    <ImageView
+        android:id="@+id/imgV_changePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_alignTop="@+id/companyLogoImg_EditScenario"
+        android:layout_alignEnd="@+id/companyLogoImg_EditScenario"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+
+</RelativeLayout>
