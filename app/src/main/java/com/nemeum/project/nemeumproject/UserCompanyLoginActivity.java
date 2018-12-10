@@ -10,20 +10,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class UserTrainerLoginActivity extends AppCompatActivity {
+public class UserCompanyLoginActivity extends AppCompatActivity {
 
     Context appContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registered_trainer_user);
+        setContentView(R.layout.activity_registered_company_user);
         appContext = getApplicationContext();
 
         ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
         ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
+
 
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {

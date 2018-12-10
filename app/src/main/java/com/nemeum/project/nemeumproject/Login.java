@@ -107,8 +107,22 @@ public class Login extends AppCompatActivity {
                         while((line = in.readLine()) != null){
                             result += line;
                         }
-                        Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
-                        startActivity(intent1);
+                        if(result.equals("individualuser"))
+                        {
+                            Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
+                            startActivity(intent1);
+                        }
+                        else if(result.equals("traineruser"))
+                        {
+                            Intent intent2 = new Intent(Login.this, UserTrainerLoginActivity.class);
+                            startActivity(intent2);
+                        }
+                        else if (result.equals("companyuser"))
+                        {
+                            Intent intent3 = new Intent(Login.this, UserCompanyLoginActivity.class);
+                            startActivity(intent3);
+                        }
+
                     }else{
                         Login.this.runOnUiThread(new Runnable() {
                             public void run() {

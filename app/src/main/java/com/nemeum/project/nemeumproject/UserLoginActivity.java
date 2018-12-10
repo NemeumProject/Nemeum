@@ -17,14 +17,14 @@ public class UserLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_after_login);
+        setContentView(R.layout.activity_registered_normal_user);
         appContext = getApplicationContext();
 
         ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
         ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
-        ImageButton createpost_btn = (ImageButton) findViewById(R.id.createposticon);
+
 
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
@@ -55,12 +55,6 @@ public class UserLoginActivity extends AppCompatActivity {
             }
         });
 
-        createpost_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createpostOnclick();
-            }
-        });
 
         BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -111,9 +105,6 @@ public class UserLoginActivity extends AppCompatActivity {
         startActivity(intent8);
     }
 
-    public void createpostOnclick(){
-        Intent intent9 = new Intent(this, activity_Trainer_Posting.class);
-        startActivity(intent9);
-    }
+
 
 }
