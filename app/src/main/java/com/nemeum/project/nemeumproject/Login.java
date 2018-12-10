@@ -1,6 +1,7 @@
 package com.nemeum.project.nemeumproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
@@ -85,12 +86,18 @@ public class Login extends AppCompatActivity {
     private void LoginValidation(String Email, String UserPassword) throws IOException, JSONException {
         final String email = Email;
         final String password = UserPassword;
+        final SharedPreferences registeredUserPref = getApplicationContext().getSharedPreferences("userType", getApplicationContext().MODE_PRIVATE);
+        //final SharedPreferences registeredUserId = getApplicationContext().getSharedPreferences("registeredUserId", getApplicationContext().MODE_PRIVATE);
+
         new Thread(new Runnable() {
             public void run() {
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(UrlServer.url + "/login");
+                SharedPreferences.Editor registeredUserEditor = registeredUserPref.edit();
 
                 JSONObject postData = new JSONObject();
+                registeredUserEditor.putString("userType", "notLogged");
+                registeredUserEditor.apply();
                 try {
                     postData.put("email", email);
                     postData.put("password", password);
@@ -109,16 +116,22 @@ public class Login extends AppCompatActivity {
                         }
                         if(result.equals("Individual"))
                         {
+                            registeredUserEditor.putString("userType", "Individual");
+                            registeredUserEditor.apply();
                             Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
                             startActivity(intent1);
                         }
                         else if(result.equals("Trainer"))
                         {
+                            registeredUserEditor.putString("userType", "Trainer");
+                            registeredUserEditor.apply();
                             Intent intent2 = new Intent(Login.this, UserTrainerLoginActivity.class);
                             startActivity(intent2);
                         }
                         else if (result.equals("Company"))
                         {
+                            registeredUserEditor.putString("userType", "Company");
+                            registeredUserEditor.apply();
                             Intent intent3 = new Intent(Login.this, UserCompanyLoginActivity.class);
                             startActivity(intent3);
                         }
