@@ -38,6 +38,10 @@ public class PostScenario extends AppCompatActivity {
         });
     }
 
+    public void getBack(View view) {
+        finish();
+    }
+
     private void SubmitNewScenario(String title,String loc,String desc,String capacity,String price){
         if(title.length()==0)
         {
