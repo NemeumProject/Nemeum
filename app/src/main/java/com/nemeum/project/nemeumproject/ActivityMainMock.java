@@ -25,7 +25,6 @@ import java.util.Arrays;
 public class ActivityMainMock extends AppCompatActivity {
 
     Context appContext;
-    SharedPreferences SP;
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
     private static final String[] REQUIRED_SDK_PERMISSIONS = new String[] {
             Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -36,25 +35,42 @@ public class ActivityMainMock extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_mock);
 
         appContext = getApplicationContext();
 
         checkPermissions();
 
         if(!LocaleManager.getLanguage(appContext).equals(Locale.getDefault().getLanguage())) {
-            LocaleManager.setLocale(appContext);
+            if(LocaleManager.getLanguage(appContext) == null)
+                LocaleManager.setNewLocale(appContext, Locale.getDefault().getLanguage());
+            else
+                LocaleManager.setLocale(appContext);
         }
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_mock);
-        SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences SP = appContext.getSharedPreferences("userType", appContext.MODE_PRIVATE);
+
+        if(SP.getString("userType", "").equals("Individual"))
+        {
+            Intent intent1 = new Intent(appContext, UserLoginActivity.class);
+            startActivity(intent1);
+            finish();
+        }
+        else if(SP.getString("userType", "").equals("Trainer"))
+        {
+            Intent intent2 = new Intent(appContext, UserTrainerLoginActivity.class);
+            startActivity(intent2);
+            finish();
+        }
+        else if (SP.getString("userType", "").equals("Company"))
+        {
+            Intent intent3 = new Intent(appContext, UserCompanyLoginActivity.class);
+            startActivity(intent3);
+            finish();
+        }
 
         ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
-        ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
-        ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
-        ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
-
-
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +78,7 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
+        ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
         findfacilities_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +86,7 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
+        ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +94,7 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
+        ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
         findtrainer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
