@@ -104,9 +104,31 @@
     <string name="scenarioBookTitle">Book Scenario</string>
     <string-array name="hourStartFilter">
         <item>Starting Time</item>
+        <item>7:00</item>
+        <item>8:00</item>
+        <item>9:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
     </string-array>
     <string-array name="hourEndFilter">
         <item>Finish Time</item>
+        <item>8:00</item>
+        <item>9:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
     </string-array>
     <string-array name="paymentMethodsFilter">
         <item>Payment Method</item>
@@ -197,8 +219,8 @@
     <!-- Toast Message Strings -->
     <string name="selectedEnglishToast">Changing the language to English, restarting...</string>
     <string name="selectedSpanishToast">Changing the language to Spanish, restarting...</string>
-    <string name="selectedDollarToast">Dollar selected succesfully.</string>
-    <string name="selectedEuroToast">Euro selected succesfully.</string>
+    <string name="selectedDollarToast">Dollar selected successfully.</string>
+    <string name="selectedEuroToast">Euro selected successfully.</string>
     <string name="selectedNotifOnToast">Notification turned on.</string>
     <string name="selectedNotifOffToast">Notification turned off.</string>
 
