@@ -4,9 +4,72 @@
 
     <!-- App Name Strings -->
     <string name="app_name">Nemeum</string>
+    <string name="app_language_spanish">es</string>
+    <string name="app_language_english">en</string>
+
+    <!-- App Shared Preferences -->
+    <string name="userTypeSP">userType</string>
+    <string name="individualUserSP">Individual</string>
+    <string name="trainerUserSP">Trainer</string>
+    <string name="companyUserSP">Company</string>
+    <string name="appLanguageSP">appLanguage</string>
+    <string name="notLoggedSP">notLogged</string>
+
+    <!-- Strings related to database access -->
+    <string name="urlDB">http://192.168.1.18:8080</string>
+    <string name="companyUserDB">/companyuser</string>
+    <string name="loginDB">/login</string>
+    <string name="scenariosDB">/scenario</string>
+    <string name="listDB">/list</string>
+    <string name="userDB">/user</string>
+    <string name="trainerDB">/trainer</string>
+    <string name="dbAccessAccept">Accept</string>
+    <string name="dbAccessContentType">Content-type</string>
+    <string name="dbAccessAppJson">application/json</string>
+
+    <!-- Strings related to Json -->
+    <string name="companyNameJson">companyName</string>
+    <string name="companyEmailJson">email</string>
+    <string name="companyPhoneJson">phone</string>
+    <string name="companyUsernameJson">username</string>
+    <string name="companyPasswordJson">password</string>
+    <string name="companyCommercialNameJson">comercialName</string>
+    <string name="companyAddressJson">address</string>
+    <string name="companyCityJson">city</string>
+    <string name="companyPostalCodeJson">postalCode</string>
+    <string name="companyContactPersonJson">contactPerson</string>
+    <string name="companySSNJson">ssn</string>
+    <string name="companyPremiumJson">premium</string>
+    <string name="loginEmailJson">email</string>
+    <string name="loginPasswordJson">password</string>
+    <string name="scenarioIdJson">idScenario</string>
+    <string name="scenarioSportIdJson">idSport</string>
+    <string name="scenarioPriceJson">price</string>
+    <string name="scenarioCompanyIdJson">idCompany</string>
+    <string name="scenarioDescriptionJson">description</string>
+    <string name="individualNameJson">firstName</string>
+    <string name="individualEmailJson">email</string>
+    <string name="individualPhoneJson">phone</string>
+    <string name="individualUsernameJson">username</string>
+    <string name="individualPasswordJson">password</string>
+    <string name="individualSurnameJson">lastSurname</string>
+    <string name="individualAddressJson">address</string>
+    <string name="individualCityJson">city</string>
+    <string name="individualPostalCodeJson">postalCode</string>
+    <string name="individualPremiumJson">premium</string>
+    <string name="trainerNameJson">firstName</string>
+    <string name="trainerEmailJson">email</string>
+    <string name="trainerPhoneJson">phone</string>
+    <string name="trainerUsernameJson">username</string>
+    <string name="trainerPasswordJson">password</string>
+    <string name="trainerSurnameJson">lastSurname</string>
+    <string name="trainerAddressJson">address</string>
+    <string name="trainerCityJson">city</string>
+    <string name="trainerPostalCodeJson">postalCode</string>
+    <string name="trainerPremiumJson">premium</string>
 
     <!-- Strings related to login -->
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="login_forgot_pass">Olvidaste la contraseña?</string>
 
     <!-- Strings related to home screen -->
     <string name="search_home">Inicio</string>
@@ -30,6 +93,7 @@
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Buscar Eventos</string>
     <string name="recommendedEventTitle">Evento recomendado</string>
+    <string name="monthSelectTitle">Selecione el mes</string>
     <string-array name="monthsEvents">
         <item>Enero</item>
         <item>Febrero</item>
@@ -191,6 +255,9 @@
     <string name="password_Validation">Repita Contraseña</string>
 
     <!-- Toast Error Strings -->
+    <string name="requirePermissionErr">Erro - Permisión requerida</string>
+    <string name="permissionNotGrantedErr">no aceptada, saliendo...</string>
+    <string name="permissionLocationErr">Erro - Permisión de ubicación no aceptada.</string>
     <string name="alreadyOnProfileErr">Erro - Ya estás en tu perfil.</string>
     <string name="alreadyOnHomeErr">Erro - Ya estás en la pantalla inicial.</string>
     <string name="alreadyOnSettingsErr">Erro - Ya estás en las configuraciones.</string>
@@ -215,14 +282,56 @@
     <string name="name_Company_Empty">El nombre de la empresa es obligatorio</string>
     <string name="company_Address_Empty">La dirección de la empresa es obligatoria</string>
     <string name="company_Phone_Empty">El numéro de teléfono de la empresa es obligatorio</string>
-
-    <!-- Toast Message Strings -->
+    <string name="company_name_short">Su nombre debe tener mas de 3 letras!</string>
+    <string name="company_name_long">Su nombre debe tener menos de 23 letras!</string>
+    <string name="company_email_empty">El campo correo electrónico no puede estar en blanco.</string>
+    <string name="company_email_exists">El correo ya está registrado.</string>
+    <string name="company_phone_invalid">Su teléfono és inválido.</string>
+    <string name="company_password_short">Su ontraseña debe tener 6 letras o más.</string>
+    <string name="company_password_mismatch">Las contraseñas deben ser iguales.</string>
+    <string name="company_ssn_empty">El DNI no se puede quedar vacio.</string>
+    <string name="company_commercial_name_empty">El nobre comercial no puede quedar vacio.</string>
+    <string name="company_contact_person_empty">El nombre del contacto no puede quedar vacio.</string>
+    <string name="company_city_empty">La ciudad no puede quedar vacia.</string>
+    <string name="company_postal_code_empty">El codigo postal no puede quedar vacio.</string>
+    <string name="company_username_empty">El nombre de usuário no puede quedar vacio.</string>
+    <string name="requisitionError">Algo sailó mal. Intente nuevamente!</string>
+    <string name="usernamePassError">Tus datos están incorrectos. Intente nuevamente!</string>
     <string name="selectedEnglishToast">Cambiando la lenguaje al Inglés, reiniciando...</string>
     <string name="selectedSpanishToast">Cambiando la lenguaje al Español, reiniciando...</string>
     <string name="selectedDollarToast">Moneda en Dollar.</string>
     <string name="selectedEuroToast">Moneda en Euro.</string>
     <string name="selectedNotifOnToast">Notificaciones encendidas.</string>
     <string name="selectedNotifOffToast">Notificaciones apagadas.</string>
+    <string name="user_name_short">Su nombre debe tener mas de 3 letras!</string>
+    <string name="user_name_long">Su nombre debe tener menos de 23 letras!</string>
+    <string name="user_email_empty">El campo correo electrónico no puede estar en blanco.</string>
+    <string name="user_email_exists">El correo ya está registrado.</string>
+    <string name="user_phone_invalid">Su teléfono és inválido.</string>
+    <string name="user_password_short">Su contraseña debe tener 6 letras o más.</string>
+    <string name="user_password_mismatch">Las contraseñas deben ser iguales.</string>
+    <string name="user_surname_empty">El apellido no puede quedar vacío.</string>
+    <string name="user_city_empty">La ciudad no puede quedar vacia.</string>
+    <string name="user_postal_code_empty">El codigo postal no puede quedar vacio.</string>
+    <string name="user_username_empty">El nombre de usuário no puede quedar vacio.</string>
+    <string name="user_address_Empty">La dirección es obligatoria</string>
+    <string name="scenario_post_title_empty">El titulo es obligatorio</string>
+    <string name="scenario_post_location_empty">La ubicación es obligatoria</string>
+    <string name="scenario_post_description_empty">La descripción es obligatoria</string>
+    <string name="scenario_post_capacity_empty">La capacidad es obligatoria</string>
+    <string name="scenario_post_price_empty">El precio es obligatorio</string>
+    <string name="trainer_email_exists">El correo ya está registrado.</string>
+    <string name="trainer_name_short">Su nombre debe tener mas de 3 letras!</string>
+    <string name="trainer_name_long">Su nombre debe tener menos de 23 letras!</string>
+    <string name="trainer_email_empty">El campo correo electrónico no puede estar en blanco.</string>
+    <string name="trainer_phone_invalid">Su teléfono és inválido.</string>
+    <string name="trainer_password_short">Su contraseña debe tener 6 letras o más.</string>
+    <string name="trainer_password_mismatch">Las contraseñas deben ser iguales.</string>
+    <string name="trainer_surname_empty">El apellido no puede quedar vacío.</string>
+    <string name="trainer_username_empty">El nombre de usuário no puede quedar vacio.</string>
+    <string name="trainer_address_Empty">La dirección es obligatoria</string>
+    <string name="trainer_city_empty">La ciudad no puede quedar vacia.</string>
+    <string name="trainer_postal_code_empty">El codigo postal no puede quedar vacio.</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Nueva Publicación</string>
@@ -293,4 +402,10 @@
     <string name="repeat_password">Repita su contraseña</string>
     <string name="premium">¿Premium?</string>
     <string name="forgot_password">¿Has olvidado la contraseña?</string>
+
+    <!-- Data passed between intents names -->
+    <string name="scenarioNameExtra">chooseName</string>
+    <string name="scenarioImgExtra">chooseImg</string>
+    <string name="scenarioRatingExtra">chooseRating</string>
+    <string name="scenarioDescrExtra">chooseDescr</string>
 </resources>

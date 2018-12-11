@@ -26,8 +26,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import url.UrlServer;
-
 public class Login extends AppCompatActivity {
 
     private EditText Email;
@@ -64,7 +62,7 @@ public class Login extends AppCompatActivity {
         });
 
         final TextView Forgetpass = findViewById(R.id.forgetpassbtn);
-        String forgetpasstext0 = "Forgot Password?";
+        String forgetpasstext0 = getResources().getString(R.string.login_forgot_pass);
         SpannableString forgetpasstext1 = new SpannableString(forgetpasstext0);
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
@@ -86,27 +84,27 @@ public class Login extends AppCompatActivity {
     private void LoginValidation(String Email, String UserPassword) throws IOException, JSONException {
         final String email = Email;
         final String password = UserPassword;
-        final SharedPreferences registeredUserPref = getApplicationContext().getSharedPreferences("userType", getApplicationContext().MODE_PRIVATE);
+        final SharedPreferences registeredUserPref = getApplicationContext().getSharedPreferences(getResources().getString(R.string.userTypeSP), getApplicationContext().MODE_PRIVATE);
         //final SharedPreferences registeredUserId = getApplicationContext().getSharedPreferences("registeredUserId", getApplicationContext().MODE_PRIVATE);
 
         new Thread(new Runnable() {
             public void run() {
                 HttpClient httpclient = new DefaultHttpClient();
-                HttpPost httppost = new HttpPost(UrlServer.url + "/login");
+                HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + getResources().getString(R.string.loginDB));
                 SharedPreferences.Editor registeredUserEditor = registeredUserPref.edit();
 
                 JSONObject postData = new JSONObject();
-                registeredUserEditor.putString("userType", "notLogged");
+                registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.notLoggedSP));
                 registeredUserEditor.apply();
                 try {
-                    postData.put("email", email);
-                    postData.put("password", password);
+                    postData.put(getResources().getString(R.string.loginEmailJson), email);
+                    postData.put(getResources().getString(R.string.loginPasswordJson), password);
                     String line;
                     String result = "";
                     StringEntity se = null;
                     se = new StringEntity(postData.toString());
-                    httppost.setHeader("Accept", "application/json");
-                    httppost.setHeader("Content-type", "application/json");
+                    httppost.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
+                    httppost.setHeader(getResources().getString(R.string.dbAccessContentType), getResources().getString(R.string.dbAccessAppJson));
                     httppost.setEntity(se);
                     HttpResponse response = httpclient.execute(httppost);
                     if(response.getStatusLine().getStatusCode() == 200){
@@ -114,23 +112,23 @@ public class Login extends AppCompatActivity {
                         while((line = in.readLine()) != null){
                             result += line;
                         }
-                        if(result.equals("Individual"))
+                        if(result.equals(getResources().getString(R.string.individualUserSP)))
                         {
-                            registeredUserEditor.putString("userType", "Individual");
+                            registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.individualUserSP));
                             registeredUserEditor.apply();
                             Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
                             startActivity(intent1);
                         }
-                        else if(result.equals("Trainer"))
+                        else if(result.equals(getResources().getString(R.string.trainerUserSP)))
                         {
-                            registeredUserEditor.putString("userType", "Trainer");
+                            registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.trainerUserSP));
                             registeredUserEditor.apply();
                             Intent intent2 = new Intent(Login.this, UserTrainerLoginActivity.class);
                             startActivity(intent2);
                         }
-                        else if (result.equals("Company"))
+                        else if (result.equals(getResources().getString(R.string.companyUserSP)))
                         {
-                            registeredUserEditor.putString("userType", "Company");
+                            registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.companyUserSP));
                             registeredUserEditor.apply();
                             Intent intent3 = new Intent(Login.this, UserCompanyLoginActivity.class);
                             startActivity(intent3);
@@ -139,7 +137,7 @@ public class Login extends AppCompatActivity {
                         {
                             Login.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(Login.this,"Your Input Email or Input Password is incorrect, Please Try Again!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Login.this, getResources().getString(R.string.usernamePassError), Toast.LENGTH_LONG).show();
                                 }
                             });
                         }
@@ -147,7 +145,7 @@ public class Login extends AppCompatActivity {
                     }else{
                         Login.this.runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(Login.this,"Your Input Email or Input Password is incorrect, Please Try Again!",Toast.LENGTH_LONG).show();
+                                Toast.makeText(Login.this, getResources().getString(R.string.usernamePassError), Toast.LENGTH_LONG).show();
                             }
                         });
                     }

@@ -49,21 +49,21 @@ public class ActivityMainMock extends AppCompatActivity {
                 LocaleManager.setLocale(appContext);
         }
 
-        SharedPreferences SP = appContext.getSharedPreferences("userType", appContext.MODE_PRIVATE);
+        SharedPreferences SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), appContext.MODE_PRIVATE);
 
-        if(SP.getString("userType", "").equals("Individual"))
+        if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.individualUserSP)))
         {
             Intent intent1 = new Intent(appContext, UserLoginActivity.class);
             startActivity(intent1);
             finish();
         }
-        else if(SP.getString("userType", "").equals("Trainer"))
+        else if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.trainerUserSP)))
         {
             Intent intent2 = new Intent(appContext, UserTrainerLoginActivity.class);
             startActivity(intent2);
             finish();
         }
-        else if (SP.getString("userType", "").equals("Company"))
+        else if (SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.companyUserSP)))
         {
             Intent intent3 = new Intent(appContext, UserCompanyLoginActivity.class);
             startActivity(intent3);
@@ -180,8 +180,8 @@ public class ActivityMainMock extends AppCompatActivity {
                 for (int index = permissions.length - 1; index >= 0; --index) {
                     if (grantResults[index] != PackageManager.PERMISSION_GRANTED) {
                         // exit the app if one permission is not granted
-                        Toast.makeText(this, "Required permission '" + permissions[index]
-                                + "' not granted, exiting", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, getResources().getString(R.string.requirePermissionErr) + permissions[index]
+                                + getResources().getString(R.string.permissionNotGrantedErr), Toast.LENGTH_LONG).show();
                         finish();
                         return;
                     }

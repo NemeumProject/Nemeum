@@ -1,12 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    
+
     <!-- App Name Strings -->
     <string name="app_name">Nemeum</string>
+    <string name="app_language_spanish">es</string>
+    <string name="app_language_english">en</string>
+
+    <!-- App Shared Preferences -->
+    <string name="userTypeSP">userType</string>
+    <string name="individualUserSP">Individual</string>
+    <string name="trainerUserSP">Trainer</string>
+    <string name="companyUserSP">Company</string>
+    <string name="appLanguageSP">appLanguage</string>
+    <string name="notLoggedSP">notLogged</string>
+
+    <!-- Strings related to database access -->
+    <string name="urlDB">http://192.168.1.18:8080</string>
+    <string name="companyUserDB">/companyuser</string>
+    <string name="loginDB">/login</string>
+    <string name="scenariosDB">/scenario</string>
+    <string name="listDB">/list</string>
+    <string name="userDB">/user</string>
+    <string name="trainerDB">/trainer</string>
+    <string name="dbAccessAccept">Accept</string>
+    <string name="dbAccessContentType">Content-type</string>
+    <string name="dbAccessAppJson">application/json</string>
+
+    <!-- Strings related to Json -->
+    <string name="companyNameJson">companyName</string>
+    <string name="companyEmailJson">email</string>
+    <string name="companyPhoneJson">phone</string>
+    <string name="companyUsernameJson">username</string>
+    <string name="companyPasswordJson">password</string>
+    <string name="companyCommercialNameJson">comercialName</string>
+    <string name="companyAddressJson">address</string>
+    <string name="companyCityJson">city</string>
+    <string name="companyPostalCodeJson">postalCode</string>
+    <string name="companyContactPersonJson">contactPerson</string>
+    <string name="companySSNJson">ssn</string>
+    <string name="companyPremiumJson">premium</string>
+    <string name="loginEmailJson">email</string>
+    <string name="loginPasswordJson">password</string>
+    <string name="scenarioIdJson">idScenario</string>
+    <string name="scenarioSportIdJson">idSport</string>
+    <string name="scenarioPriceJson">price</string>
+    <string name="scenarioCompanyIdJson">idCompany</string>
+    <string name="scenarioDescriptionJson">description</string>
+    <string name="individualNameJson">firstName</string>
+    <string name="individualEmailJson">email</string>
+    <string name="individualPhoneJson">phone</string>
+    <string name="individualUsernameJson">username</string>
+    <string name="individualPasswordJson">password</string>
+    <string name="individualSurnameJson">lastSurname</string>
+    <string name="individualAddressJson">address</string>
+    <string name="individualCityJson">city</string>
+    <string name="individualPostalCodeJson">postalCode</string>
+    <string name="individualPremiumJson">premium</string>
+    <string name="trainerNameJson">firstName</string>
+    <string name="trainerEmailJson">email</string>
+    <string name="trainerPhoneJson">phone</string>
+    <string name="trainerUsernameJson">username</string>
+    <string name="trainerPasswordJson">password</string>
+    <string name="trainerSurnameJson">lastSurname</string>
+    <string name="trainerAddressJson">address</string>
+    <string name="trainerCityJson">city</string>
+    <string name="trainerPostalCodeJson">postalCode</string>
+    <string name="trainerPremiumJson">premium</string>
 
     <!-- Strings related to login -->
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="login_forgot_pass">Forgot Password?</string>
 
     <!-- Strings related to home screen -->
     <string name="search_home">Home</string>
@@ -30,6 +93,7 @@
     <!-- Strings for Event Finder -->
     <string name="findEventTitle">Find Events</string>
     <string name="recommendedEventTitle">Recommended Event</string>
+    <string name="monthSelectTitle">Select month</string>
     <string-array name="monthsEvents">
         <item>January</item>
         <item>February</item>
@@ -191,6 +255,9 @@
     <string name="password_Validation">Repeat New Password</string>
 
     <!-- Toast Error Strings -->
+    <string name="requirePermissionErr">Error - Required permission</string>
+    <string name="permissionNotGrantedErr">not granted, exiting...</string>
+    <string name="permissionLocationErr">Error - Location permission not granted.</string>
     <string name="alreadyOnProfileErr">Error - You are already in your profile.</string>
     <string name="alreadyOnHomeErr">Error - You are already in home.</string>
     <string name="alreadyOnSettingsErr">Error - You are already in settings.</string>
@@ -215,16 +282,56 @@
     <string name="name_Company_Empty">Field name of company is mandatory</string>
     <string name="company_Address_Empty">Field address is mandatory</string>
     <string name="company_Phone_Empty">Field company phone number is mandatory</string>
-
-
-
-    <!-- Toast Message Strings -->
+    <string name="company_name_short">Your input name has less than 3 characters, please input more!</string>
+    <string name="company_name_long">Your input name more than 22 characters, please input less than 23 characters!</string>
+    <string name="company_email_empty">Field email cannot be empty.</string>
+    <string name="company_email_exists">Email already exists!</string>
+    <string name="company_phone_invalid">Your telephone is invalid.</string>
+    <string name="company_password_short">Your password must have 6 characters or more.</string>
+    <string name="company_password_mismatch">The passwords must be equal.</string>
+    <string name="company_ssn_empty">The SSN cannot be empty.</string>
+    <string name="company_commercial_name_empty">The Commercial Name is empty.</string>
+    <string name="company_contact_person_empty">The contact person cannot be empty.</string>
+    <string name="company_city_empty">The city cannot be empty.</string>
+    <string name="company_postal_code_empty">The postal code cannot be empty.</string>
+    <string name="company_username_empty">The username cannot be empty.</string>
+    <string name="requisitionError">Something went wrong. Please try again!</string>
+    <string name="usernamePassError">Your credentials are wrong. Please try again!</string>
     <string name="selectedEnglishToast">Changing the language to English, restarting...</string>
     <string name="selectedSpanishToast">Changing the language to Spanish, restarting...</string>
     <string name="selectedDollarToast">Dollar selected successfully.</string>
     <string name="selectedEuroToast">Euro selected successfully.</string>
     <string name="selectedNotifOnToast">Notification turned on.</string>
     <string name="selectedNotifOffToast">Notification turned off.</string>
+    <string name="user_name_short">Your input name has less than 3 characters, please input more!</string>
+    <string name="user_name_long">Your input name more than 22 characters, please input less than 23 characters!</string>
+    <string name="user_email_empty">Field email cannot be empty.</string>
+    <string name="user_email_exists">Email already exists!</string>
+    <string name="user_phone_invalid">Your telephone is invalid.</string>
+    <string name="user_password_short">Your password must have 6 characters or more.</string>
+    <string name="user_password_mismatch">The passwords must be equal.</string>
+    <string name="user_surname_empty">The surname cannot be empty.</string>
+    <string name="user_city_empty">The city cannot be empty.</string>
+    <string name="user_postal_code_empty">The postal code cannot be empty.</string>
+    <string name="user_username_empty">The username cannot be empty.</string>
+    <string name="user_address_Empty">Field address is mandatory</string>
+    <string name="scenario_post_title_empty">Field title is mandatory</string>
+    <string name="scenario_post_location_empty">Field location is mandatory</string>
+    <string name="scenario_post_description_empty">Field description is mandatory</string>
+    <string name="scenario_post_capacity_empty">Capacity is mandatory</string>
+    <string name="scenario_post_price_empty">Price is mandatory</string>
+    <string name="trainer_email_exists">Email already exists!</string>
+    <string name="trainer_name_short">Your input name has less than 3 characters, please input more!</string>
+    <string name="trainer_name_long">Your input name more than 22 characters, please input less than 23 characters!</string>
+    <string name="trainer_email_empty">Field email cannot be empty.</string>
+    <string name="trainer_phone_invalid">Your telephone is invalid.</string>
+    <string name="trainer_password_short">Your password must have 6 characters or more.</string>
+    <string name="trainer_password_mismatch">The passwords must be equal.</string>
+    <string name="trainer_surname_empty">The surname cannot be empty.</string>
+    <string name="trainer_username_empty">The username cannot be empty.</string>
+    <string name="trainer_address_Empty">Field address is mandatory</string>
+    <string name="trainer_city_empty">The city cannot be empty.</string>
+    <string name="trainer_postal_code_empty">The postal code cannot be empty.</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Trainer Posting</string>
@@ -271,7 +378,7 @@
             Best regards;\n
             Nemeum Team
     </string>
-    <string name="date_format" > dd/mm/yyyy</string>
+    <string name="date_format"> dd/mm/yyyy</string>
     <string name="daily_Schedule_Title">Daily Schedule</string>
     <string name="scenario_Daily_Schedule">Scenario</string>
     <string name="starting_Time">Starting Time</string>
@@ -282,7 +389,6 @@
     <string name="etime_error">Ending time cannot be empty</string>
     <string name="scenarios_spinner_Error">Select a scenario</string>
     <string name="scenarios_edition">Scenarios Edition</string>
-
     <string-array name="scenarios_array">
         <item>Boxing ring of Lleida</item>
         <item>Lleida Gym Center</item>
@@ -296,4 +402,10 @@
     <string name="repeat_password">Repeat your password</string>
     <string name="premium">Premium?</string>
     <string name="forgot_password">Forgot password?</string>
+
+    <!-- Data passed between intents names -->
+    <string name="scenarioNameExtra">chooseName</string>
+    <string name="scenarioImgExtra">chooseImg</string>
+    <string name="scenarioRatingExtra">chooseRating</string>
+    <string name="scenarioDescrExtra">chooseDescr</string>
 </resources>

@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/yearText"
             android:layout_centerHorizontal="true"
-            android:text="Select Month"
+            android:text="@string/monthSelectTitle"
             android:textColor="@color/colorBlue"
             android:textSize="12sp"/>
     </RelativeLayout>

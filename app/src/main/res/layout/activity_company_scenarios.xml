@@ -16,7 +16,7 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="3dp"
         android:background="@mipmap/back_icon"
-        android:onClick="@string/title_activity_main2" />
+        android:onClick="goBack" />
 
     <TextView
         android:id="@+id/TitleText"
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/companyAddress"
-            android:layout_toRightOf="@+id/FacilityIImg"
+            android:layout_toRightOf="@+id/FacilityImg"
             android:layout_centerHorizontal="true"
             android:text="Open - Closes: 09:00 - 23:00"
             android:textSize="15sp"

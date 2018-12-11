@@ -26,7 +26,7 @@ public class BookScenarioPayment extends AppCompatActivity {
         appContext = getApplicationContext();
 
         TextView scenarioName = findViewById(R.id.scenarioBookTitleText);
-        scenarioName.setText(getIntent().getStringExtra("chooseName"));
+        scenarioName.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
 
         CalendarView bookDay = findViewById(R.id.bookDayCalendar);
 

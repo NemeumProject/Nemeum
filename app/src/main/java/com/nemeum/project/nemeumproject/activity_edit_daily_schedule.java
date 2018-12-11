@@ -46,7 +46,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         final String select_etime_popup = getString(R.string.ending_Time);
 
         //Set the current date
-        String date_n = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        String date_n = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault()).format(new Date());
         date_EditText.setText(date_n);
 
         //Create action OnClickListener to allow the user choose a date
@@ -123,8 +123,8 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
     };
     private void updateLabel() {
-        String myFormat = "dd/MM/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, new Locale("es", "ES"));
+        String myFormat = getResources().getString(R.string.date_format);
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
 
         date_EditText.setText(sdf.format(myCalendar.getTime()));
     }

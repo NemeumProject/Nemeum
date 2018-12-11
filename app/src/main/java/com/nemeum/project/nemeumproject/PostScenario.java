@@ -45,23 +45,23 @@ public class PostScenario extends AppCompatActivity {
     private void SubmitNewScenario(String title,String loc,String desc,String capacity,String price){
         if(title.length()==0)
         {
-            Toast.makeText(PostScenario.this,"You can't leave title as a blank",Toast.LENGTH_LONG).show();
+            Toast.makeText(PostScenario.this, getResources().getString(R.string.scenario_post_title_empty), Toast.LENGTH_LONG).show();
         }
         if(loc.length()==0)
         {
-            Toast.makeText(PostScenario.this,"You can't leave location as a blank",Toast.LENGTH_LONG).show();
+            Toast.makeText(PostScenario.this, getResources().getString(R.string.scenario_post_location_empty), Toast.LENGTH_LONG).show();
         }
         if(desc.length()==0)
         {
-            Toast.makeText(PostScenario.this,"You can't leave description as a blank",Toast.LENGTH_LONG).show();
+            Toast.makeText(PostScenario.this, getResources().getString(R.string.scenario_post_description_empty), Toast.LENGTH_LONG).show();
         }
         if (capacity.equals(0) || capacity.length()==0)
         {
-            Toast.makeText(PostScenario.this,"You can't leave capacity as a 0",Toast.LENGTH_LONG).show();
+            Toast.makeText(PostScenario.this, getResources().getString(R.string.scenario_post_capacity_empty), Toast.LENGTH_LONG).show();
         }
         if (price.equals(0) || price.length()==0)
         {
-            Toast.makeText(PostScenario.this,"You can't leave price as a 0",Toast.LENGTH_LONG).show();
+            Toast.makeText(PostScenario.this, getResources().getString(R.string.scenario_post_price_empty), Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -51,8 +51,8 @@ public class activity_user_editionp extends AppCompatActivity  {
 
     };
     private void updateLabel() {
-        String myFormat = "dd/MM/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, new Locale("es", "ES"));
+        String myFormat = getResources().getString(R.string.date_format);
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
 
         birthdt_EditText.setText(sdf.format(myCalendar.getTime()));
     }

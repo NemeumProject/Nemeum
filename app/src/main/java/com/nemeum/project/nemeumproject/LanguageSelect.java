@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class LanguageSelect extends AppCompatActivity {
 
     Context appContext;
@@ -59,7 +61,7 @@ public class LanguageSelect extends AppCompatActivity {
 
     public void changeLangEs(View view){
 
-        if(LocaleManager.getLanguage(appContext).equals("es")) {
+        if(LocaleManager.getLanguage(appContext).equals(getResources().getString(R.string.app_language_spanish))) {
 
             Toast toast = Toast.makeText(appContext, R.string.changeLanguageErr, Toast.LENGTH_LONG);
             toast.show();
@@ -68,7 +70,7 @@ public class LanguageSelect extends AppCompatActivity {
             Toast toast = Toast.makeText(appContext, R.string.selectedSpanishToast, Toast.LENGTH_SHORT);
             toast.show();
 
-            LocaleManager.setNewLocale(appContext, "es");
+            LocaleManager.setNewLocale(appContext, getResources().getString(R.string.app_language_spanish));
 
             restart();
         }
@@ -76,7 +78,7 @@ public class LanguageSelect extends AppCompatActivity {
 
     public void changeLangEn(View view){
 
-        if(LocaleManager.getLanguage(appContext).equals("en")) {
+        if(LocaleManager.getLanguage(appContext).equals(getResources().getString(R.string.app_language_english))) {
 
             Toast toast = Toast.makeText(appContext, R.string.changeLanguageErr, Toast.LENGTH_LONG);
             toast.show();
@@ -85,7 +87,7 @@ public class LanguageSelect extends AppCompatActivity {
             Toast toast = Toast.makeText(appContext, R.string.selectedEnglishToast, Toast.LENGTH_SHORT);
             toast.show();
 
-            LocaleManager.setNewLocale(appContext, "en");
+            LocaleManager.setNewLocale(appContext, getResources().getString(R.string.app_language_english));
 
             restart();
         }

@@ -47,8 +47,6 @@ import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.ArrayList;
 
-import url.UrlServer;
-
 public class NearScenarios extends AppCompatActivity implements OnMapReadyCallback {
 
     int[] scenarioPicture = {R.drawable.swimming_silhouette, R.drawable.stadium, R.drawable.decathlon_logo};
@@ -154,7 +152,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
                 try{
 
-                    URI website = new URI(UrlServer.url + "/scenario/list");
+                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenariosDB) + getResources().getString(R.string.listDB));
                     request.setURI(website);
                     HttpResponse response = httpclient.execute(request);
                     in = new BufferedReader(new InputStreamReader(
@@ -168,11 +166,11 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
                     while((parser = (JSONObject) parserList.get(numResults)) != null) {
 
-                        scenarioIdArray.add(parser.getInt("idScenario"));
-                        scenarioSportIdArray.add(parser.getInt("idSport"));
-                        scenarioPriceArray.add(parser.getDouble("price"));
-                        scenarioCompanyIdArray.add(parser.getInt("idCompany"));
-                        scenarioDescriptionArray.add(parser.getString("description"));
+                        scenarioIdArray.add(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
+                        scenarioSportIdArray.add(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
+                        scenarioPriceArray.add(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
+                        scenarioCompanyIdArray.add(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
+                        scenarioDescriptionArray.add(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
                         numResults++;
 
                     }
@@ -218,7 +216,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         if (ActivityCompat.checkSelfPermission(appContext, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(appContext, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-            Toast.makeText(appContext, "ERROR PERMISSION", Toast.LENGTH_LONG ).show();
+            Toast.makeText(appContext, getResources().getString(R.string.permissionLocationErr), Toast.LENGTH_LONG ).show();
         }
 
         gMap.setMyLocationEnabled(true);
@@ -296,14 +294,14 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                 @Override
                 public void onClick(View v) {
                     Intent intentBook = new Intent(appContext, BookScenarios.class);
-                    intentBook.putExtra("chooseImg", scenarioPicture[position]);
-                    intentBook.putExtra("chooseRating", 2);
-                    intentBook.putExtra("chooseName", scenarioName[position]);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), scenarioPicture[position]);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioRatingExtra), 2);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), scenarioName[position]);
 
                     if(!scenarioDescriptionArray.get(position).equals("null"))
-                        intentBook.putExtra("chooseDescr", scenarioDescriptionArray.get(position));
+                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), scenarioDescriptionArray.get(position));
                     else
-                        intentBook.putExtra("chooseDescr", "");
+                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), "");
 
                     appContext.startActivity(intentBook);
                 }
