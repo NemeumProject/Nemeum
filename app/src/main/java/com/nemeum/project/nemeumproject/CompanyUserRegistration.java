@@ -19,8 +19,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-import url.UrlServer;
-
 public class CompanyUserRegistration extends AppCompatActivity {
 
     private EditText CompanyUserName;
@@ -35,7 +33,7 @@ public class CompanyUserRegistration extends AppCompatActivity {
     private EditText CompanyUserUsername;
     private EditText CompanyUserPassword;
     private EditText CompanyUserPasswordVal;
-    private String Premium;
+    private boolean Premium;
     private CheckBox CompanyUserPremium;
 
     @Override
@@ -58,9 +56,9 @@ public class CompanyUserRegistration extends AppCompatActivity {
         CompanyUserPasswordVal = (EditText) findViewById(R.id.CompanyPasswordValidation);
         CompanyUserPremium = (CheckBox) findViewById(R.id.Premium);
         if(CompanyUserPremium.isChecked()){
-            Premium = "true";
+            Premium = true;
         }else{
-            Premium = "false";
+            Premium = false;
         }
 
         submitdatacompany_btn.setOnClickListener(new View.OnClickListener() {
@@ -74,20 +72,32 @@ public class CompanyUserRegistration extends AppCompatActivity {
     }
 
     private void CompanyUserRegisterValidation(String com_name, String comercialName, String ContactPerson, String ssn, String com_email,String com_address,
-                                               String city, String postalCode, String com_telephone, String username, String com_password,String com_password_validation, String premium)
+                                               String city, String postalCode, String com_telephone, String username, String com_password,String com_password_validation, boolean premium)
     {
         if(com_name.length()<3){
-            Toast.makeText(CompanyUserRegistration.this,"Your input name less than 3 characters, please input more than 2 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_name_short), Toast.LENGTH_LONG).show();
         }else if(com_name.length()>22){
-            Toast.makeText(CompanyUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_name_long), Toast.LENGTH_LONG).show();
         }else if(com_email.length()==0){
-            Toast.makeText(CompanyUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_email_empty), Toast.LENGTH_LONG).show();
         }else if(com_telephone.length()<7){
-            Toast.makeText(CompanyUserRegistration.this,"Your input telephone number less than 7 characters, please input more than 6 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_phone_invalid), Toast.LENGTH_LONG).show();
         }else if(com_password.length()<6){
-            Toast.makeText(CompanyUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
-        }else if(!com_password.equals(com_password_validation)){
-            Toast.makeText(CompanyUserRegistration.this,"The passwords must be equals",Toast.LENGTH_LONG).show();
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_password_short), Toast.LENGTH_LONG).show();
+        }else if(!com_password.equals(com_password_validation)) {
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_password_mismatch), Toast.LENGTH_LONG).show();
+        }else if(ssn.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_ssn_empty), Toast.LENGTH_LONG).show();
+        }else if(comercialName.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_commercial_name_empty) , Toast.LENGTH_LONG).show();
+        }else if(ContactPerson.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_contact_person_empty), Toast.LENGTH_LONG).show();
+        }else if(city.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_city_empty), Toast.LENGTH_LONG).show();
+        }else if(postalCode.length() == 0) {
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_postal_code_empty), Toast.LENGTH_LONG).show();
+        }else if(username.length() == 0){
+            Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.company_username_empty), Toast.LENGTH_LONG).show();
         }else{
             final String nameUser = com_name;
             final String ComercialName = comercialName;
@@ -100,35 +110,30 @@ public class CompanyUserRegistration extends AppCompatActivity {
             final String phone = com_telephone;
             final String Username = username;
             final String pass = com_password;
-            final String isPremium = premium;
+            final boolean isPremium = premium;
 
             new Thread(new Runnable() {
                 public void run() {
                     HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost(UrlServer.url + "/companyuser");
+                    HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + getResources().getString(R.string.companyUserDB));
 
                     JSONObject postData = new JSONObject();
                     try {
-                        postData.put("companyName", nameUser);
-                        postData.put("email", emailUser);
-                        postData.put("phone", Integer.parseInt(phone));
-                        postData.put("username", Username);
-                        postData.put("password", pass);
-                        postData.put("comercialName", ComercialName);
-                        postData.put("address", address);
-                        postData.put("city", City);
-                        postData.put("postalCode", PostalCode);
-                        postData.put("contactPerson", contactPerson);
-                        postData.put("ssn", Ssn);
-                        if(isPremium.equals("true")){
-                            postData.put("premium", true);
-                        }else{
-                            postData.put("premium", false);
-                        }
-                        StringEntity se = null;
-                        se = new StringEntity(postData.toString());
-                        httppost.setHeader("Accept", "application/json");
-                        httppost.setHeader("Content-type", "application/json");
+                        postData.put(getResources().getString(R.string.companyNameJson), nameUser);
+                        postData.put(getResources().getString(R.string.companyEmailJson), emailUser);
+                        postData.put(getResources().getString(R.string.companyPhoneJson), Integer.parseInt(phone));
+                        postData.put(getResources().getString(R.string.companyUsernameJson), Username);
+                        postData.put(getResources().getString(R.string.companyPasswordJson), pass);
+                        postData.put(getResources().getString(R.string.companyCommercialNameJson), ComercialName);
+                        postData.put(getResources().getString(R.string.companyAddressJson), address);
+                        postData.put(getResources().getString(R.string.companyCityJson), City);
+                        postData.put(getResources().getString(R.string.companyPostalCodeJson), PostalCode);
+                        postData.put(getResources().getString(R.string.companyContactPersonJson), contactPerson);
+                        postData.put(getResources().getString(R.string.companySSNJson), Ssn);
+                        postData.put(getResources().getString(R.string.companyPremiumJson), isPremium);
+                        StringEntity se = new StringEntity(postData.toString());
+                        httppost.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
+                        httppost.setHeader(getResources().getString(R.string.dbAccessContentType), getResources().getString(R.string.dbAccessAppJson));
                         httppost.setEntity(se);
                         HttpResponse response = httpclient.execute(httppost);
                         if(response.getStatusLine().getStatusCode() == 200){
@@ -137,13 +142,13 @@ public class CompanyUserRegistration extends AppCompatActivity {
                         }else if(response.getStatusLine().getStatusCode() == 401){
                             CompanyUserRegistration.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(CompanyUserRegistration.this,"Email already exists!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(CompanyUserRegistration.this,getResources().getString(R.string.company_email_exists),Toast.LENGTH_LONG).show();
                                 }
                             });
                         }else{
                             CompanyUserRegistration.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(CompanyUserRegistration.this,"Something was wrong. Please try again!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(CompanyUserRegistration.this,getResources().getString(R.string.requisitionError),Toast.LENGTH_LONG).show();
                                 }
                             });
                         }

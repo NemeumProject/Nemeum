@@ -19,8 +19,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-import url.UrlServer;
-
 public class TrainerUserRegistration extends AppCompatActivity {
 
     private EditText TrainerName;
@@ -33,7 +31,7 @@ public class TrainerUserRegistration extends AppCompatActivity {
     private EditText TrainerUserAddress;
     private EditText TrainerUserCity;
     private EditText TrainerUserPostalCode;
-    private String Premium;
+    private boolean Premium;
     private CheckBox TrainerUserPremium;
 
     @Override
@@ -54,9 +52,9 @@ public class TrainerUserRegistration extends AppCompatActivity {
         TrainerUserPostalCode = (EditText) findViewById(R.id.TrainerPostalCodeRegister);
         TrainerUserPremium = (CheckBox) findViewById(R.id.Premium);
         if(TrainerUserPremium.isChecked()){
-            Premium = "true";
+            Premium = true;
         }else{
-            Premium = "false";
+            Premium = false;
         }
 
         submittrainerdata_btn.setOnClickListener(new View.OnClickListener() {
@@ -70,20 +68,30 @@ public class TrainerUserRegistration extends AppCompatActivity {
         });
     }
 
-    private void TrainerRegisterValidation(String Trainer_Name,String Trainer_Email,String Trainer_Telp, String username, String Trainer_Pass,String Trainer_Pass_Vall, String surname, String address, String city, String postalCode, String premium)
+    private void TrainerRegisterValidation(String Trainer_Name,String Trainer_Email,String Trainer_Telp, String username, String Trainer_Pass,String Trainer_Pass_Vall, String surname, String address, String city, String postalCode, boolean premium)
     {
         if(Trainer_Name.length()<3){
-            Toast.makeText(TrainerUserRegistration.this,"Your input name less than 3 characters, please input more than 2 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_name_short), Toast.LENGTH_LONG).show();
         }else if(Trainer_Name.length()>22){
-            Toast.makeText(TrainerUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_name_long), Toast.LENGTH_LONG).show();
         }else if(Trainer_Email.length()==0){
-            Toast.makeText(TrainerUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_email_empty),Toast.LENGTH_LONG).show();
         }else if(Trainer_Telp.length()<7){
-            Toast.makeText(TrainerUserRegistration.this,"Your input telephone number less than 7 characters, please input more than 6 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_phone_invalid),Toast.LENGTH_LONG).show();
         }else if(Trainer_Pass.length()<6){
-            Toast.makeText(TrainerUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_password_short), Toast.LENGTH_LONG).show();
         }else if(!Trainer_Pass.equals(Trainer_Pass_Vall)){
-            Toast.makeText(TrainerUserRegistration.this,"The passwords must be equals",Toast.LENGTH_LONG).show();
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_password_mismatch), Toast.LENGTH_LONG).show();
+        }else if(username.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_username_empty), Toast.LENGTH_LONG).show();
+        }else if(surname.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_surname_empty), Toast.LENGTH_LONG).show();
+        }else if(address.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_address_Empty), Toast.LENGTH_LONG).show();
+        }else if(city.length() == 0) {
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_city_empty), Toast.LENGTH_LONG).show();
+        }else if(postalCode.length() == 0){
+            Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.trainer_postal_code_empty), Toast.LENGTH_LONG).show();
         }else{
             final String nameUser = Trainer_Name;
             final String emailUser = Trainer_Email;
@@ -94,33 +102,28 @@ public class TrainerUserRegistration extends AppCompatActivity {
             final String Address = address;
             final String City = city;
             final String postal = postalCode;
-            final String isPremium = premium;
+            final boolean isPremium = premium;
 
             new Thread(new Runnable() {
                 public void run() {
                     HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost(UrlServer.url + "/traineruser");
+                    HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + getResources().getString(R.string.trainerDB));
 
                     JSONObject postData = new JSONObject();
                     try {
-                        postData.put("firstName", nameUser);
-                        postData.put("email", emailUser);
-                        postData.put("phone", Integer.parseInt(phone));
-                        postData.put("username", Username);
-                        postData.put("password", pass);
-                        postData.put("lastSurname", Surname);
-                        postData.put("address", Address);
-                        postData.put("city", City);
-                        postData.put("postalCode", postal);
-                        if(isPremium.equals("true")){
-                            postData.put("premium", true);
-                        }else{
-                            postData.put("premium", false);
-                        }
-                        StringEntity se = null;
-                        se = new StringEntity(postData.toString());
-                        httppost.setHeader("Accept", "application/json");
-                        httppost.setHeader("Content-type", "application/json");
+                        postData.put(getResources().getString(R.string.trainerNameJson), nameUser);
+                        postData.put(getResources().getString(R.string.trainerEmailJson), emailUser);
+                        postData.put(getResources().getString(R.string.trainerPhoneJson), Integer.parseInt(phone));
+                        postData.put(getResources().getString(R.string.trainerUsernameJson), Username);
+                        postData.put(getResources().getString(R.string.trainerPasswordJson), pass);
+                        postData.put(getResources().getString(R.string.trainerSurnameJson), Surname);
+                        postData.put(getResources().getString(R.string.trainerAddressJson), Address);
+                        postData.put(getResources().getString(R.string.trainerCityJson), City);
+                        postData.put(getResources().getString(R.string.trainerPostalCodeJson), postal);
+                        postData.put(getResources().getString(R.string.trainerPremiumJson), isPremium);
+                        StringEntity se = new StringEntity(postData.toString());
+                        httppost.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
+                        httppost.setHeader(getResources().getString(R.string.dbAccessContentType), getResources().getString(R.string.dbAccessAppJson));
                         httppost.setEntity(se);
                         HttpResponse response = httpclient.execute(httppost);
                         if(response.getStatusLine().getStatusCode() == 200){
@@ -129,13 +132,13 @@ public class TrainerUserRegistration extends AppCompatActivity {
                         }else if(response.getStatusLine().getStatusCode() == 401){
                             TrainerUserRegistration.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(TrainerUserRegistration.this,"Email already exists!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(TrainerUserRegistration.this,getResources().getString(R.string.trainer_email_exists), Toast.LENGTH_LONG).show();
                                 }
                             });
                         }else{
                             TrainerUserRegistration.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(TrainerUserRegistration.this,"Something was wrong. Please try again!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.requisitionError), Toast.LENGTH_LONG).show();
                                 }
                             });
                         }

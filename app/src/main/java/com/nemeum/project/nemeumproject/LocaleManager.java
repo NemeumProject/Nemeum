@@ -23,7 +23,7 @@ public class LocaleManager {
     }
 
     public static String getLanguage(Context c) {
-
+        
         SharedPreferences SP = c.getSharedPreferences("appLanguage", c.MODE_PRIVATE);
         return SP.getString("appLanguage", "");
 

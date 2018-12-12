@@ -14,9 +14,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="125dp"
         android:background="@drawable/button_background"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="#25274d"
-        android:textSize="12dp"/>
+        android:textSize="12sp"/>
 
     <Button
         android:id="@+id/button1"
@@ -26,9 +26,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="65dp"
         android:background="@drawable/button_background1"
-        android:text="Register"
+        android:text="@string/buttonRegister"
         android:textColor="#ffffff"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/forgetpassbtn"
@@ -37,7 +37,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="220dp"
-        android:text="Forgot Password?"
+        android:text="@string/forgot_password"
         android:textColor="#29648a"/>
 
     <EditText
@@ -47,7 +47,7 @@
         android:ems="10"
         android:backgroundTint="#2e9cca"
         android:inputType="textEmailAddress"
-        android:hint="Your Email"
+        android:hint="@string/user_Email"
         android:textColorHint="#9d8d8f"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -61,7 +61,7 @@
         android:ems="10"
         android:backgroundTint="#2e9cca"
         android:inputType="textPassword"
-        android:hint="Your Password"
+        android:hint="@string/password"
         android:textColorHint="#9d8d8f"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

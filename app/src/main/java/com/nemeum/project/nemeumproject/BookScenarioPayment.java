@@ -26,25 +26,23 @@ public class BookScenarioPayment extends AppCompatActivity {
         appContext = getApplicationContext();
 
         TextView scenarioName = findViewById(R.id.scenarioBookTitleText);
-        scenarioName.setText(getIntent().getStringExtra("chooseName"));
+        scenarioName.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
 
         CalendarView bookDay = findViewById(R.id.bookDayCalendar);
 
-
         Spinner startingRent = findViewById(R.id.startTime);
-        Spinner endingRent = findViewById(R.id.endTime);
-        Spinner bookPaymentMode = findViewById(R.id.paymentMethod);
-
         ArrayAdapter<CharSequence> startRentAdapter = ArrayAdapter.createFromResource(this, R.array.hourStartFilter, android.R.layout.simple_spinner_dropdown_item);
-        ArrayAdapter<CharSequence> endRentAdapter = ArrayAdapter.createFromResource(this, R.array.hourEndFilter, android.R.layout.simple_spinner_dropdown_item);
-        ArrayAdapter<CharSequence> bookPaymentAdapter = ArrayAdapter.createFromResource(this, R.array.paymentMethodsFilter, android.R.layout.simple_spinner_dropdown_item);
-
         startRentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        endRentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        bookPaymentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         startingRent.setAdapter(startRentAdapter);
+
+        Spinner endingRent = findViewById(R.id.endTime);
+        ArrayAdapter<CharSequence> endRentAdapter = ArrayAdapter.createFromResource(this, R.array.hourEndFilter, android.R.layout.simple_spinner_dropdown_item);
+        endRentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         endingRent.setAdapter(endRentAdapter);
+
+        Spinner bookPaymentMode = findViewById(R.id.paymentMethod);
+        ArrayAdapter<CharSequence> bookPaymentAdapter = ArrayAdapter.createFromResource(this, R.array.paymentMethodsFilter, android.R.layout.simple_spinner_dropdown_item);
+        bookPaymentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bookPaymentMode.setAdapter(bookPaymentAdapter);
 
         BottomNavigationView menu = findViewById(R.id.navigation);

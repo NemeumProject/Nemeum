@@ -17,11 +17,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-
-import url.UrlServer;
 
 public class NormalUserRegistration extends AppCompatActivity {
 
@@ -35,7 +31,7 @@ public class NormalUserRegistration extends AppCompatActivity {
     private EditText NormalUserAddress;
     private EditText NormalUserCity;
     private EditText NormalUserPostalCode;
-    private String Premium;
+    private boolean Premium;
     private CheckBox NormalUserPremium;
 
     @Override
@@ -56,9 +52,9 @@ public class NormalUserRegistration extends AppCompatActivity {
         NormalUserPostalCode = (EditText) findViewById(R.id.UserPostalCodeRegister);
         NormalUserPremium = (CheckBox) findViewById(R.id.Premium);
         if(NormalUserPremium.isChecked()){
-            Premium = "true";
+            Premium = true;
         }else{
-            Premium = "false";
+            Premium = false;
         }
 
         submituserdata_btn.setOnClickListener(new View.OnClickListener() {
@@ -72,20 +68,30 @@ public class NormalUserRegistration extends AppCompatActivity {
         });
     }
 
-    private void NormalUserRegisterValidation(String name,String email,String telephone, String username, String password,String password_validation, String surname, String address, String city, String postalCode, String premium)
+    private void NormalUserRegisterValidation(String name,String email,String telephone, String username, String password,String password_validation, String surname, String address, String city, String postalCode, boolean premium)
     {
         if(name.length()<3){
-            Toast.makeText(NormalUserRegistration.this,"Your input name less than 3 characters, please input more than 2 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_name_short),Toast.LENGTH_LONG).show();
         }else if(name.length()>22){
-            Toast.makeText(NormalUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_name_long),Toast.LENGTH_LONG).show();
         }else if(email.length()==0){
-            Toast.makeText(NormalUserRegistration.this,"Your input name more than 22 characters, please input less than 23 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.name_UserEdition_Empty),Toast.LENGTH_LONG).show();
         }else if(telephone.length()<7){
-            Toast.makeText(NormalUserRegistration.this,"Your input telephone number less than 7 characters, please input more than 6 characters!",Toast.LENGTH_LONG).show();
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_phone_invalid),Toast.LENGTH_LONG).show();
         }else if(password.length()<6){
-            Toast.makeText(NormalUserRegistration.this,"Your input password less than 6 characters, please input more than 5 characters!",Toast.LENGTH_LONG).show();
-        }else if(!password.equals(password_validation)){
-            Toast.makeText(NormalUserRegistration.this,"The passwords must be equals",Toast.LENGTH_LONG).show();
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_password_short),Toast.LENGTH_LONG).show();
+        }else if(!password.equals(password_validation)) {
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_password_mismatch),Toast.LENGTH_LONG).show();
+        }else if(username.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_username_empty),Toast.LENGTH_LONG).show();
+        }else if(surname.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_surname_empty),Toast.LENGTH_LONG).show();
+        }else if(address.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_address_Empty),Toast.LENGTH_LONG).show();
+        }else if(city.length() == 0) {
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_city_empty),Toast.LENGTH_LONG).show();
+        }else if(postalCode.length() == 0){
+            Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.user_postal_code_empty),Toast.LENGTH_LONG).show();
         }else{
             final String nameUser = name;
             final String emailUser = email;
@@ -96,33 +102,28 @@ public class NormalUserRegistration extends AppCompatActivity {
             final String Address = address;
             final String City = city;
             final String postal = postalCode;
-            final String isPremium = premium;
+            final boolean isPremium = premium;
 
             new Thread(new Runnable() {
                 public void run() {
                     HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost(UrlServer.url + "/user");
+                    HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + getResources().getString(R.string.userDB));
 
                     JSONObject postData = new JSONObject();
                     try {
-                        postData.put("firstName", nameUser);
-                        postData.put("email", emailUser);
-                        postData.put("phone", Integer.parseInt(phone));
-                        postData.put("username", Username);
-                        postData.put("password", pass);
-                        postData.put("lastSurname", Surname);
-                        postData.put("address", Address);
-                        postData.put("city", City);
-                        postData.put("postalCode", postal);
-                        if(isPremium.equals("true")){
-                            postData.put("premium", true);
-                        }else{
-                            postData.put("premium", false);
-                        }
-                        StringEntity se = null;
-                        se = new StringEntity(postData.toString());
-                        httppost.setHeader("Accept", "application/json");
-                        httppost.setHeader("Content-type", "application/json");
+                        postData.put(getResources().getString(R.string.individualNameJson), nameUser);
+                        postData.put(getResources().getString(R.string.individualEmailJson), emailUser);
+                        postData.put(getResources().getString(R.string.individualPhoneJson), Integer.parseInt(phone));
+                        postData.put(getResources().getString(R.string.individualUsernameJson), Username);
+                        postData.put(getResources().getString(R.string.individualPasswordJson), pass);
+                        postData.put(getResources().getString(R.string.individualSurnameJson), Surname);
+                        postData.put(getResources().getString(R.string.individualAddressJson), Address);
+                        postData.put(getResources().getString(R.string.individualCityJson), City);
+                        postData.put(getResources().getString(R.string.individualPostalCodeJson), postal);
+                        postData.put(getResources().getString(R.string.individualPremiumJson), isPremium);
+                        StringEntity se = new StringEntity(postData.toString());
+                        httppost.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
+                        httppost.setHeader(getResources().getString(R.string.dbAccessContentType), getResources().getString(R.string.dbAccessAppJson));
                         httppost.setEntity(se);
                         HttpResponse response = httpclient.execute(httppost);
                         if(response.getStatusLine().getStatusCode() == 200){
@@ -131,13 +132,13 @@ public class NormalUserRegistration extends AppCompatActivity {
                         }else if(response.getStatusLine().getStatusCode() == 401){
                             NormalUserRegistration.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(NormalUserRegistration.this,"Email already exists!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(NormalUserRegistration.this,getResources().getString(R.string.user_email_exists),Toast.LENGTH_LONG).show();
                                 }
                             });
                         }else{
                             NormalUserRegistration.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(NormalUserRegistration.this,"Something was wrong. Please try again!",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(NormalUserRegistration.this,getResources().getString(R.string.requisitionError),Toast.LENGTH_LONG).show();
                                 }
                             });
                         }

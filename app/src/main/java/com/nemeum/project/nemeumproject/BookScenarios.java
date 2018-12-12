@@ -28,10 +28,10 @@ public class BookScenarios extends AppCompatActivity {
         RatingBar scenarioStars = findViewById(R.id.starScenarioRating);
         TextView scenarioDescription = findViewById(R.id.scenarioBookDescriptionText);
 
-        scenarioPicture.setImageResource(getIntent().getIntExtra("chooseImg", R.drawable.bicycle_rider));
-        scenarioName.setText(getIntent().getStringExtra("chooseName"));
-        scenarioStars.setRating(getIntent().getIntExtra("chooseRating", 5));
-        scenarioDescription.setText(getIntent().getStringExtra("chooseDescr"));
+        scenarioPicture.setImageResource(getIntent().getIntExtra(getResources().getString(R.string.scenarioImgExtra), R.drawable.bicycle_rider));
+        scenarioName.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
+        scenarioStars.setRating(getIntent().getIntExtra(getResources().getString(R.string.scenarioRatingExtra), 5));
+        scenarioDescription.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioDescrExtra)));
 
         BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -68,7 +68,7 @@ public class BookScenarios extends AppCompatActivity {
 
     public void scenarioBookPayment(View view) {
         Intent intentPayment = new Intent(appContext, BookScenarioPayment.class);
-        intentPayment.putExtra("chooseName", getIntent().getStringExtra("chooseName"));
+        intentPayment.putExtra(getResources().getString(R.string.scenarioNameExtra), getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
         appContext.startActivity(intentPayment);
     }
 }

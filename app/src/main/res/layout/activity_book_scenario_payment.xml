@@ -33,7 +33,6 @@
         android:layout_margin="15dp"
         android:layout_below="@+id/backBtn"
         android:layout_above="@+id/navigation"
-    android:backgroundTint="@color/colorRed"
         android:background="@drawable/results_rounded">
 
         <ScrollView
@@ -58,10 +57,10 @@
                     android:id="@+id/bookDayCalendar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:layout_gravity="center"
                     android:firstDayOfWeek="2"
-                    android:dateTextAppearance="@style/CalenderViewDateCustomText"
-                    android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"/>
+                    android:background="@color/colorBackground"/>
 
                 <LinearLayout
                     android:id="@+id/startEndBook"
@@ -110,7 +109,7 @@
                     android:text="@string/buttonSubmit"
                     android:textAllCaps="false"
                     android:textColor="@color/colorFont"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
         </ScrollView>
