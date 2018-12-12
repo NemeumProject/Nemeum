@@ -53,6 +53,7 @@ public class Login extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+
         });
 
         register_btn.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +108,7 @@ public class Login extends AppCompatActivity {
                         while((line = in.readLine()) != null){
                             result += line;
                         }
+                        System.out.print(result);
                         if(result.equals("Individual"))
                         {
                             Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
@@ -140,6 +142,12 @@ public class Login extends AppCompatActivity {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Login.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(Login.this,"You dont have any connection! Please connect to the mobile data or Wi-Fi... ",Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
