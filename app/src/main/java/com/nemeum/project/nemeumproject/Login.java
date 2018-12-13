@@ -85,7 +85,6 @@ public class Login extends AppCompatActivity {
         final String email = Email;
         final String password = UserPassword;
         final SharedPreferences registeredUserPref = getApplicationContext().getSharedPreferences(getResources().getString(R.string.userTypeSP), getApplicationContext().MODE_PRIVATE);
-        //final SharedPreferences registeredUserId = getApplicationContext().getSharedPreferences("registeredUserId", getApplicationContext().MODE_PRIVATE);
 
         new Thread(new Runnable() {
             public void run() {
@@ -112,21 +111,23 @@ public class Login extends AppCompatActivity {
                         while((line = in.readLine()) != null){
                             result += line;
                         }
-                        if(result.equals(getResources().getString(R.string.individualUserSP)))
+                        String userType = result.split("-")[0];
+                        String id = result.split("-")[1];
+                        if(userType.equals(getResources().getString(R.string.individualUserSP)))
                         {
                             registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.individualUserSP));
                             registeredUserEditor.apply();
                             Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
                             startActivity(intent1);
                         }
-                        else if(result.equals(getResources().getString(R.string.trainerUserSP)))
+                        else if(userType.equals(getResources().getString(R.string.trainerUserSP)))
                         {
                             registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.trainerUserSP));
                             registeredUserEditor.apply();
                             Intent intent2 = new Intent(Login.this, UserTrainerLoginActivity.class);
                             startActivity(intent2);
                         }
-                        else if (result.equals(getResources().getString(R.string.companyUserSP)))
+                        else if (userType.equals(getResources().getString(R.string.companyUserSP)))
                         {
                             registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.companyUserSP));
                             registeredUserEditor.apply();
