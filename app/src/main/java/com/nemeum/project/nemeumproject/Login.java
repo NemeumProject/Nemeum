@@ -143,14 +143,21 @@ public class Login extends AppCompatActivity {
                             });
                         }
 
-                    }else{
+                    }
+                    else
+                        {
                         Login.this.runOnUiThread(new Runnable() {
                             public void run() {
                                 Toast.makeText(Login.this, getResources().getString(R.string.usernamePassError), Toast.LENGTH_LONG).show();
                             }
                         });
-                    }
+                        }
                 } catch (IOException e) {
+                    Login.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(Login.this, getResources().getString(R.string.noconnection), Toast.LENGTH_LONG).show();
+                        }
+                    });
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();

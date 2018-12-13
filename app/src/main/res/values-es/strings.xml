@@ -16,7 +16,7 @@
     <string name="notLoggedSP">notLogged</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.1.18:8080</string>
+    <string name="urlDB">http://192.168.0.159:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -296,7 +296,8 @@
     <string name="company_postal_code_empty">El codigo postal no puede quedar vacio.</string>
     <string name="company_username_empty">El nombre de usuário no puede quedar vacio.</string>
     <string name="requisitionError">Algo sailó mal. Intente nuevamente!</string>
-    <string name="usernamePassError">Tus datos están incorrectos. Intente nuevamente!</string>
+    <string name="usernamePassError">Su nombre de usuario o contraseña es incorrecta. ¡Inténtalo de nuevo!</string>
+    <string name="noconnection">¡No tienes ninguna conexión! Por favor, conecte a Wi-Fi o datos móviles.</string>
     <string name="selectedEnglishToast">Cambiando la lenguaje al Inglés, reiniciando...</string>
     <string name="selectedSpanishToast">Cambiando la lenguaje al Español, reiniciando...</string>
     <string name="selectedDollarToast">Moneda en Dollar.</string>

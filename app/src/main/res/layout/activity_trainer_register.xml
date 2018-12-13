@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/nemeum_registration_background3">
+    android:background="@drawable/nemeum_registration_background">
 
     <EditText
         android:id="@+id/TrainerNameRegister"
@@ -169,7 +169,7 @@
         android:layout_height="40dp"
         android:ems="10"
         android:text="@string/premium"
-        android:textColor="#263d45"
+        android:textColor="#d83f87"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="90dp"/>
