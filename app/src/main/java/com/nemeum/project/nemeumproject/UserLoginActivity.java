@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class UserLoginActivity extends AppCompatActivity {
 
@@ -25,6 +27,10 @@ public class UserLoginActivity extends AppCompatActivity {
         ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
 
+        Bundle bundle = getIntent().getExtras();
+        String new_user_name = bundle.getString("name_of_user");
+        TextView set_user_name = findViewById(R.id.user_names);
+        set_user_name.setText("Hello "+ new_user_name +" !");
 
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
