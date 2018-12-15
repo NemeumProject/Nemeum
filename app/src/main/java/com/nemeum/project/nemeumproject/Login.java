@@ -112,26 +112,41 @@ public class Login extends AppCompatActivity {
                             result += line;
                         }
                         String userType = result.split("-")[0];
-                        String id = result.split("-")[1];
+                        String user_name = result.split("-")[1];
+
                         if(userType.equals(getResources().getString(R.string.individualUserSP)))
                         {
                             registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.individualUserSP));
                             registeredUserEditor.apply();
+
                             Intent intent1 = new Intent(Login.this, UserLoginActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("name_of_user",user_name);
+                            intent1.putExtras(bundle);
+
                             startActivity(intent1);
                         }
                         else if(userType.equals(getResources().getString(R.string.trainerUserSP)))
                         {
                             registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.trainerUserSP));
                             registeredUserEditor.apply();
+
                             Intent intent2 = new Intent(Login.this, UserTrainerLoginActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("name_of_user",user_name);
+                            intent2.putExtras(bundle);
+
                             startActivity(intent2);
                         }
                         else if (userType.equals(getResources().getString(R.string.companyUserSP)))
                         {
                             registeredUserEditor.putString(getResources().getString(R.string.userTypeSP), getResources().getString(R.string.companyUserSP));
                             registeredUserEditor.apply();
+
                             Intent intent3 = new Intent(Login.this, UserCompanyLoginActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("name_of_user",user_name);
+                            intent3.putExtras(bundle);
                             startActivity(intent3);
                         }
                         else

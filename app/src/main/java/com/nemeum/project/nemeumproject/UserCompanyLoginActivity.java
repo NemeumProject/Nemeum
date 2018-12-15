@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class UserCompanyLoginActivity extends AppCompatActivity {
 
@@ -27,6 +28,11 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         ImageButton postscenario_btn = (ImageButton) findViewById(R.id.postserviceicon);
         ImageButton editscenario_btn = (ImageButton) findViewById(R.id.editscenarioicon);
         ImageButton updateschedule_btn = (ImageButton) findViewById(R.id.updatescheduleicon);
+
+        Bundle bundle = getIntent().getExtras();
+        String new_user_name = bundle.getString("name_of_user");
+        TextView set_user_name = findViewById(R.id.user_names);
+        set_user_name.setText("Hello "+ new_user_name +" !");
 
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
