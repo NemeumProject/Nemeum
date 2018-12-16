@@ -37,27 +37,27 @@ public class activity_Trainer_Posting extends AppCompatActivity implements Adapt
 
     public void posting_Trainer(View view) {
         //set up the variables to validate not empty fields and strings to show as error messages
-        EditText etTitle = (EditText) findViewById(R.id.title_Edit);
+        EditText etTitle = findViewById(R.id.title_Edit);
         String strTitle = etTitle.getText().toString();
         String title_Error = getString(R.string.title_Post_Empty);
 
-        EditText etCapacity = (EditText) findViewById(R.id.capacity_Edit);
+        EditText etCapacity = findViewById(R.id.capacity_Edit);
         String strCapacity = etCapacity.getText().toString();
         String capacity_Error = getString(R.string.capacity_Post_Empty);
 
-        EditText etLocation = (EditText) findViewById(R.id.location_Edit);
+        EditText etLocation = findViewById(R.id.location_Edit);
         String strLocation = etLocation.getText().toString();
         String location_Error = getString(R.string.location_Post_Empty);
 
-        EditText etPrice = (EditText) findViewById(R.id.price_Edit);
+        EditText etPrice = findViewById(R.id.price_Edit);
         String strPrice = etPrice.getText().toString();
         String price_Error = getString(R.string.price_Post_Empty);
 
-        EditText etDescription = (EditText) findViewById(R.id.description_Edit);
+        EditText etDescription = findViewById(R.id.description_Edit);
         String strDescription = etDescription.getText().toString();
         String description_Error = getString(R.string.description_Post_Empty);
 
-        EditText etDate =(EditText) findViewById(R.id.date_Edit);
+        EditText etDate = findViewById(R.id.date_Edit);
         String strDate = etDate.getText().toString();
         String date_Error = getString(R.string.date_Post_Empty);
 

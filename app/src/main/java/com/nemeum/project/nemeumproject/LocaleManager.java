@@ -24,14 +24,14 @@ public class LocaleManager {
 
     public static String getLanguage(Context c) {
         
-        SharedPreferences SP = c.getSharedPreferences("appLanguage", c.MODE_PRIVATE);
+        SharedPreferences SP = c.getSharedPreferences("appLanguage", Context.MODE_PRIVATE);
         return SP.getString("appLanguage", "");
 
     }
 
     private static void persistLanguage(Context c, String language) {
 
-        SharedPreferences SP = c.getSharedPreferences("appLanguage", c.MODE_PRIVATE);
+        SharedPreferences SP = c.getSharedPreferences("appLanguage", Context.MODE_PRIVATE);
         SharedPreferences.Editor languageEditor = SP.edit();
         languageEditor.putString("appLanguage", language);
         languageEditor.apply();

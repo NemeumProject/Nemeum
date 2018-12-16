@@ -1,12 +1,19 @@
 package com.nemeum.project.nemeumproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -41,25 +48,45 @@ public class CompanyUserRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_register);
 
-        Button submitdatacompany_btn = (Button) findViewById(R.id.submitdatacompany);
-        CompanyUserName = (EditText)findViewById(R.id.CompanyNameRegister);
-        CompanyUserComercialName = (EditText) findViewById(R.id.CompanyComercialNameRegister);
-        CompanyUserContactPerson = (EditText) findViewById(R.id.CompanyContactPersonRegister);
-        CompanyUserSsn = (EditText) findViewById(R.id.CompanySsnRegister);
-        CompanyUserEmail = (EditText) findViewById(R.id.CompanyEmailAddressRegister);
-        CompanyUserAddress = (EditText) findViewById(R.id.CompanyAddressRegister);
-        CompanyUserCity = (EditText) findViewById(R.id.CompanyCityRegister);
-        CompanyUserPostalCode = (EditText) findViewById((R.id.CompanyPostalCodeRegister));
-        CompanyUserTelephone = (EditText) findViewById(R.id.CompanyTelephoneRegister);
-        CompanyUserUsername = (EditText) findViewById(R.id.username);
-        CompanyUserPassword = (EditText) findViewById(R.id.CompanyPasswordRegister);
-        CompanyUserPasswordVal = (EditText) findViewById(R.id.CompanyPasswordValidation);
-        CompanyUserPremium = (CheckBox) findViewById(R.id.Premium);
-        if(CompanyUserPremium.isChecked()){
-            Premium = true;
-        }else{
-            Premium = false;
-        }
+        final View activityRootView = findViewById(R.id.companyRegisterActivity);
+        final Resources r = getResources();
+        final ScrollView scroll = findViewById(R.id.scrollCompanyRegister);
+        int keyboardPx = ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 315, r.getDisplayMetrics()));
+        final RelativeLayout.LayoutParams paramWithKeyboard = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, keyboardPx);
+        paramWithKeyboard.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        paramWithKeyboard.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        int foldPx = ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 343, r.getDisplayMetrics()));
+        final RelativeLayout.LayoutParams paramFoldedKeyboard = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, foldPx);
+        paramFoldedKeyboard.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        paramFoldedKeyboard.addRule(RelativeLayout.CENTER_HORIZONTAL);
+
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                if (heightDiff > dpToPx(getApplicationContext(), 200)) {
+                    scroll.setLayoutParams(paramWithKeyboard);
+                } else {
+                    scroll.setLayoutParams(paramFoldedKeyboard);
+                }
+            }
+        });
+
+        Button submitdatacompany_btn = findViewById(R.id.submitdatacompany);
+        CompanyUserName = findViewById(R.id.CompanyNameRegister);
+        CompanyUserComercialName = findViewById(R.id.CompanyComercialNameRegister);
+        CompanyUserContactPerson = findViewById(R.id.CompanyContactPersonRegister);
+        CompanyUserSsn = findViewById(R.id.CompanySsnRegister);
+        CompanyUserEmail = findViewById(R.id.CompanyEmailAddressRegister);
+        CompanyUserAddress = findViewById(R.id.CompanyAddressRegister);
+        CompanyUserCity = findViewById(R.id.CompanyCityRegister);
+        CompanyUserPostalCode = findViewById((R.id.CompanyPostalCodeRegister));
+        CompanyUserTelephone = findViewById(R.id.CompanyTelephoneRegister);
+        CompanyUserUsername = findViewById(R.id.username);
+        CompanyUserPassword = findViewById(R.id.CompanyPasswordRegister);
+        CompanyUserPasswordVal = findViewById(R.id.CompanyPasswordValidation);
+        CompanyUserPremium = findViewById(R.id.Premium);
+        Premium = CompanyUserPremium.isChecked();
 
         submitdatacompany_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +96,11 @@ public class CompanyUserRegistration extends AppCompatActivity {
                         CompanyUserTelephone.getText().toString(), CompanyUserUsername.getText().toString() ,CompanyUserPassword.getText().toString(),CompanyUserPasswordVal.getText().toString(), Premium);
             }
         });
+    }
+
+    public static float dpToPx(Context context, float valueInDp) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueInDp, metrics);
     }
 
     private void CompanyUserRegisterValidation(String com_name, String comercialName, String ContactPerson, String ssn, String com_email,String com_address,
@@ -153,6 +185,11 @@ public class CompanyUserRegistration extends AppCompatActivity {
                             });
                         }
                     } catch (IOException e) {
+                        CompanyUserRegistration.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(CompanyUserRegistration.this, getResources().getString(R.string.noconnection), Toast.LENGTH_LONG).show();
+                            }
+                        });
                         e.printStackTrace();
                     } catch (JSONException e) {
                         e.printStackTrace();

@@ -39,9 +39,9 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         spinner.setOnItemSelectedListener(this);
 
 
-        date_EditText= (EditText) findViewById(R.id.et_Date_Daily_Schedule);
-        startingTime_EditText=(EditText) findViewById(R.id.et_StartingTime_Daily_Schedule);
-        endingTime_EditText=(EditText) findViewById(R.id.et_EndingTime_Daily_Schedule);
+        date_EditText= findViewById(R.id.et_Date_Daily_Schedule);
+        startingTime_EditText= findViewById(R.id.et_StartingTime_Daily_Schedule);
+        endingTime_EditText= findViewById(R.id.et_EndingTime_Daily_Schedule);
         final String select_stime_popup = getString(R.string.starting_Time);
         final String select_etime_popup = getString(R.string.ending_Time);
 
@@ -141,24 +141,24 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
     public void save_Button_Daily_Schedule(View view) {
 
-        EditText etDate = (EditText)findViewById(R.id.et_Date_Daily_Schedule);
+        EditText etDate = findViewById(R.id.et_Date_Daily_Schedule);
         String str_date = etDate.getText().toString();
         String date_Error= getString(R.string.date_Post_Empty);
 
-        EditText etStartingTime = (EditText)findViewById(R.id.et_StartingTime_Daily_Schedule);
+        EditText etStartingTime = findViewById(R.id.et_StartingTime_Daily_Schedule);
         String stStartingTime = etStartingTime.getText().toString();
         String stStartingTime_Error= getString(R.string.stime_error);
 
 
-        EditText etEndingTime = (EditText)findViewById(R.id.et_EndingTime_Daily_Schedule);
+        EditText etEndingTime = findViewById(R.id.et_EndingTime_Daily_Schedule);
         String strEndTime = etEndingTime.getText().toString();
         String strEndingtime_Error = getString(R.string.etime_error) ;
 
-        EditText etCustomerName = (EditText) findViewById(R.id.et_customerName);
+        EditText etCustomerName = findViewById(R.id.et_customerName);
         String strName = etCustomerName.getText().toString();
         String name_Error = getString(R.string.name_UserEdition_Empty);
 
-        EditText etCustomerPhone = (EditText) findViewById(R.id.et_customerPhone);
+        EditText etCustomerPhone = findViewById(R.id.et_customerPhone);
         String strPhone = etCustomerPhone.getText().toString();
         String phone_Error = getString(R.string.user_Phone_Empty);
 
@@ -190,7 +190,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         }
 
         // check if spinner item is selected
-        Spinner spinner =(Spinner) findViewById(R.id.scenarios_Spinner_Daily_Schedule);
+        Spinner spinner = findViewById(R.id.scenarios_Spinner_Daily_Schedule);
         String scenarios_spinner_Error = getString(R.string.scenarios_spinner_Error);
 
         if (spinner.getSelectedItemId() == -1)

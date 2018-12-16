@@ -22,10 +22,10 @@ public class UserLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registered_normal_user);
         appContext = getApplicationContext();
 
-        ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
-        ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
-        ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
-        ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
+        ImageButton findevent_btn = findViewById(R.id.findeventicon);
+        ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
+        ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
+        ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
 
         Bundle bundle = getIntent().getExtras();
         String new_user_name = bundle.getString("name_of_user");

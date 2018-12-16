@@ -23,12 +23,12 @@ public class PostScenario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_scenario);
-        Button submit_scenario_btn = (Button)findViewById(R.id.submit_scenario_post);
-        ScenarioTitle = (EditText)findViewById(R.id.edit_scenario_title);
-        ScenarioLocation = (EditText) findViewById(R.id.scenario_location);
-        ScenarioDesc = (EditText)findViewById(R.id.edit_scenario_desc);
-        ScenarioCapacity = (EditText)findViewById(R.id.scenario_capacity);
-        ScenarioPrice = (EditText)findViewById(R.id.scenario_price);
+        Button submit_scenario_btn = findViewById(R.id.submit_scenario_post);
+        ScenarioTitle = findViewById(R.id.edit_scenario_title);
+        ScenarioLocation = findViewById(R.id.scenario_location);
+        ScenarioDesc = findViewById(R.id.edit_scenario_desc);
+        ScenarioCapacity = findViewById(R.id.scenario_capacity);
+        ScenarioPrice = findViewById(R.id.scenario_price);
 
         submit_scenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override

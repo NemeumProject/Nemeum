@@ -12,9 +12,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Button normal_user_reg_btn = (Button) findViewById(R.id.normaluserregister);
-        Button trainer_user_reg_btn =(Button) findViewById(R.id.traineruserregister);
-        Button company_user_reg_btn = (Button) findViewById(R.id.companyuserregister);
+        Button normal_user_reg_btn = findViewById(R.id.normaluserregister);
+        Button trainer_user_reg_btn = findViewById(R.id.traineruserregister);
+        Button company_user_reg_btn = findViewById(R.id.companyuserregister);
 
         normal_user_reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override

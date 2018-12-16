@@ -33,7 +33,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        changePicture =(ImageButton) findViewById(R.id.companyLogoImg_EditScenario);
+        changePicture = findViewById(R.id.companyLogoImg_EditScenario);
 
     }
     @Override
@@ -47,23 +47,23 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
     }
     public void edit_scenario(View view) {
         //set up the variables to validate not empty fields and strings to show as error messages
-        EditText etTitle = (EditText) findViewById(R.id.title_Edit_Scenario);
+        EditText etTitle = findViewById(R.id.title_Edit_Scenario);
         String strTitle = etTitle.getText().toString();
         String title_Error = getString(R.string.title_Post_Empty);
 
-        EditText etCapacity = (EditText) findViewById(R.id.capacity_Edit_Scenarios);
+        EditText etCapacity = findViewById(R.id.capacity_Edit_Scenarios);
         String strCapacity = etCapacity.getText().toString();
         String capacity_Error = getString(R.string.capacity_Post_Empty);
 
-        EditText etLocation = (EditText) findViewById(R.id.location_Edit_Scenario);
+        EditText etLocation = findViewById(R.id.location_Edit_Scenario);
         String strLocation = etLocation.getText().toString();
         String location_Error = getString(R.string.location_Post_Empty);
 
-        EditText etPrice = (EditText) findViewById(R.id.price_Edit_Scenario);
+        EditText etPrice = findViewById(R.id.price_Edit_Scenario);
         String strPrice = etPrice.getText().toString();
         String price_Error = getString(R.string.price_Post_Empty);
 
-        EditText etDescription = (EditText) findViewById(R.id.description_Edit_Scenario);
+        EditText etDescription = findViewById(R.id.description_Edit_Scenario);
         String strDescription = etDescription.getText().toString();
         String description_Error = getString(R.string.description_Post_Empty);
 
