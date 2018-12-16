@@ -49,7 +49,7 @@ public class ActivityMainMock extends AppCompatActivity {
                 LocaleManager.setLocale(appContext);
         }
 
-        SharedPreferences SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), appContext.MODE_PRIVATE);
+        SharedPreferences SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
         if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.individualUserSP)))
         {
@@ -70,7 +70,7 @@ public class ActivityMainMock extends AppCompatActivity {
             finish();
         }
 
-        ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
+        ImageButton findevent_btn = findViewById(R.id.findeventicon);
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +78,7 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
-        ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
+        ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
         findfacilities_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +86,7 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
-        ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
+        ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +94,7 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
-        ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
+        ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
         findtrainer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

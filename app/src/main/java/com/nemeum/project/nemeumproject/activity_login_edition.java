@@ -18,19 +18,19 @@ public class activity_login_edition extends AppCompatActivity {
 
     public void save_Edited_Data(View view) {
         //set up the variables to validate not empty fields and strings to show as error messages
-        EditText etUserName = (EditText) findViewById(R.id.EmailRegisterEdition);
+        EditText etUserName = findViewById(R.id.EmailRegisterEdition);
         String strUserName = etUserName.getText().toString();
         String username_Error = getString(R.string.username_Empty);
 
-        EditText etPassword= (EditText) findViewById(R.id.password_Edition);
+        EditText etPassword= findViewById(R.id.password_Edition);
         String strPassword = etPassword.getText().toString();
         String password_Error= getString(R.string.password_Empty);
 
-        EditText etNewPassword= (EditText) findViewById(R.id.new_password_Edition);
+        EditText etNewPassword= findViewById(R.id.new_password_Edition);
         String strNew_password = etNewPassword.getText().toString();
         String new_password_Error= getString(R.string.new_Password_Empty);
 
-        EditText etRp_newPassword= (EditText) findViewById(R.id.password_Confirmation_edition);
+        EditText etRp_newPassword= findViewById(R.id.password_Confirmation_edition);
         String strRp_new_Password = etRp_newPassword.getText().toString();
         String Rp_new_password_Error= getString(R.string.new_Password_Empty);
 

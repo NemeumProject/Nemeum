@@ -21,7 +21,7 @@ public class activity_user_editionp extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_editionp);
-        birthdt_EditText= (EditText) findViewById(R.id.user_birthday_Edit);
+        birthdt_EditText= findViewById(R.id.user_birthday_Edit);
         birthdt_EditText.setOnClickListener(new View.OnClickListener() {
 
 
@@ -61,15 +61,15 @@ public class activity_user_editionp extends AppCompatActivity  {
 
     public void save_Button_UserEditionP(View view) {
 //set up the variables to validate not empty fields and strings to show as error messages
-        EditText etName = (EditText) findViewById(R.id.user_Name_Edit);
+        EditText etName = findViewById(R.id.user_Name_Edit);
         String strName = etName.getText().toString();
         String name_Error = getString(R.string.name_UserEdition_Empty);
 
-        EditText etLastName = (EditText) findViewById(R.id.user_LastName_Edit);
+        EditText etLastName = findViewById(R.id.user_LastName_Edit);
         String strLastName = etLastName.getText().toString();
         String lastName_Error = getString(R.string.lastname_UserEdition_Empty);
 
-        EditText etEmail = (EditText) findViewById(R.id.email_User_Edit);
+        EditText etEmail = findViewById(R.id.email_User_Edit);
         String strEmail = etEmail.getText().toString();
         String email_Error = getString(R.string.email_UserEdition_Empty);
 
@@ -86,7 +86,7 @@ public class activity_user_editionp extends AppCompatActivity  {
             return;
         }
 // Validate if gender radio button is selected
-        RadioGroup rgGender =(RadioGroup) findViewById(R.id.user_RbtG_Gender);
+        RadioGroup rgGender = findViewById(R.id.user_RbtG_Gender);
         String gender_Error = getString(R.string.gender_UserEdition_Empty);
 
         if (rgGender.getCheckedRadioButtonId() == -1)

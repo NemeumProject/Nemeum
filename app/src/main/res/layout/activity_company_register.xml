@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/companyRegisterActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".CompanyUserRegistration"
     android:background="@drawable/nemeum_registration_background">
 
+    <ScrollView
+        android:id="@+id/scrollCompanyRegister"
+        android:layout_width="match_parent"
+        android:layout_height="343dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
     <EditText
         android:id="@+id/CompanyNameRegister"
         android:layout_width="wrap_content"
@@ -11,12 +26,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/company_name"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="510dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyComercialNameRegister"
@@ -25,12 +37,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/comercial_name"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="475dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyContactPersonRegister"
@@ -39,12 +48,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/contact_person"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="440dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanySsnRegister"
@@ -53,12 +59,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/ssn"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="405dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyEmailAddressRegister"
@@ -67,12 +70,9 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="@string/user_Email"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="370dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyTelephoneRegister"
@@ -81,12 +81,9 @@
         android:ems="10"
         android:inputType="number"
         android:hint="@string/user_Phone"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="335dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyCityRegister"
@@ -95,12 +92,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/user_City"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="300dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyAddressRegister"
@@ -109,12 +103,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/user_Address"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="265dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyPostalCodeRegister"
@@ -123,12 +114,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/user_Postal_Code"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="230dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/username"
@@ -137,12 +125,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="@string/username"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="195dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyPasswordRegister"
@@ -151,12 +136,9 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="@string/password"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="160dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/CompanyPasswordValidation"
@@ -165,34 +147,25 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="@string/repeat_password"
-        android:textColorHint="#2e9cca"
+        android:textColorHint="@color/colorBlue"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="125dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <CheckBox android:id="@+id/Premium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="@string/premium"
-        android:textColor="#d83f87"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="90dp"/>
+        android:textColor="@color/colorBlue"/>
 
     <Button
         android:id="@+id/submitdatacompany"
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"
         android:background="@drawable/button_background1"
         android:text="@string/buttonSubmit"
-        android:textColor="#25274d"
+        android:textColor="@color/colorFont"
         android:textSize="12sp"/>
-
-
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -1,189 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/trainerRegisterActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".TrainerUserRegistration"
     android:background="@drawable/nemeum_registration_background">
+
+    <ScrollView
+        android:id="@+id/scrollTrainerRegister"
+        android:layout_width="match_parent"
+        android:layout_height="343dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
 
     <EditText
         android:id="@+id/TrainerNameRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="text"
         android:hint="@string/user_Full_Name"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="395dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerLastNameRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="text"
         android:hint="@string/user_Last_Name"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="365dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerEmailAddressRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="textEmailAddress"
         android:hint="@string/user_Email"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="335dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerTelephoneRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="number"
         android:hint="@string/user_Phone"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="305dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerCityRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="text"
         android:hint="@string/user_City"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="275dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerAddressRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="text"
         android:hint="@string/user_Address"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="245dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerPostalCodeRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="text"
         android:hint="@string/user_Postal_Code"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="215dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="text"
         android:hint="@string/username"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="185dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerPasswordRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="textPassword"
         android:hint="@string/password"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="155dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <EditText
         android:id="@+id/TrainerPasswordValidation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:backgroundTint="#2e9cca"
+        android:backgroundTint="@color/colorBlue"
         android:inputType="textPassword"
         android:hint="@string/repeat_password"
         android:textColorHint="#2e9cca"
-        android:textColorHighlight="#17252a"
+        android:textColorHighlight="@color/colorFont"
         android:textSize="13sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="125dp"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/colorWhite"/>
 
     <CheckBox android:id="@+id/Premium"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:ems="10"
         android:text="@string/premium"
-        android:textColor="#d83f87"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="90dp"/>
+        android:textColor="@color/colorBlue" />
 
     <Button
         android:id="@+id/submitdatatrainer"
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"
         android:background="@drawable/button_background1"
         android:text="@string/buttonSubmit"
-        android:textColor="#25274d"
+        android:textColor="@color/colorFont"
         android:textSize="12sp"/>
-
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

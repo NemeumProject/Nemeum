@@ -1,12 +1,22 @@
 package com.nemeum.project.nemeumproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -39,23 +49,43 @@ public class NormalUserRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normal_user_register);
 
-        Button submituserdata_btn = (Button) findViewById(R.id.submitdatauser);
-        NormalName = (EditText)findViewById(R.id.UserNameRegister);
-        NormalUserEmail = (EditText) findViewById(R.id.UserEmailAddressRegister);
-        NormalUserTelephone = (EditText) findViewById(R.id.UserTelephoneRegister);
-        NormalUserUsername = (EditText)  findViewById(R.id.username);
-        NormalUserPassword = (EditText) findViewById(R.id.UserPasswordRegister);
-        NormalUserPasswordVal = (EditText) findViewById(R.id.UserPasswordValidation);
-        NormalUserSurname = (EditText) findViewById(R.id.UserLastNameRegister) ;
-        NormalUserAddress = (EditText) findViewById(R.id.UserAddressRegister);
-        NormalUserCity = (EditText) findViewById(R.id.UserCityRegister);
-        NormalUserPostalCode = (EditText) findViewById(R.id.UserPostalCodeRegister);
-        NormalUserPremium = (CheckBox) findViewById(R.id.Premium);
-        if(NormalUserPremium.isChecked()){
-            Premium = true;
-        }else{
-            Premium = false;
-        }
+        final View activityRootView = findViewById(R.id.userRegisterActivity);
+        final Resources r = getResources();
+        final ScrollView scroll = findViewById(R.id.scrollUserRegister);
+        int keyboardPx = ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 315, r.getDisplayMetrics()));
+        final RelativeLayout.LayoutParams paramWithKeyboard = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, keyboardPx);
+        paramWithKeyboard.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        paramWithKeyboard.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        int foldPx = ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 343, r.getDisplayMetrics()));
+        final RelativeLayout.LayoutParams paramFoldedKeyboard = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, foldPx);
+        paramFoldedKeyboard.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        paramFoldedKeyboard.addRule(RelativeLayout.CENTER_HORIZONTAL);
+
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                if (heightDiff > dpToPx(getApplicationContext(), 200)) {
+                    scroll.setLayoutParams(paramWithKeyboard);
+                } else {
+                    scroll.setLayoutParams(paramFoldedKeyboard);
+                }
+            }
+        });
+
+        Button submituserdata_btn = findViewById(R.id.submitdatauser);
+        NormalName = findViewById(R.id.UserNameRegister);
+        NormalUserEmail = findViewById(R.id.UserEmailAddressRegister);
+        NormalUserTelephone = findViewById(R.id.UserTelephoneRegister);
+        NormalUserUsername = findViewById(R.id.username);
+        NormalUserPassword = findViewById(R.id.UserPasswordRegister);
+        NormalUserPasswordVal = findViewById(R.id.UserPasswordValidation);
+        NormalUserSurname = findViewById(R.id.UserLastNameRegister);
+        NormalUserAddress = findViewById(R.id.UserAddressRegister);
+        NormalUserCity = findViewById(R.id.UserCityRegister);
+        NormalUserPostalCode = findViewById(R.id.UserPostalCodeRegister);
+        NormalUserPremium = findViewById(R.id.Premium);
+        Premium = NormalUserPremium.isChecked();
 
         submituserdata_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +96,11 @@ public class NormalUserRegistration extends AppCompatActivity {
                 NormalUserPostalCode.getText().toString(), Premium);
             }
         });
+    }
+
+    public static float dpToPx(Context context, float valueInDp) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueInDp, metrics);
     }
 
     private void NormalUserRegisterValidation(String name,String email,String telephone, String username, String password,String password_validation, String surname, String address, String city, String postalCode, boolean premium)
@@ -143,6 +178,11 @@ public class NormalUserRegistration extends AppCompatActivity {
                             });
                         }
                     } catch (IOException e) {
+                        NormalUserRegistration.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(NormalUserRegistration.this, getResources().getString(R.string.noconnection), Toast.LENGTH_LONG).show();
+                            }
+                        });
                         e.printStackTrace();
                     } catch (JSONException e) {
                         e.printStackTrace();

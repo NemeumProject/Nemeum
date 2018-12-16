@@ -1,12 +1,19 @@
 package com.nemeum.project.nemeumproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -39,23 +46,43 @@ public class TrainerUserRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trainer_register);
 
-        Button submittrainerdata_btn = (Button) findViewById(R.id.submitdatatrainer);
-        TrainerName = (EditText)findViewById(R.id.TrainerNameRegister);
-        TrainerEmail = (EditText)findViewById(R.id.TrainerEmailAddressRegister);
-        TrainerTelephone = (EditText)findViewById(R.id.TrainerTelephoneRegister);
-        TrainerUsername = (EditText) findViewById(R.id.username);
-        TrainerPassword = (EditText)findViewById(R.id.TrainerPasswordRegister);
-        TrainerPasswordVal = (EditText)findViewById(R.id.TrainerPasswordValidation);
-        TrainerUserSurname = (EditText) findViewById(R.id.TrainerLastNameRegister) ;
-        TrainerUserAddress = (EditText) findViewById(R.id.TrainerAddressRegister);
-        TrainerUserCity = (EditText) findViewById(R.id.TrainerCityRegister);
-        TrainerUserPostalCode = (EditText) findViewById(R.id.TrainerPostalCodeRegister);
-        TrainerUserPremium = (CheckBox) findViewById(R.id.Premium);
-        if(TrainerUserPremium.isChecked()){
-            Premium = true;
-        }else{
-            Premium = false;
-        }
+        final View activityRootView = findViewById(R.id.trainerRegisterActivity);
+        final Resources r = getResources();
+        final ScrollView scroll = findViewById(R.id.scrollTrainerRegister);
+        int keyboardPx = ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 315, r.getDisplayMetrics()));
+        final RelativeLayout.LayoutParams paramWithKeyboard = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, keyboardPx);
+        paramWithKeyboard.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        paramWithKeyboard.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        int foldPx = ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 343, r.getDisplayMetrics()));
+        final RelativeLayout.LayoutParams paramFoldedKeyboard = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, foldPx);
+        paramFoldedKeyboard.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        paramFoldedKeyboard.addRule(RelativeLayout.CENTER_HORIZONTAL);
+
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                if (heightDiff > dpToPx(getApplicationContext(), 200)) {
+                    scroll.setLayoutParams(paramWithKeyboard);
+                } else {
+                    scroll.setLayoutParams(paramFoldedKeyboard);
+                }
+            }
+        });
+
+        Button submittrainerdata_btn = findViewById(R.id.submitdatatrainer);
+        TrainerName = findViewById(R.id.TrainerNameRegister);
+        TrainerEmail = findViewById(R.id.TrainerEmailAddressRegister);
+        TrainerTelephone = findViewById(R.id.TrainerTelephoneRegister);
+        TrainerUsername = findViewById(R.id.username);
+        TrainerPassword = findViewById(R.id.TrainerPasswordRegister);
+        TrainerPasswordVal = findViewById(R.id.TrainerPasswordValidation);
+        TrainerUserSurname = findViewById(R.id.TrainerLastNameRegister);
+        TrainerUserAddress = findViewById(R.id.TrainerAddressRegister);
+        TrainerUserCity = findViewById(R.id.TrainerCityRegister);
+        TrainerUserPostalCode = findViewById(R.id.TrainerPostalCodeRegister);
+        TrainerUserPremium = findViewById(R.id.Premium);
+        Premium = TrainerUserPremium.isChecked();
 
         submittrainerdata_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +93,11 @@ public class TrainerUserRegistration extends AppCompatActivity {
                         Premium);
             }
         });
+    }
+
+    public static float dpToPx(Context context, float valueInDp) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueInDp, metrics);
     }
 
     private void TrainerRegisterValidation(String Trainer_Name,String Trainer_Email,String Trainer_Telp, String username, String Trainer_Pass,String Trainer_Pass_Vall, String surname, String address, String city, String postalCode, boolean premium)
@@ -143,6 +175,11 @@ public class TrainerUserRegistration extends AppCompatActivity {
                             });
                         }
                     } catch (IOException e) {
+                        TrainerUserRegistration.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(TrainerUserRegistration.this, getResources().getString(R.string.noconnection), Toast.LENGTH_LONG).show();
+                            }
+                        });
                         e.printStackTrace();
                     } catch (JSONException e) {
                         e.printStackTrace();

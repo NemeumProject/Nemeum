@@ -34,23 +34,17 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Button login_btn = (Button) findViewById(R.id.button0);
-        Button register_btn = (Button) findViewById(R.id.button1);
+        Button login_btn = findViewById(R.id.button0);
+        Button register_btn = findViewById(R.id.button1);
         TextView Forgotpass_btn = findViewById(R.id.forgetpassbtn);
 
-        Email = (EditText)findViewById(R.id.EmailSpace);
-        Password = (EditText)findViewById(R.id.PasswordSpace);
+        Email = findViewById(R.id.EmailSpace);
+        Password = findViewById(R.id.PasswordSpace);
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    LoginValidation(Email.getText().toString(), Password.getText().toString());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                LoginValidation(Email.getText().toString(), Password.getText().toString());
             }
         });
 
@@ -81,7 +75,7 @@ public class Login extends AppCompatActivity {
         startActivity(intent2);
     }
 
-    private void LoginValidation(String Email, String UserPassword) throws IOException, JSONException {
+    private void LoginValidation(String Email, String UserPassword) {
         final String email = Email;
         final String password = UserPassword;
         final SharedPreferences registeredUserPref = getApplicationContext().getSharedPreferences(getResources().getString(R.string.userTypeSP), getApplicationContext().MODE_PRIVATE);

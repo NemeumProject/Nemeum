@@ -22,10 +22,10 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registered_trainer_user);
         appContext = getApplicationContext();
 
-        ImageButton findevent_btn = (ImageButton) findViewById(R.id.findeventicon);
-        ImageButton findfacilities_btn = (ImageButton) findViewById(R.id.findfacilitiesicon);
-        ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
-        ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
+        ImageButton findevent_btn = findViewById(R.id.findeventicon);
+        ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
+        ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
+        ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
 
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         String new_user_name = (shared.getString("userName", ""));

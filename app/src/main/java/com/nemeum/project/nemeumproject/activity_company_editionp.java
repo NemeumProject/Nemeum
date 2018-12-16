@@ -54,15 +54,15 @@ public class activity_company_editionp extends AppCompatActivity {
     public void save_CompanyEditionP(View view) {
 
         //set up the variables to validate not empty fields and strings to show as error messages
-        EditText etCompanyName = (EditText) findViewById(R.id.companyTitleEditText);
+        EditText etCompanyName = findViewById(R.id.companyTitleEditText);
         String strCompanyName = etCompanyName.getText().toString();
         String company_Name_Error = getString(R.string.name_Company_Empty);
 
-        EditText etCompanyAddress = (EditText) findViewById(R.id.companyPlaceEditText);
+        EditText etCompanyAddress = findViewById(R.id.companyPlaceEditText);
         String strCompanyAddress = etCompanyAddress.getText().toString();
         String company_Address_Error = getString(R.string.company_Address_Empty);
 
-        EditText etCompanyPhone = (EditText) findViewById(R.id.companyPhoneEditText);
+        EditText etCompanyPhone = findViewById(R.id.companyPhoneEditText);
         String strCompanyPhone = etCompanyPhone.getText().toString();
         String company_Phone_Error = getString(R.string.company_Phone_Empty);
 
