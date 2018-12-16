@@ -1,9 +1,11 @@
 package com.nemeum.project.nemeumproject;
 
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -34,6 +36,8 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.nemeum.project.nemeumproject.Entities.SQLiteConnectionHelper;
+import com.nemeum.project.nemeumproject.Utilities.Utilities;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -70,6 +74,9 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         setContentView(R.layout.activity_near_scenarios);
 
         appContext = getApplicationContext();
+
+        //Creating a connection for local storage
+        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
 
         getAllScenarios();
 
@@ -321,4 +328,29 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             return convertView;
         }
     }
+
+    private void fill_Localdb_escenarios(final int position){
+        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
+        SQLiteDatabase db = localconn.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Utilities.field_IDscenario,);
+        values.put(Utilities.field_SportID,);
+        values.put(Utilities.field_Price,);
+        values.put(Utilities.field_Isindoor,);
+        values.put(Utilities.field_Capacity,);
+        values.put(Utilities.field_CompanyID,);
+        values.put(Utilities.field_DateScenario,);
+        values.put(Utilities.field_Description,);
+        values.put(Utilities.field_Title,);
+        values.put(Utilities.field_Image,);
+        values.put(Utilities.field_address,);
+
+        Long idResult =db.insert(Utilities.SCENARIO_TABLE, Utilities.field_IDscenario, values);
+        Toast.makeText(getApplicationContext(),"Id Record:"+idResult, Toast.LENGTH_SHORT).show();
+
+        db.close();
+    }
+
+
 }

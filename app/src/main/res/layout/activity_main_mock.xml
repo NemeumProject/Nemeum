@@ -161,8 +161,8 @@
 
         <ImageButton
             android:id="@+id/findscrenarioicon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
             android:background="@mipmap/search_scenario"
             android:contentDescription="Search Scenario" />
 
