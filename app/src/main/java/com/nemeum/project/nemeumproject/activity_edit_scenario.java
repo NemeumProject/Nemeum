@@ -33,9 +33,12 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import models.Scenario;
@@ -61,7 +64,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
         getScenarios();
         List<String> listTitle = new ArrayList<>();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -229,7 +232,10 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
             final Integer capacityScenario = Integer.parseInt(strCapacity);
             final Float priceScenario = Float.parseFloat(strPrice);
             final Integer idCompany = Integer.parseInt(idUser);
-            final String dateScenario = "2018-12-11 23:00:00";
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Date today = Calendar.getInstance().getTime();
+            String reportDate = df.format(today);
+            final String dateScenario = reportDate;
             final Integer idSport = 1;
 
             new Thread(new Runnable() {

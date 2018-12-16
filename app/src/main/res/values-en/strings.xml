@@ -16,7 +16,7 @@
     <string name="notLoggedSP">notLogged</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.0.159:8080</string>
+    <string name="urlDB">http://192.168.0.12:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -213,6 +213,7 @@
     <string name="buttonScenario">Scenario</string>
     <string name="buttonSubmit">Submit</string>
     <string name="buttonSave">Save</string>
+    <string name="buttonDelete">Delete</string>
     <string name="buttonRegister">Register</string>
     <string name="buttonCancel">Cancel</string>
     <string name="buttonFinish">Finish</string>

@@ -7,6 +7,7 @@
     <string name="app_language_spanish">es</string>
     <string name="app_language_english">en</string>
 
+
     <!-- App Shared Preferences -->
     <string name="userTypeSP">userType</string>
     <string name="individualUserSP">Individual</string>
@@ -16,7 +17,7 @@
     <string name="notLoggedSP">notLogged</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.0.159:8080</string>
+    <string name="urlDB">http://192.168.0.12:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -213,6 +214,7 @@
     <string name="buttonScenario">Escenario</string>
     <string name="buttonSubmit">Enviar</string>
     <string name="buttonSave">Guardar</string>
+    <string name="buttonDelete">Borrar</string>
     <string name="buttonRegister">Registrar</string>
     <string name="buttonCancel">Cancelar</string>
     <string name="buttonFinish">Finalizar</string>

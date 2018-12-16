@@ -23,6 +23,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PostScenario extends AppCompatActivity {
     private EditText ScenarioTitle;
@@ -80,11 +84,14 @@ public class PostScenario extends AppCompatActivity {
             final String titleScenario = title;
             final String location = loc;
             final String description = desc;
-            Integer descri = description.length();
             final Integer capacityScenario = Integer.parseInt(capacity);
             final Float priceScenario = Float.parseFloat(price);
             final Integer idCompany = Integer.parseInt(idUser);
-            final String dateScenario = "2018-12-11 23:00:00";
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Date today = Calendar.getInstance().getTime();
+            String reportDate = df.format(today);
+
+            final String dateScenario = reportDate;
             final Integer idSport = 1;
 
             new Thread(new Runnable() {
