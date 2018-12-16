@@ -80,6 +80,7 @@ public class PostScenario extends AppCompatActivity {
             final String titleScenario = title;
             final String location = loc;
             final String description = desc;
+            Integer descri = description.length();
             final Integer capacityScenario = Integer.parseInt(capacity);
             final Float priceScenario = Float.parseFloat(price);
             final Integer idCompany = Integer.parseInt(idUser);
@@ -102,13 +103,13 @@ public class PostScenario extends AppCompatActivity {
                         postData.put("idCompany", idCompany);
                         postData.put("dateScenario", dateScenario);
 
-                        StringEntity se = new StringEntity(postData.toString());
+                        StringEntity se = new StringEntity(postData.toString(), "UTF-8");
                         httppost.setHeader("Accept", "application/json");
-                        httppost.setHeader("Content-type", "application/json");
+                        httppost.setHeader("Content-Type", "application/json; charset=utf-8");
                         httppost.setEntity(se);
                         HttpResponse response = httpclient.execute(httppost);
                         if(response.getStatusLine().getStatusCode() == 200) {
-                            Intent intent1 = new Intent(PostScenario.this, NearScenarios.class);
+                            Intent intent1 = new Intent(PostScenario.this, UserCompanyLoginActivity.class);
                             startActivity(intent1);
                         }else{
                             PostScenario.this.runOnUiThread(new Runnable() {

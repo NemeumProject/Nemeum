@@ -2,6 +2,7 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -27,8 +28,9 @@ public class UserLoginActivity extends AppCompatActivity {
         ImageButton findscenario_btn = (ImageButton) findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = (ImageButton) findViewById(R.id.findtrainericon);
 
-        Bundle bundle = getIntent().getExtras();
-        String new_user_name = bundle.getString("name_of_user");
+
+        SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+        String new_user_name = (shared.getString("userName", ""));
         TextView set_user_name = findViewById(R.id.user_names);
         set_user_name.setText("Hello "+ new_user_name +" !");
 

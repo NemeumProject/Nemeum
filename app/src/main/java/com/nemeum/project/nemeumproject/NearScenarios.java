@@ -45,19 +45,19 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
+
+import models.Scenario;
 
 public class NearScenarios extends AppCompatActivity implements OnMapReadyCallback {
 
-    int[] scenarioPicture = {R.drawable.swimming_silhouette, R.drawable.stadium, R.drawable.decathlon_logo};
+    int[] scenarioPicture = {R.drawable.scenario_nophoto};
     String[] scenarioName = {"Lleida Gym Center", "Soccer center of Lleida", "Boxing ring of Lleida"};
     String[] scenarioSubtitle = {"Scenario 1", "Scenario 2", "Scenario 3"};
 
-    ArrayList<Integer> scenarioIdArray = new ArrayList();
-    ArrayList<Integer> scenarioSportIdArray = new ArrayList();
-    ArrayList<Double> scenarioPriceArray = new ArrayList();
-    ArrayList<Integer> scenarioCompanyIdArray = new ArrayList();
-    ArrayList<String> scenarioDescriptionArray = new ArrayList();
+    List<Scenario> listScenario = new ArrayList<>();
 
     Context appContext;
 
@@ -164,14 +164,26 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                     data = data.replaceFirst("null", "");
                     parserList = new JSONArray(data);
 
-                    while((parser = (JSONObject) parserList.get(numResults)) != null) {
-
-                        scenarioIdArray.add(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
-                        scenarioSportIdArray.add(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
-                        scenarioPriceArray.add(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
-                        scenarioCompanyIdArray.add(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
-                        scenarioDescriptionArray.add(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
+                    while(numResults < parserList.length()) {
+                        parser = (JSONObject) parserList.get(numResults);
+                        Scenario scenario = new Scenario();
+                        scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
+                        scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
+                        scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
+                        scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
+                        scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
+                        scenario.setCapacity(parser.getInt("capacity"));
+                        scenario.setAddress(parser.getString("address"));
+                        String dateStr = parser.getString("dateScenario");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        scenario.setDateScenario(sdf.parse(dateStr));
+                        scenario.setTitle(parser.getString("title"));
+                        scenario.setImage(parser.getString("image"));
+                        if(!parser.isNull("indoor")){
+                            scenario.setIndoor(parser.getBoolean("indoor"));
+                        }
                         numResults++;
+                        listScenario.add(scenario);
 
                     }
                 }catch(Exception e){
@@ -254,7 +266,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
         @Override
         public int getCount() {
-            return scenarioIdArray.size();
+            return listScenario.size();
         }
 
         @Override
@@ -264,7 +276,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
         @Override
         public long getItemId(int position) {
-            return scenarioIdArray.get(position);
+            return listScenario.get(position).getIdScenario();
         }
 
         @Override
@@ -279,27 +291,27 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             TextView scenarioTitleDescr = convertView.findViewById(R.id.companyResScenarioText);
             TextView scenarioDescription = convertView.findViewById(R.id.companyResDescription);
 
-            scenarioImg.setImageResource(scenarioPicture[position]);
+            scenarioImg.setImageResource(scenarioPicture[0]);
 
-            if(!scenarioPriceArray.get(position).toString().equals("null"))
-                scenarioValue.setText(scenarioPriceArray.get(position).toString() + "€ / hour");
+            if(!listScenario.get(position).getPrice().toString().equals("null"))
+                scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€ / hour");
 
-            scenarioTitle.setText(scenarioName[position]);
-            scenarioTitleDescr.setText(scenarioSubtitle[position]);
+            scenarioTitle.setText(listScenario.get(position).getTitle());
+            scenarioTitleDescr.setText("Scenario " + position);
 
-            if(!scenarioDescriptionArray.get(position).equals("null"))
-            scenarioDescription.setText(scenarioDescriptionArray.get(position));
+            if(!listScenario.get(position).getDescription().equals("null"))
+            scenarioDescription.setText(listScenario.get(position).getDescription());
 
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentBook = new Intent(appContext, BookScenarios.class);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), scenarioPicture[position]);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), scenarioPicture[0]);
                     intentBook.putExtra(getResources().getString(R.string.scenarioRatingExtra), 2);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), scenarioName[position]);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
 
-                    if(!scenarioDescriptionArray.get(position).equals("null"))
-                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), scenarioDescriptionArray.get(position));
+                    if(!listScenario.get(position).getDescription().equals("null"))
+                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
                     else
                         intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), "");
 
