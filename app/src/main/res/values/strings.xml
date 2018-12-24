@@ -8,6 +8,7 @@
     <string name="app_language_english">en</string>
 
     <!-- App Shared Preferences -->
+    <string name="userNameSP">userName</string>
     <string name="userTypeSP">userType</string>
     <string name="individualUserSP">Individual</string>
     <string name="trainerUserSP">Trainer</string>
@@ -16,7 +17,7 @@
     <string name="notLoggedSP">notLogged</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.0.12:8080</string>
+    <string name="urlDB">http://192.168.0.159:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -163,6 +164,12 @@
         <item>Until 50€</item>
         <item>Until 75€</item>
     </string-array>
+
+    <!-- Strings for Posting Trainer Service-->
+    <string name="postingtrainerservice">Post Service </string>
+    <string name="TrainingAddress">Training Address</string>
+    <string name="TrainingPrice">Price / Hour</string>
+    <string name="TrainingDescription">Training Description</string>
 
     <!-- Strings for Booking Scenarios-->
     <string name="scenarioBookTitle">Book Scenario</string>
