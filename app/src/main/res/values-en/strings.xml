@@ -156,12 +156,12 @@
     </string-array>
     <string-array name="priceFilter">
         <item>Price range</item>
+        <item>Until 5€</item>
         <item>Until 10€</item>
-        <item>Between 10 and 20€</item>
-        <item>Between 20 and 40€</item>
-        <item>Between 40 and 80€</item>
-        <item>Between 80 and 160€</item>
-        <item>More than 160€</item>
+        <item>Until 20€</item>
+        <item>Until 30€</item>
+        <item>Until 50€</item>
+        <item>Until 75€</item>
     </string-array>
 
     <!-- Strings for Booking Scenarios-->

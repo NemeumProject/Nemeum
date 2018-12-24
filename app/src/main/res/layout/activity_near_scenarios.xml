@@ -56,6 +56,14 @@
             android:layout_margin="5dp"
             android:spinnerMode="dropdown"
             android:background="@drawable/months_rounded" />
+        <Button
+            android:id="@+id/buttonSearch"
+            android:layout_height="25dp"
+            android:layout_width="130dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:text="@string/search_scenario"
+            android:onClick="filterScenarios"/>
     </GridLayout>
 
     <com.google.android.gms.maps.MapView
