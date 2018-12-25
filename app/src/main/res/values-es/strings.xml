@@ -119,7 +119,7 @@
     <string name="findScenarioTitle">Buscar Escenarios</string>
     <string name="scenarioFindDescr">"Pon tu corazón a latir y eleve tu metabolismo con una seleción de ejercicios quemadores de grasa en flex. Nuestro paquete especial para el nuevo año inclui 12 clases de tu opción de abdominales, quema grasa, BLT y barra Xtend por tan solo $4.200"</string>
     <string-array name="sportFilter">
-        <item>Tipo de desporto</item>
+        <item>Tipo de deporte</item>
         <item>Arco y flecha</item>
         <item>Badminton</item>
         <item>Baseball</item>
@@ -157,13 +157,13 @@
         <item>Zaragoza</item>
     </string-array>
     <string-array name="priceFilter">
-        <item>Gama de Precios</item>
+        <item>Gama de precios</item>
+        <item>Hasta 5€</item>
         <item>Hasta 10€</item>
-        <item>Entre 10 y 20€</item>
-        <item>Entre 20 y 40€</item>
-        <item>Entre 40 y 80€</item>
-        <item>Entre 80 y 160€</item>
-        <item>Más de 160€</item>
+        <item>Hasta 20€</item>
+        <item>Hasta 30€</item>
+        <item>Hasta 50€</item>
+        <item>Hasta 75€</item>
     </string-array>
 
     <!-- Strings for Posting Trainer Service-->
