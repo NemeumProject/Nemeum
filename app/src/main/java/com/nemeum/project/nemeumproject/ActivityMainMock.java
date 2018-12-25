@@ -1,9 +1,11 @@
 package com.nemeum.project.nemeumproject;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,18 +15,40 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.content.ContextCompat;
 import android.Manifest;
 
+import com.nemeum.project.nemeumproject.Entities.SQLiteConnectionHelper;
+import com.nemeum.project.nemeumproject.Utilities.Utilities;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Arrays;
 
-public class ActivityMainMock extends AppCompatActivity {
+import models.Scenario;
 
+public class ActivityMainMock extends AppCompatActivity {
+    List<Scenario> listScenario = new ArrayList<>();
     Context appContext;
+    //Creating a connection for local storage
+    SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
+
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
     private static final String[] REQUIRED_SDK_PERMISSIONS = new String[] {
             Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -40,7 +64,20 @@ public class ActivityMainMock extends AppCompatActivity {
 
         appContext = getApplicationContext();
 
+       /* TextView testing = findViewById(R.id.tV_test);
+        testing.setText("testing");*/
+
+        getAllScenarios();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        fill_Localdb_escenarios();
         checkPermissions();
+
+
+
 
         if(!LocaleManager.getLanguage(appContext).equals(Locale.getDefault().getLanguage())) {
             if(LocaleManager.getLanguage(appContext) == null)
@@ -188,5 +225,105 @@ public class ActivityMainMock extends AppCompatActivity {
                 }
                 break;
         }
+    }
+
+    public synchronized void getAllScenarios() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                int numResults = 0;
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONArray parserList;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try{
+
+                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenariosDB) + getResources().getString(R.string.listDB));
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserList = new JSONArray(data);
+
+                    while(numResults < parserList.length()) {
+                        parser = (JSONObject) parserList.get(numResults);
+                        Scenario scenario = new Scenario();
+                        scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
+                        scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
+                        scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
+                        scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
+                        scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
+                        scenario.setCapacity(parser.getInt("capacity"));
+                        scenario.setAddress(parser.getString("address"));
+                        String dateStr = parser.getString("dateScenario");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        scenario.setDateScenario(sdf.parse(dateStr));
+                        scenario.setTitle(parser.getString("title"));
+                        scenario.setImage(parser.getString("image"));
+                        if(!parser.isNull("indoor")){
+                            scenario.setIndoor(parser.getBoolean("indoor"));
+                        }
+                        numResults++;
+                        listScenario.add(scenario);
+
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                Thread.yield();
+            }
+        }).start();
+    }
+
+
+    private void fill_Localdb_escenarios(){
+        Long idResult;
+        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
+        SQLiteDatabase db = localconn.getWritableDatabase();
+       //Delete old records and after this, fill-in with the new data.
+        db.execSQL("DELETE FROM " + Utilities.SCENARIO_TABLE+ " ");
+        ContentValues values = new ContentValues();
+        DateFormat df = new SimpleDateFormat(getString(R.string.pattern_date_format));
+
+for(Scenario scenario : listScenario){
+
+    values.put(Utilities.field_IDscenario, scenario.getIdScenario());
+    values.put(Utilities.field_SportID,scenario.getIdSport());
+    values.put(Utilities.field_Price,scenario.getPrice());
+    values.put(Utilities.field_Isindoor,scenario.getIndoor());
+    values.put(Utilities.field_Capacity,scenario.getCapacity());
+    values.put(Utilities.field_CompanyID,scenario.getIdCompany());
+    values.put(Utilities.field_DateScenario,df.format(scenario.getDateScenario()));
+    values.put(Utilities.field_Description, scenario.getDescription());
+    values.put(Utilities.field_Title,scenario.getTitle());
+    values.put(Utilities.field_Image,scenario.getImage());
+    values.put(Utilities.field_address,scenario.getAddress());
+
+     idResult=db.insert(Utilities.SCENARIO_TABLE, Utilities.field_IDscenario, values);
+
+    System.out.println("Description  "+ scenario.getDescription());
+    System.out.println("Id Record: "+ idResult);
+}
+
+
+
+
+        //String numberasString = new Long (idResult).toString();
+
+        //Toast.makeText(getApplicationContext(),"Id Record:"+idResult, Toast.LENGTH_SHORT).show();
+
+
+        db.close();
     }
 }

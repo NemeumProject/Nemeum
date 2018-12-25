@@ -28,5 +28,5 @@ public class Utilities {
             "  "+field_Title+" TEXT,\n" +
             "  "+field_Image+" TEXT,\n" +
             "  "+field_address+" TEXT)";
-
+   // public static final String DELETE_SCENARIOS_TABLE="DELETE FROM "+SCENARIO_TABLE+" " ;
 }

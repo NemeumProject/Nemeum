@@ -17,7 +17,7 @@
     <string name="notLoggedSP">notLogged</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.0.159:8080</string>
+    <string name="urlDB">http://192.168.30.147:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -387,7 +387,8 @@
             Best regards;\n
             Nemeum Team
     </string>
-    <string name="date_format"> dd/mm/yyyy</string>
+    <string name="date_format"> dd/MM/yyyy</string>
+    <string name="pattern_date_format">yyyy-MM-dd hh:mm:ss</string>
     <string name="daily_Schedule_Title">Daily Schedule</string>
     <string name="scenario_Daily_Schedule">Scenario</string>
     <string name="starting_Time">Starting Time</string>

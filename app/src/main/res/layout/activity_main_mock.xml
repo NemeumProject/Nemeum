@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeeee">
+    android:background="#eeeeee"
+    tools:context=".ActivityMainMock">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline10"
@@ -219,5 +220,16 @@
         android:background="@color/colorBackground"
         app:layout_constraintBottom_toBottomOf="@+id/guideline13"
         app:menu="@menu/navigation"/>
+
+    <TextView
+        android:id="@+id/tV_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/colorFont"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="418dp"
+        tools:text="This is my test" />
 
 </android.support.constraint.ConstraintLayout>

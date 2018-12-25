@@ -16,7 +16,9 @@ public class SQLiteConnectionHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-    db.execSQL(Utilities.CREATE_SCENARIOS_TABLE);
+
+
+        db.execSQL(Utilities.CREATE_SCENARIOS_TABLE);
     }
 
     @Override
