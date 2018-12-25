@@ -58,8 +58,7 @@ import models.Scenario;
 public class NearScenarios extends AppCompatActivity implements OnMapReadyCallback {
 
     int[] scenarioPicture = {R.drawable.scenario_nophoto};
-    String[] scenarioName = {"Lleida Gym Center", "Soccer center of Lleida", "Boxing ring of Lleida"};
-    String[] scenarioSubtitle = {"Scenario 1", "Scenario 2", "Scenario 3"};
+
 
     List<Scenario> listScenario = new ArrayList<>();
 
@@ -75,10 +74,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
         appContext = getApplicationContext();
 
-        //Creating a connection for local storage
-        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
-
-        getAllScenarios();
+     
 
         nearMap = findViewById(R.id.mapView);
         nearMap.onCreate(savedInstanceState);
@@ -329,28 +325,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         }
     }
 
-    private void fill_Localdb_escenarios(final int position){
-        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
-        SQLiteDatabase db = localconn.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(Utilities.field_IDscenario,);
-        values.put(Utilities.field_SportID,);
-        values.put(Utilities.field_Price,);
-        values.put(Utilities.field_Isindoor,);
-        values.put(Utilities.field_Capacity,);
-        values.put(Utilities.field_CompanyID,);
-        values.put(Utilities.field_DateScenario,);
-        values.put(Utilities.field_Description,);
-        values.put(Utilities.field_Title,);
-        values.put(Utilities.field_Image,);
-        values.put(Utilities.field_address,);
-
-        Long idResult =db.insert(Utilities.SCENARIO_TABLE, Utilities.field_IDscenario, values);
-        Toast.makeText(getApplicationContext(),"Id Record:"+idResult, Toast.LENGTH_SHORT).show();
-
-        db.close();
-    }
 
 
 }
