@@ -1,11 +1,10 @@
 package com.nemeum.project.nemeumproject;
 
 import android.app.Dialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -17,9 +16,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -36,12 +37,18 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.nemeum.project.nemeumproject.Entities.SQLiteConnectionHelper;
-import com.nemeum.project.nemeumproject.Utilities.Utilities;
+import com.nemeum.project.nemeumproject.ActivityMainMock;
+import com.nemeum.project.nemeumproject.BookScenarios;
+import com.nemeum.project.nemeumproject.Login;
+import com.nemeum.project.nemeumproject.R;
+import com.nemeum.project.nemeumproject.Settings;
+import com.nemeum.project.nemeumproject.TrainerDetail;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -54,18 +61,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Scenario;
+import models.Sport;
 
 public class NearScenarios extends AppCompatActivity implements OnMapReadyCallback {
 
     int[] scenarioPicture = {R.drawable.scenario_nophoto};
 
-
     List<Scenario> listScenario = new ArrayList<>();
+    List<Sport> listSport = new ArrayList<>();
 
     Context appContext;
 
     MapView nearMap;
     GoogleMap gMap;
+
+    private Spinner spinnerCity;
+    private Spinner spinnerSport;
+    private Spinner spinnerPrice;
+    private ListView resultList;
+
+    private String city;
+    private Integer idSport;
+    private Double price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +91,20 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
         appContext = getApplicationContext();
 
-     
+        getAllSports();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        getAllScenarios();
+
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         nearMap = findViewById(R.id.mapView);
         nearMap.onCreate(savedInstanceState);
@@ -84,18 +114,20 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         if(!playServicesAvailable())
             nearMap.setVisibility(View.GONE);
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        ListView resultList = findViewById(R.id.scenariosList);
+        resultList = findViewById(R.id.scenariosList);
         CustomAdapter customResult = new CustomAdapter();
         resultList.setAdapter(customResult);
 
+        List<String> sportName = new ArrayList<>();
+        sportName.add("Sport type");
+
+        for(Sport sport : listSport){
+            sportName.add(sport.getName());
+        }
+
         Spinner sportSpinner = findViewById(R.id.scenarioBySport);
-        ArrayAdapter<CharSequence> sportAdapter = ArrayAdapter.createFromResource(this, R.array.sportFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> sportAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, sportName);
         sportAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sportSpinner.setAdapter(sportAdapter);
 
@@ -136,6 +168,192 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             }
         });
 
+        spinnerCity = findViewById(R.id.scenarioByCity);
+        spinnerSport = findViewById(R.id.scenarioBySport);
+        spinnerPrice = findViewById(R.id.scenarioByPrice);
+
+        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Object item = parentView.getItemAtPosition(position);
+                if(item.toString().equals("City") || item.toString().equals("Ciudad")){
+                    city = null;
+                }else{
+                    city = item.toString();
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        spinnerSport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Object item = parentView.getItemAtPosition(position);
+                if(item.toString().equals("Sport Type") || item.toString().equals("Tipo de deporte")){
+                    idSport = null;
+                }else{
+                    for(Sport sport : listSport){
+                        if(item.toString().equals(sport.getName())){
+                            idSport = sport.getIdSport();
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        spinnerPrice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Object item = parentView.getItemAtPosition(position);
+                if(item.toString().equals("Price range") || item.toString().equals("Gama de precios")){
+                    price = null;
+                }else{
+                    String euros = item.toString().split(" ")[1];
+                    String finalPrice = euros.split("€")[0];
+                    price = Double.parseDouble(finalPrice);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+    }
+
+    public synchronized void filterScenarios(View view){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                listScenario.clear();
+                int numResults = 0;
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONArray parserList;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+
+                HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + "/scenario/search");
+
+                JSONObject postData = new JSONObject();
+                try {
+                    postData.put("idSport", idSport);
+                    postData.put("price", price);
+                    postData.put("city", city);
+                    String result = "";
+                    StringEntity se = null;
+                    se = new StringEntity(postData.toString());
+                    httppost.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
+                    httppost.setHeader(getResources().getString(R.string.dbAccessContentType), getResources().getString(R.string.dbAccessAppJson));
+                    httppost.setEntity(se);
+                    HttpResponse response = httpclient.execute(httppost);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserList = new JSONArray(data);
+
+                    while(numResults < parserList.length()) {
+                        parser = (JSONObject) parserList.get(numResults);
+                        Scenario scenario = new Scenario();
+                        scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
+                        scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
+                        scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
+                        scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
+                        scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
+                        scenario.setCapacity(parser.getInt("capacity"));
+                        scenario.setAddress(parser.getString("address"));
+                        String dateStr = parser.getString("dateScenario");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        scenario.setDateScenario(sdf.parse(dateStr));
+                        scenario.setTitle(parser.getString("title"));
+                        scenario.setImage(parser.getString("image"));
+                        if(!parser.isNull("indoor")){
+                            scenario.setIndoor(parser.getBoolean("indoor"));
+                        }
+                        numResults++;
+                        listScenario.add(scenario);
+
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                Thread.yield();
+            }
+        }).start();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ((BaseAdapter) resultList.getAdapter()).notifyDataSetChanged();
+
+
+    }
+
+    public synchronized void getAllSports() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                int numResults = 0;
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONArray parserList;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try{
+
+                    URI website = new URI(getResources().getString(R.string.urlDB) + "/sport" + getResources().getString(R.string.listDB));
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserList = new JSONArray(data);
+
+                    while(numResults < parserList.length()) {
+                        parser = (JSONObject) parserList.get(numResults);
+                        Sport sport = new Sport();
+                        sport.setIdSport(parser.getInt("idSport"));
+                        sport.setName(parser.getString("name"));
+                        numResults++;
+                        listSport.add(sport);
+
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                Thread.yield();
+            }
+        }).start();
     }
 
     public synchronized void getAllScenarios() {
@@ -229,7 +447,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         //        .position(new LatLng(41.616751, 0.626416)));
 
         if (ActivityCompat.checkSelfPermission(appContext, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(appContext, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.checkSelfPermission(appContext, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             Toast.makeText(appContext, getResources().getString(R.string.permissionLocationErr), Toast.LENGTH_LONG ).show();
         }
@@ -303,7 +521,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             scenarioTitleDescr.setText("Scenario " + position);
 
             if(!listScenario.get(position).getDescription().equals("null"))
-            scenarioDescription.setText(listScenario.get(position).getDescription());
+                scenarioDescription.setText(listScenario.get(position).getDescription());
 
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -324,8 +542,4 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             return convertView;
         }
     }
-
-
-
-
 }
