@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<RelativeLayout android:id="@+id/bookingResultLwt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="3dp"
+    android:background="@drawable/results_rounded">
+
+    <LinearLayout
+        android:id="@+id/buttonsLwt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/editBookResult"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="@string/buttonEdit"
+            android:layout_margin="5dp"
+            android:textSize="10sp"
+            android:textColor="@color/colorFont"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="@color/colorPink"/>
+
+        <Button
+            android:id="@+id/cancelBookResult"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:text="@string/buttonCancel"
+            android:layout_margin="5dp"
+            android:textSize="10sp"
+            android:textColor="@color/colorFont"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="@color/colorBlue"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/myBookResultTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/buttonsLwt"
+        android:textColor="@color/colorFont"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/myBookResultHoursText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myBookResultTitleText"
+        android:layout_toRightOf="@+id/buttonsLwt"
+        android:textColor="@color/colorFont"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/myBookResultDateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myBookResultHoursText"
+        android:layout_toRightOf="@+id/buttonsLwt"
+        android:textColor="@color/colorFont"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/myBookResultPlaceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myBookResultDateText"
+        android:layout_toRightOf="@+id/buttonsLwt"
+        android:textColor="@color/colorFont"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/myBookResultPriceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myBookResultPlaceText"
+        android:layout_toRightOf="@+id/buttonsLwt"
+        android:textColor="@color/colorFont"
+        android:textSize="13sp"/>
+
+</RelativeLayout>
+</LinearLayout>

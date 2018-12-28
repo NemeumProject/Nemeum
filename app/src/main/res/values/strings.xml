@@ -24,6 +24,7 @@
     <string name="listDB">/list</string>
     <string name="userDB">/user</string>
     <string name="trainerDB">/trainer</string>
+    <string name="eventDB">/event</string>
     <string name="dbAccessAccept">Accept</string>
     <string name="dbAccessContentType">Content-type</string>
     <string name="dbAccessAppJson">application/json</string>
@@ -68,6 +69,22 @@
     <string name="trainerCityJson">city</string>
     <string name="trainerPostalCodeJson">postalCode</string>
     <string name="trainerPremiumJson">premium</string>
+    <string name="eventIdJson">idEvent</string>
+    <string name="eventSportIdJson">idSport</string>
+    <string name="eventCompanyIdJson">idCompanyUser</string>
+    <string name="eventUserIdJson">idUser</string>
+    <string name="eventTrainerIdJson">idTrainer</string>
+    <string name="eventIndoorJson">indoor</string>
+    <string name="eventCapacityJson">capacity</string>
+    <string name="eventPriceJson">price</string>
+    <string name="eventCityJson">city</string>
+    <string name="eventAddressJson">address</string>
+    <string name="eventPostalCodeJson">postalCode</string>
+    <string name="eventPhoneJson">phone</string>
+    <string name="eventDateEventJson">dateEvent</string>
+    <string name="eventDescriptionJson">description</string>
+    <string name="eventImageJson">image</string>
+    <string name="eventTitleJson">title</string>
 
     <!-- Strings related to login -->
     <string name="login_forgot_pass">Forgot Password?</string>
@@ -95,6 +112,9 @@
     <string name="findEventTitle">Find Events</string>
     <string name="recommendedEventTitle">Recommended Event</string>
     <string name="monthSelectTitle">Select month</string>
+    <string name="eventResDate">Date:</string>
+    <string name="eventResAddress">Place:</string>
+    <string name="eventResDescr">Description:</string>
     <string-array name="monthsEvents">
         <item>January</item>
         <item>February</item>
@@ -165,6 +185,16 @@
         <item>Until 75€</item>
     </string-array>
 
+    <!-- Strings for My Bookings -->
+    <string name="myBookingsTitle">My Bookings</string>
+    <string name="bookingResTime">Time:</string>
+    <string name="bookingResDate">Date:</string>
+    <string name="bookingResAddress">Address:</string>
+    <string name="bookingResPrice">Price:</string>
+    <string name="bookingCancelTitle">Are you sure that you want to cancel?</string>
+    <string name="bookingCancelSubtitle">We cannot refund your money.</string>
+    <string name="bookingEditionTitle">Edit Booking</string>
+
     <!-- Strings for Posting Trainer Service-->
     <string name="postingtrainerservice">Post Service </string>
     <string name="TrainingAddress">Training Address</string>
@@ -216,6 +246,7 @@
 
     <!-- Strings for Buttons -->
     <string name="buttonBook">Book!</string>
+    <string name="buttonEdit">Edit</string>
     <string name="buttonSchedule">Schedule</string>
     <string name="buttonScenario">Scenario</string>
     <string name="buttonSubmit">Submit</string>
@@ -225,6 +256,8 @@
     <string name="buttonCancel">Cancel</string>
     <string name="buttonFinish">Finish</string>
     <string name="buttonDatePayment">Choose date and \n Payment method</string>
+    <string name="buttonYes">Yes</string>
+    <string name="buttonNo">No</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of exercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificent Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>

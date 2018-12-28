@@ -27,6 +27,7 @@ public class UserLoginActivity extends AppCompatActivity {
         ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
+        ImageButton mybookings_btn = findViewById(R.id.mybooking);
 
 
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
@@ -63,6 +64,12 @@ public class UserLoginActivity extends AppCompatActivity {
             }
         });
 
+        mybookings_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myBookingsOnclick();
+            }
+        });
 
         BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -113,6 +120,9 @@ public class UserLoginActivity extends AppCompatActivity {
         startActivity(intent8);
     }
 
-
+    public void myBookingsOnclick() {
+        Intent intent9 = new Intent(this, MyBookings.class);
+        startActivity(intent9);
+    }
 
 }

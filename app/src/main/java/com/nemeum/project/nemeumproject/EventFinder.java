@@ -2,37 +2,129 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
+
+import models.Event;
 
 public class EventFinder extends AppCompatActivity {
 
-    int[] eventPicture = {R.drawable.swimming_silhouette, R.drawable.group_of_men_running, R.drawable.bicycle_rider};
-    boolean[] eventRecommend = {false, true, false};
-    String[] titleText = {"Lleida Swimming Competition", "Lleida Half Marathon", "Lleida Cycling Competition"};
-    String[] eventDescr = {"Description: Swimming competition for child", "Description: Half marathon for 18-55 y.o.", "Description: Cycling competition"};
-    String[] eventDirection = {"Place: Lleida Swimming Center", "Place: Lleida Running Track", "Place: Lleida Running Track"};
-    String[] eventExecDate = {"Date: 1 December 2018", "Date: 16 December 2018", "Date: 21 December 2018"};
+    List<Event> listEvent = new ArrayList<>();
+    List<Event> filteredEvent = new ArrayList<>();
+    List<Button> listMonths= new ArrayList<>();
+    TextView yearFilter;
+    String[] monthsArray;
     Context appContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getEvents();
+
         setContentView(R.layout.activity_event_finder);
 
         appContext = getApplicationContext();
-        ListView resultList = findViewById(R.id.eventsList);
+        final ImageView backYearBtn = findViewById(R.id.backYear);
+        ImageView nextYearBtn = findViewById(R.id.nextYear);
+        yearFilter = findViewById(R.id.yearText);
+        final ListView resultList = findViewById(R.id.eventsList);
+        final GridLayout resultFilter = findViewById(R.id.monthSelect);
+        LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(dpToPx(appContext, 160), dpToPx(appContext, 20));
+
+        monthsArray = getResources().getStringArray(R.array.monthsEvents);
+        layout.setMargins(5,5,5,5);
+        yearFilter.setText(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+        backYearBtn.setVisibility(View.INVISIBLE);
+        backYearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String year = yearFilter.getText().toString();
+                yearFilter.setText(String.valueOf(Integer.parseInt(year) - 1));
+                if(yearFilter.getText().equals(String.valueOf(Calendar.getInstance().get(Calendar.YEAR))))
+                    backYearBtn.setVisibility(View.INVISIBLE);
+                resetTexts();
+                resetColors();
+            }
+        });
+        nextYearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String year = yearFilter.getText().toString();
+                yearFilter.setText(String.valueOf(Integer.parseInt(year) + 1));
+                backYearBtn.setVisibility(View.VISIBLE);
+                resetTexts();
+                resetColors();
+            }
+        });
 
         CustomAdapter customResult = new CustomAdapter();
+
+        for(int i = 0; i < 12; i++){
+            final Button btnMonth = new Button(appContext);
+            btnMonth.setAllCaps(false);
+            btnMonth.setLayoutParams(layout);
+            btnMonth.setBackground(getResources().getDrawable(R.drawable.months_rounded));
+            btnMonth.setTextColor(getResources().getColor(R.color.colorWhite));
+            btnMonth.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            btnMonth.setTextAppearance(Typeface.BOLD);
+            btnMonth.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
+            btnMonth.setId(i + 1);
+            btnMonth.setText(Arrays.asList(monthsArray).get(i) + " " + yearFilter.getText());
+
+            btnMonth.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    resetColors();
+                    btnMonth.setBackground(getResources().getDrawable(R.drawable.selected_month));
+                    btnMonth.setTextColor(getResources().getColor(R.color.colorFont));
+                    resultList.clearChoices();
+                    setFilteredEvents(btnMonth.getId());
+                    resultList.setAdapter(new CustomAdapter());
+                }
+            });
+            listMonths.add(btnMonth);
+            resultFilter.addView(listMonths.get(i));
+        }
+
+        ArrayAdapter<Button> filterResult = new ArrayAdapter<Button>(appContext, R.layout.support_simple_spinner_dropdown_item, listMonths);
 
         resultList.setAdapter(customResult);
 
@@ -62,28 +154,122 @@ public class EventFinder extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    public void setFilteredEvents(int month){
+        filteredEvent.clear();
+        for(int i = 0; i < listEvent.size(); i++){
+            if((listEvent.get(i).getDateEvent().getMonth() + 1) == month){
+                if((listEvent.get(i).getDateEvent().getYear() + 1900) == Integer.parseInt(yearFilter.getText().toString())){
+                    filteredEvent.add(listEvent.get(i));
+                }
+            }
+        }
+    }
+
+    private void resetColors(){
+        for(int i = 0; i < 12; i++) {
+            listMonths.get(i).setBackground(getResources().getDrawable(R.drawable.months_rounded));
+            listMonths.get(i).setTextColor(getResources().getColor(R.color.colorWhite));
+        }
+    }
+
+    private void resetTexts(){
+        for(int i = 0; i < 12; i++) {
+            listMonths.get(i).setText(Arrays.asList(monthsArray).get(i) + " " + yearFilter.getText());
+        }
     }
 
     public void getBack(View view) {
         finish();
     }
 
+    private void getEvents(){
+        new Thread(new Runnable() {
+
+            int numResults = 0;
+            BufferedReader in;
+            String data = null;
+            String line;
+            JSONArray parserList;
+            JSONObject parser;
+
+            public void run() {
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet httpget = new HttpGet(getResources().getString(R.string.urlDB) + getResources().getString(R.string.eventDB) + getResources().getString(R.string.listDB));
+
+                try {
+                    HttpResponse response = httpclient.execute(httpget);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserList = new JSONArray(data);
+
+                    while(numResults < parserList.length()) {
+                        parser = (JSONObject) parserList.get(numResults);
+                        Event event = new Event();
+                        event.setIdEvent(parser.getInt(getResources().getString(R.string.eventIdJson)));
+                        event.setIdSport(parser.getInt(getResources().getString(R.string.eventSportIdJson)));
+                        //event.setIdCompany(parser.getInt(getResources().getString(R.string.eventCompanyIdJson)));
+                        //event.setIdUser(parser.getInt(getResources().getString(R.string.eventUserIdJson)));
+                        //event.setIdTrainer(parser.getInt(getResources().getString(R.string.eventTrainerIdJson)));
+                        event.setIndoor(parser.getBoolean(getResources().getString(R.string.eventIndoorJson)));
+                        event.setCapacity(parser.getInt(getResources().getString(R.string.eventCapacityJson)));
+                        event.setPrice(parser.getDouble(getResources().getString(R.string.eventPriceJson)));
+                        event.setCity(parser.getString(getResources().getString(R.string.eventCityJson)));
+                        event.setAddress(parser.getString(getResources().getString(R.string.eventAddressJson)));
+                        event.setPostalCode(parser.getString(getResources().getString(R.string.eventPostalCodeJson)));
+                        event.setPhone(parser.getInt(getResources().getString(R.string.eventPhoneJson)));
+                        String dateStr = parser.getString(getResources().getString(R.string.eventDateEventJson));
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        event.setDateEvent(sdf.parse(dateStr));
+                        event.setDescription(parser.getString(getResources().getString(R.string.eventDescriptionJson)));
+                        event.setImage(parser.getString(getResources().getString(R.string.eventImageJson)));
+                        event.setTitle(parser.getString(getResources().getString(R.string.eventTitleJson)));
+                        numResults++;
+                        listEvent.add(event);
+                    }
+                    filteredEvent.addAll(listEvent);
+                } catch (IOException e) {
+                    EventFinder.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(appContext, getResources().getString(R.string.noconnection), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    public static int dpToPx(Context context, float valueInDp) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return ((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueInDp, metrics));
+    }
+
     class CustomAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
-            return 3;
+            return filteredEvent.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return filteredEvent.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return filteredEvent.get(position).getIdEvent();
         }
 
         @Override
@@ -98,15 +284,19 @@ public class EventFinder extends AppCompatActivity {
             TextView eventDate = convertView.findViewById(R.id.eventResultDateText);
             TextView eventAddress = convertView.findViewById(R.id.eventResultPlaceText);
 
-            eventImg.setImageResource(eventPicture[position]);
+            if(!filteredEvent.get(position).getImage().equals("null"))
+                Picasso.get().load(filteredEvent.get(position).getImage()).into(eventImg);
+            else
+                Picasso.get().load(R.drawable.scenario_nophoto).into(eventImg);
 
-            if(eventRecommend[position])
-                eventRecommendedTitle.setVisibility(View.VISIBLE);
+            //if(eventRecommend[position])
+            //    eventRecommendedTitle.setVisibility(View.VISIBLE);
 
-            eventTitle.setText(titleText[position]);
-            eventDescription.setText(eventDescr[position]);
-            eventDate.setText(eventExecDate[position]);
-            eventAddress.setText(eventDirection[position]);
+            eventTitle.setText(filteredEvent.get(position).getTitle());
+            eventTitle.setTypeface(null, Typeface.BOLD);
+            eventDescription.setText(getResources().getString(R.string.eventResDescr) + " " + filteredEvent.get(position).getDescription());
+            eventDate.setText(String.format(getResources().getString(R.string.eventResDate) + " " + filteredEvent.get(position).getDateEvent().toString()));
+            eventAddress.setText(getResources().getString(R.string.eventResAddress) + " " + filteredEvent.get(position).getAddress());
 
             return convertView;
         }

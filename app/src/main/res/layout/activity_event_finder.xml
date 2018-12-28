@@ -54,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
-            android:text="2018"
             android:textColor="@color/colorPink"
             android:textSize="15sp"/>
 
@@ -83,129 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/navigation"
         android:layout_centerHorizontal="true"
-        android:columnCount="2"
-        android:rowCount="6">
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="January 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="February 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="March 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="April 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="May 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="June 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="July 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="August 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="September 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="October 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="November 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorFont"
-            android:background="@drawable/selected_month" />
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:text="December 2018"
-            android:textAllCaps="false"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/months_rounded" />
-    </GridLayout>
+        android:columnCount="2"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

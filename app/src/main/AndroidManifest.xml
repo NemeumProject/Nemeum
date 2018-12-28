@@ -35,15 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".PostScenario"/>
-        <activity android:name=".activity_edit_scenario"/>
-        <activity android:name=".activity_edit_daily_schedule"/>
-
-        <activity android:name=".UserTrainerLoginActivity"/>
-        <activity android:name=".UserCompanyLoginActivity"/>
-        <activity android:name=".UserLoginActivity"/>
+        <activity android:name=".PostScenario" />
+        <activity android:name=".activity_edit_scenario" />
+        <activity android:name=".activity_edit_daily_schedule" />
+        <activity android:name=".UserTrainerLoginActivity" />
+        <activity android:name=".UserCompanyLoginActivity" />
+        <activity android:name=".UserLoginActivity" />
         <activity android:name=".activity_Trainer_Posting" />
         <activity android:name=".NormalUserRegistration"
                   android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
@@ -79,8 +76,8 @@
 
         <activity android:name=".BookScenarios" />
         <activity android:name=".BookScenarioPayment" />
-
-
+        <activity android:name=".MyBookings" />
+        <activity android:name=".EditBook"></activity>
     </application>
 
 </manifest>
