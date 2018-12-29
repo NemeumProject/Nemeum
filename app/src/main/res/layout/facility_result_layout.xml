@@ -68,7 +68,7 @@
         android:textSize="13sp"/>
 
     <TextView
-        android:id="@+id/facilityResultHoursText"
+        android:id="@+id/facilityResultEmailText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/facilityResultPlaceText"
@@ -80,7 +80,7 @@
         android:id="@+id/facilityResultDescriptionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/facilityResultHoursText"
+        android:layout_below="@+id/facilityResultEmailText"
         android:layout_toRightOf="@+id/facilityResultImg"
         android:textColor="@color/colorFont"
         android:textSize="12sp"/>

@@ -2,6 +2,7 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -16,14 +17,27 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import models.CompanyUser;
+
 public class FacilityFinder extends AppCompatActivity {
 
-    int[] facilityPicture = {R.drawable.stadium, R.drawable.stadium, R.drawable.stadium, R.drawable.stadium, R.drawable.stadium};
-    String[] titleText = {"Lleida Soccer Field I", "Lleida Soccer Field II", "Lleida Soccer Field III", "Lleida Soccer Field IV", "Lleida Soccer Field V"};
+    int[] facilityPicture = {R.drawable.scenario_nophoto};
     int[] facilityPoints = {1, 2, 3, 4, 5};
-    String[] FacilityDirection = {"Address: Rambla Ferran no. 24", "Address: Rambla Ferran no. 24", "Address: Rambla Ferran no. 24", "Address: Rambla Ferran no. 24", "Address: Rambla Ferran no. 24"};
-    String[] facilityOpenHours = {"Open - Closes: 09:00 - 23:00", "Open - Closes: 09:00 - 23:00", "Open - Closes: 09:00 - 23:00", "Open - Closes: 09:00 - 23:00", "Open - Closes: 09:00 - 23:00"};
     Context appContext;
+    List<CompanyUser> listCompany = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +45,15 @@ public class FacilityFinder extends AppCompatActivity {
         setContentView(R.layout.activity_facility_finder);
 
         appContext = getApplicationContext();
+
+        getAllUsers();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         ListView resultList = findViewById(R.id.facilitiesList);
 
         CustomAdapter customResult = new CustomAdapter();
@@ -66,6 +89,68 @@ public class FacilityFinder extends AppCompatActivity {
 
     }
 
+    public synchronized void getAllUsers() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                int numResults = 0;
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONArray parserList;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try{
+
+                    URI website = new URI(getResources().getString(R.string.urlDB) + "/companyuser");
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserList = new JSONArray(data);
+
+                    while(numResults < parserList.length()) {
+                        parser = (JSONObject) parserList.get(numResults);
+                        CompanyUser user = new CompanyUser();
+                        user.setIdCompanyUser(parser.getInt("idCompanyUser"));
+                        user.setAddress(parser.getString("address"));
+                        user.setCity(parser.getString("city"));
+                        user.setComercialName(parser.getString("comercialName"));
+                        user.setCompanyName(parser.getString("companyName"));
+                        user.setContactPerson(parser.getString("contactPerson"));
+                        user.setDescription(parser.getString("description"));
+                        user.setEmail(parser.getString("email"));
+                        user.setImage(parser.getString("image"));
+                        user.setPassword(parser.getString("password"));
+                        user.setPhone(parser.getInt("phone"));
+                        user.setPostalCode(parser.getString("postalCode"));
+                        if(!parser.isNull("premium")){
+                            user.setPremium(parser.getBoolean("premium"));
+                        }
+                        user.setSsn(parser.getString("ssn"));
+                        user.setTitle(parser.getString("title"));
+                        user.setUsername(parser.getString("username"));
+                        numResults++;
+                        listCompany.add(user);
+
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                Thread.yield();
+            }
+        }).start();
+    }
+
     public void getBack(View view) {
         finish();
     }
@@ -74,17 +159,17 @@ public class FacilityFinder extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return listCompany.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return listCompany.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return listCompany.get(position).getIdCompanyUser();
         }
 
         @Override
@@ -98,16 +183,36 @@ public class FacilityFinder extends AppCompatActivity {
             TextView facilityTitle = convertView.findViewById(R.id.facilityResultTitleText);
             RatingBar facilityRating = convertView.findViewById(R.id.starFacilityRating);
             TextView facilityAddress = convertView.findViewById(R.id.facilityResultPlaceText);
-            TextView facilityHours = convertView.findViewById(R.id.facilityResultHoursText);
+            TextView facilityEmail = convertView.findViewById(R.id.facilityResultEmailText);
             TextView facilityDescription = convertView.findViewById(R.id.facilityResultDescriptionText);
 
-            facilityImg.setImageResource(facilityPicture[position]);
-            facilityTitle.setText(titleText[position]);
-            facilityRating.setRating(facilityPoints[position]);
-            facilityAddress.setText(FacilityDirection[position]);
-            facilityHours.setText(facilityOpenHours[position]);
-            facilityDescription.setText(R.string.findFacilityDescr);
+            facilityImg.setImageResource(facilityPicture[0]);
+            if(listCompany.get(position).getTitle().equals("null")){
+                facilityTitle.setText("Without title");
+            }else{
+                facilityTitle.setText(listCompany.get(position).getTitle());
+            }
 
+            facilityRating.setRating(facilityPoints[position]);
+            facilityAddress.setText(listCompany.get(position).getAddress());
+            facilityEmail.setText(listCompany.get(position).getEmail());
+            if(listCompany.get(position).getDescription().equals("null")){
+                facilityTitle.setText("Without description");
+            }else{
+                facilityDescription.setText(listCompany.get(position).getDescription());
+            }
+            final int index = position;
+            final SharedPreferences registeredUserPref = getApplicationContext().getSharedPreferences(getResources().getString(R.string.userTypeSP), getApplicationContext().MODE_PRIVATE);
+            scheduleBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SharedPreferences.Editor registeredUserEditor = registeredUserPref.edit();
+                    registeredUserEditor.putString("idCompany", listCompany.get(index).getIdCompanyUser().toString());
+                    registeredUserEditor.apply();
+                    Intent intentBook = new Intent(appContext, ScenariosByFacility.class);
+                    appContext.startActivity(intentBook);
+                }
+            });
             return convertView;
         }
     }
