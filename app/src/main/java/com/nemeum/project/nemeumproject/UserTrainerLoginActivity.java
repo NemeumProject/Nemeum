@@ -26,6 +26,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
+        ImageButton posttrainersvc_btn = findViewById(R.id.postservice);
 
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         String new_user_name = (shared.getString("userName", ""));
@@ -59,6 +60,15 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
                 findTrainerOnclick();
             }
         });
+
+        posttrainersvc_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postTrainerOnclick();
+            }
+        });
+
+
 
 
         BottomNavigationView menu = findViewById(R.id.navigation);
@@ -108,6 +118,11 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
     public void findEventOnclick() {
         Intent intent8 = new Intent(this, EventFinder.class);
         startActivity(intent8);
+    }
+
+    public void postTrainerOnclick() {
+        Intent intent9 = new  Intent(this,PostTrainerService.class);
+        startActivity(intent9);
     }
 
 

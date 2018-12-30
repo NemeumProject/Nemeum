@@ -17,7 +17,7 @@
     <string name="notLoggedSP">notLogged</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.30.147:8080</string>
+    <string name="urlDB">http://192.168.0.159:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -196,18 +196,27 @@
     <string name="bookingEditionTitle">Editar Cita</string>
 
     <!-- Strings for Posting Trainer Service-->
-    <string name="postingtrainerservice">Publica Servicio</string>
-    <string name="TrainingAddress">Dirección de Entrenamiento</string>
-    <string name="TrainingPrice">Precio / Hora</string>
-    <string name="TrainingDescription">Descripción del Entrenamiento</string>
+    <string name="postingtrainerservice">Post Service </string>
+    <string name="TrainingAddress">Training Address</string>
+    <string name="TrainingPrice">Price / Hour</string>
+    <string name="TrainingDescription">Training Description</string>
+    <string name="idtrainersport">id_trainer_user</string>
+    <string name="SportTypeTraining">id_sport_training_type</string>
+    <string name="SportAddressTraining">training_address</string>
+    <string name="SportPriceTraining">training_price</string>
+    <string name="SportCityTraining">training_city</string>
+    <string name="SportStartTraining">training_start</string>
+    <string name="SportEndTraining">training_end</string>
+    <string name="SportDescTraining">training_desc</string>
+    <string name="SportServiceSuccess">Your Service Successfully Submitted</string>
 
     <!-- Strings for Booking Scenarios-->
     <string name="scenarioBookTitle">Citar Escenario</string>
     <string-array name="hourStartFilter">
         <item>Inicio</item>
-        <item>7:00</item>
-        <item>8:00</item>
-        <item>9:00</item>
+        <item>07:00</item>
+        <item>08:00</item>
+        <item>09:00</item>
         <item>10:00</item>
         <item>11:00</item>
         <item>12:00</item>
@@ -219,8 +228,8 @@
     </string-array>
     <string-array name="hourEndFilter">
         <item>Hasta</item>
-        <item>8:00</item>
-        <item>9:00</item>
+        <item>08:00</item>
+        <item>09:00</item>
         <item>10:00</item>
         <item>11:00</item>
         <item>12:00</item>

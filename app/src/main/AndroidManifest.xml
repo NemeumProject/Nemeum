@@ -41,7 +41,6 @@
         <activity android:name=".UserTrainerLoginActivity" />
         <activity android:name=".UserCompanyLoginActivity" />
         <activity android:name=".UserLoginActivity" />
-        <activity android:name=".activity_Trainer_Posting" />
         <activity android:name=".NormalUserRegistration"
                   android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity android:name=".CompanyUserRegistration"
@@ -57,6 +56,7 @@
         <activity android:name=".TrainerDetail" />
         <activity android:name=".SearchTrainer" />
         <activity android:name=".CompanyDetail" />
+        <activity android:name=".PostTrainerService"/>
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
         <activity android:name=".activity_login_edition" />
