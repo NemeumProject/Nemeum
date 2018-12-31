@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class BookScenarios extends AppCompatActivity {
@@ -25,12 +24,10 @@ public class BookScenarios extends AppCompatActivity {
 
         ImageView scenarioPicture = findViewById(R.id.bookScenarioImg);
         TextView scenarioName = findViewById(R.id.scenarioBookTitleText);
-        RatingBar scenarioStars = findViewById(R.id.starScenarioRating);
         TextView scenarioDescription = findViewById(R.id.scenarioBookDescriptionText);
 
         scenarioPicture.setImageResource(getIntent().getIntExtra(getResources().getString(R.string.scenarioImgExtra), R.drawable.bicycle_rider));
         scenarioName.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
-        scenarioStars.setRating(getIntent().getIntExtra(getResources().getString(R.string.scenarioRatingExtra), 5));
         scenarioDescription.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioDescrExtra)));
 
         BottomNavigationView menu = findViewById(R.id.navigation);

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class UserCompanyLoginActivity extends AppCompatActivity {
@@ -29,6 +30,9 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         ImageButton postscenario_btn = findViewById(R.id.postserviceicon);
         ImageButton editscenario_btn = findViewById(R.id.editscenarioicon);
         ImageButton updateschedule_btn = findViewById(R.id.updatescheduleicon);
+
+        final ProgressBar progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         String new_user_name = (shared.getString("userName", ""));
@@ -53,6 +57,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findScenarioOnclick();
             }
         });
@@ -112,6 +117,16 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public  void  onResume(){
+        super.onResume();
+        ProgressBar progressBar = findViewById(R.id.progressbar);
+        if(progressBar.getVisibility()==View.VISIBLE)
+        {
+            progressBar.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void findFacilitiesOnclick() {

@@ -127,17 +127,17 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
 
         Spinner sportSpinner = findViewById(R.id.scenarioBySport);
         ArrayAdapter<String> sportAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, sportName);
+                R.layout.spinner_layout, sportName);
         sportAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sportSpinner.setAdapter(sportAdapter);
 
         Spinner locationSpinner = findViewById(R.id.scenarioByCity);
-        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, R.layout.spinner_layout);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
 
         Spinner priceSpinner = findViewById(R.id.scenarioByPrice);
-        ArrayAdapter<CharSequence> priceAdapter = ArrayAdapter.createFromResource(this, R.array.priceFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> priceAdapter = ArrayAdapter.createFromResource(this, R.array.priceFilter, R.layout.spinner_layout);
         priceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         priceSpinner.setAdapter(priceAdapter);
 

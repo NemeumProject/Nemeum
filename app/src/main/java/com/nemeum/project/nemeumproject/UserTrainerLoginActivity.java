@@ -3,6 +3,8 @@ package com.nemeum.project.nemeumproject;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -10,14 +12,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+
 
 public class UserTrainerLoginActivity extends AppCompatActivity {
 
     Context appContext;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered_trainer_user);
         appContext = getApplicationContext();
@@ -27,6 +33,9 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
         ImageButton posttrainersvc_btn = findViewById(R.id.postservice);
+
+        final ProgressBar progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         String new_user_name = (shared.getString("userName", ""));
@@ -50,6 +59,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findScenarioOnclick();
             }
         });
@@ -67,9 +77,6 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
                 postTrainerOnclick();
             }
         });
-
-
-
 
         BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -100,15 +107,29 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public  void  onResume(){
+        super.onResume();
+        ProgressBar progressBar = findViewById(R.id.progressbar);
+        if(progressBar.getVisibility()==View.VISIBLE)
+        {
+            progressBar.setVisibility(View.INVISIBLE);
+        }
+    }
+
+
     public void findFacilitiesOnclick() {
         Intent intent5 = new Intent(this,FacilityFinder.class);
         startActivity(intent5);
     }
 
     public void findScenarioOnclick() {
+
         Intent intent6 = new Intent(this,NearScenarios.class);
         startActivity(intent6);
     }
+
+
 
     public void findTrainerOnclick() {
         Intent intent7 = new Intent(this,SearchTrainer.class);
@@ -125,6 +146,8 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         startActivity(intent9);
     }
 
-
-
 }
+
+
+
+

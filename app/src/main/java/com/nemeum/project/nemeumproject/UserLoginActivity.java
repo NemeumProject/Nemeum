@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class UserLoginActivity extends AppCompatActivity {
@@ -28,6 +29,9 @@ public class UserLoginActivity extends AppCompatActivity {
         ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
         ImageButton mybookings_btn = findViewById(R.id.mybooking);
+
+        final ProgressBar progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.INVISIBLE);
 
 
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
@@ -53,6 +57,7 @@ public class UserLoginActivity extends AppCompatActivity {
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findScenarioOnclick();
             }
         });
@@ -98,6 +103,16 @@ public class UserLoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public  void  onResume(){
+        super.onResume();
+        ProgressBar progressBar = findViewById(R.id.progressbar);
+        if(progressBar.getVisibility()==View.VISIBLE)
+        {
+            progressBar.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void findFacilitiesOnclick() {

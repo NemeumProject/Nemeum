@@ -47,19 +47,24 @@
                     android:id="@+id/scenarioBookTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:textColor="@color/colorFont"
+                    android:layout_marginTop="5dp"
                     android:textAlignment="center"
-                    android:textSize="@dimen/font20"/>
+                    android:textColor="@color/colorFont"
+                    android:textSize="@dimen/font20" />
 
                 <CalendarView
                     android:id="@+id/bookDayCalendar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/results_rounded"
+                    android:backgroundTint="@color/colorBackground"
                     android:firstDayOfWeek="2"
-                    android:background="@color/colorBackground"/>
+                    android:outlineSpotShadowColor="@color/colorPink" />
 
                 <LinearLayout
                     android:id="@+id/startEndBook"
@@ -75,7 +80,7 @@
                         android:layout_margin="5dp"
                         android:spinnerMode="dropdown"
                         android:background="@drawable/months_rounded"
-                        android:backgroundTint="@color/colorBackground" />
+                        android:backgroundTint="@color/colorBlue" />
 
                     <Spinner
                         android:id="@+id/endTime"
@@ -84,7 +89,7 @@
                         android:layout_margin="5dp"
                         android:spinnerMode="dropdown"
                         android:background="@drawable/months_rounded"
-                        android:backgroundTint="@color/colorBackground" />
+                        android:backgroundTint="@color/colorBlue" />
 
                 </LinearLayout>
 
@@ -108,7 +113,7 @@
                     android:text="@string/buttonSubmit"
                     android:textAllCaps="false"
                     android:textColor="@color/colorFont"
-                    android:textSize="15sp" />
+                    android:textSize="12dp" />
 
             </LinearLayout>
         </ScrollView>
