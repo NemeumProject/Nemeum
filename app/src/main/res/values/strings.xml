@@ -85,6 +85,14 @@
     <string name="eventDescriptionJson">description</string>
     <string name="eventImageJson">image</string>
     <string name="eventTitleJson">title</string>
+    <string name="userScenario_userscenarioJson">userScenario</string>
+    <string name="userScenario_idUserJson">idUser</string>
+    <string name="userScenario_idScenarioJson">idScenario</string>
+    <string name="userScenario_dateBookingJson">dateBooking</string>
+    <string name="userScenario_startScenarioJson">startScenario</string>
+    <string name="userScenario_endScenarioJson">endScenario</string>
+    <string name="userScenario_phoneJson">phone</string>
+    <string name="userScenario_emailJson">email</string>
 
     <!-- Strings related to login -->
     <string name="login_forgot_pass">Forgot Password?</string>
