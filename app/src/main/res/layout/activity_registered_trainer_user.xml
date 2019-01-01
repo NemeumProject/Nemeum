@@ -72,7 +72,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#17252a"
+        android:background="@color/colorBackground"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline11"
@@ -85,6 +85,24 @@
             android:gravity="center"
             android:text=""/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progresss"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:indeterminate="true"
+            android:max="100"
+            android:indeterminateTint="@color/colorPink"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -105,6 +123,7 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.25">
+
         <ImageButton
             android:id="@+id/findeventicon"
             android:layout_width="40dp"

@@ -31,11 +31,13 @@
             android:layout_width="60dp"
             android:layout_height="20dp"
             android:text="@string/buttonBook"
+            android:textAllCaps="false"
             android:layout_margin="5dp"
             android:textSize="10sp"
             android:layout_below="@+id/companyScenarioPrice"
             android:textColor="@color/colorFont"
             android:onClick="bookNow"
+            android:backgroundTint="@color/colorPink"
             android:background="@drawable/months_rounded" />
 
         <TextView

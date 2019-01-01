@@ -94,7 +94,7 @@
     <string name="search_trainer">Search Trainer</string>
     <string name="search_facilities">Search Facilities</string>
     <string name="search_event">Search Event</string>
-    <string name="search_scenario">Search Scenario</string>
+    <string name="search_scenario">Search</string>
     <string name="my_account">My Account</string>
     <string name="settings">Settings</string>
     <string name="login">Login</string>
@@ -264,7 +264,7 @@
     <string name="buttonRegister">Register</string>
     <string name="buttonCancel">Cancel</string>
     <string name="buttonFinish">Finish</string>
-    <string name="buttonDatePayment">Choose date and \n Payment method</string>
+    <string name="buttonDatePayment">Choose Date and \n Payment Method</string>
     <string name="buttonYes">Yes</string>
     <string name="buttonNo">No</string>
 

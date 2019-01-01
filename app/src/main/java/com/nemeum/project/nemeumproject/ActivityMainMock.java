@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.content.ContextCompat;
@@ -107,6 +108,9 @@ public class ActivityMainMock extends AppCompatActivity {
             finish();
         }
 
+        final ProgressBar progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.INVISIBLE);
+
         ImageButton findevent_btn = findViewById(R.id.findeventicon);
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +131,7 @@ public class ActivityMainMock extends AppCompatActivity {
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findScenarioOnclick();
             }
         });
@@ -166,6 +171,16 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public  void  onResume(){
+        super.onResume();
+        ProgressBar progressBar = findViewById(R.id.progressbar);
+        if(progressBar.getVisibility()==View.VISIBLE)
+        {
+            progressBar.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void findFacilitiesOnclick() {

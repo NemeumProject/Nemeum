@@ -40,52 +40,67 @@
             android:layout_height="150dp"
             android:layout_margin="10dp"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/starScenarioRating"/>
-
-        <RatingBar
-            android:id="@+id/starScenarioRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/scenarioBookTitleText"
-            android:numStars="5"
-            android:stepSize=".1" />
+            android:layout_above="@+id/scenarioBookTitleText"/>
 
         <TextView
             android:id="@+id/scenarioBookTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:textAlignment="center"
             android:textColor="@color/colorFont"
-            android:textStyle="bold"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/scenarioBookDescriptionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/scenarioBookTitleText"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="15dp"
+            android:textAlignment="center"
             android:textColor="@color/colorFont"
-            android:textSize="12sp"/>
+            android:textSize="10dp" />
+
+
 
         <Button
             android:id="@+id/paymentButton"
             android:layout_width="200dp"
             android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/scenarioBookDescriptionText"
-            android:text="@string/buttonDatePayment"
-            android:textSize="15dp"
-            android:textAllCaps="false"
-            android:textColor="@color/colorFont"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/months_rounded"
             android:backgroundTint="@color/colorPink"
-            android:onClick="scenarioBookPayment" />
+            android:onClick="scenarioBookPayment"
+            android:text="@string/buttonDatePayment"
+            android:textAllCaps="false"
+            android:textColor="@color/colorFont"
+            android:textSize="10dp" />
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView

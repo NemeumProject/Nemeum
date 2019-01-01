@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-public class BookScenarioPayment extends AppCompatActivity {
+public class    BookScenarioPayment extends AppCompatActivity {
 
     Context appContext;
 
@@ -31,17 +31,17 @@ public class BookScenarioPayment extends AppCompatActivity {
         CalendarView bookDay = findViewById(R.id.bookDayCalendar);
 
         Spinner startingRent = findViewById(R.id.startTime);
-        ArrayAdapter<CharSequence> startRentAdapter = ArrayAdapter.createFromResource(this, R.array.hourStartFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> startRentAdapter = ArrayAdapter.createFromResource(this, R.array.hourStartFilter,R.layout.spinner_layout);
         startRentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         startingRent.setAdapter(startRentAdapter);
 
         Spinner endingRent = findViewById(R.id.endTime);
-        ArrayAdapter<CharSequence> endRentAdapter = ArrayAdapter.createFromResource(this, R.array.hourEndFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> endRentAdapter = ArrayAdapter.createFromResource(this, R.array.hourEndFilter,R.layout.spinner_layout);
         endRentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         endingRent.setAdapter(endRentAdapter);
 
         Spinner bookPaymentMode = findViewById(R.id.paymentMethod);
-        ArrayAdapter<CharSequence> bookPaymentAdapter = ArrayAdapter.createFromResource(this, R.array.paymentMethodsFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> bookPaymentAdapter = ArrayAdapter.createFromResource(this, R.array.paymentMethodsFilter,R.layout.spinner_layout);
         bookPaymentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bookPaymentMode.setAdapter(bookPaymentAdapter);
 
