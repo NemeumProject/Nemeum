@@ -257,8 +257,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                     postData.put("price", price);
                     postData.put("city", city);
                     String result = "";
-                    StringEntity se = null;
-                    se = new StringEntity(postData.toString());
+                    StringEntity se = new StringEntity(postData.toString(), "UTF-8");
                     httppost.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
                     httppost.setHeader(getResources().getString(R.string.dbAccessContentType), getResources().getString(R.string.dbAccessAppJson));
                     httppost.setEntity(se);
