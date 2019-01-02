@@ -493,6 +493,13 @@ public class SearchTrainer extends AppCompatActivity {
             trainerAddress.setText(listTrainerService.get(position).getTraining_address());
             trainerDescription.setText(listTrainerService.get(position).getTraining_desc());
 
+            bookBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    
+                }
+            });
+
             return convertView;
         }
     }
