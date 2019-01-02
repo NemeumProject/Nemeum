@@ -18,6 +18,17 @@
             android:layout_height="60dp"
             android:layout_margin="5dp"/>
 
+        <TextView
+            android:id="@+id/trainerPriceService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainerResultImg"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorFont"
+            android:textStyle="bold"
+            android:textSize="13sp"/>
+
         <Button
             android:id="@+id/bookTrainerResult"
             android:layout_width="60dp"
@@ -26,23 +37,10 @@
             android:text="@string/buttonBook"
             android:layout_margin="5dp"
             android:textSize="10dp"
-            android:layout_below="@+id/trainerResultImg"
+            android:layout_below="@+id/trainerPriceService"
             android:textColor="@color/colorFont"
             android:background="@drawable/months_rounded"
             android:backgroundTint="@color/colorPink"/>
-
-        <Button
-            android:id="@+id/scheduleTrainerResult"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text="@string/buttonSchedule"
-            android:layout_margin="5dp"
-            android:textAllCaps="false"
-            android:textSize="10dp"
-            android:layout_below="@+id/bookTrainerResult"
-            android:textColor="@color/colorFont"
-            android:background="@drawable/months_rounded"
-            android:backgroundTint="@color/colorBlue"/>
 
         <TextView
             android:id="@+id/trainerResultName"
@@ -66,7 +64,7 @@
             android:textSize="13sp"/>
 
         <TextView
-            android:id="@+id/trainerResultPlaceText"
+            android:id="@+id/trainerResultSchedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/trainerResultSportText"
@@ -75,10 +73,27 @@
             android:textSize="13sp"/>
 
         <TextView
-            android:id="@+id/trainerResultDescriptionText"
+            android:id="@+id/trainerResultPlaceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainerResultSchedule"
+            android:layout_toRightOf="@+id/trainerResultImg"
+            android:textColor="@color/colorBlue"
+            android:textSize="13sp"/>
+        <TextView
+            android:id="@+id/trainerResultCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/trainerResultPlaceText"
+            android:layout_toRightOf="@+id/trainerResultImg"
+            android:textColor="@color/colorBlue"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/trainerResultDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trainerResultCity"
             android:layout_toRightOf="@+id/trainerResultImg"
             android:textColor="@color/colorFont"
             android:textSize="12sp"/>
