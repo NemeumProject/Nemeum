@@ -458,6 +458,7 @@
     <!-- Data passed between intents names -->
     <string name="scenarioNameExtra">chooseName</string>
     <string name="scenarioImgExtra">chooseImg</string>
+    <string name="scenarioPriceExtra">choosePrice</string>
     <string name="scenarioRatingExtra">chooseRating</string>
     <string name="scenarioDescrExtra">chooseDescr</string>
     <string name="userScenario_userscenarioJson">userScenario</string>

@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class BookScenarios extends AppCompatActivity {
 
     Context appContext;
@@ -24,10 +26,12 @@ public class BookScenarios extends AppCompatActivity {
 
         ImageView scenarioPicture = findViewById(R.id.bookScenarioImg);
         TextView scenarioName = findViewById(R.id.scenarioBookTitleText);
+        TextView scenarioPrice = findViewById(R.id.scenarioBookPriceText);
         TextView scenarioDescription = findViewById(R.id.scenarioBookDescriptionText);
 
         scenarioPicture.setImageResource(getIntent().getIntExtra(getResources().getString(R.string.scenarioImgExtra), R.drawable.bicycle_rider));
         scenarioName.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
+        scenarioPrice.setText("Price: "+getIntent().getStringExtra(getResources().getString(R.string.scenarioPriceExtra))+"€/Hour");
         scenarioDescription.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioDescrExtra)));
 
         BottomNavigationView menu = findViewById(R.id.navigation);
@@ -66,6 +70,7 @@ public class BookScenarios extends AppCompatActivity {
     public void scenarioBookPayment(View view) {
         Intent intentPayment = new Intent(appContext, BookScenarioPayment.class);
         intentPayment.putExtra(getResources().getString(R.string.scenarioNameExtra), getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
+        intentPayment.putExtra(getResources().getString(R.string.scenarioPriceExtra),getIntent().getStringExtra(getResources().getString(R.string.scenarioPriceExtra)));
         appContext.startActivity(intentPayment);
     }
 }

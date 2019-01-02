@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    android:background="@color/colorBackground"
+    android:padding="5dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/scenarioTitleSubmission"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"/>
+
+    <TextView
+        android:id="@+id/DatesSubmission"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPink"/>
+
+    <TextView
+        android:id="@+id/TimesSubmission"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPink"/>
+
+    <TextView
+        android:id="@+id/PaymentMethodSubmission"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPink"/>
+
+    <TextView
+        android:id="@+id/TotalPriceSubmission"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="11dp"
+        android:textColor="@color/colorPink"/>
+
+    <TextView
+        android:id="@+id/SubmissionExplanation"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="11dp"
+        android:text="Are you sure want to book this ?"
+        android:textColor="@color/colorWhite"/>
+
+    <Button
+        android:id="@+id/yes"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Yes"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_background1"
+        android:textColor="@color/colorBackground"/>
+
+    <Button
+        android:id="@+id/no"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="No"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_background"
+        android:textColor="@color/colorBackground"/>
+
+
+</LinearLayout>

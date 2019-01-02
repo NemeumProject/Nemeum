@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    android:background="@color/colorBackground"
+    android:padding="5dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/SubmissionExplanation"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="Error, Please Make Sure Your Input Is Right! \n Making sure that you're clicking the date, Input right starting time and ending time, and select payment method."
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="11dp" />
+
+    <Button
+        android:id="@+id/ok_back"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Back"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="@drawable/button_background1"
+        android:textColor="@color/colorBackground"/>
+
+
+</LinearLayout>

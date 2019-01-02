@@ -13,7 +13,7 @@
         android:layout_height="30dp"
         android:layout_margin="5dp"
         android:background="@mipmap/back_icon"
-        android:onClick="getBack" />
+         />
 
     <TextView
         android:layout_width="match_parent"
@@ -50,6 +50,7 @@
                     android:layout_marginTop="5dp"
                     android:textAlignment="center"
                     android:textColor="@color/colorFont"
+                    android:textStyle="bold"
                     android:textSize="@dimen/font20" />
 
                 <CalendarView
@@ -78,18 +79,18 @@
                         android:layout_width="130dp"
                         android:layout_height="40dp"
                         android:layout_margin="5dp"
-                        android:spinnerMode="dropdown"
                         android:background="@drawable/months_rounded"
-                        android:backgroundTint="@color/colorBlue" />
+                        android:backgroundTint="@color/colorBlue"
+                        android:spinnerMode="dropdown" />
 
                     <Spinner
                         android:id="@+id/endTime"
                         android:layout_width="130dp"
                         android:layout_height="40dp"
                         android:layout_margin="5dp"
-                        android:spinnerMode="dropdown"
                         android:background="@drawable/months_rounded"
-                        android:backgroundTint="@color/colorBlue" />
+                        android:backgroundTint="@color/colorBlue"
+                        android:spinnerMode="dropdown" />
 
                 </LinearLayout>
 
@@ -99,8 +100,22 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:spinnerMode="dropdown"
-                    android:background="@drawable/months_rounded" />
+                    android:background="@drawable/months_rounded"
+                    android:spinnerMode="dropdown" />
+
+
+                <TextView
+                    android:id="@+id/totalScenarioPrice"
+                    android:layout_width="270dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/months_rounded"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12dp" />
+
 
                 <Button
                     android:id="@+id/confirmBookButton"
@@ -110,6 +125,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/months_rounded"
                     android:backgroundTint="@color/colorPink"
+                    android:baselineAligned="false"
                     android:text="@string/buttonSubmit"
                     android:textAllCaps="false"
                     android:textColor="@color/colorFont"

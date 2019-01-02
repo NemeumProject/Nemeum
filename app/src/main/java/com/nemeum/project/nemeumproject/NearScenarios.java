@@ -515,7 +515,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             scenarioImg.setImageResource(scenarioPicture[0]);
 
             if(!listScenario.get(position).getPrice().toString().equals("null"))
-                scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€ / hour");
+                scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€/Hour");
 
             scenarioTitle.setText(listScenario.get(position).getTitle());
             scenarioTitleDescr.setText("Scenario " + position);
@@ -530,6 +530,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                     intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), scenarioPicture[0]);
                     intentBook.putExtra(getResources().getString(R.string.scenarioRatingExtra), 2);
                     intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
+                    intentBook.putExtra(getResources().getString(R.string.scenarioPriceExtra),Double.toString(listScenario.get(position).getPrice()));
 
                     if(!listScenario.get(position).getDescription().equals("null"))
                         intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
