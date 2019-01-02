@@ -218,8 +218,18 @@
     <string name="SportDescTraining">training_desc</string>
     <string name="SportServiceSuccess">Your Service Successfully Submitted</string>
 
+    <!-- Strings for Booking Trainer-->
+    <string name="idscenario">id_scenario</string>
+    <string name="iduser">id_user</string>
+    <string name="scenariobookstart"></string>
+    <string name="scenariobookend"></string>
+    <string name="scenariopayment"></string>
+    <string name="BookingSuccess">Your Booking Successfully Submitted</string>
+
+
     <!-- Strings for Booking Scenarios-->
     <string name="scenarioBookTitle">Book Scenario</string>
+    <string name="trainerBookTitle">Book Trainer</string>
     <string-array name="hourStartFilter">
         <item>Starting Time</item>
         <item>07:00</item>
@@ -464,9 +474,16 @@
     <string name="forgot_password">Forgot password?</string>
 
     <!-- Data passed between intents names -->
-    <string name="scenarioNameExtra">chooseName</string>
+    <string name="trainerImgExtra">chooseTrainerImg</string>
+    <string name="trainerNameExtra">chooseTrainerName</string>
+    <string name="trainerPriceExtra">chooseTrainerPrice</string>
+    <string name="trainerDescrExtra">chooseTrainerDescr</string>
+
+    <!-- Data passed between intents names -->
+    <string name="scenarioiduser">idusers</string>
+    <string name="scenarioid">idscenario</string>
     <string name="scenarioImgExtra">chooseImg</string>
+    <string name="scenarioNameExtra">chooseName</string>
     <string name="scenarioPriceExtra">choosePrice</string>
-    <string name="scenarioRatingExtra">chooseRating</string>
     <string name="scenarioDescrExtra">chooseDescr</string>
 </resources>

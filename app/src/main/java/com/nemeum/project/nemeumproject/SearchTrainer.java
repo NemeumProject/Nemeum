@@ -496,7 +496,7 @@ public class SearchTrainer extends AppCompatActivity {
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    
+
                 }
             });
 

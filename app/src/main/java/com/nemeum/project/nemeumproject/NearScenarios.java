@@ -84,12 +84,16 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
     private Integer idSport;
     private Double price;
 
+    String idUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_near_scenarios);
 
         appContext = getApplicationContext();
+        SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+        idUser = (shared.getString("idUser", ""));
 
         getAllSports();
         try {
@@ -527,7 +531,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                 public void onClick(View v) {
                     Intent intentBook = new Intent(appContext, BookScenarios.class);
                     intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), scenarioPicture[0]);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioRatingExtra), 2);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioiduser),idUser);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioid),Integer.toString(listScenario.get(position).getIdScenario()));
                     intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
                     intentBook.putExtra(getResources().getString(R.string.scenarioPriceExtra),Double.toString(listScenario.get(position).getPrice()));
 

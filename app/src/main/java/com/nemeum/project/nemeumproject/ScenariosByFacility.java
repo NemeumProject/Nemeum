@@ -525,7 +525,6 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
                 public void onClick(View v) {
                     Intent intentBook = new Intent(appContext, BookScenarios.class);
                     intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), scenarioPicture[0]);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioRatingExtra), 2);
                     intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
 
                     if(!listScenario.get(position).getDescription().equals("null"))

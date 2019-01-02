@@ -204,7 +204,6 @@ public class MyBookings extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
 
                             Intent intentBook = new Intent(appContext, BookScenarios.class);
-                            intentBook.putExtra(getResources().getString(R.string.scenarioRatingExtra), 2);
                             intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
 
                             if(!listScenario.get(position).getDescription().equals("null"))

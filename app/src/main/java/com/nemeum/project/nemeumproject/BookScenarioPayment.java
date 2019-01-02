@@ -19,10 +19,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.sql.Time;
+
 public class BookScenarioPayment  extends Activity {
 
     Context appContext;
-    String start_calc,end_calc;
+    String start_calc,end_calc,payment_met;
     float s,e,calculation;
     int days,months,years;
 
@@ -165,7 +176,7 @@ public class BookScenarioPayment  extends Activity {
 
                     @Override
                     public void onClick(View v) {
-                        submitBookingData();
+                        submitBookingData(Integer.parseInt(getIntent().getStringExtra(getResources().getString(R.string.scenarioid))),Integer.parseInt(getIntent().getStringExtra(getResources().getString(R.string.scenarioiduser))),start_calc,end_calc,payment_met);
                     }});
 
                 Button dialog_Cancel = dialog.findViewById(R.id.no);
@@ -210,6 +221,7 @@ public class BookScenarioPayment  extends Activity {
             case CUSTOM_DIALOG_ID:
                 start_calc = bundle.getString(starting);
                 end_calc = bundle.getString(finishing);
+                payment_met = bundle.getString(payment_method);
                 s = Float.parseFloat(start_calc.replace(":00",""));
                 e = Float.parseFloat(end_calc.replace(":00",""));
 
@@ -217,7 +229,7 @@ public class BookScenarioPayment  extends Activity {
                 title_popup.setText(bundle.getString(titles));
                 date_popup.setText("Date: "+bundle.getString(dates_days)+"-"+bundle.getString(dates_months)+"-"+bundle.getString(dates_years));
                 time_popup.setText("Start: "+bundle.getString(starting)+"  "+"End: "+bundle.getString(finishing));
-                payment_method_popup.setText("Payment Method: "+bundle.getString(payment_method));
+                payment_method_popup.setText("Payment Method: "+payment_met);
                 total_price_popup.setText("Total Price: "+calculation+"€");
                 break;
             case ERROR_DIALOG:
@@ -225,8 +237,57 @@ public class BookScenarioPayment  extends Activity {
         }
     }
 
-    public void submitBookingData()
+    public void submitBookingData(Integer id_scenario, Integer id_user, String starting,String ending,String payment_method)
     {
+        final Integer scenario_id = id_scenario;
+        final Integer user_id = id_user;
+        final Time start = Time.valueOf(starting+":00");
+        final Time end = Time.valueOf(ending+":00");
+        final String payment_m = payment_method;
 
+        new Thread(new Runnable() {
+            public void run() {
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + "/trainersport"); //Please Change This
+                JSONObject postData = new JSONObject();
+                try {
+                    postData.put(getResources().getString(R.string.idscenario),scenario_id);
+                    postData.put(getResources().getString(R.string.iduser),user_id);
+                    postData.put(getResources().getString(R.string.scenariobookstart),start);
+                    postData.put(getResources().getString(R.string.scenariobookend),end);
+                    postData.put(getResources().getString(R.string.scenariopayment),payment_m);
+                    StringEntity se = new StringEntity(postData.toString(), "UTF-8");
+                    httppost.setHeader("Accept", "application/json");
+                    httppost.setHeader("Content-Type", "application/json; charset=utf-8");
+                    httppost.setEntity(se);
+                    HttpResponse response = httpclient.execute(httppost);
+                    if(response.getStatusLine().getStatusCode() == 200){
+                        BookScenarioPayment.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(BookScenarioPayment.this, getResources().getString(R.string.BookingSuccess), Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                }
+                catch (IOException e){
+                    BookScenarioPayment.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(BookScenarioPayment.this, getResources().getString(R.string.noconnection), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    e.printStackTrace();
+                }
+                catch (JSONException e){
+                    BookScenarioPayment.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(BookScenarioPayment.this, getResources().getString(R.string.noconnection), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    e.printStackTrace();
+                }
+            }
+        }
+        ).start();
     }
 }
