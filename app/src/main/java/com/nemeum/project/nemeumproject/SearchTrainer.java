@@ -98,9 +98,9 @@ public class SearchTrainer extends AppCompatActivity {
         Spinner locationSpinner = findViewById(R.id.trainerByCity);
         Spinner priceSpinner = findViewById(R.id.trainerByPrice);
 
-        ArrayAdapter<String> sportAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sportName);
-        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, android.R.layout.simple_spinner_dropdown_item);
-        ArrayAdapter<CharSequence> priceAdapter = ArrayAdapter.createFromResource(this, R.array.priceFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> sportAdapter = new ArrayAdapter<String>(this,R.layout.spinner_layout, sportName);
+        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, R.layout.spinner_layout);
+        ArrayAdapter<CharSequence> priceAdapter = ArrayAdapter.createFromResource(this, R.array.priceFilter, R.layout.spinner_layout);
 
         sportAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -483,14 +483,12 @@ public class SearchTrainer extends AppCompatActivity {
             Button bookBtn = convertView.findViewById(R.id.bookTrainerResult);
             Button scheduleBtn = convertView.findViewById(R.id.scheduleTrainerResult);
             TextView trainerName = convertView.findViewById(R.id.trainerResultName);
-            RatingBar trainerRating = convertView.findViewById(R.id.starTrainerRating);
             TextView trainerSport = convertView.findViewById(R.id.trainerResultSportText);
             TextView trainerAddress = convertView.findViewById(R.id.trainerResultPlaceText);
             TextView trainerDescription = convertView.findViewById(R.id.trainerResultDescriptionText);
 
             trainerImg.setImageResource(scenarioPicture[0]);
             trainerName.setText(namesOfTrainer.get(position));
-            trainerRating.setRating(trainerPoints[position]);
             trainerSport.setText(nameSport.get(position));
             trainerAddress.setText(listTrainerService.get(position).getTraining_address());
             trainerDescription.setText(listTrainerService.get(position).getTraining_desc());

@@ -43,6 +43,7 @@ public class UserLoginActivity extends AppCompatActivity {
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findEventOnclick();
             }
         });
@@ -50,6 +51,7 @@ public class UserLoginActivity extends AppCompatActivity {
         findfacilities_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findFacilitiesOnclick();
             }
         });
@@ -65,6 +67,7 @@ public class UserLoginActivity extends AppCompatActivity {
         findtrainer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findTrainerOnclick();
             }
         });

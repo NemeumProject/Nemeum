@@ -115,6 +115,7 @@ public class ActivityMainMock extends AppCompatActivity {
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findEventOnclick();
             }
         });
@@ -123,6 +124,7 @@ public class ActivityMainMock extends AppCompatActivity {
         findfacilities_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findFacilitiesOnclick();
             }
         });
@@ -140,6 +142,7 @@ public class ActivityMainMock extends AppCompatActivity {
         findtrainer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 findTrainerOnclick();
             }
         });

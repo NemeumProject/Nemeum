@@ -16,7 +16,7 @@
             android:id="@+id/trainerResultImg"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_margin="8dp"/>
+            android:layout_margin="5dp"/>
 
         <Button
             android:id="@+id/bookTrainerResult"
@@ -46,25 +46,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/trainerResultImg"
+            android:layout_marginTop="5dp"
             android:textColor="@color/colorFont"
-            android:textSize="15sp"/>
+            android:textStyle="bold"
+            android:textSize="13sp"/>
 
-        <RatingBar
-            android:id="@+id/starTrainerRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/trainerResultName"
-            android:layout_toRightOf="@+id/trainerResultImg"
-            android:numStars="5"
-            android:stepSize=".1" />
 
         <TextView
             android:id="@+id/trainerResultSportText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/starTrainerRating"
+            android:layout_below="@+id/trainerResultName"
             android:layout_toRightOf="@+id/trainerResultImg"
             android:textColor="@color/colorBlue"
+            android:textStyle="bold"
             android:textSize="13sp"/>
 
         <TextView

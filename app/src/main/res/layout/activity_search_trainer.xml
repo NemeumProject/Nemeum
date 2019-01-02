@@ -41,6 +41,8 @@
             android:layout_margin="5dp"
             android:cursorVisible="true"
             android:hint="@string/trainerFilterName"
+            android:textSize="12dp"
+            android:textAlignment="center"
             android:textColorHint="@color/colorWhite"
             android:textCursorDrawable="@color/colorFont"
             android:background="@drawable/months_rounded" />
@@ -76,9 +78,15 @@
         android:layout_height="25dp"
         android:layout_width="130dp"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_below="@+id/refineTrainerLwt"
         android:background="@drawable/months_rounded"
+        android:backgroundTint="@color/colorPink"
+        android:textSize="12dp"
+        android:textColor="@color/colorBackground"
+        android:textAllCaps="false"
+        android:textAlignment="center"
         android:text="@string/search_trainer"
         android:onClick="filterServices"/>
 
