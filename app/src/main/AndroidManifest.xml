@@ -35,6 +35,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BookTrainerPayment"/>
+        <activity android:name=".BookTrainer"/>
         <activity android:name=".PostScenario" />
         <activity android:name=".activity_edit_scenario" />
         <activity android:name=".activity_edit_daily_schedule" />

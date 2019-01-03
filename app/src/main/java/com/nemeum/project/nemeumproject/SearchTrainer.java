@@ -2,6 +2,7 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.commons.codec.binary.StringUtils;
 import org.apache.http.HttpResponse;
@@ -60,6 +62,8 @@ public class SearchTrainer extends AppCompatActivity {
     private String city;
     private Integer idSport;
     private Double price;
+    String idUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,8 @@ public class SearchTrainer extends AppCompatActivity {
         setContentView(R.layout.activity_search_trainer);
 
         appContext = getApplicationContext();
+        SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+        idUser = (shared.getString("idUser", ""));
 
         getAllSports();
         try {
@@ -475,19 +481,18 @@ public class SearchTrainer extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             convertView = getLayoutInflater().inflate(R.layout.trainer_result_layout, null);
 
             ImageView trainerImg = convertView.findViewById(R.id.trainerResultImg);
             Button bookBtn = convertView.findViewById(R.id.bookTrainerResult);
-            Button scheduleBtn = convertView.findViewById(R.id.scheduleTrainerResult);
             TextView trainerName = convertView.findViewById(R.id.trainerResultName);
             TextView trainerSport = convertView.findViewById(R.id.trainerResultSportText);
             TextView trainerAddress = convertView.findViewById(R.id.trainerResultPlaceText);
             TextView trainerDescription = convertView.findViewById(R.id.trainerResultDescriptionText);
 
-            trainerImg.setImageResource(scenarioPicture[0]);
+            trainerImg.setImageResource(R.drawable.bicycle_rider);
             trainerName.setText(namesOfTrainer.get(position));
             trainerSport.setText(nameSport.get(position));
             trainerAddress.setText(listTrainerService.get(position).getTraining_address());
@@ -496,6 +501,14 @@ public class SearchTrainer extends AppCompatActivity {
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent intentBookTrainer = new Intent(appContext, BookTrainer.class);
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerid),idUser);
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerserviceid),Integer.toString(listTrainerService.get(position).getId_training_service_post()));
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerNameExtra),namesOfTrainer.get(position));
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainersporttype),nameSport.get(position));
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerPriceExtra),Double.toString(listTrainerService.get(position).getTraining_price()));
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerDescrExtra),listTrainerService.get(position).getTraining_desc());
+                    appContext.startActivity(intentBookTrainer);
 
                 }
             });

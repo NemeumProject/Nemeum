@@ -31,18 +31,6 @@
             android:background="@drawable/months_rounded"
             android:backgroundTint="@color/colorPink"/>
 
-        <Button
-            android:id="@+id/scheduleTrainerResult"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:text="@string/buttonSchedule"
-            android:layout_margin="5dp"
-            android:textAllCaps="false"
-            android:textSize="10dp"
-            android:layout_below="@+id/bookTrainerResult"
-            android:textColor="@color/colorFont"
-            android:background="@drawable/months_rounded"
-            android:backgroundTint="@color/colorBlue"/>
 
         <TextView
             android:id="@+id/trainerResultName"
@@ -81,7 +69,9 @@
             android:layout_below="@+id/trainerResultPlaceText"
             android:layout_toRightOf="@+id/trainerResultImg"
             android:textColor="@color/colorFont"
-            android:textSize="12sp"/>
+            android:textSize="10sp"
+            android:layout_marginRight="2sp"
+            android:layout_marginBottom="2sp"/>
 
     </RelativeLayout>
 </LinearLayout>

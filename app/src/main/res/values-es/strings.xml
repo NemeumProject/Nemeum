@@ -91,7 +91,7 @@
 
     <!-- Strings related to home screen -->
     <string name="search_home">Inicio</string>
-    <string name="search_trainer">Buscar Entrenador</string>
+    <string name="search_trainer">Buscar</string>
     <string name="search_facilities">Buscar Instalacion</string>
     <string name="search_event">Buscar Evento</string>
     <string name="search_scenario">Buscar</string>
@@ -213,14 +213,15 @@
     <!-- Strings for Booking Trainer-->
     <string name="idscenario">id_scenario</string>
     <string name="iduser">id_user</string>
-    <string name="scenariobookstart"></string>
-    <string name="scenariobookend"></string>
-    <string name="scenariopayment"></string>
-    <string name="BookingSuccess">Your Booking Successfully Submitted</string>
+    <string name="TrainerBookTitle">Entrenador de Libros</string>
+    <string name="BookingSuccess">Su Reserva Enviada Correctamente</string>
 
 
     <!-- Strings for Booking Scenarios-->
     <string name="scenarioBookTitle">Citar Escenario</string>
+    <string name="scenariobookstart">startings</string>
+    <string name="scenariobookend">endings</string>
+    <string name="scenariopayment">payments</string>
     <string name="trainerBookTitle">Citar Entrenador</string>
     <string-array name="hourStartFilter">
         <item>Inicio</item>
@@ -467,6 +468,9 @@
 
     <!-- Data passed between intents names -->
     <string name="trainerImgExtra">chooseTrainerImg</string>
+    <string name="trainerserviceid">chooseTrainerServiceId</string>
+    <string name="trainersporttype">chooseTrainerSport</string>
+    <string name="trainerid">chooseTrainerId</string>
     <string name="trainerNameExtra">chooseTrainerName</string>
     <string name="trainerPriceExtra">chooseTrainerPrice</string>
     <string name="trainerDescrExtra">chooseTrainerDescr</string>

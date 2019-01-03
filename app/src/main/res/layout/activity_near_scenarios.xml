@@ -21,6 +21,7 @@
         android:layout_margin="3dp"
         android:text="@string/findScenarioTitle"
         android:textColor="@color/colorWhite"
+        android:textStyle="bold"
         android:textSize="20sp"
         android:textAlignment="center"/>
 

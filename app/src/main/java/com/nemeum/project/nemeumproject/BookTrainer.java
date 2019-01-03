@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public class BookTrainer extends AppCompatActivity {
 
     Context appContext;
@@ -24,11 +25,13 @@ public class BookTrainer extends AppCompatActivity {
 
         ImageView trainerPicture = findViewById(R.id.bookTrainerImg);
         TextView trainerName = findViewById(R.id.TrainerNamesBook);
+        TextView trainerSport = findViewById(R.id.TrainerBookSportText);
         TextView trainerPrice = findViewById(R.id.TrainerBookPriceText);
         TextView trainerDescription = findViewById(R.id.TrainerBookDescriptionText);
 
         trainerPicture.setImageResource(getIntent().getIntExtra(getResources().getString(R.string.trainerImgExtra), R.drawable.bicycle_rider));
         trainerName.setText(getIntent().getStringExtra(getResources().getString(R.string.trainerNameExtra)));
+        trainerSport.setText(getIntent().getStringExtra(getResources().getString(R.string.trainersporttype)));
         trainerPrice.setText("Price: "+getIntent().getStringExtra(getResources().getString(R.string.trainerPriceExtra))+"€/Hour");
         trainerDescription.setText(getIntent().getStringExtra(getResources().getString(R.string.trainerDescrExtra)));
 
@@ -66,9 +69,12 @@ public class BookTrainer extends AppCompatActivity {
     }
 
     public void scenarioBookPayment(View view) {
-        Intent intentPayment = new Intent(appContext, BookScenarioPayment.class);
+        Intent intentPayment = new Intent(appContext, BookTrainerPayment.class);
         intentPayment.putExtra(getResources().getString(R.string.trainerNameExtra), getIntent().getStringExtra(getResources().getString(R.string.trainerNameExtra)));
+        intentPayment.putExtra(getResources().getString(R.string.trainersporttype),getIntent().getStringExtra(getResources().getString(R.string.trainersporttype)));
         intentPayment.putExtra(getResources().getString(R.string.trainerPriceExtra),getIntent().getStringExtra(getResources().getString(R.string.trainerPriceExtra)));
+        intentPayment.putExtra(getResources().getString(R.string.trainerid),getIntent().getStringExtra(getResources().getString(R.string.trainerid)));
+        intentPayment.putExtra(getResources().getString(R.string.trainerserviceid),getIntent().getStringExtra(getResources().getString(R.string.trainerserviceid)));
         appContext.startActivity(intentPayment);
     }
 
