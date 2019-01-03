@@ -487,16 +487,23 @@ public class SearchTrainer extends AppCompatActivity {
 
             ImageView trainerImg = convertView.findViewById(R.id.trainerResultImg);
             Button bookBtn = convertView.findViewById(R.id.bookTrainerResult);
+            TextView trainerPrice = convertView.findViewById(R.id.trainerPriceService);
             TextView trainerName = convertView.findViewById(R.id.trainerResultName);
             TextView trainerSport = convertView.findViewById(R.id.trainerResultSportText);
             TextView trainerAddress = convertView.findViewById(R.id.trainerResultPlaceText);
             TextView trainerDescription = convertView.findViewById(R.id.trainerResultDescriptionText);
+            TextView trainerCity = convertView.findViewById(R.id.trainerResultCity);
+            TextView trainerSchedule = convertView.findViewById(R.id.trainerResultSchedule);
 
             trainerImg.setImageResource(R.drawable.bicycle_rider);
+            trainerImg.setImageResource(scenarioPicture[0]);
+            trainerPrice.setText(listTrainerService.get(position).getTraining_price().toString() + " €" );
             trainerName.setText(namesOfTrainer.get(position));
             trainerSport.setText(nameSport.get(position));
             trainerAddress.setText(listTrainerService.get(position).getTraining_address());
             trainerDescription.setText(listTrainerService.get(position).getTraining_desc());
+            trainerCity.setText(listTrainerService.get(position).getTraining_city());
+            trainerSchedule.setText(getResources().getString(R.string.buttonSchedule) + ": " + listTrainerService.get(position).getTraining_start().toString() + " - " + listTrainerService.get(position).getTraining_end().toString());
 
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

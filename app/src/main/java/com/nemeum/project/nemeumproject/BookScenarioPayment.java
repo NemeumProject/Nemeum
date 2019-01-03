@@ -29,6 +29,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BookScenarioPayment  extends Activity {
 
@@ -241,22 +243,36 @@ public class BookScenarioPayment  extends Activity {
     {
         final Integer scenario_id = id_scenario;
         final Integer user_id = id_user;
-        final Time start = Time.valueOf(starting+":00");
-        final Time end = Time.valueOf(ending+":00");
+        String month;
+        String day;
+        if(months < 10){
+            month = "0" + String.valueOf(months);
+        }else{
+            month = String.valueOf(months);
+        }
+        if(days < 10){
+            day = "0" + String.valueOf(days);
+        }else{
+            day = String.valueOf(days);
+        }
+        final String startDate = String.valueOf(years) + "-" + month + "-" + day + " " + Time.valueOf(starting+":00");
+        final String endDate =String.valueOf(years) + "-" + month + "-" + day + " " + Time.valueOf(ending+":00");
         final String payment_m = payment_method;
 
         new Thread(new Runnable() {
             public void run() {
 
                 HttpClient httpclient = new DefaultHttpClient();
-                HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + "/trainersport"); //Please Change This
+                HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + "/joinScenario");
                 JSONObject postData = new JSONObject();
                 try {
-                    postData.put(getResources().getString(R.string.idscenario),scenario_id);
-                    postData.put(getResources().getString(R.string.iduser),user_id);
-                    postData.put(getResources().getString(R.string.scenariobookstart),start);
-                    postData.put(getResources().getString(R.string.scenariobookend),end);
-                    postData.put(getResources().getString(R.string.scenariopayment),payment_m);
+                    Date date = new Date();
+                    String currentDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
+                    postData.put("idScenario",scenario_id);
+                    postData.put("idUser",user_id);
+                    postData.put("startScenario",startDate);
+                    postData.put("endScenario",endDate);
+                    postData.put("dateBooking",currentDate);
                     StringEntity se = new StringEntity(postData.toString(), "UTF-8");
                     httppost.setHeader("Accept", "application/json");
                     httppost.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -266,6 +282,13 @@ public class BookScenarioPayment  extends Activity {
                         BookScenarioPayment.this.runOnUiThread(new Runnable() {
                             public void run() {
                                 Toast.makeText(BookScenarioPayment.this, getResources().getString(R.string.BookingSuccess), Toast.LENGTH_LONG).show();
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                Intent intent2 = new Intent(BookScenarioPayment.this, NearScenarios.class);
+                                startActivity(intent2);
                             }
                         });
                     }
