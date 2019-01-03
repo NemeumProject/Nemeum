@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import models.Event;
 
@@ -295,7 +296,10 @@ public class EventFinder extends AppCompatActivity {
             eventTitle.setText(filteredEvent.get(position).getTitle());
             eventTitle.setTypeface(null, Typeface.BOLD);
             eventDescription.setText(getResources().getString(R.string.eventResDescr) + " " + filteredEvent.get(position).getDescription());
-            eventDate.setText(String.format(getResources().getString(R.string.eventResDate) + " " + filteredEvent.get(position).getDateEvent().toString()));
+
+            String exhibitFormat = getResources().getString(R.string.date_format);
+            SimpleDateFormat sdf = new SimpleDateFormat(exhibitFormat, Locale.getDefault());
+            eventDate.setText(String.format(getResources().getString(R.string.eventResDate) + " " + sdf.format(filteredEvent.get(position).getDateEvent())));
             eventAddress.setText(getResources().getString(R.string.eventResAddress) + " " + filteredEvent.get(position).getAddress());
 
             return convertView;

@@ -138,6 +138,14 @@
         <item>December</item>
     </string-array>
 
+    <!-- Strings for Event Creation -->
+    <string name="createEventTitle">Create Event</string>
+    <string name="eventTitleHint">Event title</string>
+    <string name="eventDescriptionHint">Event description</string>
+    <string name="eventLocationHint">Event location</string>
+    <string name="eventCityHint">City</string>
+    <string name="eventDateHint">Select date</string>
+
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Search Facilities</string>
     <string name="findFacilityDescr">"Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."</string>
@@ -286,6 +294,7 @@
     <string name="buttonDatePayment">Choose Date and \n Payment Method</string>
     <string name="buttonYes">Yes</string>
     <string name="buttonNo">No</string>
+    <string name="buttonPost">Post</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of exercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificent Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>
@@ -402,6 +411,11 @@
     <string name="trainer_address_Empty">Field address is mandatory</string>
     <string name="trainer_city_empty">The city cannot be empty.</string>
     <string name="trainer_postal_code_empty">The postal code cannot be empty.</string>
+    <string name="field_title_empty">Field title is mandatory</string>
+    <string name="field_description_empty">Field description is mandatory</string>
+    <string name="field_location_empty">Field location is mandatory</string>
+    <string name="field_city_empty">Field city is mandatory</string>
+    <string name="field_date_empty">Field date is mandatory</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Trainer Posting</string>

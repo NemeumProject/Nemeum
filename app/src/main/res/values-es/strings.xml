@@ -130,6 +130,14 @@
         <item>Diciembre</item>
     </string-array>
 
+    <!-- Strings for Event Creation -->
+    <string name="createEventTitle">Crear Evento</string>
+    <string name="eventTitleHint">Titulo del evento</string>
+    <string name="eventDescriptionHint">Descripción del evento</string>
+    <string name="eventLocationHint">Ubicación</string>
+    <string name="eventCityHint">Ciudad</string>
+    <string name="eventDateHint">Selecionar fecha</string>
+
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Buscar Instalaciones</string>
     <string name="findFacilityDescr">"Capacidad oficial de cerca de 100.000, haciendo-lo el segundo mas grande estadio en Inglaterra después del Crystal Palace. Fue usado como local de la final de la copa del mundo."</string>
@@ -278,6 +286,7 @@
     <string name="buttonDatePayment">Elegir fecha y \n Metodo de pago</string>
     <string name="buttonYes">Sí</string>
     <string name="buttonNo">No</string>
+    <string name="buttonPost">Crear</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre en Bethral Green incluye un gimnasio, día de spa, piscina de 33 metros, Sauna Turca y ofrece variedad de ejercicios, pero es mayormente conocida por su arena para boxeo, donde los futuros campeones como Lenoxx Lewis y Audley Harrisson aprendieron lo que hacen. El magnifico edificio Georgian, abierto desde 1929 por el duque de York, ha acogido a algunos de los mas grandes boxeadores con combates en el salon principal.</string>
@@ -394,6 +403,11 @@
     <string name="trainer_address_Empty">La dirección es obligatoria</string>
     <string name="trainer_city_empty">La ciudad no puede quedar vacia.</string>
     <string name="trainer_postal_code_empty">El codigo postal no puede quedar vacio.</string>
+    <string name="field_title_empty">El titulo es obligatorio</string>
+    <string name="field_description_empty">La descripción es obligatoria</string>
+    <string name="field_location_empty">La ubicación es obligatoria</string>
+    <string name="field_city_empty">La ciudad es obligatoria</string>
+    <string name="field_date_empty">La fecha es obligatoria</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Nueva Publicación</string>

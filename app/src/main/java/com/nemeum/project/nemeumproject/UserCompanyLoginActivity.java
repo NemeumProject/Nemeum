@@ -27,6 +27,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
+        ImageButton createevent_btn = findViewById(R.id.myevent);
         ImageButton postscenario_btn = findViewById(R.id.postserviceicon);
         ImageButton editscenario_btn = findViewById(R.id.editscenarioicon);
         ImageButton updateschedule_btn = findViewById(R.id.updatescheduleicon);
@@ -69,6 +70,13 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 findTrainerOnclick();
+            }
+        });
+
+        createevent_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createEvntOnclick();
             }
         });
 
@@ -152,6 +160,11 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         startActivity(intent8);
     }
 
+    public void createEvntOnclick() {
+        Intent intent9 = new Intent(this, PostEvent.class);
+        startActivity(intent9);
+    }
+
     public void  postScenarioOnclick()
     {
         Intent intent10 = new Intent(this, PostScenario.class);
@@ -169,8 +182,5 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         Intent intent13 = new Intent(this, activity_edit_daily_schedule.class);
         startActivity(intent13);
     }
-
-
-
 
 }
