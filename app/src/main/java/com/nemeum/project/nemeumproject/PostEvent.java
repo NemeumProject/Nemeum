@@ -125,9 +125,6 @@ public class PostEvent extends AppCompatActivity {
             eventCalendar.set(Calendar.YEAR, year);
             eventCalendar.set(Calendar.MONTH, monthOfYear);
             eventCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            eventCalendar.set(Calendar.HOUR_OF_DAY, 12);
-            eventCalendar.set(Calendar.MINUTE, 00);
-            eventCalendar.set(Calendar.SECOND, 00);
             eventDate.setText(sdf.format(eventCalendar.getTime()));
         }
     };
@@ -184,7 +181,7 @@ public class PostEvent extends AppCompatActivity {
 
             final Event event = new Event();
 
-            if(!imagePath.equals(null)){
+            if(imagePath != null){
                 final ProgressDialog progress = new ProgressDialog(this);
                 progress.setTitle("Uploading...");
                 progress.show();
@@ -220,19 +217,13 @@ public class PostEvent extends AppCompatActivity {
             event.setAddress(eventLocation.getText().toString());
             event.setCity(eventCity.getText().toString());
 
-            DateFormat df = new SimpleDateFormat(getResources().getString(R.string.pattern_date_format));
-            try {
-                event.setDateEvent(df.parse(eventCalendar.getTime().toString()));
-                Toast.makeText(appContext, event.getDateEvent().toString(), Toast.LENGTH_LONG).show();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
             new Thread(new Runnable() {
                 @SuppressLint("StringFormatInvalid")
                 public void run() {
                     HttpClient httpclient = new DefaultHttpClient();
                     HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + getResources().getString(R.string.eventDB));
+
+                    DateFormat df = new SimpleDateFormat(getResources().getString(R.string.pattern_date_format));
 
                     JSONObject postData = new JSONObject();
                     try {
@@ -243,7 +234,7 @@ public class PostEvent extends AppCompatActivity {
                         postData.put(getResources().getString(R.string.eventAddressJson), event.getAddress());
                         postData.put(getResources().getString(R.string.eventPostalCodeJson), 25001);
                         postData.put(getResources().getString(R.string.eventPhoneJson), 111111111);
-                        postData.put(getResources().getString(R.string.eventDateEventJson), event.getDateEvent());
+                        postData.put(getResources().getString(R.string.eventDateEventJson), df.format(eventCalendar.getTime()));
                         postData.put(getResources().getString(R.string.eventDescriptionJson), event.getDescription());
                         postData.put(getResources().getString(R.string.eventImageJson), event.getImage());
                         postData.put(getResources().getString(R.string.eventTitleJson), event.getTitle());

@@ -300,7 +300,7 @@ public class EventFinder extends AppCompatActivity {
             String exhibitFormat = getResources().getString(R.string.date_format);
             SimpleDateFormat sdf = new SimpleDateFormat(exhibitFormat, Locale.getDefault());
             eventDate.setText(String.format(getResources().getString(R.string.eventResDate) + " " + sdf.format(filteredEvent.get(position).getDateEvent())));
-            eventAddress.setText(getResources().getString(R.string.eventResAddress) + " " + filteredEvent.get(position).getAddress());
+            eventAddress.setText(getResources().getString(R.string.eventResAddress) + " " + filteredEvent.get(position).getAddress() + " - " + filteredEvent.get(position).getCity());
 
             return convertView;
         }
