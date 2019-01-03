@@ -31,9 +31,10 @@
         android:id="@+id/languageButton"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="400dp"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/notificationButton"
+        android:layout_above="@+id/versionButton"
         android:text="@string/languageButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
@@ -42,58 +43,16 @@
         android:backgroundTint="@color/colorPink"
         android:onClick="changeLanguage"/>
 
-    <Button
-        android:id="@+id/notificationButton"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/currencyButton"
-        android:text="@string/notificationButtonTitle"
-        android:textSize="15dp"
-        android:textAllCaps="false"
-        android:textColor="@color/colorFont"
-        android:background="@drawable/months_rounded"
-        android:backgroundTint="@color/colorPink"
-        android:onClick="changeNotification" />
 
-    <Button
-        android:id="@+id/currencyButton"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:layout_above="@+id/changeLoginButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/currencyButtonTitle"
-        android:textSize="15dp"
-        android:textAllCaps="false"
-        android:textColor="@color/colorFont"
-        android:background="@drawable/months_rounded"
-        android:backgroundTint="@color/colorPink"
-        android:onClick="changeCurrency" />
-
-    <Button
-        android:id="@+id/changeLoginButton"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/changeLoginButtonTitle"
-        android:textSize="15dp"
-        android:textAllCaps="false"
-        android:textColor="@color/colorFont"
-        android:background="@drawable/months_rounded"
-        android:backgroundTint="@color/colorPink"
-        android:onClick="changeLogin"/>
 
     <Button
         android:id="@+id/versionButton"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="350dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/changeLoginButton"
+        android:layout_centerVertical="true"
         android:text="@string/versionButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
@@ -102,13 +61,15 @@
         android:backgroundTint="@color/colorPink"
         android:onClick="seeVersion" />
 
+
     <Button
         android:id="@+id/aboutButton"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/versionButton"
+        android:layout_centerVertical="true"
         android:text="@string/aboutButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
@@ -117,17 +78,19 @@
         android:backgroundTint="@color/colorPink"
         android:onClick="seeAbout" />
 
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="250dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/aboutButton"
+        android:layout_centerVertical="true"
         android:text="@string/backButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
-        android:textColor="@color/colorFont"
+        android:textColor="@color/colorWhite"
         android:background="@drawable/months_rounded"
         android:backgroundTint="@color/colorBlue"
         android:onClick="getBack"/>

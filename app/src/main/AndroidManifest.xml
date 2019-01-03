@@ -61,11 +61,8 @@
         <activity android:name=".PostTrainerService"/>
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
-        <activity android:name=".activity_login_edition" />
         <activity android:name=".Settings" />
         <activity android:name=".LanguageSelect" />
-        <activity android:name=".Notification" />
-        <activity android:name=".Currency" />
         <activity android:name=".Version" />
         <activity android:name=".About" />
         <activity android:name=".ScenariosByFacility" />

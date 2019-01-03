@@ -15,39 +15,31 @@
         android:background="@mipmap/back_icon"
         android:onClick="getBack" />
 
-    <TextView
-        android:id="@+id/TitleText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="3dp"
-        android:text="@string/versionButtonTitle"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/font25"
-        android:textAlignment="center"
-        android:textStyle="bold"/>
-
-    <TextView
+    <Button
         android:id="@+id/versionCodeText"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:paddingVertical="10dp"
-        android:layout_above="@+id/updateButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="400dp"
         android:layout_centerHorizontal="true"
+        android:layout_above="@+id/updateButton"
+        android:text="@string/versionButtonTitle"
         android:textSize="15dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/colorFont"
         android:background="@drawable/months_rounded"
         android:backgroundTint="@color/colorWhite"/>
+
+
 
     <Button
         android:id="@+id/updateButton"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="350dp"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="@string/updateButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
@@ -56,17 +48,19 @@
         android:backgroundTint="@color/colorPink"
         android:onClick="updateCheck"/>
 
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/updateButton"
+        android:layout_centerVertical="true"
         android:text="@string/saveBackButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
-        android:textColor="@color/colorFont"
+        android:textColor="@color/colorWhite"
         android:background="@drawable/months_rounded"
         android:backgroundTint="@color/colorBlue"
         android:onClick="getBack" />
