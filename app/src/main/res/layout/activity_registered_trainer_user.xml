@@ -107,18 +107,20 @@
 
     <LinearLayout
         android:id="@+id/linear_menu_book_1"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@+id/guideline11b"
+
+        app:layout_constraintBottom_toBottomOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/guideline11"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_2"
-        app:layout_constraintBottom_toTopOf="@id/linear_menu_book_5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintHorizontal_bias="0.5"
@@ -126,12 +128,12 @@
 
         <ImageButton
             android:id="@+id/findeventicon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@mipmap/search_event"
             android:contentDescription="Search Event" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
@@ -142,8 +144,8 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linear_menu_book_2"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
@@ -156,12 +158,12 @@
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_3">
         <ImageButton
             android:id="@+id/findfacilitiesicon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@mipmap/search_facilities"
             android:contentDescription="Search Facilities" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
@@ -172,8 +174,8 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linear_menu_book_3"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
@@ -186,12 +188,12 @@
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_4">
         <ImageButton
             android:id="@+id/findscrenarioicon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@mipmap/search_scenario"
             android:contentDescription="Search Scenario" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
@@ -202,8 +204,8 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linear_menu_book_4"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
@@ -216,12 +218,12 @@
         app:layout_constraintEnd_toEndOf="parent">
         <ImageButton
             android:id="@+id/findtrainericon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@mipmap/search_trainer"
             android:contentDescription="Search Trainer" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
@@ -232,8 +234,8 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linear_menu_book_5"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:layout_marginTop="20dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
@@ -246,16 +248,15 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_menu_book_1"
-        app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_9"
         >
         <ImageButton
             android:id="@+id/myevent"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@mipmap/create_event"
             android:contentDescription="My Event" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
@@ -266,8 +267,8 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linear_menu_book_6"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
@@ -281,12 +282,12 @@
         >
         <ImageButton
             android:id="@+id/postservice"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@mipmap/post_service"
             android:contentDescription="Post Service" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
@@ -298,8 +299,8 @@
 
     <LinearLayout
         android:id="@+id/linear_menu_book_7"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
@@ -313,12 +314,12 @@
         >
         <ImageButton
             android:id="@+id/mybooking"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@mipmap/edit_scenario"
             android:contentDescription="Edit My Services" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
@@ -330,8 +331,8 @@
 
     <LinearLayout
         android:id="@+id/linear_menu_book_8"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
@@ -344,133 +345,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         >
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@mipmap/my_booking"
-            android:contentDescription="Edit Trainer Info" />
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:textSize="10sp"
-            android:maxLines="2"
-            android:text="Trainer Info"
-            android:textColor="#17252a"
-            android:textAlignment="center"
-            android:layout_marginTop="5dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear_menu_book_9"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="2dp"
-        app:layout_constraintEnd_toStartOf="@id/linear_menu_book_10"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear_menu_book_5"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline12"
-        >
-        <ImageButton
-            android:id="@+id/updateschedule"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@mipmap/update"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:contentDescription="Update Schedule" />
         <TextView
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="30dp"
-            android:layout_marginTop="5dp"
+            android:textSize="10sp"
             android:maxLines="2"
             android:textColor="#17252a"
-            android:text="Update Schedule"
             android:textAlignment="center"
-            android:textSize="10sp" />
+            android:layout_marginTop="5dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linear_menu_book_10"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="2dp"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toTopOf="@id/linear_menu_book_9"
-        app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_9"
-        app:layout_constraintStart_toEndOf="@id/linear_menu_book_9"
-        app:layout_constraintEnd_toStartOf="@id/linear_menu_book_11"
-        >
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:textSize="10sp"
-            android:maxLines="2"
-            android:textAlignment="center"
-            android:layout_marginTop="5dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear_menu_book_11"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="2dp"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toTopOf="@id/linear_menu_book_9"
-        app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_9"
-        app:layout_constraintStart_toEndOf="@id/linear_menu_book_10"
-        app:layout_constraintEnd_toEndOf="@id/linear_menu_book_12"
-        >
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:textSize="10sp"
-            android:maxLines="2"
-            android:textAlignment="center"
-            android:layout_marginTop="5dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear_menu_book_12"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="2dp"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toTopOf="@id/linear_menu_book_9"
-        app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_9"
-        app:layout_constraintStart_toEndOf="@id/linear_menu_book_11"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:textSize="10sp"
-            android:maxLines="2"
-            android:textAlignment="center"
-            android:layout_marginTop="5dp"/>
-    </LinearLayout>
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
