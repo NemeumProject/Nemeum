@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "266111919404",
+    "firebase_url": "https://nemeum-223013.firebaseio.com",
+    "project_id": "nemeum-223013",
+    "storage_bucket": "nemeum-223013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266111919404:android:3f5dce355c7a0fe4",
+        "android_client_info": {
+          "package_name": "com.nemeum.project.nemeumproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266111919404-0ljbauiq5cnuoerb50cto4m6hpv8knkn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nemeum.project.nemeumproject",
+            "certificate_hash": "7b9ae551fb7f7fc75cdac3245f9ae6dc04f6b02c"
+          }
+        },
+        {
+          "client_id": "266111919404-do3cqgqhf9l579kb45otlsroldb7s5n8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC903OZhSPwT_S6lWzOQkDbfIjtuRH4R-g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266111919404-do3cqgqhf9l579kb45otlsroldb7s5n8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

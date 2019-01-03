@@ -28,6 +28,7 @@ public class UserLoginActivity extends AppCompatActivity {
         ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
+        ImageButton createevent_btn = findViewById(R.id.myevent);
         ImageButton mybookings_btn = findViewById(R.id.mybooking);
 
         final ProgressBar progressBar = findViewById(R.id.progressbar);
@@ -69,6 +70,13 @@ public class UserLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 findTrainerOnclick();
+            }
+        });
+
+        createevent_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createEvntOnclick();
             }
         });
 
@@ -138,9 +146,14 @@ public class UserLoginActivity extends AppCompatActivity {
         startActivity(intent8);
     }
 
-    public void myBookingsOnclick() {
-        Intent intent9 = new Intent(this, MyBookings.class);
+    public void createEvntOnclick() {
+        Intent intent9 = new Intent(this, PostEvent.class);
         startActivity(intent9);
+    }
+
+    public void myBookingsOnclick() {
+        Intent intent10 = new Intent(this, MyBookings.class);
+        startActivity(intent10);
     }
 
 }

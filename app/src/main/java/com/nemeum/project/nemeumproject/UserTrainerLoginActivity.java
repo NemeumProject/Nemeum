@@ -32,6 +32,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
         ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
+        ImageButton createevent_btn = findViewById(R.id.myevent);
         ImageButton posttrainersvc_btn = findViewById(R.id.postservice);
 
         final ProgressBar progressBar = findViewById(R.id.progressbar);
@@ -74,6 +75,12 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
             }
         });
 
+        createevent_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createEvntOnclick();
+            }
+        });
         posttrainersvc_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,6 +151,10 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         startActivity(intent8);
     }
 
+    public void createEvntOnclick() {
+        Intent intent9 = new Intent(this, PostEvent.class);
+        startActivity(intent9);
+    }
     public void postTrainerOnclick() {
         Intent intent9 = new  Intent(this,PostTrainerService.class);
         startActivity(intent9);
