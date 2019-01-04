@@ -46,7 +46,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
     EditText date_EditText;
     EditText startingTime_EditText;
     EditText endingTime_EditText;
-
+    Context appContext;
     List<Scenario> listScenario = new ArrayList<>();
     ArrayList<String>scenarioList;
 
@@ -56,13 +56,19 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_daily_schedule);
 
+        appContext = getApplicationContext();
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         idCompany = (shared.getString("idCompany", ""));
 
         getAllScenarios(idCompany);
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Spinner spinner = findViewById(R.id.scenarios_Spinner_Daily_Schedule);
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, scenarioList);
+       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
