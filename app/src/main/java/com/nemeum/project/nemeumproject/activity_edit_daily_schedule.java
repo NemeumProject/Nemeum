@@ -66,6 +66,8 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        getList_to_Spinner();
+
         Spinner spinner = findViewById(R.id.scenarios_Spinner_Daily_Schedule);
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, scenarioList);
        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -335,7 +337,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                         listScenario.add(scenario);
 
                     }
-                    getList_to_Spinner();
+
 
                 }catch(Exception e){
                     e.printStackTrace();
