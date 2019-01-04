@@ -58,7 +58,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
         appContext = getApplicationContext();
         SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
-        idCompany = (shared.getString("idCompany", ""));
+        idCompany = (shared.getString("idUser", ""));
 
         getAllScenarios(idCompany);
         try {
