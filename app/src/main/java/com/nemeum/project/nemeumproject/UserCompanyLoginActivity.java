@@ -103,6 +103,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         editscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 editScenarioOnclick();
             }
         });
@@ -110,6 +111,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         updateschedule_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 updateScheduleOnclick();
             }
         });
