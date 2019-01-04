@@ -17,7 +17,7 @@
     <string name="notLoggedSP">notLogged</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.0.159:8080</string>
+    <string name="urlDB">http://192.168.30.147:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -502,4 +502,8 @@
     <string name="scenarioNameExtra">chooseName</string>
     <string name="scenarioPriceExtra">choosePrice</string>
     <string name="scenarioDescrExtra">chooseDescr</string>
+    <string name="bookingOK">Booking created successfully</string>
+    <string name="bookingError">Error creating booking</string>
+    <string name="joinScenarioDB">/joinScenario</string>
+    <string name="selectplease">Select one scenario</string>
 </resources>

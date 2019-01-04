@@ -28,13 +28,8 @@
         android:theme="@style/AppTheme">
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".ActivityMainMock">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ActivityMainMock"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".BookTrainerPayment"/>
         <activity android:name=".BookTrainer"/>
         <activity android:name=".PostScenario" />
@@ -65,7 +60,13 @@
         <activity android:name=".LanguageSelect" />
         <activity android:name=".Version" />
         <activity android:name=".About" />
-        <activity android:name=".ScenariosByFacility" />
+        <activity android:name=".ScenariosByFacility" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
