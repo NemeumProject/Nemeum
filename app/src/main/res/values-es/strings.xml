@@ -85,24 +85,39 @@
     <string name="eventDescriptionJson">description</string>
     <string name="eventImageJson">image</string>
     <string name="eventTitleJson">title</string>
+    <string name="userScenario_userscenarioJson">userScenario</string>
+    <string name="userScenario_idUserJson">idUser</string>
+    <string name="userScenario_idScenarioJson">idScenario</string>
+    <string name="userScenario_dateBookingJson">dateBooking</string>
+    <string name="userScenario_startScenarioJson">startScenario</string>
+    <string name="userScenario_endScenarioJson">endScenario</string>
+    <string name="userScenario_phoneJson">phone</string>
+    <string name="userScenario_emailJson">email</string>
 
     <!-- Strings related to login -->
     <string name="login_forgot_pass">Olvidaste la contraseña?</string>
 
     <!-- Strings related to home screen -->
     <string name="search_home">Inicio</string>
-    <string name="search_trainer">Buscar</string>
-    <string name="search_facilities">Buscar Instalacion</string>
-    <string name="search_event">Buscar Evento</string>
-    <string name="search_scenario">Buscar</string>
-    <string name="settings">Ajustes</string>
+    <string name="search_trainer">Buscar Entrenadores</string>
+    <string name="search_facilities">Buscar Instalaciones</string>
+    <string name="search_event">Buscar Eventos</string>
+    <string name="search_scenario">Buscar Escenarios</string>
+    <string name="create_event">Crear Evento</string>
+    <string name="create_scenario">Crear Escenario</string>
+    <string name="edit_scenario">Editar Escenario</string>
+    <string name="update_schedule">Atualizar Agenda</string>
+    <string name="my_bookings">Mis Citas</string>
+    <string name="create_service">Crear Servicio</string>
+    <string name="edit_service">Editar Servicio</string>
     <string name="my_account">Mi Cuenta</string>
-    <string name="login">Conectar</string>
+    <string name="settings">Ajustes</string>
+    <string name="login">Entrar</string>
 
     <!-- Strings for Action Bar -->
     <string name="menuHome">Início</string>
     <string name="menuSettings">Configuración</string>
-    <string name="menuLogin">Login / Registre</string>
+    <string name="menuLogin">Entrar / Registrar</string>
     <string name="menuAccount">Mi Cuenta</string>
 
     <!-- Strings for Company Scenarios -->
@@ -140,11 +155,9 @@
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Buscar Instalaciones</string>
-    <string name="findFacilityDescr">"Capacidad oficial de cerca de 100.000, haciendo-lo el segundo mas grande estadio en Inglaterra después del Crystal Palace. Fue usado como local de la final de la copa del mundo."</string>
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Buscar Escenarios</string>
-    <string name="scenarioFindDescr">"Pon tu corazón a latir y eleve tu metabolismo con una seleción de ejercicios quemadores de grasa en flex. Nuestro paquete especial para el nuevo año inclui 12 clases de tu opción de abdominales, quema grasa, BLT y barra Xtend por tan solo $4.200"</string>
     <string-array name="sportFilter">
         <item>Tipo de deporte</item>
         <item>Arco y flecha</item>
@@ -204,10 +217,10 @@
     <string name="bookingEditionTitle">Editar Cita</string>
 
     <!-- Strings for Posting Trainer Service-->
-    <string name="postingtrainerservice">Post Service </string>
-    <string name="TrainingAddress">Training Address</string>
-    <string name="TrainingPrice">Price / Hour</string>
-    <string name="TrainingDescription">Training Description</string>
+    <string name="postingtrainerservice">Crear Servicio</string>
+    <string name="TrainingAddress">Ubicación del entrenamiento</string>
+    <string name="TrainingPrice">Precio / Hora</string>
+    <string name="TrainingDescription">Descripcion del entrenamiento</string>
     <string name="idtrainersport">id_trainer_user</string>
     <string name="SportTypeTraining">id_sport_training_type</string>
     <string name="SportAddressTraining">training_address</string>
@@ -216,21 +229,19 @@
     <string name="SportStartTraining">training_start</string>
     <string name="SportEndTraining">training_end</string>
     <string name="SportDescTraining">training_desc</string>
-    <string name="SportServiceSuccess">Your Service Successfully Submitted</string>
+    <string name="SportServiceSuccess">Su servicio fue creado correctamente</string>
 
     <!-- Strings for Booking Trainer-->
-    <string name="idscenario">id_scenario</string>
-    <string name="iduser">id_user</string>
-    <string name="TrainerBookTitle">Entrenador de Libros</string>
-    <string name="BookingSuccess">Su Reserva Enviada Correctamente</string>
-
+    <string name="trainerBookTitle">Citar Entrenador</string>
+    <string name="BookingSuccess">Su cita fue creada correctamente</string>
 
     <!-- Strings for Booking Scenarios-->
+    <string name="idscenario">id_scenario</string>
+    <string name="iduser">id_user</string>
     <string name="scenarioBookTitle">Citar Escenario</string>
-    <string name="scenariobookstart">startings</string>
-    <string name="scenariobookend">endings</string>
-    <string name="scenariopayment">payments</string>
-    <string name="trainerBookTitle">Citar Entrenador</string>
+    <string name="scenariobookstart">Inicio</string>
+    <string name="scenariobookend">Fin</string>
+    <string name="scenariopayment">Pago</string>
     <string-array name="hourStartFilter">
         <item>Inicio</item>
         <item>07:00</item>
@@ -454,7 +465,8 @@
             Esperamos que disfrutes nuestros servicios,\n
             Nuestros mejores deseos;\n
             El equipo de Nemeum    </string>
-    <string name="date_format" > dd/mm/aaaa</string>
+
+    <string name="date_format" > dd/MM/yyyy</string>
     <string name="pattern_date_format">yyyy-MM-dd hh:mm:ss</string>
     <string name="daily_Schedule_Title">Reservaciones</string>
     <string name="scenario_Daily_Schedule">Escenario</string>
@@ -466,11 +478,6 @@
     <string name="etime_error">El campo hora finalizacion no puede estar en blanco</string>
     <string name="scenarios_spinner_Error">Seleccione un escenario</string>
     <string name="scenarios_edition">Edición de Escenarios </string>
-    <string-array name="scenarios_array">
-        <item>Centro de Boxeo Lleida</item>
-        <item>Gimnasio  Centro de Lleida</item>
-        <item>Centro de Fútbol de Lleida</item>
-    </string-array>
     <string name="company_name">Nombre de la empresa</string>
     <string name="comercial_name">Nombre comercial</string>
     <string name="contact_person">Persona de contacto</string>
@@ -479,6 +486,7 @@
     <string name="repeat_password">Repita su contraseña</string>
     <string name="premium">¿Premium?</string>
     <string name="forgot_password">¿Has olvidado la contraseña?</string>
+    <string name="selectPhoto">Selecionar imagen de publicación</string>
 
     <!-- Data passed between intents names -->
     <string name="trainerImgExtra">chooseTrainerImg</string>
@@ -496,17 +504,8 @@
     <string name="scenarioImgExtra">chooseImg</string>
     <string name="scenarioPriceExtra">choosePrice</string>
     <string name="scenarioDescrExtra">chooseDescr</string>
-
-    <string name="userScenario_userscenarioJson">userScenario</string>
-    <string name="userScenario_idUserJson">idUser</string>
-    <string name="userScenario_idScenarioJson">idScenario</string>
-    <string name="userScenario_dateBookingJson">dateBooking</string>
-    <string name="userScenario_startScenarioJson">startScenario</string>
-    <string name="userScenario_endScenarioJson">endScenario</string>
-    <string name="userScenario_phoneJson">phone</string>
-    <string name="userScenario_emailJson">email</string>
-    <string name="bookingOK">Reserva Exitosa</string>
+    <string name="bookingOK">Reserva exitosa</string>
     <string name="bookingError">Error creando la reserva</string>
     <string name="joinScenarioDB">/joinScenario</string>
-    <string name="selectplease">Seleccione un scenario</string>
+    <string name="selectplease">Select one scenario</string>
 </resources>

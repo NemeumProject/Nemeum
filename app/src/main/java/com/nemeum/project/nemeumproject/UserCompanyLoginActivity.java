@@ -12,34 +12,47 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserCompanyLoginActivity extends AppCompatActivity {
-
-    Context appContext;
+    private Context appContext;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences shared;
+        BottomNavigationView menu;
+        ImageButton findevent_btn;
+        ImageButton findfacilities_btn;
+        ImageButton findscenario_btn;
+        ImageButton findtrainer_btn;
+        ImageButton createevent_btn;
+        ImageButton postscenario_btn;
+        ImageButton editscenario_btn;
+        ImageButton updateschedule_btn;
+        TextView set_user_name;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered_company_user);
+
         appContext = getApplicationContext();
+        shared = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
-        ImageButton findevent_btn = findViewById(R.id.findeventicon);
-        ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
-        ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
-        ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
-        ImageButton createevent_btn = findViewById(R.id.myevent);
-        ImageButton postscenario_btn = findViewById(R.id.postserviceicon);
-        ImageButton editscenario_btn = findViewById(R.id.editscenarioicon);
-        ImageButton updateschedule_btn = findViewById(R.id.updatescheduleicon);
+        findevent_btn = findViewById(R.id.findeventicon);
+        findfacilities_btn = findViewById(R.id.findfacilitiesicon);
+        findscenario_btn = findViewById(R.id.findscrenarioicon);
+        findtrainer_btn = findViewById(R.id.findtrainericon);
+        createevent_btn = findViewById(R.id.myevent);
+        postscenario_btn = findViewById(R.id.postserviceicon);
+        editscenario_btn = findViewById(R.id.editscenarioicon);
+        updateschedule_btn = findViewById(R.id.updatescheduleicon);
+        menu = findViewById(R.id.navigation);
+        progressBar = findViewById(R.id.progressbar);
+        set_user_name = findViewById(R.id.user_names);
 
-        final ProgressBar progressBar = findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.INVISIBLE);
-
-        SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
-        String new_user_name = (shared.getString("userName", ""));
-        TextView set_user_name = findViewById(R.id.user_names);
-        set_user_name.setText("Hello "+ new_user_name +" !");
-
+        menu.getMenu().getItem(2).setVisible(false);
+        set_user_name.setText("Hello "+ shared.getString("userName", "") +" !");
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,22 +114,17 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        Toast toast = Toast.makeText(appContext, R.string.alreadyOnHomeErr, Toast.LENGTH_LONG);
+                        toast.show();
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
                         appContext.startActivity(intentSettings);
-                        return true;
-                    case R.id.loginButton:
-                        Intent intentLogin = new Intent(appContext, Login.class);
-                        appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
                         Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
@@ -133,10 +141,9 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
     @Override
     public  void  onResume(){
         super.onResume();
-        ProgressBar progressBar = findViewById(R.id.progressbar);
         if(progressBar.getVisibility()==View.VISIBLE)
         {
-            progressBar.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.GONE);
         }
     }
 

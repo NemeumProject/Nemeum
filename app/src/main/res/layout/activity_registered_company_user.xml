@@ -2,65 +2,72 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeeee">
+    android:background="@color/colorWhite">
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.1"/>
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.35"/>
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline11b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.4"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.9"/>
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="1" />
+        app:layout_constraintGuide_percent="1"/>
+
     <LinearLayout
         android:id="@+id/topbar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:background="#17252a"
+        android:background="@color/colorBackground"
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/guideline10">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/nemeum_logo"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#000000"
+        android:background="@color/colorBackground"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/guideline10">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +77,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#17252a"
+        android:background="@color/colorBackground"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline11"
@@ -80,9 +87,7 @@
             android:id="@+id/user_names"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text=""/>
-
+            android:gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
@@ -100,7 +105,7 @@
             android:indeterminate="true"
             android:max="100"
             android:indeterminateTint="@color/colorPink"
-            />
+            android:visibility="gone"/>
     </LinearLayout>
 
     <LinearLayout
@@ -113,32 +118,33 @@
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-
         app:layout_constraintBottom_toBottomOf="@+id/guideline12"
         app:layout_constraintTop_toBottomOf="@+id/guideline11"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_2"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.25">
+
         <ImageButton
             android:id="@+id/findeventicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/search_event"
-            android:contentDescription="Search Event" />
+            android:contentDescription="@string/search_event"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:text="Find Event"
-            android:textColor="#17252a"
+            android:text="@string/search_event"
+            android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linear_menu_book_2"
         android:layout_width="80dp"
@@ -153,22 +159,25 @@
         app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_1"
         app:layout_constraintStart_toEndOf="@id/linear_menu_book_1"
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_3">
+
         <ImageButton
             android:id="@+id/findfacilitiesicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/search_facilities"
-            android:contentDescription="Search Facilities" />
+            android:contentDescription="@string/search_facilities"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:text="Search Facilities"
-            android:textColor="#17252a"
+            android:text="@string/search_facilities"
+            android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linear_menu_book_3"
         android:layout_width="80dp"
@@ -183,22 +192,25 @@
         app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_1"
         app:layout_constraintStart_toEndOf="@id/linear_menu_book_2"
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_4">
+
         <ImageButton
             android:id="@+id/findscrenarioicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/search_scenario"
-            android:contentDescription="Search Scenario" />
+            android:contentDescription="@string/search_scenario"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:text="Search Scenario"
-            android:textColor="#17252a"
+            android:text="@string/search_scenario"
+            android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linear_menu_book_4"
         android:layout_width="80dp"
@@ -213,22 +225,25 @@
         app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_1"
         app:layout_constraintStart_toEndOf="@id/linear_menu_book_3"
         app:layout_constraintEnd_toEndOf="parent">
+
         <ImageButton
             android:id="@+id/findtrainericon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/search_trainer"
-            android:contentDescription="Search Trainer" />
+            android:contentDescription="@string/search_trainer"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:text="Search Trainer"
-            android:textColor="#17252a"
+            android:text="@string/search_trainer"
+            android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linear_menu_book_5"
         android:layout_width="80dp"
@@ -244,24 +259,26 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear_menu_book_1"
-        >
+        app:layout_constraintTop_toBottomOf="@id/linear_menu_book_1">
+
         <ImageButton
             android:id="@+id/myevent"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/create_event"
-            android:contentDescription="My Event" />
+            android:contentDescription="@string/create_event"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:text="Create Event"
-            android:textColor="#17252a"
+            android:text="@string/create_event"
+            android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linear_menu_book_6"
         android:layout_width="80dp"
@@ -275,21 +292,22 @@
         app:layout_constraintTop_toTopOf="@id/linear_menu_book_5"
         app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_5"
         app:layout_constraintStart_toEndOf="@id/linear_menu_book_5"
-        app:layout_constraintEnd_toStartOf="@id/linear_menu_book_7"
-        >
+        app:layout_constraintEnd_toStartOf="@id/linear_menu_book_7">
+
         <ImageButton
             android:id="@+id/postserviceicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/post_service"
-            android:contentDescription="Post Scenario" />
+            android:contentDescription="@string/create_scenario"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:textColor="#17252a"
-            android:text="Post Scenario"
+            android:textColor="@color/colorFont"
+            android:text="@string/create_scenario"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
@@ -307,21 +325,22 @@
         app:layout_constraintTop_toTopOf="@id/linear_menu_book_5"
         app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_5"
         app:layout_constraintStart_toEndOf="@id/linear_menu_book_6"
-        app:layout_constraintEnd_toEndOf="@id/linear_menu_book_8"
-        >
+        app:layout_constraintEnd_toEndOf="@id/linear_menu_book_8">
+
         <ImageButton
             android:id="@+id/editscenarioicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/edit_scenario"
-            android:contentDescription="Edit My Scenario" />
+            android:contentDescription="@string/edit_scenario"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:textColor="#17252a"
-            android:text="Edit My Scenario"
+            android:textColor="@color/colorFont"
+            android:text="@string/edit_scenario"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
@@ -339,21 +358,22 @@
         app:layout_constraintTop_toTopOf="@id/linear_menu_book_5"
         app:layout_constraintBottom_toBottomOf="@id/linear_menu_book_5"
         app:layout_constraintStart_toEndOf="@id/linear_menu_book_7"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent">
+
         <ImageButton
             android:id="@+id/updatescheduleicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@mipmap/update"
-            android:contentDescription="Update Schedule" />
+            android:contentDescription="@string/update_schedule"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="3"
-            android:text="Update Schedule"
-            android:textColor="#17252a"
+            android:text="@string/update_schedule"
+            android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
     </LinearLayout>

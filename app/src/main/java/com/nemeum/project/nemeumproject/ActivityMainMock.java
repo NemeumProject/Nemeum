@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -16,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.content.ContextCompat;
 import android.Manifest;
@@ -37,7 +35,6 @@ import java.net.URI;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Arrays;
@@ -45,10 +42,11 @@ import java.util.Arrays;
 import models.Scenario;
 
 public class ActivityMainMock extends AppCompatActivity {
-    List<Scenario> listScenario = new ArrayList<>();
-    Context appContext;
-    //Creating a connection for local storage
-    SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
+    private List<Scenario> listScenario = new ArrayList<>();
+    private Context appContext;
+    private BottomNavigationView menu;
+    private SharedPreferences SP;
+    private ProgressBar progressBar;
 
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
     private static final String[] REQUIRED_SDK_PERMISSIONS = new String[] {
@@ -60,13 +58,17 @@ public class ActivityMainMock extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ImageButton findevent_btn;
+        ImageButton findfacilities_btn;
+        ImageButton findscenario_btn;
+        ImageButton findtrainer_btn;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mock);
 
         appContext = getApplicationContext();
-
-       /* TextView testing = findViewById(R.id.tV_test);
-        testing.setText("testing");*/
+        SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
         getAllScenarios();
         try {
@@ -75,43 +77,20 @@ public class ActivityMainMock extends AppCompatActivity {
             e.printStackTrace();
         }
         fill_Localdb_escenarios();
+
         checkPermissions();
+        checkLanguage();
+        checkRegisteredUser();
 
+        menu = findViewById(R.id.navigation);
+        progressBar = findViewById(R.id.progressbar);
+        findevent_btn = findViewById(R.id.findeventicon);
+        findfacilities_btn = findViewById(R.id.findfacilitiesicon);
+        findscenario_btn = findViewById(R.id.findscrenarioicon);
+        findtrainer_btn = findViewById(R.id.findtrainericon);
 
+        menu.getMenu().getItem(3).setVisible(false);
 
-
-        if(!LocaleManager.getLanguage(appContext).equals(Locale.getDefault().getLanguage())) {
-            if(LocaleManager.getLanguage(appContext) == null)
-                LocaleManager.setNewLocale(appContext, Locale.getDefault().getLanguage());
-            else
-                LocaleManager.setLocale(appContext);
-        }
-
-        SharedPreferences SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
-
-        if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.individualUserSP)))
-        {
-            Intent intent1 = new Intent(appContext, UserLoginActivity.class);
-            startActivity(intent1);
-            finish();
-        }
-        else if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.trainerUserSP)))
-        {
-            Intent intent2 = new Intent(appContext, UserTrainerLoginActivity.class);
-            startActivity(intent2);
-            finish();
-        }
-        else if (SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.companyUserSP)))
-        {
-            Intent intent3 = new Intent(appContext, UserCompanyLoginActivity.class);
-            startActivity(intent3);
-            finish();
-        }
-
-        final ProgressBar progressBar = findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.INVISIBLE);
-
-        ImageButton findevent_btn = findViewById(R.id.findeventicon);
         findevent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +99,6 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
-        ImageButton findfacilities_btn = findViewById(R.id.findfacilitiesicon);
         findfacilities_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,7 +107,6 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
-        ImageButton findscenario_btn = findViewById(R.id.findscrenarioicon);
         findscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,7 +115,6 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
-        ImageButton findtrainer_btn = findViewById(R.id.findtrainericon);
         findtrainer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,7 +123,6 @@ public class ActivityMainMock extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -164,25 +139,43 @@ public class ActivityMainMock extends AppCompatActivity {
                         Intent intentLogin = new Intent(appContext, Login.class);
                         appContext.startActivity(intentLogin);
                         return true;
-                    case R.id.accountButton:
-                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
-                        getApplicationContext().startActivity(intentAccount);
-                        return true;
                     default:
                         return false;
                 }
             }
         });
+    }
 
+    private void checkRegisteredUser() {
+        if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.individualUserSP))){
+            Intent intent1 = new Intent(appContext, UserLoginActivity.class);
+            startActivity(intent1);
+            finish();
+        } else if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.trainerUserSP))){
+            Intent intent2 = new Intent(appContext, UserTrainerLoginActivity.class);
+            startActivity(intent2);
+            finish();
+        } else if(SP.getString(getResources().getString(R.string.userTypeSP), "").equals(getResources().getString(R.string.companyUserSP))){
+            Intent intent3 = new Intent(appContext, UserCompanyLoginActivity.class);
+            startActivity(intent3);
+            finish();
+        }
+    }
+
+    private void checkLanguage() {
+        if(!LocaleManager.getLanguage(appContext).equals(Locale.getDefault().getLanguage())) {
+            if(LocaleManager.getLanguage(appContext) == null)
+                LocaleManager.setNewLocale(appContext, Locale.getDefault().getLanguage());
+            else
+                LocaleManager.setLocale(appContext);
+        }
     }
 
     @Override
     public  void  onResume(){
         super.onResume();
-        ProgressBar progressBar = findViewById(R.id.progressbar);
-        if(progressBar.getVisibility()==View.VISIBLE)
-        {
-            progressBar.setVisibility(View.INVISIBLE);
+        if(progressBar.getVisibility()==View.VISIBLE) {
+            progressBar.setVisibility(View.GONE);
         }
     }
 
@@ -304,7 +297,6 @@ public class ActivityMainMock extends AppCompatActivity {
         }).start();
     }
 
-
     private void fill_Localdb_escenarios(){
         Long idResult;
         SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
@@ -333,15 +325,8 @@ for(Scenario scenario : listScenario){
     System.out.println("Description  "+ scenario.getDescription());
     System.out.println("Id Record: "+ idResult);
 }
-
-
-
-
         //String numberasString = new Long (idResult).toString();
-
         //Toast.makeText(getApplicationContext(),"Id Record:"+idResult, Toast.LENGTH_SHORT).show();
-
-
         db.close();
     }
 }

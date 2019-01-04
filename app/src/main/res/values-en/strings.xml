@@ -85,16 +85,31 @@
     <string name="eventDescriptionJson">description</string>
     <string name="eventImageJson">image</string>
     <string name="eventTitleJson">title</string>
+    <string name="userScenario_userscenarioJson">userScenario</string>
+    <string name="userScenario_idUserJson">idUser</string>
+    <string name="userScenario_idScenarioJson">idScenario</string>
+    <string name="userScenario_dateBookingJson">dateBooking</string>
+    <string name="userScenario_startScenarioJson">startScenario</string>
+    <string name="userScenario_endScenarioJson">endScenario</string>
+    <string name="userScenario_phoneJson">phone</string>
+    <string name="userScenario_emailJson">email</string>
 
     <!-- Strings related to login -->
     <string name="login_forgot_pass">Forgot Password?</string>
 
     <!-- Strings related to home screen -->
     <string name="search_home">Home</string>
-    <string name="search_trainer">Search</string>
+    <string name="search_trainer">Search Trainer</string>
     <string name="search_facilities">Search Facilities</string>
-    <string name="search_event">Search Event</string>
-    <string name="search_scenario">Search</string>
+    <string name="search_event">Search Events</string>
+    <string name="search_scenario">Search Scenario</string>
+    <string name="create_event">Create Event</string>
+    <string name="create_scenario">Create Scenario</string>
+    <string name="edit_scenario">Edit Scenario</string>
+    <string name="update_schedule">Update Schedule</string>
+    <string name="my_bookings">My Bookings</string>
+    <string name="create_service">Create Service</string>
+    <string name="edit_service">Edit Service</string>
     <string name="my_account">My Account</string>
     <string name="settings">Settings</string>
     <string name="login">Login</string>
@@ -140,11 +155,9 @@
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Search Facilities</string>
-    <string name="findFacilityDescr">"Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."</string>
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Search Scenario</string>
-    <string name="scenarioFindDescr">"Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"</string>
     <string-array name="sportFilter">
         <item>Sport Type</item>
         <item>Archery</item>
@@ -219,17 +232,16 @@
     <string name="SportServiceSuccess">Your Service Successfully Submitted</string>
 
     <!-- Strings for Booking Trainer-->
-    <string name="idscenario">id_scenario</string>
-    <string name="iduser">id_user</string>
-    <string name="TrainerBookTitle">Book Scenario</string>
+    <string name="trainerBookTitle">Book Trainer</string>
     <string name="BookingSuccess">Your Booking Successfully Submitted</string>
 
     <!-- Strings for Booking Scenarios-->
+    <string name="idscenario">id_scenario</string>
+    <string name="iduser">id_user</string>
     <string name="scenarioBookTitle">Book Scenario</string>
     <string name="scenariobookstart">startings</string>
     <string name="scenariobookend">endings</string>
     <string name="scenariopayment">payments</string>
-    <string name="trainerBookTitle">Book Trainer</string>
     <string-array name="hourStartFilter">
         <item>Starting Time</item>
         <item>07:00</item>
@@ -359,7 +371,7 @@
     <string name="company_password_short">Your password must have 6 characters or more.</string>
     <string name="company_password_mismatch">The passwords must be equal.</string>
     <string name="company_ssn_empty">The SSN cannot be empty.</string>
-    <string name="company_commercial_name_empty">The Commercial Name is empty.</string>
+    <string name="company_commercial_name_empty">The commercial name cannot be empty.</string>
     <string name="company_contact_person_empty">The contact person cannot be empty.</string>
     <string name="company_city_empty">The city cannot be empty.</string>
     <string name="company_postal_code_empty">The postal code cannot be empty.</string>
@@ -453,6 +465,7 @@
             Best regards;\n
             Nemeum Team
     </string>
+
     <string name="date_format"> dd/MM/yyyy</string>
     <string name="pattern_date_format">yyyy-MM-dd hh:mm:ss</string>
     <string name="daily_Schedule_Title">Daily Schedule</string>
@@ -465,11 +478,6 @@
     <string name="etime_error">Ending time cannot be empty</string>
     <string name="scenarios_spinner_Error">Select a scenario</string>
     <string name="scenarios_edition">Scenarios Edition</string>
-    <string-array name="scenarios_array">
-        <item>Boxing ring of Lleida</item>
-        <item>Lleida Gym Center</item>
-        <item>Soccer center of Lleida</item>
-    </string-array>
     <string name="company_name">Company name</string>
     <string name="comercial_name">Comercial name</string>
     <string name="contact_person">Contact person</string>
@@ -478,6 +486,7 @@
     <string name="repeat_password">Repeat your password</string>
     <string name="premium">Premium?</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="selectPhoto">Select posting picture</string>
 
     <!-- Data passed between intents names -->
     <string name="trainerImgExtra">chooseTrainerImg</string>
@@ -491,19 +500,10 @@
     <!-- Data passed between intents names -->
     <string name="scenarioiduser">idusers</string>
     <string name="scenarioid">idscenario</string>
-    <string name="scenarioNameExtra">chooseName</string>
     <string name="scenarioImgExtra">chooseImg</string>
+    <string name="scenarioNameExtra">chooseName</string>
     <string name="scenarioPriceExtra">choosePrice</string>
     <string name="scenarioDescrExtra">chooseDescr</string>
-
-    <string name="userScenario_userscenarioJson">userScenario</string>
-    <string name="userScenario_idUserJson">idUser</string>
-    <string name="userScenario_idScenarioJson">idScenario</string>
-    <string name="userScenario_dateBookingJson">dateBooking</string>
-    <string name="userScenario_startScenarioJson">startScenario</string>
-    <string name="userScenario_endScenarioJson">endScenario</string>
-    <string name="userScenario_phoneJson">phone</string>
-    <string name="userScenario_emailJson">email</string>
     <string name="bookingOK">Booking created successfully</string>
     <string name="bookingError">Error creating booking</string>
     <string name="joinScenarioDB">/joinScenario</string>
