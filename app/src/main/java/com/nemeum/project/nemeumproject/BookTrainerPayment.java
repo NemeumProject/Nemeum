@@ -29,12 +29,15 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BookTrainerPayment  extends Activity {
 
     Context appContext;
     String start_calc,end_calc,payment_met;
-    float s,e,calculation;
+    float s,e;
+    Double calculation;
     int days,months,years;
 
     String titles = "titles";
@@ -231,7 +234,7 @@ public class BookTrainerPayment  extends Activity {
                 s = Float.parseFloat(start_calc.replace(":00",""));
                 e = Float.parseFloat(end_calc.replace(":00",""));
 
-                calculation = Float.parseFloat(bundle.getString(prices))*(e-s);
+                calculation = Double.parseDouble(bundle.getString(prices))*(e-s);
                 title_popup.setText("Trainer: "+bundle.getString(titles)+"\n"+bundle.getString(sport_t));
                 date_popup.setText("Date: "+bundle.getString(dates_days)+"-"+bundle.getString(dates_months)+"-"+bundle.getString(dates_years));
                 time_popup.setText("Start: "+bundle.getString(starting)+"  "+"End: "+bundle.getString(finishing));
@@ -247,22 +250,37 @@ public class BookTrainerPayment  extends Activity {
     {
         final Integer trainer_service_id = id_trainer_service;
         final Integer user_id = id_user;
-        final Time start = Time.valueOf(starting+":00");
-        final Time end = Time.valueOf(ending+":00");
+        String month;
+        String day;
+        if(months < 10){
+            month = "0" + String.valueOf(months);
+        }else{
+            month = String.valueOf(months);
+        }
+        if(days < 10){
+            day = "0" + String.valueOf(days);
+        }else{
+            day = String.valueOf(days);
+        }
+        final String startDate = String.valueOf(years) + "-" + month + "-" + day + " " + Time.valueOf(starting+":00");
+        final String endDate = String.valueOf(years) + "-" + month + "-" + day + " " + Time.valueOf(ending+":00");
         final String payment_m = payment_method;
 
         new Thread(new Runnable() {
             public void run() {
 
                 HttpClient httpclient = new DefaultHttpClient();
-                HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + "/trainersport"); //Please Change This
+                HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + "/joinTrainer");
                 JSONObject postData = new JSONObject();
                 try {
-                    postData.put(getResources().getString(R.string.idscenario),trainer_service_id);
-                    postData.put(getResources().getString(R.string.iduser),user_id);
-                    postData.put(getResources().getString(R.string.scenariobookstart),start);
-                    postData.put(getResources().getString(R.string.scenariobookend),end);
-                    postData.put(getResources().getString(R.string.scenariopayment),payment_m);
+                    Date date = new Date();
+                    String currentDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
+                    postData.put("idService",trainer_service_id);
+                    postData.put("idUser",user_id);
+                    postData.put("startBooking",startDate);
+                    postData.put("endBooking",endDate);
+                    postData.put("dateBooking",currentDate);
+                    postData.put("price", calculation);
                     StringEntity se = new StringEntity(postData.toString(), "UTF-8");
                     httppost.setHeader("Accept", "application/json");
                     httppost.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -274,6 +292,13 @@ public class BookTrainerPayment  extends Activity {
                                 Toast.makeText(BookTrainerPayment.this, getResources().getString(R.string.BookingSuccess), Toast.LENGTH_LONG).show();
                             }
                         });
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Intent intent2 = new Intent(BookTrainerPayment.this, UserLoginActivity.class);
+                        startActivity(intent2);
                     }
                 }
                 catch (IOException e){

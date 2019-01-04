@@ -282,15 +282,16 @@ public class BookScenarioPayment  extends Activity {
                         BookScenarioPayment.this.runOnUiThread(new Runnable() {
                             public void run() {
                                 Toast.makeText(BookScenarioPayment.this, getResources().getString(R.string.BookingSuccess), Toast.LENGTH_LONG).show();
-                                try {
-                                    Thread.sleep(2000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                Intent intent2 = new Intent(BookScenarioPayment.this, NearScenarios.class);
-                                startActivity(intent2);
+
                             }
                         });
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Intent intent2 = new Intent(BookScenarioPayment.this, NearScenarios.class);
+                        startActivity(intent2);
                     }
                 }
                 catch (IOException e){
