@@ -195,6 +195,7 @@
             android:layout_height="40dp"
             android:textSize="12dp"
             android:textAlignment="center"
+            android:inputType="number"
             android:background="@drawable/months_rounded"
             android:contentDescription="My Event" />
     </LinearLayout>
@@ -233,6 +234,7 @@
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:textSize="12dp"
+            android:inputType="numberDecimal"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
             android:contentDescription="My Event" />
