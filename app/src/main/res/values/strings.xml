@@ -148,11 +148,9 @@
 
     <!-- Strings for Facility Finder -->
     <string name="findFacilityTitle">Search Facilities</string>
-    <string name="findFacilityDescr">"Official capacity of around 100.000, making it the second largest ground in England after Crystal Palace. It was used as a FA cup final venue."</string>
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Search Scenario</string>
-    <string name="scenarioFindDescr">"Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"</string>
     <string-array name="sportFilter">
         <item>Sport Type</item>
         <item>Archery</item>
@@ -227,18 +225,16 @@
     <string name="SportServiceSuccess">Your Service Successfully Submitted</string>
 
     <!-- Strings for Booking Trainer-->
-    <string name="idscenario">id_scenario</string>
-    <string name="iduser">id_user</string>
-    <string name="TrainerBookTitle">Book Scenario</string>
+    <string name="trainerBookTitle">Book Trainer</string>
     <string name="BookingSuccess">Your Booking Successfully Submitted</string>
 
-
     <!-- Strings for Booking Scenarios-->
+    <string name="idscenario">id_scenario</string>
+    <string name="iduser">id_user</string>
     <string name="scenarioBookTitle">Book Scenario</string>
     <string name="scenariobookstart">startings</string>
     <string name="scenariobookend">endings</string>
     <string name="scenariopayment">payments</string>
-    <string name="trainerBookTitle">Book Trainer</string>
     <string-array name="hourStartFilter">
         <item>Starting Time</item>
         <item>07:00</item>
@@ -462,7 +458,8 @@
             Best regards;\n
             Nemeum Team
     </string>
-    <string name="date_format"> dd/mm/yyyy</string>
+
+    <string name="date_format"> dd/MM/yyyy</string>
     <string name="pattern_date_format">yyyy-MM-dd hh:mm:ss</string>
     <string name="daily_Schedule_Title">Daily Schedule</string>
     <string name="scenario_Daily_Schedule">Scenario</string>
@@ -487,6 +484,7 @@
     <string name="repeat_password">Repeat your password</string>
     <string name="premium">Premium?</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="selectPhoto">Select posting picture</string>
 
     <!-- Data passed between intents names -->
     <string name="trainerImgExtra">chooseTrainerImg</string>

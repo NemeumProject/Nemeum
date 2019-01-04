@@ -246,7 +246,7 @@ public class PostEvent extends AppCompatActivity {
                         httppost.setEntity(se);
                         HttpResponse response = httpclient.execute(httppost);
                         if(response.getStatusLine().getStatusCode() == 200) {
-                            Intent intent1 = new Intent(appContext, UserCompanyLoginActivity.class);
+                            Intent intent1 = new Intent(appContext, ActivityMainMock.class);
                             startActivity(intent1);
                         }else{
                             PostEvent.this.runOnUiThread(new Runnable() {

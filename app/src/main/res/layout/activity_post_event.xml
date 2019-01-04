@@ -37,18 +37,30 @@
         android:background="@drawable/results_rounded"
         android:backgroundTint="@color/colorWhite">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="30dp"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:background="@drawable/circle_img_background">
-    <ImageView
-        android:id="@+id/eventImg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-        </LinearLayout>
+            app:cardCornerRadius="50dp"
+            app:cardBackgroundColor="@color/colorHint">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:text="@string/selectPhoto"
+                android:textColor="@color/colorFont"/>
+            <ImageView
+                android:id="@+id/eventImg"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"/>
+
+        </android.support.v7.widget.CardView>
+
     <EditText
         android:id="@+id/eventTitle"
         android:layout_width="250dp"
