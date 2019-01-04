@@ -12,4 +12,6 @@
     android:textColor="@color/colorWhite"
     android:textSize="12dp"
     android:textAlignment="center"
+    android:drawableRight="@mipmap/downsign"
+    android:paddingRight="5dp"
     />

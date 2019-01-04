@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -45,6 +46,7 @@ import models.Scenario;
 
 public class activity_edit_scenario extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageButton changePicture;
+    Button back_btn;
     private static final int PICK_IMAGE=100;
     Uri imageUri;
     String idUser;
@@ -74,7 +76,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
 
         Spinner spinner = findViewById(R.id.scenarios_Spinner_EditScenario);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listTitle);
+                R.layout.spinner_layout_special, listTitle);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -98,6 +100,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
                 price.setText(scenarioSelected.getPrice().toString());
                 EditText capacity = (EditText)findViewById(R.id.capacity_Edit_Scenarios);
                 capacity.setText(scenarioSelected.getCapacity().toString());
+
             }
 
             @Override
@@ -107,7 +110,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
 
         });
 
-        changePicture = findViewById(R.id.companyLogoImg_EditScenario);
+        //changePicture = findViewById(R.id.companyLogoImg_EditScenario);
 
     }
     @Override
@@ -323,6 +326,10 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
     public void openGallery(View view) {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
+    }
+
+    public void getBack(View view) {
+        finish();
     }
 
     @Override
