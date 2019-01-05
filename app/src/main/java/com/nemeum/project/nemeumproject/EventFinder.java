@@ -2,6 +2,7 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -47,32 +48,52 @@ import models.Event;
 
 public class EventFinder extends AppCompatActivity {
 
-    List<Event> listEvent = new ArrayList<>();
-    List<Event> filteredEvent = new ArrayList<>();
-    List<Button> listMonths= new ArrayList<>();
-    TextView yearFilter;
-    String[] monthsArray;
-    Context appContext;
+    private List<Event> listEvent;
+    private List<Event> filteredEvent;
+    private List<Button> listMonths;
+    private SharedPreferences SP;
+    private TextView yearFilter;
+    private String[] monthsArray;
+    private Context appContext;
+    private ImageView backYearBtn;
+    private ListView resultList;
+    private BottomNavigationView menu;
+    private String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ImageView nextYearBtn;
+        GridLayout resultFilter;
+        LinearLayout.LayoutParams layoutButtons;
+        CustomAdapter customResult;
+        ArrayAdapter<Button> filterResult;
+
         super.onCreate(savedInstanceState);
-
-        getEvents();
-
         setContentView(R.layout.activity_event_finder);
 
         appContext = getApplicationContext();
-        final ImageView backYearBtn = findViewById(R.id.backYear);
-        ImageView nextYearBtn = findViewById(R.id.nextYear);
+        SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+
+        getEvents();
+        checkRegisteredUser();
+
+        listEvent = new ArrayList<>();
+        filteredEvent = new ArrayList<>();
+        listMonths = new ArrayList<>();
+        customResult = new CustomAdapter();
+        layoutButtons = new LinearLayout.LayoutParams(dpToPx(appContext, 160), dpToPx(appContext, 20));
+
+        backYearBtn = findViewById(R.id.backYear);
+        nextYearBtn = findViewById(R.id.nextYear);
         yearFilter = findViewById(R.id.yearText);
-        final ListView resultList = findViewById(R.id.eventsList);
-        final GridLayout resultFilter = findViewById(R.id.monthSelect);
-        LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(dpToPx(appContext, 160), dpToPx(appContext, 20));
+        resultList = findViewById(R.id.eventsList);
+        resultFilter = findViewById(R.id.monthSelect);
 
         monthsArray = getResources().getStringArray(R.array.monthsEvents);
-        layout.setMargins(5,5,5,5);
+
+        layoutButtons.setMargins(5,5,5,5);
         yearFilter.setText(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+
         backYearBtn.setVisibility(View.INVISIBLE);
         backYearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +106,7 @@ public class EventFinder extends AppCompatActivity {
                 resetColors();
             }
         });
+
         nextYearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,12 +118,10 @@ public class EventFinder extends AppCompatActivity {
             }
         });
 
-        CustomAdapter customResult = new CustomAdapter();
-
         for(int i = 0; i < 12; i++){
             final Button btnMonth = new Button(appContext);
             btnMonth.setAllCaps(false);
-            btnMonth.setLayoutParams(layout);
+            btnMonth.setLayoutParams(layoutButtons);
             btnMonth.setBackground(getResources().getDrawable(R.drawable.months_rounded));
             btnMonth.setTextColor(getResources().getColor(R.color.colorWhite));
             btnMonth.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -125,18 +145,27 @@ public class EventFinder extends AppCompatActivity {
             resultFilter.addView(listMonths.get(i));
         }
 
-        ArrayAdapter<Button> filterResult = new ArrayAdapter<Button>(appContext, R.layout.support_simple_spinner_dropdown_item, listMonths);
-
+        filterResult = new ArrayAdapter<>(appContext, R.layout.support_simple_spinner_dropdown_item, listMonths);
         resultList.setAdapter(customResult);
 
-        BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
+                            appContext.startActivity(intentMainInd);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
+                            appContext.startActivity(intentMainTrainer);
+                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
+                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
+                            appContext.startActivity(intentMainCompany);
+                        } else {
+                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                            appContext.startActivity(intentMain);
+                        }
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
@@ -147,14 +176,35 @@ public class EventFinder extends AppCompatActivity {
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(appContext, TrainerDetail.class);
-                        appContext.startActivity(intentAccount);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else {
+                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
+                            appContext.startActivity(intentAccount);
+                        }
                         return true;
                     default:
                         return false;
                 }
             }
         });
+    }
+
+    private void checkRegisteredUser() {
+        menu = findViewById(R.id.navigation);
+        userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
+
+        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+              userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+              userType.equals(getResources().getString(R.string.companyUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+        } else {
+            menu.getMenu().getItem(3).setVisible(false);
+        }
     }
 
     public void setFilteredEvents(int month){

@@ -65,15 +65,13 @@ import models.Sport;
 
 public class NearScenarios extends AppCompatActivity implements OnMapReadyCallback {
 
-    int[] scenarioPicture = {R.drawable.scenario_nophoto};
+    private List<Scenario> listScenario = new ArrayList<>();
+    private List<Sport> listSport = new ArrayList<>();
 
-    List<Scenario> listScenario = new ArrayList<>();
-    List<Sport> listSport = new ArrayList<>();
+    private Context appContext;
 
-    Context appContext;
-
-    MapView nearMap;
-    GoogleMap gMap;
+    private MapView nearMap;
+    private GoogleMap gMap;
 
     private Spinner spinnerCity;
     private Spinner spinnerSport;
@@ -84,7 +82,11 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
     private Integer idSport;
     private Double price;
 
-    String idUser;
+    private String idUser;
+
+    private SharedPreferences SP;
+    private BottomNavigationView menu;
+    private String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +94,10 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         setContentView(R.layout.activity_near_scenarios);
 
         appContext = getApplicationContext();
-        SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
-        idUser = (shared.getString("idUser", ""));
+        SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+        idUser = (SP.getString("idUser", ""));
+
+        checkRegisteredUser();
 
         getAllSports();
         try {
@@ -145,14 +149,24 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
         priceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         priceSpinner.setAdapter(priceAdapter);
 
-        BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
+                            appContext.startActivity(intentMainInd);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
+                            appContext.startActivity(intentMainTrainer);
+                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
+                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
+                            appContext.startActivity(intentMainCompany);
+                        } else {
+                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                            appContext.startActivity(intentMain);
+                        }
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
@@ -163,8 +177,16 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
-                        getApplicationContext().startActivity(intentAccount);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else {
+                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
+                            appContext.startActivity(intentAccount);
+                        }
                         return true;
                     default:
                         return false;
@@ -236,7 +258,19 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                 // your code here
             }
         });
+    }
 
+    private void checkRegisteredUser() {
+        menu = findViewById(R.id.navigation);
+        userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
+
+        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                userType.equals(getResources().getString(R.string.companyUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+        } else {
+            menu.getMenu().getItem(3).setVisible(false);
+        }
     }
 
     public synchronized void filterScenarios(View view){
@@ -515,7 +549,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             TextView scenarioTitleDescr = convertView.findViewById(R.id.companyResScenarioText);
             TextView scenarioDescription = convertView.findViewById(R.id.companyResDescription);
 
-            scenarioImg.setImageResource(scenarioPicture[0]);
+            scenarioImg.setImageResource(R.drawable.scenario_nophoto);
 
             if(!listScenario.get(position).getPrice().toString().equals("null"))
                 scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€/Hour");
@@ -530,7 +564,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                 @Override
                 public void onClick(View v) {
                     Intent intentBook = new Intent(appContext, BookScenarios.class);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), scenarioPicture[0]);
+                    intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), R.drawable.scenario_nophoto);
                     intentBook.putExtra(getResources().getString(R.string.scenarioiduser),idUser);
                     intentBook.putExtra(getResources().getString(R.string.scenarioid),Integer.toString(listScenario.get(position).getIdScenario()));
                     intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());

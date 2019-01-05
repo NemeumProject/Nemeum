@@ -109,7 +109,8 @@ public class UserLoginActivity extends AppCompatActivity {
                         appContext.startActivity(intentSettings);
                         return true;
                     case R.id.accountButton:
-                        Toast.makeText(appContext, R.string.newFuncionalityErr, Toast.LENGTH_LONG).show();
+                        Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
+                        appContext.startActivity(intentAccount);
                         return true;
                     default:
                         return false;
