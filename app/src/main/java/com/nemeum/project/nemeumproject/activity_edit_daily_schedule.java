@@ -46,9 +46,11 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
     EditText date_EditText;
     EditText startingTime_EditText;
     EditText endingTime_EditText;
+    String strEmail;
     Context appContext;
     List<Scenario> listScenario = new ArrayList<>();
     ArrayList<String>scenarioList;
+    String idScenario;
 
     private String idCompany;
     @Override
@@ -135,7 +137,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         endingTime_EditText.setText( selectedHour + ":" + selectedMinute);
                     }
-                }, hour, minute, true);//Yes 24 hour time
+                }, hour, minute, true);// 24 hour time
                 ending_time_TimePicker.setTitle(select_etime_popup);
                 ending_time_TimePicker.show();
 
@@ -167,6 +169,14 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Object item = parent.getItemAtPosition(position);
+
+        for(Scenario scenario : listScenario){
+            if(item.toString().equals(scenario.getTitle())){
+                idScenario = scenario.getIdScenario().toString();
+                System.out.println("idScenario  "+ idScenario);
+            }
+        }
 
     }
 
@@ -199,7 +209,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         String phone_Error = getString(R.string.user_Phone_Empty);
 
         EditText etEmail = findViewById(R.id.et_customerEmail);
-        final String strEmail = etEmail.getText().toString();
+        strEmail = etEmail.getText().toString();
 
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
@@ -208,7 +218,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         String scenarios_spinner_Error = getString(R.string.scenarios_spinner_Error);
 
         // check if spinner item is selected
-        if (spinner.getSelectedItemId() == -1)
+        if (spinner.getSelectedItemId() == -1 || spinner.getSelectedItemId() == 0)
         {
 
 
@@ -217,6 +227,9 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
             return;
         }
 
+         if(TextUtils.isEmpty(strEmail)) {
+            strEmail="Empty";
+        }
 
         if(TextUtils.isEmpty(str_date)) {
             etDate.setError(date_Error);
@@ -254,7 +267,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                     try {
                        // postData.put(getResources().getString(R.string.userScenario_userscenarioJson), Integer.parseInt(userScenario) );
                        // postData.put(getResources().getString(R.string.userScenario_idUserJson), Integer.parseInt(iduser));
-                        postData.put(getResources().getString(R.string.userScenario_idScenarioJson), Integer.parseInt(/*idScenario*/null));
+                        postData.put(getResources().getString(R.string.userScenario_idScenarioJson), Integer.parseInt(idScenario));
                         postData.put(getResources().getString(R.string.userScenario_dateBookingJson), str_date );
                         postData.put(getResources().getString(R.string.userScenario_startScenarioJson), stStartingTime);
                         postData.put(getResources().getString(R.string.userScenario_endScenarioJson), strEndTime);
