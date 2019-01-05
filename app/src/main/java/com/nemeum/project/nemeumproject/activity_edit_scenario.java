@@ -34,6 +34,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URI;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -43,6 +44,7 @@ import java.util.Date;
 import java.util.List;
 
 import models.Scenario;
+import models.Sport;
 
 public class activity_edit_scenario extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Context appContext;
@@ -56,9 +58,11 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
     Uri imageUri;
     String idUser;
     String idScenario;
+    Integer idSport;
     List<Scenario> listScenario = new ArrayList<>();
     SharedPreferences registeredUserPref = null;
     SharedPreferences shared = null;
+    List<Sport> listSport = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +79,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
         idUser = (shared.getString("idUser", ""));
 
         getScenarios();
+        getAllSports();
         List<String> listTitle = new ArrayList<>();
         try {
             Thread.sleep(3000);
@@ -84,23 +89,31 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
         for(Scenario scenario : listScenario){
             listTitle.add(scenario.getTitle());
         }
+        List<String> sportName = new ArrayList<>();
+
+        for(Sport sport : listSport){
+            sportName.add(sport.getName());
+        }
 
         Spinner spinner = findViewById(R.id.scenarios_Spinner_EditScenario);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.spinner_layout_special, listTitle);
+                R.layout.spinner_layout, listTitle);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        final Spinner sportSpinner = findViewById(R.id.scenario_edit_sport);
+        ArrayAdapter<String> sportAdapter = new ArrayAdapter<String>(this,
+                R.layout.spinner_layout, sportName);
+        sportAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sportSpinner.setAdapter(sportAdapter);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 Object item = parentView.getItemAtPosition(position);
-                Scenario scenarioSelected = null;
-                for(Scenario scenario : listScenario){
-                    if(item.toString().equals(scenario.getTitle())){
-                        idScenario = scenario.getIdScenario().toString();
-                        scenarioSelected = scenario;
-                    }
-                }
+                Scenario scenarioSelected = listScenario.get(position);
+                idScenario = listScenario.get(position).getIdScenario().toString();
+
                 EditText title = (EditText)findViewById(R.id.title_Edit_Scenario);
                 title.setText(scenarioSelected.getTitle());
                 EditText location = (EditText)findViewById(R.id.location_Edit_Scenario);
@@ -111,7 +124,27 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
                 price.setText(scenarioSelected.getPrice().toString());
                 EditText capacity = (EditText)findViewById(R.id.capacity_Edit_Scenarios);
                 capacity.setText(scenarioSelected.getCapacity().toString());
+                int b = 1;
+                for(int i = 0; i<listSport.size(); i++){
+                    if(listSport.get(i).getIdSport().equals(scenarioSelected.getIdSport())){
+                        b = i;
+                    }
+                }
+                sportSpinner.setSelection(b);
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        sportSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                idSport = listSport.get(position).getIdSport();
             }
 
             @Override
@@ -165,6 +198,52 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
                 }
             }
         });
+    }
+
+    public synchronized void getAllSports() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                int numResults = 0;
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONArray parserList;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try{
+
+                    URI website = new URI(getResources().getString(R.string.urlDB) + "/sport" + getResources().getString(R.string.listDB));
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserList = new JSONArray(data);
+
+                    while(numResults < parserList.length()) {
+                        parser = (JSONObject) parserList.get(numResults);
+                        Sport sport = new Sport();
+                        sport.setIdSport(parser.getInt("idSport"));
+                        sport.setName(parser.getString("name"));
+                        numResults++;
+                        listSport.add(sport);
+
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                Thread.yield();
+            }
+        }).start();
     }
 
     private void checkRegisteredUser() {
@@ -306,7 +385,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
             Date today = Calendar.getInstance().getTime();
             String reportDate = df.format(today);
             final String dateScenario = reportDate;
-            final Integer idSport = 1;
+            final Integer id_sport = idSport;
 
             new Thread(new Runnable() {
                 public void run() {
@@ -316,7 +395,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
                     JSONObject postData = new JSONObject();
                     try {
                         postData.put("idScenario", idScenario);
-                        postData.put("idSport", idSport);
+                        postData.put("idSport", id_sport);
                         postData.put("price", priceScenario);
                         postData.put("capacity", capacityScenario);
                         postData.put("title", titleScenario);

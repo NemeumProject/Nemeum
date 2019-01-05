@@ -36,6 +36,7 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -543,8 +544,11 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
             TextView scenarioTitle = convertView.findViewById(R.id.companyResTitle);
             TextView scenarioTitleDescr = convertView.findViewById(R.id.companyResScenarioText);
             TextView scenarioDescription = convertView.findViewById(R.id.companyResDescription);
-
-            scenarioImg.setImageResource(R.drawable.scenario_nophoto);
+            if (!listScenario.get(position).getImage().equals("null")) {
+                Picasso.get().load(listScenario.get(position).getImage()).into(scenarioImg);
+            } else{
+                Picasso.get().load(R.drawable.scenario_nophoto).into(scenarioImg);
+            }
 
             if(!listScenario.get(position).getPrice().toString().equals("null"))
                 scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€ / hour");
@@ -559,7 +563,13 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
                 @Override
                 public void onClick(View v) {
                     Intent intentBook = new Intent(appContext, BookScenarios.class);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), R.drawable.scenario_nophoto);
+                    if(!listScenario.get(position).getImage().equals("null")) {
+                        intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), listScenario.get(position).getImage());
+                        intentBook.putExtra("withImage", "Yes");
+
+                    }else {
+                        intentBook.putExtra("withImage", "No");
+                    }
                     intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
 
                     if(!listScenario.get(position).getDescription().equals("null"))

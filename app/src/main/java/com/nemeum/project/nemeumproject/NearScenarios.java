@@ -43,6 +43,7 @@ import com.nemeum.project.nemeumproject.Login;
 import com.nemeum.project.nemeumproject.R;
 import com.nemeum.project.nemeumproject.Settings;
 import com.nemeum.project.nemeumproject.TrainerDetail;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -549,10 +550,13 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             TextView scenarioTitleDescr = convertView.findViewById(R.id.companyResScenarioText);
             TextView scenarioDescription = convertView.findViewById(R.id.companyResDescription);
 
-            scenarioImg.setImageResource(R.drawable.scenario_nophoto);
-
             if(!listScenario.get(position).getPrice().toString().equals("null"))
                 scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€/Hour");
+
+            if(!listScenario.get(position).getImage().equals("null"))
+                Picasso.get().load(listScenario.get(position).getImage()).into(scenarioImg);
+            else
+                Picasso.get().load(R.drawable.scenario_nophoto).into(scenarioImg);
 
             scenarioTitle.setText(listScenario.get(position).getTitle());
             scenarioTitleDescr.setText("Scenario " + position);
@@ -564,7 +568,14 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                 @Override
                 public void onClick(View v) {
                     Intent intentBook = new Intent(appContext, BookScenarios.class);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), R.drawable.scenario_nophoto);
+                    if(!listScenario.get(position).getImage().equals("null")) {
+                        intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), listScenario.get(position).getImage());
+                        intentBook.putExtra("withImage", "Yes");
+
+                    }else {
+                        intentBook.putExtra("withImage", "No");
+                    }
+
                     intentBook.putExtra(getResources().getString(R.string.scenarioiduser),idUser);
                     intentBook.putExtra(getResources().getString(R.string.scenarioid),Integer.toString(listScenario.get(position).getIdScenario()));
                     intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());

@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
 
 public class BookScenarios extends AppCompatActivity {
@@ -36,7 +38,12 @@ public class BookScenarios extends AppCompatActivity {
         TextView scenarioPrice = findViewById(R.id.scenarioBookPriceText);
         TextView scenarioDescription = findViewById(R.id.scenarioBookDescriptionText);
 
-        scenarioPicture.setImageResource(getIntent().getIntExtra(getResources().getString(R.string.scenarioImgExtra), R.drawable.bicycle_rider));
+        if(getIntent().getStringExtra("withImage").equals("Yes")){
+            Picasso.get().load(getIntent().getStringExtra(getResources().getString(R.string.scenarioImgExtra))).into(scenarioPicture);
+        }else{
+            scenarioPicture.setImageResource(R.drawable.scenario_nophoto);
+        }
+
         scenarioName.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioNameExtra)));
         scenarioPrice.setText("Price: "+getIntent().getStringExtra(getResources().getString(R.string.scenarioPriceExtra))+"€/Hour");
         scenarioDescription.setText(getIntent().getStringExtra(getResources().getString(R.string.scenarioDescrExtra)));
