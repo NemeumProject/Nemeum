@@ -63,7 +63,7 @@
                     android:textAlignment="center"
                     android:hint="@string/TrainingAddress"
                     android:background="@drawable/months_rounded"
-                    android:textColorHint="@color/colorFont"
+                    android:textColorHint="@color/colorWhite"
                     android:textSize="12sp"
                     android:inputType="text"
                     android:layout_margin="5dp"/>
@@ -84,7 +84,7 @@
                         android:textSize="12sp"
                         android:textAlignment="center"
                         android:inputType="numberDecimal"
-                        android:textColorHint="@color/colorFont"
+                        android:textColorHint="@color/colorWhite"
                         android:background="@drawable/months_rounded"
                         />
 
@@ -133,16 +133,16 @@
                     android:layout_gravity="center"
                     android:background="@drawable/months_rounded"
                     android:hint="@string/TrainingDescription"
-                    android:textColorHint="@color/colorFont"
+                    android:textColorHint="@color/colorWhite"
                     android:textSize="12sp"
                     android:textAlignment="center"/>
 
                 <Button
                     android:id="@+id/confirmBookButton"
-                    android:layout_width="300dp"
+                    android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/months_rounded"
                     android:backgroundTint="@color/colorPink"
                     android:text="@string/buttonSubmit"

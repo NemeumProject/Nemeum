@@ -353,4 +353,9 @@ public class BookScenarioPayment  extends Activity {
         }
         ).start();
     }
+
+    public void getBack(View view) {
+        finish();
+    }
+
 }

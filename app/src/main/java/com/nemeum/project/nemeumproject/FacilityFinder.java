@@ -211,10 +211,8 @@ public class FacilityFinder extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.facility_result_layout, null);
 
             ImageView facilityImg = convertView.findViewById(R.id.facilityResultImg);
-            Button bookBtn = convertView.findViewById(R.id.bookFacilityResult);
             Button scheduleBtn = convertView.findViewById(R.id.scenarioFacilityResult);
             TextView facilityTitle = convertView.findViewById(R.id.facilityResultTitleText);
-            RatingBar facilityRating = convertView.findViewById(R.id.starFacilityRating);
             TextView facilityAddress = convertView.findViewById(R.id.facilityResultPlaceText);
             TextView facilityEmail = convertView.findViewById(R.id.facilityResultEmailText);
             TextView facilityDescription = convertView.findViewById(R.id.facilityResultDescriptionText);
@@ -226,7 +224,6 @@ public class FacilityFinder extends AppCompatActivity {
                 facilityTitle.setText(listCompany.get(position).getTitle());
             }
 
-            facilityRating.setRating(facilityPoints[position]);
             facilityAddress.setText(listCompany.get(position).getAddress());
             facilityEmail.setText(listCompany.get(position).getEmail());
             if(listCompany.get(position).getDescription().equals("null")){

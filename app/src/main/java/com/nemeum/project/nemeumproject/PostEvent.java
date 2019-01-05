@@ -16,10 +16,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -54,8 +56,8 @@ public class PostEvent extends AppCompatActivity {
     private EditText eventTitle;
     private EditText eventDesc;
     private EditText eventLocation;
-    private EditText eventCity;
     private EditText eventDate;
+    private Spinner eventCity;
     private ImageView eventImage;
     private Button submitEventBtn;
     private Uri imagePath;
@@ -78,11 +80,15 @@ public class PostEvent extends AppCompatActivity {
         eventTitle = findViewById(R.id.eventTitle);
         eventDesc = findViewById(R.id.eventDescription);
         eventLocation = findViewById(R.id.eventLocation);
-        eventCity = findViewById(R.id.eventCity);
         eventDate = findViewById(R.id.eventDate);
         eventImage = findViewById(R.id.eventImg);
         submitEventBtn = findViewById(R.id.eventPost);
         eventCalendar = Calendar.getInstance();
+
+        eventCity = findViewById(R.id.eventCity);
+        ArrayAdapter<CharSequence> SportCityAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, R.layout.spinner_layout);
+        SportCityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        eventCity.setAdapter(SportCityAdapter);
 
         imageStorage = FirebaseStorage.getInstance();
         imageStorageReference = imageStorage.getReference();
@@ -94,7 +100,7 @@ public class PostEvent extends AppCompatActivity {
             }
         });
 
-        eventDate.setShowSoftInputOnFocus(false);
+        //eventDate.setShowSoftInputOnFocus(false);
         eventDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
@@ -235,7 +241,7 @@ public class PostEvent extends AppCompatActivity {
             Toast.makeText(appContext, getResources().getString(R.string.field_location_empty), Toast.LENGTH_LONG).show();
             error = true;
         }
-        if (eventCity.getText().toString().isEmpty()) {
+        if (eventCity.getSelectedItem().toString().equals("City")) {
             Toast.makeText(appContext, getResources().getString(R.string.field_city_empty), Toast.LENGTH_LONG).show();
             error = true;
         }
@@ -281,7 +287,7 @@ public class PostEvent extends AppCompatActivity {
             event.setTitle(eventTitle.getText().toString());
             event.setDescription(eventDesc.getText().toString());
             event.setAddress(eventLocation.getText().toString());
-            event.setCity(eventCity.getText().toString());
+            event.setCity(eventCity.getSelectedItem().toString());
 
             new Thread(new Runnable() {
                 @SuppressLint("StringFormatInvalid")

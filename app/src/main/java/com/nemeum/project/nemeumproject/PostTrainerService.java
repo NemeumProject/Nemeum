@@ -53,22 +53,22 @@ public class PostTrainerService extends AppCompatActivity {
         final Button submit_training_service = findViewById(R.id.confirmBookButton);
 
         final Spinner SportTrainingCategory = findViewById(R.id.SportTypeTraining);
-        ArrayAdapter<CharSequence> SportCategoryAdapter = ArrayAdapter.createFromResource(this, R.array.sportFilter, R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> SportCategoryAdapter = ArrayAdapter.createFromResource(this, R.array.sportFilter, R.layout.spinner_layout);
         SportCategoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         SportTrainingCategory.setAdapter(SportCategoryAdapter);
 
         final Spinner SportTrainingCity = findViewById(R.id.TrainingCity);
-        ArrayAdapter<CharSequence> SportCityAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> SportCityAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, R.layout.spinner_layout);
         SportCityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         SportTrainingCity.setAdapter(SportCityAdapter);
 
         final Spinner TrainingStart = findViewById(R.id.startTrainingTime);
-        ArrayAdapter<CharSequence> TrainingStartAdapter = ArrayAdapter.createFromResource(this,R.array.hourStartFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> TrainingStartAdapter = ArrayAdapter.createFromResource(this,R.array.hourStartFilter, R.layout.spinner_layout);
         TrainingStartAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         TrainingStart.setAdapter(TrainingStartAdapter);
 
         final Spinner TrainingEnd = findViewById(R.id.endTrainingTime);
-        ArrayAdapter<CharSequence> TrainingEndAdapter = ArrayAdapter.createFromResource(this,R.array.hourEndFilter, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> TrainingEndAdapter = ArrayAdapter.createFromResource(this,R.array.hourEndFilter, R.layout.spinner_layout);
         TrainingEndAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         TrainingEnd.setAdapter(TrainingStartAdapter);
 

@@ -19,24 +19,14 @@
         android:layout_margin="8dp"/>
 
     <Button
-        android:id="@+id/bookFacilityResult"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
-        android:text="@string/buttonBook"
-        android:layout_margin="5dp"
-        android:textSize="10dp"
-        android:layout_below="@+id/facilityResultImg"
-        android:textColor="@color/colorFont"
-        android:background="@drawable/months_rounded" />
-
-    <Button
         android:id="@+id/scenarioFacilityResult"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:text="@string/buttonScenario"
         android:layout_margin="5dp"
+        android:textAllCaps="false"
         android:textSize="10dp"
-        android:layout_below="@+id/bookFacilityResult"
+        android:layout_below="@+id/facilityResultImg"
         android:textColor="@color/colorFont"
         android:background="@drawable/months_rounded"
         android:backgroundTint="@color/colorPink"/>
@@ -49,20 +39,12 @@
         android:textColor="@color/colorFont"
         android:textSize="15sp"/>
 
-    <RatingBar
-        android:id="@+id/starFacilityRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/facilityResultTitleText"
-        android:layout_toRightOf="@+id/facilityResultImg"
-        android:numStars="5"
-        android:stepSize=".1" />
 
     <TextView
         android:id="@+id/facilityResultPlaceText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/starFacilityRating"
+        android:layout_below="@+id/facilityResultTitleText"
         android:layout_toRightOf="@+id/facilityResultImg"
         android:textColor="@color/colorBlue"
         android:textSize="13sp"/>
