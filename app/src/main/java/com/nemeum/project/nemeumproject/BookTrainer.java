@@ -31,7 +31,8 @@ public class BookTrainer extends AppCompatActivity {
 
         trainerPicture.setImageResource(getIntent().getIntExtra(getResources().getString(R.string.trainerImgExtra), R.drawable.bicycle_rider));
         trainerName.setText(getIntent().getStringExtra(getResources().getString(R.string.trainerNameExtra)));
-        trainerSport.setText(getIntent().getStringExtra(getResources().getString(R.string.trainersporttype)));
+        trainerSport.setText((getIntent().getStringExtra(getResources().getString(R.string.trainersporttype))+" - "+getIntent().getStringExtra(getResources().getString(R.string.trainerAddressExtra))+", "+
+        getIntent().getStringExtra(getResources().getString(R.string.trainerCityExtra))));
         trainerPrice.setText("Price: "+getIntent().getStringExtra(getResources().getString(R.string.trainerPriceExtra))+"€/Hour");
         trainerDescription.setText(getIntent().getStringExtra(getResources().getString(R.string.trainerDescrExtra)));
 

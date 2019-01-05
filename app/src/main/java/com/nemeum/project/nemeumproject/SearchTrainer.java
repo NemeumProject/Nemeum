@@ -496,7 +496,7 @@ public class SearchTrainer extends AppCompatActivity {
             trainerImg.setImageResource(scenarioPicture[0]);
             trainerName.setText(namesOfTrainer.get(position));
             trainerSport.setText(nameSport.get(position));
-            trainerAddress.setText(listTrainerService.get(position).getTraining_address());
+            trainerAddress.setText(listTrainerService.get(position).getTraining_address()+", "+listTrainerService.get(position).getTraining_city());
             trainerDescription.setText(listTrainerService.get(position).getTraining_desc());
 
             bookBtn.setOnClickListener(new View.OnClickListener() {
@@ -509,6 +509,8 @@ public class SearchTrainer extends AppCompatActivity {
                     intentBookTrainer.putExtra(getResources().getString(R.string.trainersporttype),nameSport.get(position));
                     intentBookTrainer.putExtra(getResources().getString(R.string.trainerPriceExtra),Double.toString(listTrainerService.get(position).getTraining_price()));
                     intentBookTrainer.putExtra(getResources().getString(R.string.trainerDescrExtra),listTrainerService.get(position).getTraining_desc());
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerAddressExtra),listTrainerService.get(position).getTraining_address());
+                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerCityExtra),listTrainerService.get(position).getTraining_city());
                     appContext.startActivity(intentBookTrainer);
 
                 }

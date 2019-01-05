@@ -29,6 +29,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         ImageButton findtrainer_btn;
         ImageButton createevent_btn;
         ImageButton posttrainersvc_btn;
+        ImageButton edit_trainer_btn;
         TextView set_user_name;
 
         super.onCreate(savedInstanceState);
@@ -43,6 +44,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         findtrainer_btn = findViewById(R.id.findtrainericon);
         createevent_btn = findViewById(R.id.myevent);
         posttrainersvc_btn = findViewById(R.id.postservice);
+        edit_trainer_btn = findViewById(R.id.myservice);
         progressBar = findViewById(R.id.progressbar);
         menu = findViewById(R.id.navigation);
         set_user_name = findViewById(R.id.user_names);
@@ -94,6 +96,14 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
                 postTrainerOnclick();
             }
         });
+        edit_trainer_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                editTrainerServiceOnClick();
+            }
+        });
+
 
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -154,6 +164,10 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
     public void postTrainerOnclick() {
         Intent intent9 = new  Intent(this,PostTrainerService.class);
         startActivity(intent9);
+    }
+    public void editTrainerServiceOnClick(){
+        Intent intent10 = new Intent(this,activity_edit_trainer_service.class);
+        startActivity(intent10);
     }
 }
 
