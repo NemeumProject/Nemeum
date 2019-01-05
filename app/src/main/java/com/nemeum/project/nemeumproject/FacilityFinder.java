@@ -34,10 +34,12 @@ import models.CompanyUser;
 
 public class FacilityFinder extends AppCompatActivity {
 
-    int[] facilityPicture = {R.drawable.scenario_nophoto};
-    int[] facilityPoints = {1, 2, 3, 4, 5};
-    Context appContext;
-    List<CompanyUser> listCompany = new ArrayList<>();
+    private int[] facilityPoints = {1, 2, 3, 4, 5};
+    private Context appContext;
+    private SharedPreferences SP;
+    private List<CompanyUser> listCompany = new ArrayList<>();
+    private BottomNavigationView menu;
+    private String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,29 +47,40 @@ public class FacilityFinder extends AppCompatActivity {
         setContentView(R.layout.activity_facility_finder);
 
         appContext = getApplicationContext();
+        SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
         getAllUsers();
-
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+        checkRegisteredUser();
         ListView resultList = findViewById(R.id.facilitiesList);
 
         CustomAdapter customResult = new CustomAdapter();
 
         resultList.setAdapter(customResult);
 
-        BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
+                            appContext.startActivity(intentMainInd);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
+                            appContext.startActivity(intentMainTrainer);
+                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
+                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
+                            appContext.startActivity(intentMainCompany);
+                        } else {
+                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                            appContext.startActivity(intentMain);
+                        }
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
@@ -78,15 +91,35 @@ public class FacilityFinder extends AppCompatActivity {
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
-                        getApplicationContext().startActivity(intentAccount);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else {
+                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
+                            appContext.startActivity(intentAccount);
+                        }
                         return true;
                     default:
                         return false;
                 }
             }
         });
+    }
 
+    private void checkRegisteredUser() {
+        menu = findViewById(R.id.navigation);
+        userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
+
+        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                userType.equals(getResources().getString(R.string.companyUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+        } else {
+            menu.getMenu().getItem(3).setVisible(false);
+        }
     }
 
     public synchronized void getAllUsers() {
@@ -186,7 +219,7 @@ public class FacilityFinder extends AppCompatActivity {
             TextView facilityEmail = convertView.findViewById(R.id.facilityResultEmailText);
             TextView facilityDescription = convertView.findViewById(R.id.facilityResultDescriptionText);
 
-            facilityImg.setImageResource(facilityPicture[0]);
+            facilityImg.setImageResource(R.drawable.scenario_nophoto);
             if(listCompany.get(position).getTitle().equals("null")){
                 facilityTitle.setText("Without title");
             }else{

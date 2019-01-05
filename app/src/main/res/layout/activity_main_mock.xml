@@ -116,7 +116,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:maxLines="2"
             android:text="@string/search_event"
             android:textColor="@color/colorFont"
@@ -149,7 +149,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:maxLines="2"
             android:text="@string/search_facilities"
             android:textColor="@color/colorFont"
@@ -182,7 +182,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:maxLines="2"
             android:text="@string/search_scenario"
             android:textColor="@color/colorFont"
@@ -215,7 +215,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:maxLines="2"
             android:text="@string/search_trainer"
             android:textColor="@color/colorFont"

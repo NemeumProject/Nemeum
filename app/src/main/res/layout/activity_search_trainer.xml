@@ -87,7 +87,7 @@
         android:textColor="@color/colorBackground"
         android:textAllCaps="false"
         android:textAlignment="center"
-        android:text="@string/search_trainer"
+        android:text="@string/buttonSearch"
         android:onClick="filterServices"/>
 
     <ListView

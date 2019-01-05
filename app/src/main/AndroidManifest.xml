@@ -31,23 +31,26 @@
         <activity android:name=".ActivityMainMock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".BookTrainerPayment"/>
-        <activity android:name=".BookTrainer"/>
+        <activity android:name=".BookTrainerPayment" />
+        <activity android:name=".BookTrainer" />
         <activity android:name=".PostScenario" />
         <activity android:name=".activity_edit_scenario" />
         <activity android:name=".activity_edit_daily_schedule" />
         <activity android:name=".UserTrainerLoginActivity" />
         <activity android:name=".UserCompanyLoginActivity" />
         <activity android:name=".UserLoginActivity" />
-        <activity android:name=".NormalUserRegistration"
-                  android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name=".CompanyUserRegistration"
+        <activity
+            android:name=".NormalUserRegistration"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name=".TrainerUserRegistration"
+        <activity
+            android:name=".CompanyUserRegistration"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".TrainerUserRegistration"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity android:name=".Login" />
         <activity android:name=".ForgetPassActivity" />
@@ -58,7 +61,7 @@
         <activity android:name=".TrainerDetail" />
         <activity android:name=".SearchTrainer" />
         <activity android:name=".CompanyDetail" />
-        <activity android:name=".PostTrainerService"/>
+        <activity android:name=".PostTrainerService" />
         <activity android:name=".activity_company_editionp" />
         <activity android:name=".activity_user_editionp" />
         <activity android:name=".Settings" />
@@ -79,7 +82,8 @@
         <activity android:name=".BookScenarioPayment" />
         <activity android:name=".MyBookings" />
         <activity android:name=".EditBook" />
-        <activity android:name=".PostEvent"/>
+        <activity android:name=".PostEvent" />
+        <activity android:name=".IndividualUserDetail"></activity>
     </application>
 
 </manifest>

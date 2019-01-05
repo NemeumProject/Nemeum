@@ -129,7 +129,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
                         appContext.startActivity(intentSettings);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
+                        Intent intentAccount = new Intent(getApplicationContext(), CompanyDetail.class);
                         getApplicationContext().startActivity(intentAccount);
                         return true;
                     default:

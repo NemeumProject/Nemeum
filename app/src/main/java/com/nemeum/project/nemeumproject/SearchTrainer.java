@@ -48,22 +48,21 @@ import models.TrainerService;
 
 public class SearchTrainer extends AppCompatActivity {
 
-    int[] scenarioPicture = {R.drawable.scenario_nophoto};
-    int[] trainerPoints = {1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9, 10 ,11};
+    private Context appContext;
 
-    Context appContext;
-
-    List<TrainerService> listTrainerService = new ArrayList<>();
-    List<Sport> listSport = new ArrayList<>();
-    List<String> nameSport = new ArrayList<>();
-    List<String> namesOfTrainer = new ArrayList<>();
+    private List<TrainerService> listTrainerService = new ArrayList<>();
+    private List<Sport> listSport = new ArrayList<>();
+    private List<String> nameSport = new ArrayList<>();
+    private List<String> namesOfTrainer = new ArrayList<>();
 
     private ListView resultList;
     private String city;
     private Integer idSport;
     private Double price;
-    String idUser;
-
+    private String idUser;
+    private SharedPreferences SP;
+    private BottomNavigationView menu;
+    private String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +70,10 @@ public class SearchTrainer extends AppCompatActivity {
         setContentView(R.layout.activity_search_trainer);
 
         appContext = getApplicationContext();
-        SharedPreferences shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
-        idUser = (shared.getString("idUser", ""));
+        SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+
+        checkRegisteredUser();
+        idUser = (SP.getString("idUser", ""));
 
         getAllSports();
         try {
@@ -117,14 +118,24 @@ public class SearchTrainer extends AppCompatActivity {
         priceSpinner.setAdapter(priceAdapter);
 
 
-        BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
+                            appContext.startActivity(intentMainInd);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
+                            appContext.startActivity(intentMainTrainer);
+                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
+                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
+                            appContext.startActivity(intentMainCompany);
+                        } else {
+                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                            appContext.startActivity(intentMain);
+                        }
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
@@ -135,8 +146,16 @@ public class SearchTrainer extends AppCompatActivity {
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(appContext, TrainerDetail.class);
-                        appContext.startActivity(intentAccount);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else {
+                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
+                            appContext.startActivity(intentAccount);
+                        }
                         return true;
                     default:
                         return false;
@@ -204,6 +223,19 @@ public class SearchTrainer extends AppCompatActivity {
             }
 
         });
+    }
+
+    private void checkRegisteredUser(){
+        menu = findViewById(R.id.navigation);
+        userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
+
+        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                userType.equals(getResources().getString(R.string.companyUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+        } else {
+            menu.getMenu().getItem(3).setVisible(false);
+        }
     }
 
     public synchronized void filterServices(View view){
@@ -493,7 +525,7 @@ public class SearchTrainer extends AppCompatActivity {
             TextView trainerDescription = convertView.findViewById(R.id.trainerResultDescriptionText);
 
             trainerImg.setImageResource(R.drawable.bicycle_rider);
-            trainerImg.setImageResource(scenarioPicture[0]);
+            trainerImg.setImageResource(R.drawable.scenario_nophoto);
             trainerName.setText(namesOfTrainer.get(position));
             trainerSport.setText(nameSport.get(position));
             trainerAddress.setText(listTrainerService.get(position).getTraining_address()+", "+listTrainerService.get(position).getTraining_city());

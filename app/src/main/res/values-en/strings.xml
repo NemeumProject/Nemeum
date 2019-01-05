@@ -99,17 +99,17 @@
 
     <!-- Strings related to home screen -->
     <string name="search_home">Home</string>
-    <string name="search_trainer">Search Trainer</string>
-    <string name="search_facilities">Search Facilities</string>
-    <string name="search_event">Search Events</string>
-    <string name="search_scenario">Search Scenario</string>
-    <string name="create_event">Create Event</string>
-    <string name="create_scenario">Create Scenario</string>
-    <string name="edit_scenario">Edit Scenario</string>
-    <string name="update_schedule">Update Schedule</string>
+    <string name="search_trainer">Search\nTrainer</string>
+    <string name="search_facilities">Search\nFacilities</string>
+    <string name="search_event">Search\nEvents</string>
+    <string name="search_scenario">Search\nScenario</string>
+    <string name="create_event">Create\nEvent</string>
+    <string name="create_scenario">Create\nScenario</string>
+    <string name="edit_scenario">Edit\nScenario</string>
+    <string name="update_schedule">Update\nSchedule</string>
     <string name="my_bookings">My Bookings</string>
-    <string name="create_service">Create Service</string>
-    <string name="edit_service">Edit Service</string>
+    <string name="create_service">Create\nService</string>
+    <string name="edit_service">Edit\nService</string>
     <string name="my_account">My Account</string>
     <string name="settings">Settings</string>
     <string name="login">Login</string>
@@ -298,6 +298,7 @@
     <string name="buttonYes">Yes</string>
     <string name="buttonNo">No</string>
     <string name="buttonPost">Post</string>
+    <string name="buttonSearch">Search</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre in Bethral Green includes a gym, day-spa, 33-metre swimming pool, Turkish bath and offers a wide range of exercise classes but is best known as a boxing arena, where the future champions like Lenoxx Lewis and Audley Harrisson learned they craft. the magnificent Georgian building, opened in 1929 by the duke of York , has played host to some of the world\'s greatests boxers with fights taking place in the grand main hall.</string>

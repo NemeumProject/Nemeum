@@ -99,17 +99,17 @@
 
     <!-- Strings related to home screen -->
     <string name="search_home">Inicio</string>
-    <string name="search_trainer">Buscar Entrenadores</string>
-    <string name="search_facilities">Buscar Instalaciones</string>
-    <string name="search_event">Buscar Eventos</string>
-    <string name="search_scenario">Buscar Escenarios</string>
-    <string name="create_event">Crear Evento</string>
-    <string name="create_scenario">Crear Escenario</string>
-    <string name="edit_scenario">Editar Escenario</string>
-    <string name="update_schedule">Atualizar Agenda</string>
+    <string name="search_trainer">Buscar\nEntrenador</string>
+    <string name="search_facilities">Buscar\nInstalación</string>
+    <string name="search_event">Buscar\nEventos</string>
+    <string name="search_scenario">Buscar\nEscenarios</string>
+    <string name="create_event">Crear\nEvento</string>
+    <string name="create_scenario">Crear\nEscenario</string>
+    <string name="edit_scenario">Editar\nEscenario</string>
+    <string name="update_schedule">Atualizar\nAgenda</string>
     <string name="my_bookings">Mis Citas</string>
-    <string name="create_service">Crear Servicio</string>
-    <string name="edit_service">Editar Servicio</string>
+    <string name="create_service">Crear\nServicio</string>
+    <string name="edit_service">Editar\nServicio</string>
     <string name="my_account">Mi Cuenta</string>
     <string name="settings">Ajustes</string>
     <string name="login">Entrar</string>
@@ -298,6 +298,7 @@
     <string name="buttonYes">Sí</string>
     <string name="buttonNo">No</string>
     <string name="buttonPost">Crear</string>
+    <string name="buttonSearch">Buscar</string>
 
     <!-- Strings for Company Profile -->
     <string name="facilitiesDescription">Decathlon Sport Centre en Bethral Green incluye un gimnasio, día de spa, piscina de 33 metros, Sauna Turca y ofrece variedad de ejercicios, pero es mayormente conocida por su arena para boxeo, donde los futuros campeones como Lenoxx Lewis y Audley Harrisson aprendieron lo que hacen. El magnifico edificio Georgian, abierto desde 1929 por el duque de York, ha acogido a algunos de los mas grandes boxeadores con combates en el salon principal.</string>
@@ -507,5 +508,5 @@
     <string name="bookingOK">Reserva exitosa</string>
     <string name="bookingError">Error creando la reserva</string>
     <string name="joinScenarioDB">/joinScenario</string>
-    <string name="selectplease">Select one scenario</string>
+    <string name="selectplease">Selecione un escenario</string>
 </resources>

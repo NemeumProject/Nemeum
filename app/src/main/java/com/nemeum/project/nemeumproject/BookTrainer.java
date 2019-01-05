@@ -2,6 +2,7 @@ package com.nemeum.project.nemeumproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,7 +15,10 @@ import android.widget.TextView;
 
 public class BookTrainer extends AppCompatActivity {
 
-    Context appContext;
+    private Context appContext;
+    private SharedPreferences SP;
+    private BottomNavigationView menu;
+    private String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,9 @@ public class BookTrainer extends AppCompatActivity {
         setContentView(R.layout.activity_book_trainer_begin);
 
         appContext = getApplicationContext();
+        SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+
+        checkRegisteredUser();
 
         ImageView trainerPicture = findViewById(R.id.bookTrainerImg);
         TextView trainerName = findViewById(R.id.TrainerNamesBook);
@@ -36,14 +43,24 @@ public class BookTrainer extends AppCompatActivity {
         trainerPrice.setText("Price: "+getIntent().getStringExtra(getResources().getString(R.string.trainerPriceExtra))+"€/Hour");
         trainerDescription.setText(getIntent().getStringExtra(getResources().getString(R.string.trainerDescrExtra)));
 
-        BottomNavigationView menu = findViewById(R.id.navigation);
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
+                            appContext.startActivity(intentMainInd);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
+                            appContext.startActivity(intentMainTrainer);
+                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
+                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
+                            appContext.startActivity(intentMainCompany);
+                        } else {
+                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                            appContext.startActivity(intentMain);
+                        }
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
@@ -54,15 +71,35 @@ public class BookTrainer extends AppCompatActivity {
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
-                        getApplicationContext().startActivity(intentAccount);
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else {
+                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
+                            appContext.startActivity(intentAccount);
+                        }
                         return true;
                     default:
                         return false;
                 }
             }
         });
+    }
 
+    private void checkRegisteredUser() {
+        menu = findViewById(R.id.navigation);
+        userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
+
+        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                userType.equals(getResources().getString(R.string.companyUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+        } else {
+            menu.getMenu().getItem(3).setVisible(false);
+        }
     }
 
     public void getBack(View view) {

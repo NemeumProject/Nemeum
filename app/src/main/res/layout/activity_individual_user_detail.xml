@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".IndividualUserDetail">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/stadium"/>
+
+    <RelativeLayout
+        android:id="@+id/companyDataLwt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="130dp"
+        android:padding="3dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBackground">
+
+        <Button
+            android:id="@+id/editTrainerData"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:onClick="editPersonalInfo"
+            android:background="@mipmap/pencil_button"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/companyTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Ronaldo"
+            android:textColor="@color/colorBlue"
+            android:textSize="25sp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/companySloganText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyTitleText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Soccer Trainer"
+            android:textColor="@color/colorPink"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/companyPlaceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/companySloganText"
+            android:layout_centerHorizontal="true"
+            android:text="Rio de Janeiro, Brazil"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/trainerIIIText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/companyPlaceText"
+            android:textColor="@color/colorWhite"
+            android:layout_centerHorizontal="true"
+            android:text="+33 155359755"
+            android:textSize="15sp"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/companyLogoImg"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ronaldo" />
+
+    <RelativeLayout
+        android:id="@+id/companyDescriptionLwt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/companyDataLwt"
+        android:layout_above="@+id/navigation"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@drawable/results_rounded"
+        android:backgroundTint="@color/colorBackground">
+
+        <TextView
+            android:id="@+id/scenarioDescrTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutTrainerTitle"
+            android:textColor="@color/colorBlue"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/scenarioDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scenarioDescrTitleText"
+            android:textColor="@color/colorWhite"
+            android:text="I'm a Brazilian soccer manager and former professional player. I have played for several Brazilian and European known teas, like Cruzeiro, Bracelona and Real Madrid. I the Brazilian national team, I've participated of the campaigns of the vice-campaign in 1997 and winner campaign in 2002."
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
+</RelativeLayout>

@@ -9,9 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ArrayAdapter;
 
-public class Settings extends AppCompatActivity {
+public class IndividualUserDetail extends AppCompatActivity {
 
     private Context appContext;
     private SharedPreferences SP;
@@ -21,7 +21,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_individual_user_detail);
 
         appContext = getApplicationContext();
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
@@ -87,22 +87,8 @@ public class Settings extends AppCompatActivity {
         }
     }
 
-    public void getBack(View view) {
-        finish();
-    }
-
-    public void seeAbout(View view) {
-        Intent intentAbout = new Intent(appContext, About.class);
-        appContext.startActivity(intentAbout);
-    }
-
-    public void seeVersion(View view) {
-        Intent intentVersion = new Intent(appContext, Version.class);
-        appContext.startActivity(intentVersion);
-    }
-
-    public void changeLanguage(View view) {
-        Intent intentLanguage = new Intent(appContext, LanguageSelect.class);
-        appContext.startActivity(intentLanguage);
+    public void editPersonalInfo(View view) {
+        Intent intentEditPersonalInfo = new Intent(getApplicationContext(), activity_user_editionp.class);
+        startActivity(intentEditPersonalInfo);
     }
 }

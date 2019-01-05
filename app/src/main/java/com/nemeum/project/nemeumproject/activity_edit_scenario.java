@@ -1,29 +1,29 @@
 package com.nemeum.project.nemeumproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -45,6 +45,11 @@ import java.util.List;
 import models.Scenario;
 
 public class activity_edit_scenario extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private Context appContext;
+    private SharedPreferences SP;
+    private BottomNavigationView menu;
+    private String userType;
+
     ImageButton changePicture;
     Button back_btn;
     private static final int PICK_IMAGE=100;
@@ -59,6 +64,12 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_scenario);
+
+        appContext = getApplicationContext();
+        SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+
+        checkRegisteredUser();
+
         registeredUserPref = getApplicationContext().getSharedPreferences(getResources().getString(R.string.userTypeSP), getApplicationContext().MODE_PRIVATE);
         shared = getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         idUser = (shared.getString("idUser", ""));
@@ -110,9 +121,65 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
 
         });
 
-        //changePicture = findViewById(R.id.companyLogoImg_EditScenario);
-
+        menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.homeButton:
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
+                            appContext.startActivity(intentMainInd);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
+                            appContext.startActivity(intentMainTrainer);
+                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
+                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
+                            appContext.startActivity(intentMainCompany);
+                        } else {
+                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                            appContext.startActivity(intentMain);
+                        }
+                        return true;
+                    case R.id.settingsButton:
+                        Intent intentSettings = new Intent(appContext, Settings.class);
+                        appContext.startActivity(intentSettings);
+                        return true;
+                    case R.id.loginButton:
+                        Intent intentLogin = new Intent(appContext, Login.class);
+                        appContext.startActivity(intentLogin);
+                        return true;
+                    case R.id.accountButton:
+                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
+                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
+                            appContext.startActivity(intentAccount);
+                        } else {
+                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
+                            appContext.startActivity(intentAccount);
+                        }
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
     }
+
+    private void checkRegisteredUser() {
+        menu = findViewById(R.id.navigation);
+        userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
+
+        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                userType.equals(getResources().getString(R.string.companyUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+        } else {
+            menu.getMenu().getItem(3).setVisible(false);
+        }
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 

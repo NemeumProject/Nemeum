@@ -389,10 +389,6 @@
             android:onClick="delete_scenario"/>
     </LinearLayout>
 
-
-
-
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
