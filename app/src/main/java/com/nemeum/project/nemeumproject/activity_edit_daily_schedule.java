@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -44,6 +45,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
     EditText date_EditText;
     EditText startingTime_EditText;
     EditText endingTime_EditText;
+    Button cancel;
     String strEmail;
     Context appContext;
     List<Scenario> listScenario = new ArrayList<>();
@@ -69,7 +71,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         getList_to_Spinner();
 
         Spinner spinner = findViewById(R.id.scenarios_Spinner_Daily_Schedule);
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, scenarioList);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, R.layout.spinner_layout_special, scenarioList);
        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
@@ -78,6 +80,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         date_EditText= findViewById(R.id.et_Date_Daily_Schedule);
         startingTime_EditText= findViewById(R.id.et_StartingTime_Daily_Schedule);
         endingTime_EditText= findViewById(R.id.et_EndingTime_Daily_Schedule);
+        cancel = findViewById(R.id.btn_cancel_user_edition);
         final String select_stime_popup = getString(R.string.starting_Time);
         final String select_etime_popup = getString(R.string.ending_Time);
 
@@ -139,6 +142,13 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                 ending_time_TimePicker.setTitle(select_etime_popup);
                 ending_time_TimePicker.show();
 
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancel_activity();
             }
         });
         
@@ -368,5 +378,13 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
 
         }
+    }
+
+    public void cancel_activity(){
+        finish();
+    }
+
+    public void getBack(View view) {
+        finish();
     }
 }
