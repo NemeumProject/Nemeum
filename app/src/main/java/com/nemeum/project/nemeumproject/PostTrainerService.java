@@ -180,6 +180,13 @@ public class PostTrainerService extends AppCompatActivity {
                                 Toast.makeText(PostTrainerService.this, getResources().getString(R.string.SportServiceSuccess), Toast.LENGTH_LONG).show();
                             }
                         });
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Intent intent2 = new Intent(PostTrainerService.this, UserTrainerLoginActivity.class);
+                        startActivity(intent2);
                     }
                 }
                 catch (IOException e){
