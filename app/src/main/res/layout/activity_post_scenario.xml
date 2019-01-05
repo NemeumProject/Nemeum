@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="310dp"
+        android:layout_marginBottom="350dp"
         android:background="@drawable/text_box"
         android:gravity="center"
         android:textColorHint="#17252a"
@@ -85,13 +85,22 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="270dp"
+        android:layout_marginBottom="310dp"
         android:background="@drawable/text_box"
         android:gravity="center"
         android:textColorHint="#17252a"
         android:hint="Scenario Location"
         android:textSize="10sp"
         android:inputType="text"/>
+
+    <Spinner
+        android:id="@+id/cityScenario"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:spinnerMode="dropdown"
+        android:layout_marginBottom="270dp"
+        android:gravity="center"
+        android:background="@drawable/months_rounded" />
 
     <EditText
         android:id="@+id/edit_scenario_desc"

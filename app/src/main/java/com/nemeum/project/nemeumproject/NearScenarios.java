@@ -53,6 +53,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -328,6 +329,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                         if(!parser.isNull("indoor")){
                             scenario.setIndoor(parser.getBoolean("indoor"));
                         }
+                        scenario.setCity(parser.getString("city"));
                         numResults++;
                         listScenario.add(scenario);
 
@@ -549,6 +551,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             TextView scenarioTitle = convertView.findViewById(R.id.companyResTitle);
             TextView scenarioTitleDescr = convertView.findViewById(R.id.companyResScenarioText);
             TextView scenarioDescription = convertView.findViewById(R.id.companyResDescription);
+            TextView scenarioAddress = convertView.findViewById(R.id.companyResAddress);
+            TextView scenarioCity = convertView.findViewById(R.id.companyResCity);
 
             if(!listScenario.get(position).getPrice().toString().equals("null"))
                 scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€/Hour");
@@ -557,6 +561,9 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                 Picasso.get().load(listScenario.get(position).getImage()).into(scenarioImg);
             else
                 Picasso.get().load(R.drawable.scenario_nophoto).into(scenarioImg);
+
+            scenarioAddress.setText(listScenario.get(0).getAddress());
+            scenarioCity.setText(listScenario.get(0).getCity());
 
             scenarioTitle.setText(listScenario.get(position).getTitle());
             scenarioTitleDescr.setText("Scenario " + position);
