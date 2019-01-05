@@ -63,11 +63,4 @@ public class Version extends AppCompatActivity {
     public void getBack(View view) {
         finish();
     }
-
-    public void updateCheck(View view) {
-
-        Toast toast = Toast.makeText(appContext, R.string.newFuncionalityErr, Toast.LENGTH_LONG);
-        toast.show();
-
-    }
 }
