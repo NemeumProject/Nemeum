@@ -52,6 +52,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
     List<Scenario> listScenario = new ArrayList<>();
     ArrayList<String>scenarioList;
     String idScenario;
+    int initialH, finalH;
 
     private String idCompany;
     @Override
@@ -202,11 +203,13 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
         EditText etStartingTime = findViewById(R.id.et_StartingTime_Daily_Schedule);
         final String stStartingTime = etStartingTime.getText().toString();
+        initialH= Integer.parseInt(stStartingTime.substring(0, 2));
         String stStartingTime_Error= getString(R.string.stime_error);
 
 
         EditText etEndingTime = findViewById(R.id.et_EndingTime_Daily_Schedule);
         final String strEndTime = etEndingTime.getText().toString();
+        finalH=Integer.parseInt(strEndTime.substring(0, 2));
         String strEndingtime_Error = getString(R.string.etime_error) ;
 
         EditText etCustomerName = findViewById(R.id.et_customerName);
@@ -262,6 +265,11 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         else  if(TextUtils.isEmpty(strPhone)) {
             etCustomerPhone.setError(phone_Error);
             return;
+        }
+        else if (initialH>finalH){
+            String time_selection_Error = getString(R.string.time_selection_Error);
+            Toast toast = Toast.makeText(context, scenarios_spinner_Error, Toast.LENGTH_LONG);
+            toast.show();
         }
         else{
 
