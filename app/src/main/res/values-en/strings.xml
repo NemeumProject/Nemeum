@@ -566,4 +566,5 @@
     <string name="edit_your_address">Edit Your Address</string>
     <string name="chooseTrainigS">Choose Your Training Service</string>
     <string name="editTrainig_Services">Edit Training Services</string>
+    <string name = "slogan">Slogan</string>
 </resources>

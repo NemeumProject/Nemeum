@@ -570,4 +570,5 @@
     <string name="edit_your_address">Edite su dirección</string>
     <string name="chooseTrainigS">Elija su servicio de entrenamiento</string>
     <string name="editTrainig_Services">Edite servicios de entrenamiento</string>
+    <string name = "slogan">Slogan</string>
 </resources>

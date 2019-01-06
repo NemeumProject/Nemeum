@@ -34,7 +34,7 @@
             android:layout_marginStart="98dp"
             android:layout_marginTop="60dp"
             android:inputType="text"
-            android:hint="Company name"
+            android:hint="@string/company_name"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -48,7 +48,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="128dp"
             android:inputType="text"
-            android:hint="Slogan"
+            android:hint="@string/slogan"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -62,7 +62,7 @@
             android:layout_marginTop="-2dp"
             android:layout_marginEnd="86dp"
             android:inputType="text"
-            android:hint="Address"
+            android:hint="@string/user_Address"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -90,7 +90,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="107dp"
             android:inputType="text"
-            android:hint="Phone"
+            android:hint="@string/user_Phone"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -150,7 +150,7 @@
             android:id="@+id/scenarioDescrTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Our Facilities"
+            android:text="@string/ourFacilities"
             android:textColor="@color/colorBlue"
             android:textSize="15sp"/>
 
@@ -161,7 +161,7 @@
             android:layout_below="@+id/scenarioDescrTitleText"
             android:textColor="@color/colorWhite"
             android:inputType="textMultiLine"
-            android:hint="Description"
+            android:hint="@string/description_Posting"
             android:textSize="12sp"/>
     </RelativeLayout>
 
