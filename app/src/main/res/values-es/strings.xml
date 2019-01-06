@@ -539,4 +539,13 @@
     <string name="write_your_scenario">Escriba la descripción del escenario aquí...</string>
     <string name="scenarioCapacity">Capacidad del escenario</string>
     <string name="scenarioPrice">Precio del escenario</string>
+    <string name="lleidagymCenter">Lleida Gym Centro</string>
+    <string name="addressRambla">Dirección: Rambla Ferran no. 24</string>
+    <string name="openClose">Apertura - Cierre: 09:00 - 23:00</string>
+    <string name="scenario1">Escenario 1</string>
+    <string name="scenario2">Escenario 2</string>
+    <string name="getThatHeart">Mejore su ritmo cardíaco y aumente su metabolismo con una selección de clases para quemar grasa en flex.
+        Su paquete especial para el nuevo año incluye 12 clases de su elección de ab blast, quema de grasa, BLT y barra Xtend por solo $ 2.100</string>
+    <string name="getThatHeart4200">Mejore su ritmo cardíaco y aumente su metabolismo con una selección de clases para quemar grasa en flex.
+        Su paquete especial para el nuevo año incluye 12 clases de su elección de ab blast, quemadura de grasa, BLT y barra Xtend por solo $ 4.200</string>
 </resources>
