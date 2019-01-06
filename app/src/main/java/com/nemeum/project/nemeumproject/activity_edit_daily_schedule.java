@@ -32,6 +32,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -85,7 +86,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         final String select_etime_popup = getString(R.string.ending_Time);
 
         //Set the current date
-        String date_n = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault()).format(new Date());
+        String date_n = new SimpleDateFormat(getResources().getString(R.string.calendar_date_format), Locale.getDefault()).format(new Date());
         date_EditText.setText(date_n);
 
         //Create action OnClickListener to allow the user choose a date
@@ -115,7 +116,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                 st_TimePicker = new TimePickerDialog(activity_edit_daily_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHourst, int selectedMinutest) {
-                        startingTime_EditText.setText( selectedHourst + ":" + selectedMinutest);
+                        startingTime_EditText.setText( String .format("%02d:%02d", selectedHourst,selectedMinutest) + ":00");
                     }
                 }, hour_st, minutest, true);//Yes 24 hour time
                 st_TimePicker.setTitle(select_stime_popup);
@@ -136,7 +137,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                 ending_time_TimePicker = new TimePickerDialog(activity_edit_daily_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        endingTime_EditText.setText( selectedHour + ":" + selectedMinute);
+                        endingTime_EditText.setText( String .format("%02d:%02d", selectedHour,selectedMinute) + ":00");
                     }
                 }, hour, minute, true);// 24 hour time
                 ending_time_TimePicker.setTitle(select_etime_popup);
@@ -169,7 +170,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
     };
     private void updateLabel() {
-        String myFormat = getResources().getString(R.string.date_format);
+        String myFormat = getResources().getString(R.string.calendar_date_format);
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
 
         date_EditText.setText(sdf.format(myCalendar.getTime()));
@@ -270,15 +271,17 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                 public void run() {
                     HttpClient httpclient = new DefaultHttpClient();
                     HttpPost httppost = new HttpPost(getResources().getString(R.string.urlDB) + getResources().getString(R.string.joinScenarioDB));
-
+                    DateFormat df = new SimpleDateFormat(getString(R.string.pattern_date_format));
                     JSONObject postData = new JSONObject();
                     try {
+                        Date date = new Date();
+                        String currentDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
                        // postData.put(getResources().getString(R.string.userScenario_userscenarioJson), Integer.parseInt(userScenario) );
                        // postData.put(getResources().getString(R.string.userScenario_idUserJson), Integer.parseInt(iduser));
                         postData.put(getResources().getString(R.string.userScenario_idScenarioJson), Integer.parseInt(idScenario));
-                        postData.put(getResources().getString(R.string.userScenario_dateBookingJson), str_date );
-                        postData.put(getResources().getString(R.string.userScenario_startScenarioJson), stStartingTime);
-                        postData.put(getResources().getString(R.string.userScenario_endScenarioJson), strEndTime);
+                        postData.put(getResources().getString(R.string.userScenario_dateBookingJson), currentDate );
+                        postData.put(getResources().getString(R.string.userScenario_startScenarioJson), str_date+" "+stStartingTime);
+                        postData.put(getResources().getString(R.string.userScenario_endScenarioJson), str_date+" "+strEndTime);
                         postData.put(getResources().getString(R.string.userScenario_phoneJson), Integer.parseInt(strPhone));
                         postData.put(getResources().getString(R.string.userScenario_emailJson), strEmail);
 

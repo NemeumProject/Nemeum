@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -40,6 +41,7 @@ public class FacilityFinder extends AppCompatActivity {
     private List<CompanyUser> listCompany = new ArrayList<>();
     private BottomNavigationView menu;
     private String userType;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class FacilityFinder extends AppCompatActivity {
 
         appContext = getApplicationContext();
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+        progressBar = findViewById(R.id.progressbar);
 
         getAllUsers();
         try {
@@ -107,6 +110,14 @@ public class FacilityFinder extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public  void  onResume(){
+        super.onResume();
+        if(progressBar.getVisibility()==View.VISIBLE) {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     private void checkRegisteredUser() {
@@ -218,16 +229,16 @@ public class FacilityFinder extends AppCompatActivity {
             TextView facilityDescription = convertView.findViewById(R.id.facilityResultDescriptionText);
 
             facilityImg.setImageResource(R.drawable.scenario_nophoto);
-            if(listCompany.get(position).getTitle().equals("null")){
+            if(listCompany.get(position).getComercialName().equals("null")){
                 facilityTitle.setText("Without title");
             }else{
-                facilityTitle.setText(listCompany.get(position).getTitle());
+                facilityTitle.setText(listCompany.get(position).getComercialName());
             }
 
             facilityAddress.setText(listCompany.get(position).getAddress());
             facilityEmail.setText(listCompany.get(position).getEmail());
             if(listCompany.get(position).getDescription().equals("null")){
-                facilityTitle.setText("Without description");
+                facilityDescription.setText("Without description");
             }else{
                 facilityDescription.setText(listCompany.get(position).getDescription());
             }
@@ -236,6 +247,7 @@ public class FacilityFinder extends AppCompatActivity {
             scheduleBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    progressBar.setVisibility(View.VISIBLE);
                     SharedPreferences.Editor registeredUserEditor = registeredUserPref.edit();
                     registeredUserEditor.putString("idCompany", listCompany.get(index).getIdCompanyUser().toString());
                     registeredUserEditor.apply();

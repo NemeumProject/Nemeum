@@ -562,22 +562,36 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentBook = new Intent(appContext, BookScenarios.class);
-                    if(!listScenario.get(position).getImage().equals("null")) {
-                        intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), listScenario.get(position).getImage());
-                        intentBook.putExtra("withImage", "Yes");
-
-                    }else {
-                        intentBook.putExtra("withImage", "No");
+                    if(!(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                            userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                            userType.equals(getResources().getString(R.string.companyUserSP))))
+                    {
+                        ScenariosByFacility.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(ScenariosByFacility.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
-                    intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
-
-                    if(!listScenario.get(position).getDescription().equals("null"))
-                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
                     else
-                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), "");
+                    {
+                        Intent intentBook = new Intent(appContext, BookScenarios.class);
+                        if(!listScenario.get(position).getImage().equals("null")) {
+                            intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), listScenario.get(position).getImage());
+                            intentBook.putExtra("withImage", "Yes");
 
-                    appContext.startActivity(intentBook);
+                        }else {
+                            intentBook.putExtra("withImage", "No");
+                        }
+                        intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
+
+                        if(!listScenario.get(position).getDescription().equals("null"))
+                            intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
+                        else
+                            intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), "");
+
+                        appContext.startActivity(intentBook);
+                    }
+
                 }
             });
             return convertView;

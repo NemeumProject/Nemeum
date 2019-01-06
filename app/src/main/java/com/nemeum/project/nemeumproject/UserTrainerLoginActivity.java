@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,11 +18,11 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
 
     private Context appContext;
     private ProgressBar progressBar;
+    SharedPreferences shared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
-        SharedPreferences shared;
         BottomNavigationView menu;
         ImageButton findevent_btn;
         ImageButton findfacilities_btn;
@@ -30,6 +31,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         ImageButton createevent_btn;
         ImageButton posttrainersvc_btn;
         ImageButton edit_trainer_btn;
+        Button logout_btn;
         TextView set_user_name;
 
         super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         createevent_btn = findViewById(R.id.myevent);
         posttrainersvc_btn = findViewById(R.id.postservice);
         edit_trainer_btn = findViewById(R.id.myservice);
+        logout_btn = findViewById(R.id.logout);
         progressBar = findViewById(R.id.progressbar);
         menu = findViewById(R.id.navigation);
         set_user_name = findViewById(R.id.user_names);
@@ -96,11 +99,20 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
                 postTrainerOnclick();
             }
         });
+
         edit_trainer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 editTrainerServiceOnClick();
+            }
+        });
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                logoutOnclick();
             }
         });
 
@@ -168,6 +180,14 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
     public void editTrainerServiceOnClick(){
         Intent intent10 = new Intent(this,activity_edit_trainer_service.class);
         startActivity(intent10);
+    }
+
+    public  void logoutOnclick(){
+        appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP),0).edit().clear().apply();
+        Intent intent11 = new Intent(this,ActivityMainMock.class);
+        intent11.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent11);
+        this.finish();
     }
 }
 
