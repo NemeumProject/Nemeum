@@ -16,7 +16,7 @@
         android:id="@+id/facilityResultImg"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_margin="8dp"/>
+        android:layout_margin="5dp"/>
 
     <Button
         android:id="@+id/scenarioFacilityResult"
@@ -36,7 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/facilityResultImg"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:textColor="@color/colorFont"
+        android:textStyle="bold"
         android:textSize="15sp"/>
 
 
@@ -46,8 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/facilityResultTitleText"
         android:layout_toRightOf="@+id/facilityResultImg"
+        android:layout_marginRight="5dp"
         android:textColor="@color/colorBlue"
-        android:textSize="13sp"/>
+        android:textSize="12sp"/>
 
     <TextView
         android:id="@+id/facilityResultEmailText"
@@ -55,8 +59,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/facilityResultPlaceText"
         android:layout_toRightOf="@+id/facilityResultImg"
-        android:textColor="@color/colorBlue"
-        android:textSize="13sp"/>
+        android:textColor="@color/colorPink"
+        android:layout_marginRight="5dp"
+        android:textSize="12sp"/>
 
     <TextView
         android:id="@+id/facilityResultDescriptionText"
@@ -65,7 +70,8 @@
         android:layout_below="@+id/facilityResultEmailText"
         android:layout_toRightOf="@+id/facilityResultImg"
         android:textColor="@color/colorFont"
-        android:textSize="12sp"/>
+        android:layout_marginRight="5dp"
+        android:textSize="10sp"/>
 
 </RelativeLayout>
 </LinearLayout>

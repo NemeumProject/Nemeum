@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -18,11 +19,11 @@ public class UserLoginActivity extends AppCompatActivity {
 
     private Context appContext;
     private ProgressBar progressBar;
+    SharedPreferences shared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        SharedPreferences shared;
         TextView set_user_name;
         ImageButton findevent_btn;
         ImageButton findfacilities_btn;
@@ -30,6 +31,7 @@ public class UserLoginActivity extends AppCompatActivity {
         ImageButton findtrainer_btn;
         ImageButton createevent_btn;
         ImageButton mybookings_btn;
+        Button logout_btn;
         BottomNavigationView menu;
 
         super.onCreate(savedInstanceState);
@@ -44,6 +46,7 @@ public class UserLoginActivity extends AppCompatActivity {
         findtrainer_btn = findViewById(R.id.findtrainericon);
         createevent_btn = findViewById(R.id.myevent);
         mybookings_btn = findViewById(R.id.mybooking);
+        logout_btn = findViewById(R.id.logout);
         progressBar = findViewById(R.id.progressbar);
         menu = findViewById(R.id.navigation);
         set_user_name = findViewById(R.id.user_names);
@@ -94,6 +97,14 @@ public class UserLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myBookingsOnclick();
+            }
+        });
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                logoutOnclick();
             }
         });
 
@@ -155,5 +166,13 @@ public class UserLoginActivity extends AppCompatActivity {
     public void myBookingsOnclick() {
         Intent intent10 = new Intent(this, MyBookings.class);
         startActivity(intent10);
+    }
+
+    public  void logoutOnclick(){
+        appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP),0).edit().clear().apply();
+        Intent intent11 = new Intent(this,ActivityMainMock.class);
+        intent11.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent11);
+        this.finish();
     }
 }

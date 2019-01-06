@@ -78,7 +78,7 @@
     <LinearLayout
         android:id="@+id/linear_menu_book_1"
         android:layout_width="300dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="2dp"
@@ -110,7 +110,7 @@
         <Spinner
             android:id="@+id/scenarios_Spinner_EditScenario"
             android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:background="@drawable/months_rounded"
             android:contentDescription="Choose Your Scenario" />
 
@@ -120,7 +120,7 @@
     <LinearLayout
         android:id="@+id/sport_selected"
         android:layout_width="300dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -151,7 +151,7 @@
         <Spinner
             android:id="@+id/scenario_edit_sport"
             android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:background="@drawable/months_rounded"/>
     </LinearLayout>
 
@@ -160,7 +160,7 @@
     <LinearLayout
         android:id="@+id/linear_menu_book_5"
         android:layout_width="300dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -192,7 +192,7 @@
         <EditText
             android:id="@+id/title_Edit_Scenario"
             android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
@@ -202,7 +202,7 @@
     <LinearLayout
         android:id="@+id/linear_menu_book_9"
         android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -231,7 +231,7 @@
         <EditText
             android:id="@+id/capacity_Edit_Scenarios"
             android:layout_width="130dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:textSize="12dp"
             android:textAlignment="center"
             android:inputType="number"
@@ -242,7 +242,7 @@
     <LinearLayout
         android:id="@+id/linear_menu_book_10"
         android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -271,7 +271,7 @@
         <EditText
             android:id="@+id/price_Edit_Scenario"
             android:layout_width="130dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:textSize="12dp"
             android:inputType="numberDecimal"
             android:textAlignment="center"
@@ -282,7 +282,7 @@
     <LinearLayout
         android:id="@+id/linear_menu_book_13"
         android:layout_width="300dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -314,7 +314,7 @@
         <EditText
             android:id="@+id/location_Edit_Scenario"
             android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"

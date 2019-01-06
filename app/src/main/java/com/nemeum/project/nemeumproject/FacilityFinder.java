@@ -218,16 +218,16 @@ public class FacilityFinder extends AppCompatActivity {
             TextView facilityDescription = convertView.findViewById(R.id.facilityResultDescriptionText);
 
             facilityImg.setImageResource(R.drawable.scenario_nophoto);
-            if(listCompany.get(position).getTitle().equals("null")){
+            if(listCompany.get(position).getComercialName().equals("null")){
                 facilityTitle.setText("Without title");
             }else{
-                facilityTitle.setText(listCompany.get(position).getTitle());
+                facilityTitle.setText(listCompany.get(position).getComercialName());
             }
 
             facilityAddress.setText(listCompany.get(position).getAddress());
             facilityEmail.setText(listCompany.get(position).getEmail());
             if(listCompany.get(position).getDescription().equals("null")){
-                facilityTitle.setText("Without description");
+                facilityDescription.setText("Without description");
             }else{
                 facilityDescription.setText(listCompany.get(position).getDescription());
             }

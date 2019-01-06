@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,11 +18,11 @@ import android.widget.Toast;
 public class UserCompanyLoginActivity extends AppCompatActivity {
     private Context appContext;
     private ProgressBar progressBar;
+    SharedPreferences shared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        SharedPreferences shared;
         BottomNavigationView menu;
         ImageButton findevent_btn;
         ImageButton findfacilities_btn;
@@ -31,6 +32,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         ImageButton postscenario_btn;
         ImageButton editscenario_btn;
         ImageButton updateschedule_btn;
+        Button logout_btn;
         TextView set_user_name;
 
         super.onCreate(savedInstanceState);
@@ -47,6 +49,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         postscenario_btn = findViewById(R.id.postserviceicon);
         editscenario_btn = findViewById(R.id.editscenarioicon);
         updateschedule_btn = findViewById(R.id.updatescheduleicon);
+        logout_btn = findViewById(R.id.logout);
         menu = findViewById(R.id.navigation);
         progressBar = findViewById(R.id.progressbar);
         set_user_name = findViewById(R.id.user_names);
@@ -96,6 +99,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
         postscenario_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 postScenarioOnclick();
             }
         });
@@ -113,6 +117,14 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 updateScheduleOnclick();
+            }
+        });
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                logoutOnclick();
             }
         });
 
@@ -190,6 +202,14 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
     {
         Intent intent13 = new Intent(this, activity_edit_daily_schedule.class);
         startActivity(intent13);
+    }
+
+    public  void logoutOnclick(){
+        appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP),0).edit().clear().apply();
+        Intent intent14 = new Intent(this,ActivityMainMock.class);
+        intent14.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent14);
+        this.finish();
     }
 
 }
