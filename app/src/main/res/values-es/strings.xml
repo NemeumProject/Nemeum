@@ -528,4 +528,5 @@
     <string name="userRegister">Registro de Usuario</string>
     <string name="trainerRegister">Registro de Entrenador</string>
     <string name="companyRegister">Registro de Empresa</string>
+    <string name="errorInput">Error, asegurese que lo que digitó es correcto! \\n Asegurese que esta seleccionando la fecha de inicio, y fin, y el método de pago .</string>
 </resources>

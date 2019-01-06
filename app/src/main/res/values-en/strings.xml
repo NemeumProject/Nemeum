@@ -526,4 +526,5 @@
     <string name="userRegister">User Register</string>
     <string name="trainerRegister">Trainer Register</string>
     <string name="companyRegister">Company Register</string>
+    <string name="errorInput">Error, Please Make Sure Your Input Is Right! \\n Making sure that you\'re clicking the date, Input right starting time and ending time, and select payment method.</string>
 </resources>
