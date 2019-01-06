@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:text="Search Trainer"
+        android:text="@string/findTrainerTitle"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/font25"
         android:textStyle="bold"

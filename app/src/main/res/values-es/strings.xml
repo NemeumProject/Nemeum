@@ -515,4 +515,6 @@
     <string name="questionBooking">Esta seguro que desea hacer esta reserva ?</string>
     <string name="yesLabel">Sí</string>
     <string name="noLabel">No</string>
+    <string name="logout">Salir</string>
+    <string name="updateSchedule">Actualizar Calendario</string>
 </resources>

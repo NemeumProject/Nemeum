@@ -391,7 +391,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:contentDescription="Update Schedule"/>
+            android:contentDescription="@string/updateSchedule"/>
 
         <TextView
             android:layout_width="50dp"

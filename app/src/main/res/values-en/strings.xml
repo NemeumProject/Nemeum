@@ -515,4 +515,6 @@
     <string name="questionBooking">Are you sure want to book this ?</string>
     <string name="yesLabel">Yes</string>
     <string name="noLabel">No</string>
+    <string name="logout">Logout</string>
+    <string name="updateSchedule">Update Schedule</string>
 </resources>
