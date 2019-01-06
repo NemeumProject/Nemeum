@@ -551,4 +551,9 @@
     <string name="customerPhone">Teléfono del cliente</string>
     <string name="customerEmail">Correo electrónico del cliente</string>
     <string name="select_date">Seleccione una fecha</string>
+    <string name="select_Sport">Seleccione su deporte</string>
+    <string name="edit_your_Location">Edite Su Localización</string>
+    <string name="editScenarioTitle">Edite el título de su escenario</string>
+    <string name="edit_Scenario_Location">Edite la localización de su escenario</string>
+    <string name="edit_your_descr">Edite su descripción</string>
 </resources>

@@ -102,7 +102,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Select Your Scenario"
+            android:text="@string/scenarios_spinner_Error"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -112,7 +112,7 @@
             android:layout_width="270dp"
             android:layout_height="30dp"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Choose Your Scenario" />
+            android:contentDescription="@string/scenarios_spinner_Error" />
 
 
     </LinearLayout>
@@ -144,7 +144,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Select your sport"
+            android:text="@string/select_Sport"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -196,7 +196,7 @@
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Edit Your Scenario Title" />
+            android:contentDescription="@string/editScenarioTitle" />
     </LinearLayout>
 
     <LinearLayout
@@ -223,7 +223,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Capacity"
+            android:text="@string/capacity_scenario"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -236,7 +236,7 @@
             android:textAlignment="center"
             android:inputType="number"
             android:background="@drawable/months_rounded"
-            android:contentDescription="My Event" />
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -263,7 +263,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:maxLines="2"
-            android:text="Price"
+            android:text="@string/price_Posting"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="12sp" />
@@ -276,7 +276,7 @@
             android:inputType="numberDecimal"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="My Event" />
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -306,7 +306,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Edit Your Location"
+            android:text="@string/edit_your_Location"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -318,7 +318,7 @@
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Edit Your Scenario Location" />
+            android:contentDescription="@string/edit_Scenario_Location" />
     </LinearLayout>
 
     <LinearLayout
@@ -348,7 +348,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Edit Your Description"
+            android:text="@string/edit_your_descr"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -360,7 +360,7 @@
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Edit Your Scenario Location" />
+            android:contentDescription="@string/edit_Scenario_Location" />
     </LinearLayout>
 
     <LinearLayout

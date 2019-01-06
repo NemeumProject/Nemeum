@@ -547,4 +547,9 @@
     <string name="customerPhone">Customer Phone</string>
     <string name="customerEmail">Customer Email</string>
     <string name="select_date">Select Your Date</string>
+    <string name="select_Sport">Select your sport</string>
+    <string name="edit_your_Location">Edit Your Location</string>
+    <string name="editScenarioTitle">Edit Your Scenario Title</string>
+    <string name="edit_Scenario_Location">Edit Your Scenario Location</string>
+    <string name="edit_your_descr">Edit Your Description</string>
 </resources>
