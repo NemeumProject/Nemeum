@@ -527,4 +527,9 @@
     <string name="trainerRegister">Trainer Register</string>
     <string name="companyRegister">Company Register</string>
     <string name="errorInput">Error, Please Make Sure Your Input Is Right! \\n Making sure that you\'re clicking the date, Input right starting time and ending time, and select payment method.</string>
+    <string name="Decathlon">Decathlon Sport Center</string>
+    <string name="sportforAll">Sports for all</string>
+    <string name="villeneuve">Villeneuve D\'Ascq, France</string>
+    <string name="decathlonphone">+33 155359755</string>
+    <string name="ourFacilities">Our Facilities</string>
 </resources>

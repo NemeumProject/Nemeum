@@ -34,7 +34,7 @@
             android:layout_marginStart="98dp"
             android:layout_marginTop="60dp"
             android:inputType="text"
-            android:text="Decathlon Sport Center"
+            android:text="@string/Decathlon"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -48,7 +48,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="128dp"
             android:inputType="text"
-            android:text="Sports for all"
+            android:text="@string/sportforAll"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -62,7 +62,7 @@
             android:layout_marginTop="-2dp"
             android:layout_marginEnd="86dp"
             android:inputType="text"
-            android:text="Villeneuve D'Ascq, France"
+            android:text="@string/villeneuve"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -76,7 +76,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginEnd="107dp"
             android:inputType="text"
-            android:text="+33 155359755"
+            android:text="@string/decathlonphone"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fields_edition" />
 
@@ -117,7 +117,7 @@
             android:id="@+id/scenarioDescrTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Our Facilities"
+            android:text="@string/ourFacilities"
             android:textColor="@color/colorBlue"
             android:textSize="15sp"/>
 
