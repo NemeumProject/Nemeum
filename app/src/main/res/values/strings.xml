@@ -544,4 +544,7 @@
     <string name="scenario2">Scenario 2</string>
     <string name="getThatHeart">Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $2.100</string>
     <string name="getThatHeart4200">Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200</string>
+    <string name="customerPhone">Customer Phone</string>
+    <string name="customerEmail">Customer Email</string>
+    <string name="select_date">Select Your Date</string>
 </resources>
