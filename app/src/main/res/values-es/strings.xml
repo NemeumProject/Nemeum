@@ -512,4 +512,7 @@
     <string name="joinScenarioDB">/joinScenario</string>
     <string name="selectplease">Selecione un escenario</string>
     <string name="calendar_date_format">yyyy-MM-dd</string>
+    <string name="questionBooking">Esta seguro que desea hacer esta reserva ?</string>
+    <string name="yesLabel">Sí</string>
+    <string name="noLabel">No</string>
 </resources>

@@ -76,14 +76,14 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textSize="11dp"
-        android:text="Are you sure want to book this ?"
+        android:text="@string/questionBooking"
         android:textColor="@color/colorWhite"/>
 
     <Button
         android:id="@+id/yes"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:text="Yes"
+        android:text="@string/yesLabel"
         android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_background1"
@@ -93,7 +93,7 @@
         android:id="@+id/no"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:text="No"
+        android:text="@string/noLabel"
         android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_background"

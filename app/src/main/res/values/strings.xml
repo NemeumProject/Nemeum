@@ -512,4 +512,7 @@
     <string name="bookingError">Error creating booking</string>
     <string name="joinScenarioDB">/joinScenario</string>
     <string name="selectplease">Select one scenario</string>
+    <string name="questionBooking">Are you sure want to book this ?</string>
+    <string name="yesLabel">Yes</string>
+    <string name="noLabel">No</string>
 </resources>
