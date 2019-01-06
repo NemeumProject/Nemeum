@@ -142,7 +142,7 @@ public class PostScenario extends AppCompatActivity {
 
         });
 
-        sportSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 Object item = parentView.getItemAtPosition(position);

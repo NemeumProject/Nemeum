@@ -443,6 +443,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                         if(!parser.isNull("indoor")){
                             scenario.setIndoor(parser.getBoolean("indoor"));
                         }
+                        scenario.setCity(parser.getString("city"));
                         numResults++;
                         listScenario.add(scenario);
 
@@ -562,8 +563,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             else
                 Picasso.get().load(R.drawable.scenario_nophoto).into(scenarioImg);
 
-            scenarioAddress.setText(listScenario.get(0).getAddress());
-            scenarioCity.setText(listScenario.get(0).getCity());
+            scenarioAddress.setText(listScenario.get(position).getAddress());
+            scenarioCity.setText(listScenario.get(position).getCity());
 
             scenarioTitle.setText(listScenario.get(position).getTitle());
             scenarioTitleDescr.setText("Scenario " + position);

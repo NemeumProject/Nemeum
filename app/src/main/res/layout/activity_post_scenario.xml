@@ -104,6 +104,20 @@
             android:hint="Scenario Location"
             android:textSize="12sp"/>
 
+        <Spinner
+            android:id="@+id/cityScenario"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:layout_gravity="center"
+            android:textCursorDrawable="@color/colorFont"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:inputType="text"/>
+
         <EditText
             android:id="@+id/edit_scenario_desc"
             android:layout_width="250dp"
