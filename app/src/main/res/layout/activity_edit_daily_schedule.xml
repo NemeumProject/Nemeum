@@ -409,6 +409,7 @@
             android:textColor="@color/colorBackground"
             android:textAllCaps="false"
             android:textSize="12sp"
+            android:onClick="save_Button_Daily_Schedule"
             />
     </LinearLayout>
 
