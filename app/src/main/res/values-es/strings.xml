@@ -525,4 +525,7 @@
         He jugado para equipos conocidos en Brasil y Europea como Cruzeiro, Bracelona y Real Madrid. También en la selección de Brasil,
         He participado en campañas de  vice-campaign en 1997 and ganador de campaña en 2002.</string>
     <string name="bookIcon">book icon</string>
+    <string name="userRegister">Registro de Usuario</string>
+    <string name="trainerRegister">Registro de Entrenador</string>
+    <string name="companyRegister">Registro de Empresa</string>
 </resources>

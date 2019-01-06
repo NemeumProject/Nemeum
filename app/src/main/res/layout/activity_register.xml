@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="220dp"
         android:background="@drawable/button_background"
-        android:text="User Register"
+        android:text="@string/userRegister"
         android:textColor="#25274d"
         android:textSize="12dp"/>
 
@@ -26,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="160dp"
         android:background="@drawable/button_background2"
-        android:text="Trainer Register"
+        android:text="@string/trainerRegister"
         android:textColor="#25274d"
         android:textSize="12dp"/>
 
@@ -38,7 +38,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
         android:background="@drawable/button_background1"
-        android:text="Company Register"
+        android:text="@string/companyRegister"
         android:textColor="#ffffff"
         android:textSize="12dp"/>
 
