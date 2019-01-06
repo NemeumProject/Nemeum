@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/companyImg"
             android:layout_centerHorizontal="true"
-            android:text="Lleida Gym Center"
+            android:text="@string/lleidagymCenter"
             android:textSize="20sp"
             android:textColor="@color/colorWhite"/>
 
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/starCompanyImg"
-            android:text="Address: Rambla Ferran no. 24"
+            android:text="@string/addressRambla"
             android:layout_centerHorizontal="true"
             android:textSize="15sp"
             android:textColor="@color/colorBlue"/>
@@ -78,7 +78,7 @@
             android:layout_below="@+id/companyAddress"
             android:layout_toRightOf="@+id/FacilityImg"
             android:layout_centerHorizontal="true"
-            android:text="Open - Closes: 09:00 - 23:00"
+            android:text="@string/openClose"
             android:textSize="15sp"
             android:textColor="@color/colorBlue" />
     </RelativeLayout>
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/scenarioIImg"
-            android:text="Scenario 1"
+            android:text="@string/scenario1"
             android:textColor="@color/colorPink"
             android:textSize="15sp"/>
 
@@ -128,7 +128,7 @@
             android:layout_below="@+id/scenarioITitleText"
             android:layout_toRightOf="@+id/scenarioIImg"
             android:textColor="@color/colorFont"
-            android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $2.100"
+            android:text="@string/getThatHeart"
             android:textSize="12sp"/>
     </RelativeLayout>
 
@@ -166,7 +166,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/scenarioIIImg"
-            android:text="Scenario 2"
+            android:text="@string/scenario2"
             android:textSize="15sp"
             android:textColor="@color/colorPink"/>
 
@@ -177,7 +177,7 @@
             android:layout_below="@+id/scenarioIITitleText"
             android:layout_toRightOf="@+id/scenarioIIImg"
             android:textColor="@color/colorFont"
-            android:text="Get that heart rate going and boost your metabolism with a selection of fat burning classes at flex. Their special package for the new year includes 12 classes of your choice of ab blast, fat burn, BLT and Xtend barre for just $4.200"
+            android:text="@string/getThatHeart4200"
             android:textSize="12sp"/>
     </RelativeLayout>
 

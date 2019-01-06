@@ -113,7 +113,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@color/colorHint"
-            android:text="Logout"
+            android:text="@string/logout"
             android:textAllCaps="false"
             android:textColor="@color/colorBackground"/>
     </LinearLayout>
@@ -391,7 +391,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:contentDescription="Update Schedule"/>
+            android:contentDescription="@string/updateSchedule"/>
 
         <TextView
             android:layout_width="50dp"

@@ -361,8 +361,8 @@
             android:backgroundTint="@color/colorBlue"
             android:textColor="@color/colorFont"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="text"
+            />
     </RelativeLayout>
 
     <Button

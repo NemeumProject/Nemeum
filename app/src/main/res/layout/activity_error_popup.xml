@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="Error, Please Make Sure Your Input Is Right! \n Making sure that you're clicking the date, Input right starting time and ending time, and select payment method."
+        android:text="@string/errorInput"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="11dp" />
@@ -23,7 +23,7 @@
         android:id="@+id/ok_back"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:text="Back"
+        android:text="@string/backButtonTitle"
         android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center"

@@ -518,4 +518,56 @@
     <string name="joinScenarioDB">/joinScenario</string>
     <string name="selectplease">Selecione un escenario</string>
     <string name="calendar_date_format">yyyy-MM-dd</string>
+    <string name="questionBooking">Esta seguro que desea hacer esta reserva ?</string>
+    <string name="yesLabel">Sí</string>
+    <string name="noLabel">No</string>
+    <string name="logout">Salir</string>
+    <string name="updateSchedule">Actualizar Calendario</string>
+    <string name="ronaldo">Ronaldo</string>
+    <string name="soccerTrainer">Entrenador de Fútbol</string>
+    <string name="RioJaneiro">Rio de Janeiro, Brazil</string>
+    <string name="trainerPhone">+33 155359755</string>
+    <string name="trainerDescription">Soy un director técnico y formador de jugadores profesionales.
+        He jugado para equipos conocidos en Brasil y Europea como Cruzeiro, Bracelona y Real Madrid. También en la selección de Brasil,
+        He participado en campañas de  vice-campaign en 1997 and ganador de campaña en 2002.</string>
+    <string name="bookIcon">book icon</string>
+    <string name="userRegister">Registro de Usuario</string>
+    <string name="trainerRegister">Registro de Entrenador</string>
+    <string name="companyRegister">Registro de Empresa</string>
+    <string name="errorInput">Error, asegurese que lo que digitó es correcto! \\n Asegurese que esta seleccionando la fecha de inicio, y fin, y el método de pago .</string>
+    <string name="Decathlon">Decathlon Centro de Deportes</string>
+    <string name="sportforAll">Deportes para todo</string>
+    <string name="villeneuve">Villeneuve D\'Ascq, France</string>
+    <string name="decathlonphone">+33 155359755</string>
+    <string name="ourFacilities">Nuestras Instalaciones</string>
+    <string name="postScenario">Crear Scenario</string>
+    <string name="scenarioLocation">Localización de escenario </string>
+    <string name="write_your_scenario">Escriba la descripción del escenario aquí...</string>
+    <string name="scenarioCapacity">Capacidad del escenario</string>
+    <string name="scenarioPrice">Precio del escenario</string>
+    <string name="lleidagymCenter">Lleida Gym Centro</string>
+    <string name="addressRambla">Dirección: Rambla Ferran no. 24</string>
+    <string name="openClose">Apertura - Cierre: 09:00 - 23:00</string>
+    <string name="scenario1">Escenario 1</string>
+    <string name="scenario2">Escenario 2</string>
+    <string name="getThatHeart">Mejore su ritmo cardíaco y aumente su metabolismo con una selección de clases para quemar grasa en flex.
+        Su paquete especial para el nuevo año incluye 12 clases de su elección de ab blast, quema de grasa, BLT y barra Xtend por solo $ 2.100</string>
+    <string name="getThatHeart4200">Mejore su ritmo cardíaco y aumente su metabolismo con una selección de clases para quemar grasa en flex.
+        Su paquete especial para el nuevo año incluye 12 clases de su elección de ab blast, quemadura de grasa, BLT y barra Xtend por solo $ 4.200</string>
+    <string name="customerPhone">Teléfono del cliente</string>
+    <string name="customerEmail">Correo electrónico del cliente</string>
+    <string name="select_date">Seleccione una fecha</string>
+    <string name="select_Sport">Seleccione su deporte</string>
+    <string name="edit_your_Location">Edite Su Localización</string>
+    <string name="editScenarioTitle">Edite el título de su escenario</string>
+    <string name="edit_Scenario_Location">Edite la localización de su escenario</string>
+    <string name="edit_your_descr">Edite su descripción</string>
+    <string name="edit_your_Title">Edite su título</string>
+    <string name="select_Sport_Type">Seleccione su tipo de deporte</string>
+    <string name="training_City">Ciudad de entrenamiento</string>
+    <string name="training_price">Precio de entrenamiento</string>
+    <string name="edit_trainingLocation">Edite su localización de entrenamiento</string>
+    <string name="edit_your_address">Edite su dirección</string>
+    <string name="chooseTrainigS">Elija su servicio de entrenamiento</string>
+    <string name="editTrainig_Services">Edite servicios de entrenamiento</string>
 </resources>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Post Scenario"
+        android:text="@string/postScenario"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/font25"
         android:textStyle="bold"
@@ -101,7 +101,7 @@
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textAlignment="center"
-            android:hint="Scenario Location"
+            android:hint="@string/scenarioLocation"
             android:textSize="12sp"/>
 
         <Spinner
@@ -129,7 +129,7 @@
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textAlignment="center"
-            android:hint="Write your scenario description here..."
+            android:hint="@string/write_your_scenario"
             android:textSize="12sp"
             android:inputType="text"/>
 
@@ -144,7 +144,7 @@
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textAlignment="center"
-            android:hint="Scenario Capacity"
+            android:hint="@string/scenarioCapacity"
             android:textSize="12sp"
             android:inputType="number"/>
 
@@ -159,7 +159,7 @@
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textAlignment="center"
-            android:hint="Scenario Price"
+            android:hint="@string/scenarioPrice"
             android:inputType="numberDecimal"
             android:textSize="12sp"/>
 

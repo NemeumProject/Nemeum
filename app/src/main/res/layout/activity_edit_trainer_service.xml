@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Training Services"
+            android:text="@string/editTrainig_Services"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/font25"
             android:textStyle="bold" />
@@ -101,7 +101,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Select Your Training Service"
+            android:text="@string/chooseTrainigS"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -111,7 +111,7 @@
             android:layout_width="270dp"
             android:layout_height="40dp"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Choose Your Training Service" />
+            android:contentDescription="@string/chooseTrainigS" />
     </LinearLayout>
 
 
@@ -142,7 +142,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Select Your Sport Type"
+            android:text="@string/select_Sport_Type"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -152,7 +152,7 @@
             android:layout_width="270dp"
             android:layout_height="40dp"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Select Your Sport Type" />
+            android:contentDescription="@string/select_Sport_Type" />
     </LinearLayout>
 
     <LinearLayout
@@ -179,7 +179,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="City"
+            android:text="@string/user_City"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -189,7 +189,7 @@
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Training City" />
+            android:contentDescription="@string/training_City" />
     </LinearLayout>
 
     <LinearLayout
@@ -216,7 +216,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:maxLines="2"
-            android:text="Price"
+            android:text="@string/price_Posting"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="12sp" />
@@ -226,7 +226,7 @@
             android:layout_width="130dp"
             android:layout_height="40dp"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Training Price"
+            android:contentDescription="@string/training_price"
             android:inputType="numberDecimal"
             android:textAlignment="center"
             android:textSize="12dp" />
@@ -259,7 +259,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Edit Your Address"
+            android:text="@string/edit_your_address"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -271,7 +271,7 @@
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Edit Your Training Location" />
+            android:contentDescription="@string/edit_trainingLocation" />
     </LinearLayout>
 
     <LinearLayout
@@ -301,7 +301,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="Edit Your Description"
+            android:text="@string/edit_your_descr"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -313,7 +313,7 @@
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="Edit Your Scenario Location" />
+            android:contentDescription="@string/edit_Scenario_Location" />
     </LinearLayout>
 
     <LinearLayout
