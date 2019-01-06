@@ -552,4 +552,9 @@
     <string name="editScenarioTitle">Edit Your Scenario Title</string>
     <string name="edit_Scenario_Location">Edit Your Scenario Location</string>
     <string name="edit_your_descr">Edit Your Description</string>
+    <string name="edit_your_Title">Edit Your Title</string>
+    <string name="select_Sport_Type">Select Your Sport Type</string>
+    <string name="training_City">Training City</string>
+    <string name="training_price">Training Price</string>
+    <string name="edit_trainingLocation">Edit Your Training Location</string>
 </resources>
