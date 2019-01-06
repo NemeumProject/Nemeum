@@ -22,6 +22,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import org.apache.commons.codec.binary.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -54,6 +56,7 @@ public class SearchTrainer extends AppCompatActivity {
     private List<Sport> listSport = new ArrayList<>();
     private List<String> nameSport = new ArrayList<>();
     private List<String> namesOfTrainer = new ArrayList<>();
+    private List<String> listImages = new ArrayList<>();
 
     private ListView resultList;
     private String city;
@@ -485,8 +488,10 @@ public class SearchTrainer extends AppCompatActivity {
         while(numResults < arrayTrainer.length()) {
             objectTrainer = (JSONObject) arrayTrainer.get(numResults);
             String name = objectTrainer.getString("firstName");
+            String image = objectTrainer.getString("image");
             numResults++;
             namesOfTrainer.add(name);
+            listImages.add(image);
 
         }
     }
@@ -524,8 +529,11 @@ public class SearchTrainer extends AppCompatActivity {
             TextView trainerAddress = convertView.findViewById(R.id.trainerResultPlaceText);
             TextView trainerDescription = convertView.findViewById(R.id.trainerResultDescriptionText);
 
-            trainerImg.setImageResource(R.drawable.bicycle_rider);
-            trainerImg.setImageResource(R.drawable.scenario_nophoto);
+            if(!listImages.get(position).equals("null"))
+                Picasso.get().load(listImages.get(position)).into(trainerImg);
+            else
+                Picasso.get().load(R.drawable.scenario_nophoto).into(trainerImg);
+
             trainerName.setText(namesOfTrainer.get(position));
             trainerSport.setText(nameSport.get(position));
             trainerAddress.setText(listTrainerService.get(position).getTraining_address()+", "+listTrainerService.get(position).getTraining_city());
@@ -548,6 +556,13 @@ public class SearchTrainer extends AppCompatActivity {
                     else
                     {
                         Intent intentBookTrainer = new Intent(appContext, BookTrainer.class);
+                        if(!listImages.get(position).equals("null")) {
+                            intentBookTrainer.putExtra(getResources().getString(R.string.scenarioImgExtra), listImages.get(position));
+                            intentBookTrainer.putExtra("withImage", "Yes");
+
+                        }else {
+                            intentBookTrainer.putExtra("withImage", "No");
+                        }
                         intentBookTrainer.putExtra(getResources().getString(R.string.trainerid),idUser);
                         intentBookTrainer.putExtra(getResources().getString(R.string.trainerserviceid),Integer.toString(listTrainerService.get(position).getId_training_service_post()));
                         intentBookTrainer.putExtra(getResources().getString(R.string.trainerNameExtra),namesOfTrainer.get(position));

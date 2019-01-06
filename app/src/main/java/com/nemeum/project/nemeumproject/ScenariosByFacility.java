@@ -323,6 +323,7 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
                         if(!parser.isNull("indoor")){
                             scenario.setIndoor(parser.getBoolean("indoor"));
                         }
+                        scenario.setCity(parser.getString("city"));
                         numResults++;
                         listScenario.add(scenario);
 
@@ -544,11 +545,17 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
             TextView scenarioTitle = convertView.findViewById(R.id.companyResTitle);
             TextView scenarioTitleDescr = convertView.findViewById(R.id.companyResScenarioText);
             TextView scenarioDescription = convertView.findViewById(R.id.companyResDescription);
+            TextView scenarioAddress = convertView.findViewById(R.id.companyResAddress);
+            TextView scenarioCity = convertView.findViewById(R.id.companyResCity);
+
             if (!listScenario.get(position).getImage().equals("null")) {
                 Picasso.get().load(listScenario.get(position).getImage()).into(scenarioImg);
             } else{
                 Picasso.get().load(R.drawable.scenario_nophoto).into(scenarioImg);
             }
+
+            scenarioAddress.setText(listScenario.get(position).getAddress());
+            scenarioCity.setText(listScenario.get(position).getCity());
 
             if(!listScenario.get(position).getPrice().toString().equals("null"))
                 scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€ / hour");

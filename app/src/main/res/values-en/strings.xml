@@ -560,5 +560,4 @@
     <string name="edit_your_address">Edit Your Address</string>
     <string name="chooseTrainigS">Choose Your Training Service</string>
     <string name="editTrainig_Services">Edit Training Services</string>
-    <string name="time_selection_Error">Starting time cannot be higher than ending time</string>
 </resources>

@@ -39,7 +39,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="@string/ronaldo"
             android:textColor="@color/colorBlue"
             android:textSize="25sp"
             android:layout_centerHorizontal="true"/>
@@ -51,7 +50,6 @@
             android:layout_below="@+id/companyTitleText"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:text="@string/soccerTrainer"
             android:textColor="@color/colorPink"
             android:textSize="20sp"/>
 
@@ -62,7 +60,16 @@
             android:layout_marginTop="5dp"
             android:layout_below="@+id/companySloganText"
             android:layout_centerHorizontal="true"
-            android:text="@string/RioJaneiro"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/companyCityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/companyPlaceText"
+            android:layout_centerHorizontal="true"
             android:textColor="@color/colorWhite"
             android:textSize="15sp"/>
 
@@ -71,10 +78,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/companyPlaceText"
+            android:layout_below="@+id/companyCityText"
             android:textColor="@color/colorWhite"
             android:layout_centerHorizontal="true"
-            android:text="@string/trainerPhone"
             android:textSize="15sp"/>
     </RelativeLayout>
 
@@ -83,8 +89,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/ronaldo" />
+        android:layout_marginTop="40dp" />
 
     <RelativeLayout
         android:id="@+id/companyDescriptionLwt"
@@ -111,24 +116,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/scenarioDescrTitleText"
             android:textColor="@color/colorWhite"
-            android:text="@string/trainerDescription"
             android:textSize="12sp"/>
 
-        <TextView
-            android:id="@+id/trainerScheduleTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/scenarioDescriptionText"
-            android:text="@string/scheduleTrainerTitle"
-            android:textColor="@color/colorBlue"
-            android:textSize="15sp"/>
-
-        <GridView
-            android:id="@+id/scheduleGrid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/trainerScheduleTitleText"
-            android:numColumns="2" />
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView

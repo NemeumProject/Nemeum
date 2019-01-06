@@ -59,6 +59,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
     String idUser;
     String idScenario;
     Integer idSport;
+    String city;
     List<Scenario> listScenario = new ArrayList<>();
     SharedPreferences registeredUserPref = null;
     SharedPreferences shared = null;
@@ -107,6 +108,11 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
         sportAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sportSpinner.setAdapter(sportAdapter);
 
+        final Spinner citySpinner = findViewById(R.id.edit_city_scenario);
+        final ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, R.layout.spinner_layout);
+        locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        citySpinner.setAdapter(locationAdapter);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -131,7 +137,15 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
                     }
                 }
                 sportSpinner.setSelection(b);
+                int x = 0;
+                for(int j = 0; j < locationAdapter.getCount(); j++){
+                    String city = (String) locationAdapter.getItem(j);
+                    if(city.equals(scenarioSelected.getCity())){
+                        x = j;
+                    }
+                }
 
+                citySpinner.setSelection(x);
             }
 
             @Override
@@ -145,6 +159,25 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 idSport = listSport.get(position).getIdSport();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Object item = parentView.getItemAtPosition(position);
+                if(item.toString().equals("City") || item.toString().equals("Ciudad")){
+                    city = null;
+                }else{
+                    city = item.toString();
+                }
+
             }
 
             @Override
@@ -312,6 +345,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
                             if(!parser.isNull("indoor")){
                                 scenario.setIndoor(parser.getBoolean("indoor"));
                             }
+                            scenario.setCity(parser.getString("city"));
                             numResults++;
                             listScenario.add(scenario);
 
@@ -386,7 +420,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
             String reportDate = df.format(today);
             final String dateScenario = reportDate;
             final Integer id_sport = idSport;
-
+            final String cityScenario = city;
             new Thread(new Runnable() {
                 public void run() {
                     HttpClient httpclient = new DefaultHttpClient();
@@ -403,6 +437,7 @@ public class activity_edit_scenario extends AppCompatActivity implements Adapter
                         postData.put("description", description);
                         postData.put("idCompany", idCompany);
                         postData.put("dateScenario", dateScenario);
+                        postData.put("city", cityScenario);
 
                         StringEntity se = new StringEntity(postData.toString(), "UTF-8");
                         httpPut.setHeader("Accept", "application/json");

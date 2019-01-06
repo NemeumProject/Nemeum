@@ -66,6 +66,7 @@ public class PostScenario extends AppCompatActivity {
     private EditText ScenarioCapacity;
     private EditText ScenarioPrice;
     private Spinner sportSpinner;
+    private Spinner citySpinner;
     private Uri imagePath;
     private ImageView eventImage;
     private StorageReference imageStorageReference;
@@ -73,6 +74,7 @@ public class PostScenario extends AppCompatActivity {
     private BottomNavigationView menu;
     String idUser;
     Integer idSport;
+    String cityScenario;
     private String userType;
     private SharedPreferences SP;
     private List<Sport> listSport = new ArrayList<>();
@@ -101,6 +103,11 @@ public class PostScenario extends AppCompatActivity {
         sportAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sportSpinner.setAdapter(sportAdapter);
 
+        citySpinner = findViewById(R.id.cityScenario);
+        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(this, R.array.cityFilter, R.layout.spinner_layout);
+        locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        citySpinner.setAdapter(locationAdapter);
+
         Button submit_scenario_btn = (Button)findViewById(R.id.submit_scenario_post);
         ScenarioTitle = (EditText)findViewById(R.id.edit_scenario_title);
         ScenarioLocation = (EditText) findViewById(R.id.scenario_location);
@@ -126,6 +133,24 @@ public class PostScenario extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 idSport = listSport.get(position).getIdSport();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Object item = parentView.getItemAtPosition(position);
+                if(item.toString().equals("City") || item.toString().equals("Ciudad")){
+                    cityScenario = null;
+                }else{
+                    cityScenario = item.toString();
+                }
             }
 
             @Override
@@ -300,6 +325,7 @@ public class PostScenario extends AppCompatActivity {
             final Integer capacityScenario = Integer.parseInt(capacity);
             final Float priceScenario = Float.parseFloat(price);
             final Integer idCompany = Integer.parseInt(idUser);
+            final String city = cityScenario;
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             Date today = Calendar.getInstance().getTime();
             String reportDate = df.format(today);
@@ -354,6 +380,7 @@ public class PostScenario extends AppCompatActivity {
                         postData.put("idCompany", idCompany);
                         postData.put("dateScenario", dateScenario);
                         postData.put("image", finalImage);
+                        postData.put("city", city);
 
                         StringEntity se = new StringEntity(postData.toString(), "UTF-8");
                         httppost.setHeader("Accept", "application/json");

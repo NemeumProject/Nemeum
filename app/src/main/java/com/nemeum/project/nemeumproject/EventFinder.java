@@ -48,9 +48,9 @@ import models.Event;
 
 public class EventFinder extends AppCompatActivity {
 
-    private List<Event> listEvent;
-    private List<Event> filteredEvent;
-    private List<Button> listMonths;
+    private List<Event> listEvent = new ArrayList<>();
+    private List<Event> filteredEvent = new ArrayList<>();
+    private List<Button> listMonths = new ArrayList<>();
     private SharedPreferences SP;
     private TextView yearFilter;
     private String[] monthsArray;
@@ -75,11 +75,13 @@ public class EventFinder extends AppCompatActivity {
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
         getEvents();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         checkRegisteredUser();
 
-        listEvent = new ArrayList<>();
-        filteredEvent = new ArrayList<>();
-        listMonths = new ArrayList<>();
         customResult = new CustomAdapter();
         layoutButtons = new LinearLayout.LayoutParams(dpToPx(appContext, 160), dpToPx(appContext, 20));
 

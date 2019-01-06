@@ -15,8 +15,9 @@ public class Scenario {
     private String title;
     private String image;
     private String address;
+    private String city;
 
-    public Scenario(Integer idScenario, Integer idSport, Double price, Boolean isIndoor, Integer capacity, Integer idCompany, Date dateScenario, String description, String title, String image, String address) {
+    public Scenario(Integer idScenario, Integer idSport, Double price, Boolean isIndoor, Integer capacity, Integer idCompany, Date dateScenario, String description, String title, String image, String address, String city) {
         this.idScenario = idScenario;
         this.idSport = idSport;
         this.price = price;
@@ -28,6 +29,7 @@ public class Scenario {
         this.title = title;
         this.image = image;
         this.address = address;
+        this.city = city;
     }
 
     public Scenario(){
@@ -120,5 +122,13 @@ public class Scenario {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

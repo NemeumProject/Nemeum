@@ -53,6 +53,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -155,19 +156,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
-                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
-                            appContext.startActivity(intentMainInd);
-                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
-                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
-                            appContext.startActivity(intentMainTrainer);
-                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
-                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
-                            appContext.startActivity(intentMainCompany);
-                        } else {
-                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                            appContext.startActivity(intentMain);
-                        }
+                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                        appContext.startActivity(intentMain);
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
@@ -178,16 +168,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
-                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
-                            appContext.startActivity(intentAccount);
-                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
-                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
-                            appContext.startActivity(intentAccount);
-                        } else {
-                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
-                            appContext.startActivity(intentAccount);
-                        }
+                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
+                        getApplicationContext().startActivity(intentAccount);
                         return true;
                     default:
                         return false;
@@ -328,6 +310,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                         if(!parser.isNull("indoor")){
                             scenario.setIndoor(parser.getBoolean("indoor"));
                         }
+                        scenario.setCity(parser.getString("city"));
                         numResults++;
                         listScenario.add(scenario);
 
@@ -441,6 +424,7 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                         if(!parser.isNull("indoor")){
                             scenario.setIndoor(parser.getBoolean("indoor"));
                         }
+                        scenario.setCity(parser.getString("city"));
                         numResults++;
                         listScenario.add(scenario);
 
@@ -549,6 +533,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             TextView scenarioTitle = convertView.findViewById(R.id.companyResTitle);
             TextView scenarioTitleDescr = convertView.findViewById(R.id.companyResScenarioText);
             TextView scenarioDescription = convertView.findViewById(R.id.companyResDescription);
+            TextView scenarioAddress = convertView.findViewById(R.id.companyResAddress);
+            TextView scenarioCity = convertView.findViewById(R.id.companyResCity);
 
             if(!listScenario.get(position).getPrice().toString().equals("null"))
                 scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€/Hour");
@@ -557,6 +543,9 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                 Picasso.get().load(listScenario.get(position).getImage()).into(scenarioImg);
             else
                 Picasso.get().load(R.drawable.scenario_nophoto).into(scenarioImg);
+
+            scenarioAddress.setText(listScenario.get(position).getAddress());
+            scenarioCity.setText(listScenario.get(position).getCity());
 
             scenarioTitle.setText(listScenario.get(position).getTitle());
             scenarioTitleDescr.setText("Scenario " + position);

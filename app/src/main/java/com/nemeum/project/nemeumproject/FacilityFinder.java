@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -228,7 +230,11 @@ public class FacilityFinder extends AppCompatActivity {
             TextView facilityEmail = convertView.findViewById(R.id.facilityResultEmailText);
             TextView facilityDescription = convertView.findViewById(R.id.facilityResultDescriptionText);
 
-            facilityImg.setImageResource(R.drawable.scenario_nophoto);
+            if(!listCompany.get(position).getImage().equals("null"))
+                Picasso.get().load(listCompany.get(position).getImage()).into(facilityImg);
+            else
+                Picasso.get().load(R.drawable.scenario_nophoto).into(facilityImg);
+
             if(listCompany.get(position).getComercialName().equals("null")){
                 facilityTitle.setText("Without title");
             }else{

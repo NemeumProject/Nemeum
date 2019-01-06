@@ -58,10 +58,28 @@
             android:textColor="@color/colorBlue"/>
 
         <TextView
-            android:id="@+id/companyResDescription"
+            android:id="@+id/companyResAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/companyResScenarioText"
+            android:layout_toRightOf="@+id/companyResImg"
+            android:textSize="12sp"
+            android:textColor="@color/colorFont"/>
+
+        <TextView
+            android:id="@+id/companyResCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyResAddress"
+            android:layout_toRightOf="@+id/companyResImg"
+            android:textSize="12sp"
+            android:textColor="@color/colorFont"/>
+
+        <TextView
+            android:id="@+id/companyResDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyResCity"
             android:layout_toRightOf="@+id/companyResImg"
             android:textSize="12sp"
             android:textColor="@color/colorFont"/>

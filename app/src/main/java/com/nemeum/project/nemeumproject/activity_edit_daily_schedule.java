@@ -213,7 +213,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         String strEndingtime_Error = getString(R.string.etime_error) ;
 
         EditText etCustomerName = findViewById(R.id.et_customerName);
-        String strName = etCustomerName.getText().toString();
+        final String strName = etCustomerName.getText().toString();
         String name_Error = getString(R.string.name_UserEdition_Empty);
 
         EditText etCustomerPhone = findViewById(R.id.et_customerPhone);
@@ -292,6 +292,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                         postData.put(getResources().getString(R.string.userScenario_endScenarioJson), str_date+" "+strEndTime);
                         postData.put(getResources().getString(R.string.userScenario_phoneJson), Integer.parseInt(strPhone));
                         postData.put(getResources().getString(R.string.userScenario_emailJson), strEmail);
+                        postData.put("nameCustomer", strName);
 
                         StringEntity se = new StringEntity(postData.toString());
                         httppost.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
@@ -381,7 +382,6 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
     private void getList_to_Spinner(){
         scenarioList= new ArrayList<String>();
-        scenarioList.add(getResources().getString(R.string.selectplease));
 
         for(Scenario scenario : listScenario){
 

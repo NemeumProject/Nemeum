@@ -102,7 +102,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="@string/scenarios_spinner_Error"
+            android:text="Select Your Scenario"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -112,7 +112,7 @@
             android:layout_width="270dp"
             android:layout_height="30dp"
             android:background="@drawable/months_rounded"
-            android:contentDescription="@string/scenarios_spinner_Error" />
+            android:contentDescription="Choose Your Scenario" />
 
 
     </LinearLayout>
@@ -144,7 +144,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="@string/select_Sport"
+            android:text="Select your sport"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -184,7 +184,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="@string/edit_your_Title"
+            android:text="Edit Your Title"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -196,7 +196,7 @@
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="@string/editScenarioTitle" />
+            android:contentDescription="Edit Your Scenario Title" />
     </LinearLayout>
 
     <LinearLayout
@@ -223,7 +223,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="@string/capacity_scenario"
+            android:text="Capacity"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -236,7 +236,7 @@
             android:textAlignment="center"
             android:inputType="number"
             android:background="@drawable/months_rounded"
-             />
+            android:contentDescription="My Event" />
     </LinearLayout>
 
     <LinearLayout
@@ -263,7 +263,7 @@
             android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:maxLines="2"
-            android:text="@string/price_Posting"
+            android:text="Price"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="12sp" />
@@ -276,7 +276,7 @@
             android:inputType="numberDecimal"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-             />
+            android:contentDescription="My Event" />
     </LinearLayout>
 
     <LinearLayout
@@ -306,7 +306,7 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="@string/edit_your_Location"
+            android:text="Edit Your address"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -318,13 +318,13 @@
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="@string/edit_Scenario_Location" />
+            android:contentDescription="Edit Your Scenario Location" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linear_menu_book_17"
+        android:id="@+id/edit_scenario_city"
         android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -332,7 +332,7 @@
         android:orientation="vertical"
         android:padding="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/guideline12"
-        app:layout_constraintTop_toBottomOf="@id/linear_menu_book_13"
+        app:layout_constraintTop_toBottomOf="@+id/linear_menu_book_13"
         android:layout_marginRight="50dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="50dp"
@@ -348,7 +348,46 @@
             android:layout_height="20dp"
             android:textSize="12sp"
             android:maxLines="2"
-            android:text="@string/edit_your_descr"
+            android:text="Edit Your city"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"/>
+
+        <Spinner
+            android:id="@+id/edit_city_scenario"
+            android:layout_width="270dp"
+            android:layout_height="30dp"
+            android:background="@drawable/months_rounded"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_menu_book_17"
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/edit_scenario_city"
+        android:layout_marginRight="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.25"
+        >
+
+        <TextView
+            android:layout_width="270dp"
+            android:layout_height="20dp"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:text="Edit Your Description"
             android:textColor="@color/colorWhite"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -356,11 +395,11 @@
         <EditText
             android:id="@+id/description_Edit_Scenario"
             android:layout_width="270dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:textSize="12dp"
             android:textAlignment="center"
             android:background="@drawable/months_rounded"
-            android:contentDescription="@string/edit_Scenario_Location" />
+            android:contentDescription="Edit Your Scenario Location" />
     </LinearLayout>
 
     <LinearLayout

@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 
 public class BookTrainer extends AppCompatActivity {
 
@@ -36,7 +38,12 @@ public class BookTrainer extends AppCompatActivity {
         TextView trainerPrice = findViewById(R.id.TrainerBookPriceText);
         TextView trainerDescription = findViewById(R.id.TrainerBookDescriptionText);
 
-        trainerPicture.setImageResource(getIntent().getIntExtra(getResources().getString(R.string.trainerImgExtra), R.drawable.bicycle_rider));
+        if(getIntent().getStringExtra("withImage").equals("Yes")){
+            Picasso.get().load(getIntent().getStringExtra(getResources().getString(R.string.scenarioImgExtra))).into(trainerPicture);
+        }else{
+            trainerPicture.setImageResource(R.drawable.scenario_nophoto);
+        }
+
         trainerName.setText(getIntent().getStringExtra(getResources().getString(R.string.trainerNameExtra)));
         trainerSport.setText((getIntent().getStringExtra(getResources().getString(R.string.trainersporttype))+" - "+getIntent().getStringExtra(getResources().getString(R.string.trainerAddressExtra))+", "+
         getIntent().getStringExtra(getResources().getString(R.string.trainerCityExtra))));

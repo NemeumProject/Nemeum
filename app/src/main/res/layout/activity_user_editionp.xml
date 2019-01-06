@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity_user_editionp">
 
     <RelativeLayout
@@ -17,8 +18,8 @@
         android:background="@drawable/results_rounded"
         android:padding="3dp">
 
-        <ImageView
-            android:id="@+id/userPicture"
+        <android.support.v7.widget.CardView
+            android:id="@+id/relativePicture"
             android:layout_width="78dp"
             android:layout_height="75dp"
             android:layout_marginStart="8dp"
@@ -26,14 +27,30 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/ronaldo" />
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:text="@string/selectPhoto"
+                android:textSize="12sp"
+                android:textColor="@color/colorWhite"/>
+
+            <ImageView
+                android:id="@+id/userPicture"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop" />
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/facilityITitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/userPicture"
+            android:layout_toRightOf="@+id/relativePicture"
             android:text="@string/personalInfo"
             android:textColor="@color/colorFont"
             android:textSize="@dimen/font20"
@@ -43,7 +60,7 @@
             android:id="@+id/full_User_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/userPicture"
+            android:layout_below="@+id/relativePicture"
             android:layout_alignStart="@+id/facilityITitleText"
             android:layout_marginStart="3dp"
             android:layout_marginTop="-50dp"
@@ -56,8 +73,8 @@
             android:id="@+id/dni_passport"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/userPicture"
-            android:layout_alignEnd="@+id/userPicture"
+            android:layout_below="@+id/relativePicture"
+            android:layout_alignEnd="@+id/relativePicture"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="-4dp"
             android:text="@string/dniPassport"
@@ -122,31 +139,31 @@
             android:textSize="@dimen/font15" />
 
         <TextView
-            android:id="@+id/user_birthdayTv"
+            android:id="@+id/user_title"
             android:layout_width="82dp"
             android:layout_height="40dp"
-            android:layout_alignStart="@+id/userPicture"
+            android:layout_alignStart="@+id/relativePicture"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="-1dp"
             android:layout_marginBottom="36dp"
-            android:text="@string/user_Birthday"
+            android:text="Title"
             android:textColor="@color/colorFont"
             android:textSize="@dimen/font15"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/user_birthday_Edit"
+            android:id="@+id/user_text_edit"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_DniPassport_Edit"
-            android:layout_alignStart="@+id/user_birthdayTv"
+            android:layout_alignStart="@+id/user_title"
             android:layout_marginStart="93dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="15dp"
             android:backgroundTint="@color/colorBlue"
             android:textColor="@color/colorFont"
             android:ems="8"
-            android:inputType="date"
+            android:inputType="text"
             android:hint="@string/date_format"
             android:textColorHint="@color/colorHint"
             android:textSize="@dimen/font15"
@@ -154,45 +171,36 @@
             />
 
         <TextView
-            android:id="@+id/user_Gender"
+            android:id="@+id/user_description"
             android:layout_width="78dp"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/user_birthdayTv"
+            android:layout_alignStart="@+id/user_title"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="12dp"
-            android:text="@string/user_Gender"
+            android:text="Description"
             android:textColor="@color/colorFont"
             android:textSize="@dimen/font15"
             android:textStyle="bold" />
-
-        <RadioGroup
-            android:id="@+id/user_RbtG_Gender"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/user_description_edit"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/user_DniPassport_Edit"
-            android:layout_alignTop="@+id/user_Gender"
+            android:layout_below="@+id/user_text_edit"
+            android:layout_alignStart="@+id/user_description"
+            android:layout_marginStart="93dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/colorBlue"
+            android:textColor="@color/colorFont"
+            android:ems="8"
+            android:inputType="text"
+            android:hint="@string/date_format"
+            android:textColorHint="@color/colorHint"
+            android:textSize="@dimen/font15"
+            android:clickable="true"
+            />
 
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/user_Rbtn_Male"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@color/colorBlue"
-                android:textColor="@color/colorFont"
-                android:text="@string/user_Male" />
-
-            <RadioButton
-                android:id="@+id/user_Rbtn_Female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/colorBlue"
-                android:textColor="@color/colorFont"
-                android:layout_weight="1"
-                android:text="@string/user_Female" />
-        </RadioGroup>
     </RelativeLayout>
 
     <RelativeLayout
@@ -364,7 +372,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="37dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/selected_month"
         android:text="@string/buttonSave"
         android:onClick="save_Button_UserEditionP"
@@ -378,10 +386,20 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="14dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/selected_month"
         android:text="@string/buttonCancel"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/fields_edition" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/colorBackground"
+        app:menu="@menu/navigation"/>
 
 </RelativeLayout>
