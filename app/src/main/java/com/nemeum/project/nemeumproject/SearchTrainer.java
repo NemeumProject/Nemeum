@@ -534,17 +534,30 @@ public class SearchTrainer extends AppCompatActivity {
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentBookTrainer = new Intent(appContext, BookTrainer.class);
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerid),idUser);
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerserviceid),Integer.toString(listTrainerService.get(position).getId_training_service_post()));
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerNameExtra),namesOfTrainer.get(position));
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainersporttype),nameSport.get(position));
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerPriceExtra),Double.toString(listTrainerService.get(position).getTraining_price()));
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerDescrExtra),listTrainerService.get(position).getTraining_desc());
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerAddressExtra),listTrainerService.get(position).getTraining_address());
-                    intentBookTrainer.putExtra(getResources().getString(R.string.trainerCityExtra),listTrainerService.get(position).getTraining_city());
-                    appContext.startActivity(intentBookTrainer);
 
+                    if(!(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                            userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                            userType.equals(getResources().getString(R.string.companyUserSP))))
+                    {
+                        SearchTrainer.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(SearchTrainer.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Intent intentBookTrainer = new Intent(appContext, BookTrainer.class);
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainerid),idUser);
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainerserviceid),Integer.toString(listTrainerService.get(position).getId_training_service_post()));
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainerNameExtra),namesOfTrainer.get(position));
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainersporttype),nameSport.get(position));
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainerPriceExtra),Double.toString(listTrainerService.get(position).getTraining_price()));
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainerDescrExtra),listTrainerService.get(position).getTraining_desc());
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainerAddressExtra),listTrainerService.get(position).getTraining_address());
+                        intentBookTrainer.putExtra(getResources().getString(R.string.trainerCityExtra),listTrainerService.get(position).getTraining_city());
+                        appContext.startActivity(intentBookTrainer);
+                    }
                 }
             });
 

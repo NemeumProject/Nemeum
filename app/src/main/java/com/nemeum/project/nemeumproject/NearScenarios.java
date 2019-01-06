@@ -567,26 +567,40 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             bookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentBook = new Intent(appContext, BookScenarios.class);
-                    if(!listScenario.get(position).getImage().equals("null")) {
-                        intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), listScenario.get(position).getImage());
-                        intentBook.putExtra("withImage", "Yes");
 
-                    }else {
-                        intentBook.putExtra("withImage", "No");
+                    if(!(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                            userType.equals(getResources().getString(R.string.trainerUserSP)) ||
+                            userType.equals(getResources().getString(R.string.companyUserSP))))
+                    {
+                        NearScenarios.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(NearScenarios.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
-
-                    intentBook.putExtra(getResources().getString(R.string.scenarioiduser),idUser);
-                    intentBook.putExtra(getResources().getString(R.string.scenarioid),Integer.toString(listScenario.get(position).getIdScenario()));
-                    intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
-                    intentBook.putExtra(getResources().getString(R.string.scenarioPriceExtra),Double.toString(listScenario.get(position).getPrice()));
-
-                    if(!listScenario.get(position).getDescription().equals("null"))
-                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
                     else
-                        intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), "");
+                    {
+                        Intent intentBook = new Intent(appContext, BookScenarios.class);
+                        if(!listScenario.get(position).getImage().equals("null")) {
+                            intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), listScenario.get(position).getImage());
+                            intentBook.putExtra("withImage", "Yes");
 
-                    appContext.startActivity(intentBook);
+                        }else {
+                            intentBook.putExtra("withImage", "No");
+                        }
+
+                        intentBook.putExtra(getResources().getString(R.string.scenarioiduser),idUser);
+                        intentBook.putExtra(getResources().getString(R.string.scenarioid),Integer.toString(listScenario.get(position).getIdScenario()));
+                        intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
+                        intentBook.putExtra(getResources().getString(R.string.scenarioPriceExtra),Double.toString(listScenario.get(position).getPrice()));
+
+                        if(!listScenario.get(position).getDescription().equals("null"))
+                            intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
+                        else
+                            intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), "");
+
+                        appContext.startActivity(intentBook);
+                    }
                 }
             });
             return convertView;
