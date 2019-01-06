@@ -156,19 +156,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
-                            Intent intentMainInd = new Intent(appContext, UserLoginActivity.class);
-                            appContext.startActivity(intentMainInd);
-                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
-                            Intent intentMainTrainer = new Intent(appContext, UserTrainerLoginActivity.class);
-                            appContext.startActivity(intentMainTrainer);
-                        } else if(userType.equals(getResources().getString(R.string.companyUserSP))){
-                            Intent intentMainCompany = new Intent(appContext, UserCompanyLoginActivity.class);
-                            appContext.startActivity(intentMainCompany);
-                        } else {
-                            Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                            appContext.startActivity(intentMain);
-                        }
+                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
+                        appContext.startActivity(intentMain);
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);
@@ -179,16 +168,8 @@ public class NearScenarios extends AppCompatActivity implements OnMapReadyCallba
                         appContext.startActivity(intentLogin);
                         return true;
                     case R.id.accountButton:
-                        if(userType.equals(getResources().getString(R.string.individualUserSP))){
-                            Intent intentAccount = new Intent(appContext, IndividualUserDetail.class);
-                            appContext.startActivity(intentAccount);
-                        } else if(userType.equals(getResources().getString(R.string.trainerUserSP))){
-                            Intent intentAccount = new Intent(appContext, TrainerDetail.class);
-                            appContext.startActivity(intentAccount);
-                        } else {
-                            Intent intentAccount = new Intent(appContext, CompanyDetail.class);
-                            appContext.startActivity(intentAccount);
-                        }
+                        Intent intentAccount = new Intent(getApplicationContext(), TrainerDetail.class);
+                        getApplicationContext().startActivity(intentAccount);
                         return true;
                     default:
                         return false;
