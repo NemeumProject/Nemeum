@@ -557,4 +557,7 @@
     <string name="training_City">Training City</string>
     <string name="training_price">Training Price</string>
     <string name="edit_trainingLocation">Edit Your Training Location</string>
+    <string name="edit_your_address">Edit Your Address</string>
+    <string name="chooseTrainigS">Choose Your Training Service</string>
+    <string name="editTrainig_Services">Edit Training Services</string>
 </resources>

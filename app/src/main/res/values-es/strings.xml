@@ -558,7 +558,10 @@
     <string name="edit_your_descr">Edite su descripción</string>
     <string name="edit_your_Title">Edite su título</string>
     <string name="select_Sport_Type">Seleccione su tipo de deporte</string>
-    <string name="training_City">Training City</string>
-    <string name="training_price">Training Price</string>
-    <string name="edit_trainingLocation">Edit Your Training Location</string>
+    <string name="training_City">Ciudad de entrenamiento</string>
+    <string name="training_price">Precio de entrenamiento</string>
+    <string name="edit_trainingLocation">Edite su localización de entrenamiento</string>
+    <string name="edit_your_address">Edite su dirección</string>
+    <string name="chooseTrainigS">Elija su servicio de entrenamiento</string>
+    <string name="editTrainig_Services">Edite servicios de entrenamiento</string>
 </resources>
