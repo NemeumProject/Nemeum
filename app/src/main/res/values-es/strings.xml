@@ -534,4 +534,9 @@
     <string name="villeneuve">Villeneuve D\'Ascq, France</string>
     <string name="decathlonphone">+33 155359755</string>
     <string name="ourFacilities">Nuestras Instalaciones</string>
+    <string name="postScenario">Crear Scenario</string>
+    <string name="scenarioLocation">Localización de escenario </string>
+    <string name="write_your_scenario">Escriba la descripción del escenario aquí...</string>
+    <string name="scenarioCapacity">Capacidad del escenario</string>
+    <string name="scenarioPrice">Precio del escenario</string>
 </resources>

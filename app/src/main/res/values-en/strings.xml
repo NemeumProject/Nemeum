@@ -532,4 +532,9 @@
     <string name="villeneuve">Villeneuve D\'Ascq, France</string>
     <string name="decathlonphone">+33 155359755</string>
     <string name="ourFacilities">Our Facilities</string>
+    <string name="postScenario">Post Scenario</string>
+    <string name="scenarioLocation">Scenario Location</string>
+    <string name="write_your_scenario">Write your scenario description here...</string>
+    <string name="scenarioCapacity">Scenario Capacity</string>
+    <string name="scenarioPrice">Scenario Price</string>
 </resources>
