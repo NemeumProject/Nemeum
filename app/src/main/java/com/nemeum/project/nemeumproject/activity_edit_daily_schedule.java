@@ -116,7 +116,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                 st_TimePicker = new TimePickerDialog(activity_edit_daily_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHourst, int selectedMinutest) {
-                        startingTime_EditText.setText( selectedHourst + ":" + selectedMinutest + ":00");
+                        startingTime_EditText.setText( String .format("%02d:%02d", selectedHourst,selectedMinutest) + ":00");
                     }
                 }, hour_st, minutest, true);//Yes 24 hour time
                 st_TimePicker.setTitle(select_stime_popup);
@@ -137,7 +137,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                 ending_time_TimePicker = new TimePickerDialog(activity_edit_daily_schedule.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        endingTime_EditText.setText( selectedHour + ":" + selectedMinute + ":00");
+                        endingTime_EditText.setText( String .format("%02d:%02d", selectedHour,selectedMinute) + ":00");
                     }
                 }, hour, minute, true);// 24 hour time
                 ending_time_TimePicker.setTitle(select_etime_popup);
