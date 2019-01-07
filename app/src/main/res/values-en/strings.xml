@@ -214,6 +214,11 @@
         <item>Guissona</item>
         <item>Lleida</item>
         <item>Zaragoza</item>
+        <item>Girona</item>
+        <item>Tarragona</item>
+        <item>Valencia</item>
+        <item>Bilbao</item>
+        <item>Sevilla</item>
     </string-array>
     <string-array name="priceFilter">
         <item>Price range</item>

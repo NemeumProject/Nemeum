@@ -54,7 +54,7 @@ public class FacilityFinder extends AppCompatActivity {
 
         getAllUsers();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

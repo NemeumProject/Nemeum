@@ -1,8 +1,11 @@
 package com.nemeum.project.nemeumproject;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nemeum.project.nemeumproject.Entities.SQLiteConnectionHelper;
+import com.nemeum.project.nemeumproject.Utilities.Utilities;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpResponse;
@@ -34,6 +39,8 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,16 +82,11 @@ public class NearScenarios extends AppCompatActivity {
         checkRegisteredUser();
 
         getAllSports();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         getAllScenarios();
 
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -364,44 +366,113 @@ public class NearScenarios extends AppCompatActivity {
                     URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenariosDB) + getResources().getString(R.string.listDB));
                     request.setURI(website);
                     HttpResponse response = httpclient.execute(request);
-                    in = new BufferedReader(new InputStreamReader(
-                            response.getEntity().getContent()));
+                    if(response.getStatusLine().getStatusCode() == 200){
+                        in = new BufferedReader(new InputStreamReader(
+                                response.getEntity().getContent()));
 
-                    while((line = in.readLine()) != null)
-                        data += line;
+                        while((line = in.readLine()) != null)
+                            data += line;
 
-                    data = data.replaceFirst("null", "");
-                    parserList = new JSONArray(data);
+                        data = data.replaceFirst("null", "");
+                        parserList = new JSONArray(data);
 
-                    while(numResults < parserList.length()) {
-                        parser = (JSONObject) parserList.get(numResults);
-                        Scenario scenario = new Scenario();
-                        scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
-                        scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
-                        scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
-                        scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
-                        scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
-                        scenario.setCapacity(parser.getInt("capacity"));
-                        scenario.setAddress(parser.getString("address"));
-                        String dateStr = parser.getString("dateScenario");
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                        scenario.setDateScenario(sdf.parse(dateStr));
-                        scenario.setTitle(parser.getString("title"));
-                        scenario.setImage(parser.getString("image"));
-                        if(!parser.isNull("indoor")){
-                            scenario.setIndoor(parser.getBoolean("indoor"));
+                        while(numResults < parserList.length()) {
+                            parser = (JSONObject) parserList.get(numResults);
+                            Scenario scenario = new Scenario();
+                            scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
+                            scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
+                            scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
+                            scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
+                            scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
+                            scenario.setCapacity(parser.getInt("capacity"));
+                            scenario.setAddress(parser.getString("address"));
+                            String dateStr = parser.getString("dateScenario");
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                            scenario.setDateScenario(sdf.parse(dateStr));
+                            scenario.setTitle(parser.getString("title"));
+                            scenario.setImage(parser.getString("image"));
+                            if(!parser.isNull("indoor")){
+                                scenario.setIndoor(parser.getBoolean("indoor"));
+                            }
+                            scenario.setCity(parser.getString("city"));
+                            numResults++;
+                            listScenario.add(scenario);
+
                         }
-                        scenario.setCity(parser.getString("city"));
-                        numResults++;
-                        listScenario.add(scenario);
-
+                        fill_Localdb_escenarios();
+                    }else{
+                        readFromLocalDatabase();
                     }
+
                 }catch(Exception e){
-                    e.printStackTrace();
+                    try {
+                        readFromLocalDatabase();
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
                 }
                 Thread.yield();
             }
         }).start();
+    }
+
+    private void readFromLocalDatabase() throws ParseException {
+        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
+        SQLiteDatabase db = localconn.getReadableDatabase();
+        Cursor d = db.rawQuery("SELECT * FROM scenarios",null);
+        if (d != null && d.moveToFirst()){ //make sure you got results, and move to first row
+            do{
+                Scenario scenario = new Scenario();
+                scenario.setIdScenario(d.getInt(0));
+                scenario.setIdSport(d.getInt(1));
+                scenario.setPrice(d.getDouble(2));
+                scenario.setIndoor(d.getInt(3) > 0);
+                scenario.setCapacity(d.getInt(4));
+                scenario.setIdCompany(d.getInt(5));
+                String dateStr = d.getString(6);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                scenario.setDateScenario(sdf.parse(dateStr));
+                scenario.setDescription(d.getString(7));
+                scenario.setTitle(d.getString(8));
+                scenario.setImage(d.getString(9));
+                scenario.setAddress(d.getColumnName(10));
+                listScenario.add(scenario);
+
+            } while (d.moveToNext()); //move to next row in the query result
+
+        }
+    }
+
+    private void fill_Localdb_escenarios(){
+        Long idResult;
+        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
+        SQLiteDatabase db = localconn.getWritableDatabase();
+        //Delete old records and after this, fill-in with the new data.
+        db.execSQL("DELETE FROM " + Utilities.SCENARIO_TABLE+ " ");
+        ContentValues values = new ContentValues();
+        DateFormat df = new SimpleDateFormat(getString(R.string.pattern_date_format));
+
+        for(Scenario scenario : listScenario){
+
+            values.put(Utilities.field_IDscenario, scenario.getIdScenario());
+            values.put(Utilities.field_SportID,scenario.getIdSport());
+            values.put(Utilities.field_Price,scenario.getPrice());
+            values.put(Utilities.field_Isindoor,scenario.getIndoor());
+            values.put(Utilities.field_Capacity,scenario.getCapacity());
+            values.put(Utilities.field_CompanyID,scenario.getIdCompany());
+            values.put(Utilities.field_DateScenario,df.format(scenario.getDateScenario()));
+            values.put(Utilities.field_Description, scenario.getDescription());
+            values.put(Utilities.field_Title,scenario.getTitle());
+            values.put(Utilities.field_Image,scenario.getImage());
+            values.put(Utilities.field_address,scenario.getAddress());
+
+            idResult=db.insert(Utilities.SCENARIO_TABLE, Utilities.field_IDscenario, values);
+
+            System.out.println("Description  "+ scenario.getDescription());
+            System.out.println("Id Record: "+ idResult);
+        }
+
+        db.close();
     }
 
     public void getBack(View view) {

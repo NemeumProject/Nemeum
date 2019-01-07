@@ -72,14 +72,6 @@ public class ActivityMainMock extends AppCompatActivity {
 
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
-        getAllScenarios();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        fill_Localdb_escenarios();
-
         checkPermissions();
         checkRegisteredUser();
 
@@ -236,97 +228,5 @@ public class ActivityMainMock extends AppCompatActivity {
                 }
                 break;
         }
-    }
-
-    public synchronized void getAllScenarios() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                int numResults = 0;
-                BufferedReader in;
-                String data = null;
-                String line;
-                JSONArray parserList;
-                JSONObject parser;
-
-                HttpClient httpclient = new DefaultHttpClient();
-                HttpGet request = new HttpGet();
-
-                try{
-
-                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenariosDB) + getResources().getString(R.string.listDB));
-                    request.setURI(website);
-                    HttpResponse response = httpclient.execute(request);
-                    in = new BufferedReader(new InputStreamReader(
-                            response.getEntity().getContent()));
-
-                    while((line = in.readLine()) != null)
-                        data += line;
-
-                    data = data.replaceFirst("null", "");
-                    parserList = new JSONArray(data);
-
-                    while(numResults < parserList.length()) {
-                        parser = (JSONObject) parserList.get(numResults);
-                        Scenario scenario = new Scenario();
-                        scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
-                        scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
-                        scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
-                        scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
-                        scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
-                        scenario.setCapacity(parser.getInt("capacity"));
-                        scenario.setAddress(parser.getString("address"));
-                        String dateStr = parser.getString("dateScenario");
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                        scenario.setDateScenario(sdf.parse(dateStr));
-                        scenario.setTitle(parser.getString("title"));
-                        scenario.setImage(parser.getString("image"));
-                        if(!parser.isNull("indoor")){
-                            scenario.setIndoor(parser.getBoolean("indoor"));
-                        }
-                        numResults++;
-                        listScenario.add(scenario);
-
-                    }
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-                Thread.yield();
-            }
-        }).start();
-    }
-
-    private void fill_Localdb_escenarios(){
-        Long idResult;
-        SQLiteConnectionHelper localconn= new SQLiteConnectionHelper(this, "bd_scenarios", null,1);
-        SQLiteDatabase db = localconn.getWritableDatabase();
-       //Delete old records and after this, fill-in with the new data.
-        db.execSQL("DELETE FROM " + Utilities.SCENARIO_TABLE+ " ");
-        ContentValues values = new ContentValues();
-        DateFormat df = new SimpleDateFormat(getString(R.string.pattern_date_format));
-
-for(Scenario scenario : listScenario){
-
-    values.put(Utilities.field_IDscenario, scenario.getIdScenario());
-    values.put(Utilities.field_SportID,scenario.getIdSport());
-    values.put(Utilities.field_Price,scenario.getPrice());
-    values.put(Utilities.field_Isindoor,scenario.getIndoor());
-    values.put(Utilities.field_Capacity,scenario.getCapacity());
-    values.put(Utilities.field_CompanyID,scenario.getIdCompany());
-    values.put(Utilities.field_DateScenario,df.format(scenario.getDateScenario()));
-    values.put(Utilities.field_Description, scenario.getDescription());
-    values.put(Utilities.field_Title,scenario.getTitle());
-    values.put(Utilities.field_Image,scenario.getImage());
-    values.put(Utilities.field_address,scenario.getAddress());
-
-     idResult=db.insert(Utilities.SCENARIO_TABLE, Utilities.field_IDscenario, values);
-
-    System.out.println("Description  "+ scenario.getDescription());
-    System.out.println("Id Record: "+ idResult);
-}
-        //String numberasString = new Long (idResult).toString();
-        //Toast.makeText(getApplicationContext(),"Id Record:"+idResult, Toast.LENGTH_SHORT).show();
-        db.close();
     }
 }

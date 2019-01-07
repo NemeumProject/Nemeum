@@ -214,6 +214,11 @@
         <item>Guissona</item>
         <item>Lleida</item>
         <item>Zaragoza</item>
+        <item>Girona</item>
+        <item>Tarragona</item>
+        <item>Valencia</item>
+        <item>Bilbao</item>
+        <item>Sevilla</item>
     </string-array>
     <string-array name="priceFilter">
         <item>Gama de precios</item>
@@ -586,6 +591,7 @@
     <string name="editTrainig_Services">Edite servicios de entrenamiento</string>
     <string name="slogan">Slogan</string>
     <string name="time_selection_Error">La hora de inicio no puede ser superior a la hora de finalización</string>
-    <string name="edit">Ciudad</string>
+    <string name="edit">Editar</string>
+    <string name="city">Ciudad</string>
 
 </resources>
