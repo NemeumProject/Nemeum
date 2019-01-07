@@ -444,6 +444,7 @@
     <string name="field_location_empty">Field location is mandatory</string>
     <string name="field_city_empty">Field city is mandatory</string>
     <string name="field_date_empty">Field date is mandatory</string>
+    <string name="booking_deleted">Booking deleted successfully</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Trainer Posting</string>

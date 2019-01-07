@@ -444,6 +444,7 @@
     <string name="field_location_empty">La ubicación es obligatoria</string>
     <string name="field_city_empty">La ciudad es obligatoria</string>
     <string name="field_date_empty">La fecha es obligatoria</string>
+    <string name="booking_deleted">Reserva removida con éxito</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Nueva Publicación</string>

@@ -17,15 +17,18 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.sql.Time;
@@ -499,17 +502,41 @@ public class MyBookings extends AppCompatActivity {
                     cancelAlertBuilder.setPositiveButton(R.string.buttonYes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            new Thread(new Runnable() {
+                                public void run() {
+                                    HttpClient httpclient = new DefaultHttpClient();
 
-                            Intent intentBook = new Intent(appContext, BookScenarios.class);
-                            intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
+                                    HttpDelete httpDelete;
+                                    if(listBookings.get(position).getIdScenario() != null)
+                                        httpDelete = new HttpDelete(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenarioJoinDB) + "/" + listBookings.get(position).getIdBooking());
+                                    else
+                                        httpDelete = new HttpDelete(getResources().getString(R.string.urlDB) + getResources().getString(R.string.trainerJoinDB) + "/" + listBookings.get(position).getIdBooking());
 
-                            if(!listScenario.get(position).getDescription().equals("null"))
-                                intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
-                            else
-                                intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), "");
-
-                            appContext.startActivity(intentBook);
-
+                                    httpDelete.setHeader(getResources().getString(R.string.dbAccessAccept), getResources().getString(R.string.dbAccessAppJson));
+                                    httpDelete.setHeader(getResources().getString(R.string.dbAccessContentType), getResources().getString(R.string.dbAccessAppJson));
+                                    HttpResponse response = null;
+                                    try {
+                                        response = httpclient.execute(httpDelete);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    if (response.getStatusLine().getStatusCode() == 200) {
+                                        MyBookings.this.runOnUiThread(new Runnable() {
+                                            public void run() {
+                                                Toast.makeText(appContext, getResources().getString(R.string.booking_deleted), Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+                                        Intent intent1 = new Intent(appContext, UserLoginActivity.class);
+                                        startActivity(intent1);
+                                    }else{
+                                        MyBookings.this.runOnUiThread(new Runnable() {
+                                            public void run() {
+                                                Toast.makeText(appContext, getResources().getString(R.string.requisitionError), Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+                                    }
+                                }
+                            }).start();
                         }
                     });
                     cancelAlertBuilder.setNegativeButton(R.string.buttonNo, new DialogInterface.OnClickListener() {
