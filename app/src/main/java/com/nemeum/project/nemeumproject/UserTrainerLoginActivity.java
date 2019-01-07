@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserTrainerLoginActivity extends AppCompatActivity {
 
@@ -53,6 +54,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
         set_user_name = findViewById(R.id.user_names);
 
         menu.getMenu().getItem(2).setVisible(false);
+        menu.getMenu().getItem(3).setVisible(false);
         set_user_name.setText("Hello " + shared.getString("userName", "") + " !");
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +124,7 @@ public class UserTrainerLoginActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Intent intentMain = new Intent(appContext, ActivityMainMock.class);
-                        appContext.startActivity(intentMain);
+                        Toast.makeText(appContext, R.string.alreadyOnHomeErr, Toast.LENGTH_LONG).show();
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);

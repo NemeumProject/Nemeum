@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -37,7 +36,6 @@ import models.CompanyUser;
 
 public class FacilityFinder extends AppCompatActivity {
 
-    private int[] facilityPoints = {1, 2, 3, 4, 5};
     private Context appContext;
     private SharedPreferences SP;
     private List<CompanyUser> listCompany = new ArrayList<>();
@@ -126,11 +124,13 @@ public class FacilityFinder extends AppCompatActivity {
         menu = findViewById(R.id.navigation);
         userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
 
-        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                userType.equals(getResources().getString(R.string.companyUserSP))){
+        if(userType.equals(getResources().getString(R.string.companyUserSP))){
             menu.getMenu().getItem(2).setVisible(false);
-        } else {
+        } else if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+            menu.getMenu().getItem(3).setVisible(false);
+        } else{
             menu.getMenu().getItem(3).setVisible(false);
         }
     }

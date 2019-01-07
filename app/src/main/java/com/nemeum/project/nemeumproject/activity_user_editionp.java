@@ -244,11 +244,13 @@ public class activity_user_editionp extends AppCompatActivity  {
         menu = findViewById(R.id.navigation);
         userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
 
-        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                userType.equals(getResources().getString(R.string.companyUserSP))){
+        if(userType.equals(getResources().getString(R.string.companyUserSP))){
             menu.getMenu().getItem(2).setVisible(false);
-        } else {
+        } else if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+            menu.getMenu().getItem(3).setVisible(false);
+        } else{
             menu.getMenu().getItem(3).setVisible(false);
         }
     }

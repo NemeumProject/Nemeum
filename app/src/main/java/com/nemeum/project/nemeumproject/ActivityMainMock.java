@@ -64,10 +64,12 @@ public class ActivityMainMock extends AppCompatActivity {
         ImageButton findscenario_btn;
         ImageButton findtrainer_btn;
 
+        appContext = getApplicationContext();
+        checkLanguage();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mock);
 
-        appContext = getApplicationContext();
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
         getAllScenarios();
@@ -79,7 +81,6 @@ public class ActivityMainMock extends AppCompatActivity {
         fill_Localdb_escenarios();
 
         checkPermissions();
-        checkLanguage();
         checkRegisteredUser();
 
         menu = findViewById(R.id.navigation);
@@ -128,8 +129,7 @@ public class ActivityMainMock extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.homeButton:
-                        Toast toast = Toast.makeText(appContext, R.string.alreadyOnHomeErr, Toast.LENGTH_LONG);
-                        toast.show();
+                        Toast.makeText(appContext, R.string.alreadyOnHomeErr, Toast.LENGTH_LONG).show();
                         return true;
                     case R.id.settingsButton:
                         Intent intentSettings = new Intent(appContext, Settings.class);

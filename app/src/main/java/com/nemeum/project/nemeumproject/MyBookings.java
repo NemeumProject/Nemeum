@@ -28,15 +28,26 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
+import models.Booking;
 import models.Scenario;
+import models.TrainerService;
 
 public class MyBookings extends AppCompatActivity {
 
-    private List<Scenario> listScenario = new ArrayList<>();
+    private List<Scenario> listScenario;
+    private List<String> listTrainerName;
+    private List<TrainerService> listServices;
+    private List<Booking> listBookings;
+    private ListView resultList;
+    private CustomAdapter customResult;
     private Context appContext;
     private SharedPreferences SP;
     private BottomNavigationView menu;
@@ -47,14 +58,27 @@ public class MyBookings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
 
+        listScenario = new ArrayList<>();
+        listServices = new ArrayList<>();
+        listBookings = new ArrayList<>();
+        listTrainerName = new ArrayList<>();
+
         appContext = getApplicationContext();
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
 
         getMyBookings();
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         checkRegisteredUser();
 
-        ListView resultList = findViewById(R.id.bookingsList);
-        CustomAdapter customResult = new CustomAdapter();
+        resultList = findViewById(R.id.bookingsList);
+
+        customResult = new CustomAdapter();
         resultList.setAdapter(customResult);
 
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -107,16 +131,25 @@ public class MyBookings extends AppCompatActivity {
         menu = findViewById(R.id.navigation);
         userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
 
-        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                userType.equals(getResources().getString(R.string.companyUserSP))){
+        if(userType.equals(getResources().getString(R.string.companyUserSP))){
             menu.getMenu().getItem(2).setVisible(false);
-        } else {
+        } else if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+            menu.getMenu().getItem(3).setVisible(false);
+        } else{
             menu.getMenu().getItem(3).setVisible(false);
         }
     }
 
     public synchronized void getMyBookings() {
+        getScenarioBookings();
+        getServiceBookings();
+
+        Collections.sort(listBookings, new SortByDate());
+    }
+
+    private void getScenarioBookings() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -133,7 +166,7 @@ public class MyBookings extends AppCompatActivity {
 
                 try{
 
-                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenariosDB) + getResources().getString(R.string.listDB));
+                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenarioJoinDB) + "/" + SP.getString(getResources().getString(R.string.idUserSP), ""));
                     request.setURI(website);
                     HttpResponse response = httpclient.execute(request);
                     in = new BufferedReader(new InputStreamReader(
@@ -146,30 +179,231 @@ public class MyBookings extends AppCompatActivity {
                     parserList = new JSONArray(data);
 
                     while(numResults < parserList.length()) {
+                        Booking booking = new Booking();
+
                         parser = (JSONObject) parserList.get(numResults);
-                        Scenario scenario = new Scenario();
-                        scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
-                        scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
-                        scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
-                        scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
-                        scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
-                        scenario.setCapacity(parser.getInt("capacity"));
-                        scenario.setAddress(parser.getString("address"));
-                        String dateStr = parser.getString("dateScenario");
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                        scenario.setDateScenario(sdf.parse(dateStr));
-                        scenario.setTitle(parser.getString("title"));
-                        scenario.setImage(parser.getString("image"));
-                        if(!parser.isNull("indoor")){
-                            scenario.setIndoor(parser.getBoolean("indoor"));
-                        }
-                        numResults++;
-                        listScenario.add(scenario);
+                        booking.setIdBooking(parser.getInt(getResources().getString(R.string.userScenario_userscenarioJson)));
+                        booking.setIdScenario(parser.getInt(getResources().getString(R.string.userScenario_idScenarioJson)));
+                        String dateBookStart = parser.getString(getResources().getString(R.string.userScenario_startScenarioJson));
+                        String dateBookEnd = parser.getString(getResources().getString(R.string.userScenario_endScenarioJson));
+                        SimpleDateFormat dateFormat = new SimpleDateFormat(getResources().getString(R.string.pattern_date_format));
+                        booking.setDateSchedule(dateFormat.parse(dateBookStart));
+                        booking.setTimeStartScheduled(dateFormat.parse(dateBookStart));
+                        booking.setTimeEndScheduled(dateFormat.parse(dateBookEnd));
+
+                            getScenario(booking.getIdScenario());
+
+                            Thread.sleep(200);
+
+                            booking.setAddress(listScenario.get(numResults).getAddress());
+                            booking.setTitle(listScenario.get(numResults).getTitle());
+                            booking.setPrice(listScenario.get(numResults).getPrice() * (booking.getTimeEndScheduled().getHours() - booking.getTimeStartScheduled().getHours()));
+                            numResults++;
+                            listBookings.add(booking);
                     }
                 }catch(Exception e){
                     e.printStackTrace();
                 }
-                Thread.yield();
+            }
+        }).start();
+    }
+
+    private void getScenario(final int scenarioId) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try{
+
+                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.scenariosDB) + "/" + scenarioId);
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parser = new JSONObject(data);
+                    Scenario scenario = new Scenario();
+
+                    scenario.setIdScenario(parser.getInt(getResources().getString(R.string.scenarioIdJson)));
+                    scenario.setIdSport(parser.getInt(getResources().getString(R.string.scenarioSportIdJson)));
+                    scenario.setPrice(parser.getDouble(getResources().getString(R.string.scenarioPriceJson)));
+                    scenario.setIdCompany(parser.getInt(getResources().getString(R.string.scenarioCompanyIdJson)));
+                    scenario.setDescription(parser.getString(getResources().getString(R.string.scenarioDescriptionJson)));
+                    scenario.setCapacity(parser.getInt(getResources().getString(R.string.scenarioCapacityJson)));
+                    scenario.setAddress(parser.getString(getResources().getString(R.string.scenarioAddressJson)));
+                    String dateStr = parser.getString(getResources().getString(R.string.scenarioDateJson));
+                    SimpleDateFormat sdf = new SimpleDateFormat(getResources().getString(R.string.pattern_date_format));
+                    scenario.setDateScenario(sdf.parse(dateStr));
+                    scenario.setTitle(parser.getString(getResources().getString(R.string.scenarioTitleJson)));
+                    scenario.setImage(parser.getString(getResources().getString(R.string.scenarioImageJson)));
+
+                    if(!parser.isNull(getResources().getString(R.string.scenarioIndoorJson)))
+                        scenario.setIndoor(parser.getBoolean(getResources().getString(R.string.scenarioIndoorJson)));
+
+                    listScenario.add(scenario);
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void getServiceBookings() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                int numResults = 0;
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONArray parserList;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try{
+
+                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.trainerJoinDB) + "/" + SP.getString(getResources().getString(R.string.idUserSP), ""));
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserList = new JSONArray(data);
+
+                    while(numResults < parserList.length()) {
+                        Booking booking = new Booking();
+
+                        parser = (JSONObject) parserList.get(numResults);
+                        booking.setIdBooking(parser.getInt(getResources().getString(R.string.bookingTrainer_bookingTrainerIDJson)));
+                        booking.setIdService(parser.getInt(getResources().getString(R.string.bookingTrainer_idServiceJson)));
+                        booking.setPrice(parser.getDouble(getResources().getString(R.string.bookingTrainer_piceJson)));
+                        String dateBookStart = parser.getString(getResources().getString(R.string.bookingTrainer_startServiceJson));
+                        String dateBookEnd = parser.getString(getResources().getString(R.string.bookingTrainer_endServiceJson));
+                        SimpleDateFormat dateFormat = new SimpleDateFormat(getResources().getString(R.string.pattern_date_format));
+                        booking.setDateSchedule(dateFormat.parse(dateBookStart));
+                        booking.setTimeStartScheduled(dateFormat.parse(dateBookStart));
+                        booking.setTimeEndScheduled(dateFormat.parse(dateBookEnd));
+
+                        getService(booking.getIdService());
+
+                        Thread.sleep(200);
+
+                        getTrainerName(listServices.get(numResults).getId_trainer_user());
+                        Thread.sleep(200);
+
+                        booking.setAddress(listServices.get(numResults).getTraining_address());
+                        booking.setTitle(listTrainerName.get(numResults));
+                        numResults++;
+                        listBookings.add(booking);
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void getService(final int serviceId) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONArray parserArray;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try{
+
+                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.trainerSportDB) + getResources().getString(R.string.serviceDB) + "/" + serviceId);
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(
+                            response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+                    parserArray = new JSONArray(data);
+
+                    parser = (JSONObject) parserArray.get(0);
+
+                    TrainerService trainerService = new TrainerService();
+                    trainerService.setId_training_service_post(parser.getInt("id_training_service_post"));
+                    trainerService.setId_sport_training_type(parser.getInt("id_sport_training_type"));
+                    trainerService.setId_trainer_user(parser.getInt("id_trainer_user"));
+                    trainerService.setTraining_address(parser.getString("training_address"));
+                    trainerService.setTraining_city(parser.getString("training_city"));
+                    trainerService.setTraining_desc(parser.getString("training_desc"));
+                    trainerService.setTraining_price(parser.getDouble("training_price"));
+                    String startTime = parser.getString("training_start");
+                    trainerService.setTraining_start(Time.valueOf(startTime));
+                    String endTime = parser.getString("training_end");
+                    trainerService.setTraining_end(Time.valueOf(endTime));
+
+                    listServices.add(trainerService);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void getTrainerName(final Integer id_trainer_user) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                BufferedReader in;
+                String data = null;
+                String line;
+                JSONObject parser;
+
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+
+                try {
+                    URI website = new URI(getResources().getString(R.string.urlDB) + getResources().getString(R.string.trainerUserDB) + "/" + id_trainer_user);
+                    request.setURI(website);
+                    HttpResponse response = httpclient.execute(request);
+                    in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+                    while((line = in.readLine()) != null)
+                        data += line;
+
+                    data = data.replaceFirst("null", "");
+
+                    parser = (JSONObject)  new JSONArray(data).get(0);
+                    listTrainerName.add(parser.getString("firstName"));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
     }
@@ -178,11 +412,39 @@ public class MyBookings extends AppCompatActivity {
         finish();
     }
 
+    class SortByDate implements Comparator<Booking>{
+        @Override
+        public int compare(Booking b1, Booking b2) {
+            if(b1.getTimeStartScheduled().getYear() != b2.getTimeStartScheduled().getYear())
+                if(b1.getTimeStartScheduled().getYear() > b2.getTimeStartScheduled().getYear())
+                    return  1;
+                else
+                    return -1;
+            else if(b1.getTimeStartScheduled().getMonth() != b2.getTimeStartScheduled().getMonth())
+                if(b1.getTimeStartScheduled().getMonth() > b2.getTimeStartScheduled().getMonth())
+                    return  1;
+                else
+                    return -1;
+            else if(b1.getTimeStartScheduled().getDay() != b2.getTimeStartScheduled().getDay())
+                if(b1.getTimeStartScheduled().getDay() > b2.getTimeStartScheduled().getDay())
+                    return  1;
+                else
+                    return -1;
+            else if(b1.getTimeStartScheduled().getHours() != b2.getTimeStartScheduled().getHours())
+                if(b1.getTimeStartScheduled().getHours() > b2.getTimeStartScheduled().getHours())
+                    return  1;
+                else
+                    return -1;
+            else
+                return 0;
+        }
+    }
+
     class CustomAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
-            return listScenario.size();
+            return listBookings.size();
         }
 
         @Override
@@ -192,7 +454,7 @@ public class MyBookings extends AppCompatActivity {
 
         @Override
         public long getItemId(int position) {
-            return listScenario.get(position).getIdScenario();
+            return listBookings.get(position).getIdScenario();
         }
 
         @Override
@@ -209,19 +471,20 @@ public class MyBookings extends AppCompatActivity {
             TextView bookPlace = convertView.findViewById(R.id.myBookResultPlaceText);
             TextView bookValue = convertView.findViewById(R.id.myBookResultPriceText);
 
-            bookTitle.setText(listScenario.get(position).getTitle());
-            bookHours.setText(getResources().getString(R.string.bookingResTime) /*+ listScenario.get(position)*/);
-            bookDate.setText(getResources().getString(R.string.bookingResDate) /*+ listScenario.get(position)*/);
-            bookPlace.setText(getResources().getString(R.string.bookingResAddress) + " " + listScenario.get(position).getAddress());
-
-            if(!listScenario.get(position).getPrice().toString().equals("null"))
-                bookValue.setText(getResources().getString(R.string.bookingResPrice) + " " + listScenario.get(position).getPrice().toString() + "€ / hour");
+            bookTitle.setText(listBookings.get(position).getTitle());
+            SimpleDateFormat date = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault());
+            bookDate.setText(getResources().getString(R.string.bookingResDate) + date.format(listBookings.get(position).getTimeStartScheduled()));
+            SimpleDateFormat hours = new SimpleDateFormat(getResources().getString(R.string.hour_format), Locale.getDefault());
+            bookHours.setText(getResources().getString(R.string.bookingResTime) + hours.format(listBookings.get(position).getTimeStartScheduled()) + " - " + hours.format(listBookings.get(position).getTimeEndScheduled()));
+            bookPlace.setText(getResources().getString(R.string.bookingResAddress) + " " + listBookings.get(position).getAddress());
+            if(!listBookings.get(position).getPrice().toString().equals("null"))
+                bookValue.setText(getResources().getString(R.string.bookingResPrice) + " " + listBookings.get(position).getPrice().toString() + "€ / hour");
 
             editBookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentPayment = new Intent(appContext, EditBook.class);
-                    intentPayment.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
+                    intentPayment.putExtra(getResources().getString(R.string.scenarioNameExtra), listBookings.get(position).getTitle());
                     appContext.startActivity(intentPayment);
                 }
             });
