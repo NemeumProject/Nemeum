@@ -1,133 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CompanyDetail"
     android:background="@color/colorWhite"
-    tools:context=".CompanyDetail">
-
-    <ImageView
-        android:id="@+id/imgvCompanyLogoBehind"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/decathlon_back" />
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/companyDataLwt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="130dp"
-        android:padding="3dp"
-        android:background="@drawable/results_rounded"
-        android:backgroundTint="@color/colorBackground">
+        android:layout_height="200dp">
 
-        <TextView
-            android:id="@+id/companyTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:textColor="@color/colorBlue"
-            android:textSize="25sp"
-            android:layout_centerHorizontal="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorBackground"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/companySloganText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companyTitleText"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/colorPink"
-            android:textSize="20sp"/>
+            <ImageView
+                android:id="@+id/companyLogoImg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="45dp"
+                 />
 
-        <TextView
-            android:id="@+id/companyPlaceText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/companySloganText"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/colorWhite"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:id="@+id/companyCityText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/companyPlaceText"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/colorWhite"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:id="@+id/trainerIIIText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/companyCityText"
-            android:textColor="@color/colorWhite"
-            android:layout_centerHorizontal="true"
-            android:textSize="15sp"/>
-
-        <Button
-            android:id="@+id/btnEditCompanyProfile"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignTop="@+id/companyDataLwt"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:background="@mipmap/pencil_button"
-            android:layout_marginEnd="7dp"
-            android:layout_marginRight="7dp"
-            android:onClick="editCompanyInfo" />
+            <TextView
+                android:id="@+id/companySloganText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/companyLogoImg"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/font25"
+                android:layout_height="@dimen/font25"
+                android:src="@mipmap/names"/>
+            <TextView
+                android:id="@+id/companyTitleText"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBackground"
+                android:textSize="@dimen/font12"
+                android:paddingLeft="20dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/font25"
+                android:layout_height="@dimen/font25"
+                android:src="@mipmap/address"/>
+
+            <TextView
+                android:id="@+id/companyPlaceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorBackground"
+                android:textSize="@dimen/font12"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/font25"
+                android:layout_height="@dimen/font25"
+                android:src="@mipmap/buildings"/>
+
+            <TextView
+                android:id="@+id/companyCityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorBackground"
+                android:textSize="@dimen/font12"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/font25"
+                android:layout_height="@dimen/font25"
+                android:src="@mipmap/tel"/>
+
+            <TextView
+                android:id="@+id/trainerIIIText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorBackground"
+                android:textSize="@dimen/font12"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/font25"
+                android:layout_height="@dimen/font25"
+                android:src="@mipmap/description"/>
+
+            <TextView
+                android:id="@+id/scenarioDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorBackground"
+                android:textSize="@dimen/font12"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progresss"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:indeterminate="true"
+                android:max="100"
+                android:indeterminateTint="@color/colorPink"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnEditCompanyProfile"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/months_rounded"
+                android:backgroundTint="@color/colorPink"
+                android:gravity="center"
+                android:onClick="editCompanyInfo"
+                android:text="@string/edit"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBackground" />
+        </LinearLayout>
+    </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/companyDescriptionLwt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/companyDataLwt"
-        android:padding="10dp"
-        android:background="@drawable/results_rounded"
-        android:backgroundTint="@color/colorBackground">
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
 
-        <TextView
-            android:id="@+id/scenarioDescrTitleText"
+
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ourFacilities"
-            android:textColor="@color/colorBlue"
-            android:textSize="15sp"/>
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@color/colorBackground"
+            app:menu="@menu/navigation"/>
 
-        <TextView
-            android:id="@+id/scenarioDescriptionText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/scenarioDescrTitleText"
-            android:textColor="@color/colorWhite"
-            android:textSize="12sp"/>
     </RelativeLayout>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="@color/colorBackground"
-        app:menu="@menu/navigation"/>
-
-</RelativeLayout>
+</LinearLayout>

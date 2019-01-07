@@ -4,166 +4,185 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorWhite"
-    tools:context=".activity_company_editionp">
+    tools:context=".activity_company_editionp"
+    android:background="@color/colorBackground">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/decathlon_back"/>
-
-    <RelativeLayout
-        android:id="@+id/companyDataLwt"
+    <TextView
+        android:id="@+id/TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="130dp"
-        android:padding="3dp"
+        android:layout_margin="5dp"
+        android:text="@string/ourFacilities"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font25"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="@mipmap/back_icon"
+        android:onClick="getBack" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TitleText"
+        android:layout_above="@id/navigation"
+        android:layout_margin="15dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
         android:background="@drawable/results_rounded"
         android:backgroundTint="@color/colorBackground">
 
+        <android.support.v7.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="30dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="50dp"
+            app:cardBackgroundColor="@color/colorHint">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:text="@string/selectPhoto"
+                android:textSize="12sp"
+                android:textColor="@color/colorWhite"/>
 
+            <ImageView
+                android:id="@+id/eventImg"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop" />
+        </android.support.v7.widget.CardView>
 
         <EditText
             android:id="@+id/companyTitleEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="98dp"
-            android:layout_marginTop="60dp"
-            android:inputType="text"
-            android:hint="@string/company_name"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:layout_gravity="center"
+            android:textCursorDrawable="@color/colorFont"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/fields_edition" />
+            android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
+            android:textAlignment="center"
+            android:hint="@string/company_name"
+            android:textSize="12sp"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/companySloganEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companyTitleEditText"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="128dp"
-            android:inputType="text"
-            android:hint="@string/slogan"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:layout_gravity="center"
+            android:textCursorDrawable="@color/colorFont"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/fields_edition" />
+            android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
+            android:textAlignment="center"
+            android:hint="@string/slogan"
+            android:textSize="12sp"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/companyPlaceEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companySloganEditText"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-2dp"
-            android:layout_marginEnd="86dp"
-            android:inputType="text"
-            android:hint="@string/user_Address"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:layout_gravity="center"
+            android:textCursorDrawable="@color/colorFont"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/fields_edition" />
+            android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
+            android:textAlignment="center"
+            android:hint="@string/user_Address"
+            android:textSize="12sp"/>
 
         <EditText
             android:id="@+id/companyCityEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companyPlaceEditText"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-2dp"
-            android:layout_marginEnd="86dp"
-            android:inputType="text"
-            android:hint="City"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:layout_gravity="center"
+            android:textCursorDrawable="@color/colorFont"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/fields_edition" />
+            android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
+            android:textAlignment="center"
+            android:hint="@string/city"
+            android:textSize="12sp"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/companyPhoneEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/companyCityEditText"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="107dp"
-            android:inputType="text"
-            android:hint="@string/user_Phone"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/fields_edition" />
-
-        <Button
-            android:id="@+id/btn_save_CompanyEditionP"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="260dp"
-             android:layout_marginTop="8dp"
-            android:background="@drawable/selected_month"
-            android:onClick="save_CompanyEditionP"
-            android:text="@string/buttonSave"
-            android:textColor="@color/colorFont"
-            android:textSize="10dp" />
-    </RelativeLayout>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_margin="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        app:cardCornerRadius="50dp"
-        app:cardBackgroundColor="@color/colorHint">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
             android:layout_gravity="center"
+            android:textCursorDrawable="@color/colorFont"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
             android:textAlignment="center"
-            android:textAllCaps="false"
-            android:text="@string/selectPhoto"
+            android:hint="@string/user_Phone"
             android:textSize="12sp"
-            android:textColor="@color/colorWhite"/>
-
-        <ImageView
-            android:id="@+id/eventImg"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop" />
-    </android.support.v7.widget.CardView>
-
-    <RelativeLayout
-        android:id="@+id/companyDescriptionLwt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/companyDataLwt"
-        android:padding="10dp"
-        android:background="@drawable/results_rounded"
-        android:backgroundTint="@color/colorBackground">
-
-        <TextView
-            android:id="@+id/scenarioDescrTitleText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ourFacilities"
-            android:textColor="@color/colorBlue"
-            android:textSize="15sp"/>
+            android:inputType="phone"/>
 
         <EditText
             android:id="@+id/scenarioDescriptionEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/scenarioDescrTitleText"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:layout_gravity="center"
+            android:textCursorDrawable="@color/colorFont"
             android:textColor="@color/colorWhite"
-            android:inputType="textMultiLine"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_disabled"
+            android:textAlignment="center"
             android:hint="@string/description_Posting"
+            android:inputType="textMultiLine"
             android:textSize="12sp"/>
-    </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_save_CompanyEditionP"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/months_rounded"
+            android:backgroundTint="@color/colorPink"
+            android:textAllCaps="false"
+            android:textColor="@color/colorFont"
+            android:text="@string/buttonSave"
+            android:onClick="save_CompanyEditionP"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progresss"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:indeterminate="true"
+            android:max="100"
+            android:indeterminateTint="@color/colorPink"
+            android:visibility="gone"/>
+    </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

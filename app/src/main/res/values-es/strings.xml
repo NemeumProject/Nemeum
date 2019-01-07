@@ -566,4 +566,6 @@
     <string name="editTrainig_Services">Edite servicios de entrenamiento</string>
     <string name="slogan">Slogan</string>
     <string name="time_selection_Error">La hora de inicio no puede ser superior a la hora de finalización</string>
+    <string name="edit">Ciudad</string>
+
 </resources>

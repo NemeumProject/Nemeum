@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +65,8 @@ public class activity_company_editionp extends AppCompatActivity {
     private StorageReference imageStorageReference;
     private FirebaseStorage imageStorage;
     private Uri imagePath;
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,8 @@ public class activity_company_editionp extends AppCompatActivity {
         appContext = getApplicationContext();
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         idUser = (SP.getString("idUser", ""));
+        progressBar = findViewById(R.id.progressbar);
+
 
         checkRegisteredUser();
         getCompanyUser();
@@ -118,6 +123,15 @@ public class activity_company_editionp extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public  void  onResume(){
+        super.onResume();
+        if(progressBar.getVisibility()==View.VISIBLE)
+        {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     private void checkRegisteredUser() {
@@ -269,6 +283,7 @@ public class activity_company_editionp extends AppCompatActivity {
         EditText etCompanyDescription = findViewById(R.id.scenarioDescriptionEditText);
         String strCompanyDescription = etCompanyDescription.getText().toString();
 
+        progressBar.setVisibility(View.VISIBLE);
 
         if(TextUtils.isEmpty(strCompanyName)) {
             etCompanyName.setError(company_Name_Error);
@@ -366,5 +381,9 @@ public class activity_company_editionp extends AppCompatActivity {
         }
 
 
+    }
+
+    public void getBack(View view) {
+        finish();
     }
 }

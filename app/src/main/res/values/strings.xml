@@ -480,7 +480,7 @@
     <string name="etime_error">Ending time cannot be empty</string>
     <string name="scenarios_spinner_Error">Select a scenario</string>
     <string name="scenarios_edition">Scenarios Edition</string>
-    <string name="company_name">Company name</string>
+    <string name="company_name">Company Name</string>
     <string name="comercial_name">Comercial name</string>
     <string name="contact_person">Contact person</string>
     <string name="ssn">Ssn</string>
@@ -562,4 +562,6 @@
     <string name="editTrainig_Services">Edit Training Services</string>
     <string name="slogan">Slogan</string>
     <string name="time_selection_Error">Starting time cannot be higher that ending time</string>
+    <string name="edit">Edit</string>
+    <string name="city">City</string>
 </resources>

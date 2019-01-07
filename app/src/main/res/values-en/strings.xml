@@ -562,4 +562,6 @@
     <string name="editTrainig_Services">Edit Training Services</string>
     <string name="slogan">Slogan</string>
     <string name="time_selection_Error">Starting time cannot be higher that ending time</string>
+    <string name="edit">Edit</string>
+    <string name="city">City</string>
 </resources>

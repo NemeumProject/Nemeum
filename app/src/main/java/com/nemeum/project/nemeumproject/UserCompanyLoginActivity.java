@@ -141,6 +141,7 @@ public class UserCompanyLoginActivity extends AppCompatActivity {
                         appContext.startActivity(intentSettings);
                         return true;
                     case R.id.accountButton:
+                        progressBar.setVisibility(View.VISIBLE);
                         Intent intentAccount = new Intent(getApplicationContext(), CompanyDetail.class);
                         getApplicationContext().startActivity(intentAccount);
                         return true;

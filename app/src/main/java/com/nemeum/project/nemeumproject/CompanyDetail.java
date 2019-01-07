@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -38,6 +39,8 @@ public class CompanyDetail extends AppCompatActivity {
     private String userType;
     private String idUser;
     private List<CompanyUser> listCompany = new ArrayList<>();
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class CompanyDetail extends AppCompatActivity {
         appContext = getApplicationContext();
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
         idUser = (SP.getString("idUser", ""));
+        progressBar = findViewById(R.id.progressbar);
+
 
         checkRegisteredUser();
 
@@ -102,6 +107,15 @@ public class CompanyDetail extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public  void  onResume(){
+        super.onResume();
+        if(progressBar.getVisibility()==View.VISIBLE)
+        {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     private void setTextInScreen(){
@@ -220,6 +234,7 @@ public class CompanyDetail extends AppCompatActivity {
     }
 
     public void editCompanyInfo(View view) {
+        progressBar.setVisibility(View.VISIBLE);
         Intent intentEditCompanyInfo = new Intent(getApplicationContext(), activity_company_editionp.class);
         startActivity(intentEditCompanyInfo);
     }
