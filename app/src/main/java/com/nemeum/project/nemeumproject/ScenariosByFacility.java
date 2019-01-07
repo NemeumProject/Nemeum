@@ -73,6 +73,7 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
     private ListView resultList;
 
     private String city;
+    private String idUser;
     private Integer idSport;
     private Double price;
     private String idCompany;
@@ -88,6 +89,7 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
 
         appContext = getApplicationContext();
         SP = appContext.getSharedPreferences(getResources().getString(R.string.userTypeSP), MODE_PRIVATE);
+        idUser = (SP.getString("idUser", ""));
 
         checkRegisteredUser();
         idCompany = (SP.getString("idCompany", ""));
@@ -582,15 +584,21 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
                     else
                     {
                         Intent intentBook = new Intent(appContext, BookScenarios.class);
-                        if(!listScenario.get(position).getImage().equals("null")) {
+                        if(!listScenario.get(position).getImage().equals("null"))
+                        {
                             intentBook.putExtra(getResources().getString(R.string.scenarioImgExtra), listScenario.get(position).getImage());
                             intentBook.putExtra("withImage", "Yes");
 
-                        }else {
-                            intentBook.putExtra("withImage", "No");
                         }
+                        else
+                            {
+                            intentBook.putExtra("withImage", "No");
+                            }
                         intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
-
+                        intentBook.putExtra(getResources().getString(R.string.scenarioiduser),idUser);
+                        intentBook.putExtra(getResources().getString(R.string.scenarioid),Integer.toString(listScenario.get(position).getIdScenario()));
+                        intentBook.putExtra(getResources().getString(R.string.scenarioNameExtra), listScenario.get(position).getTitle());
+                        intentBook.putExtra(getResources().getString(R.string.scenarioPriceExtra),Double.toString(listScenario.get(position).getPrice()));
                         if(!listScenario.get(position).getDescription().equals("null"))
                             intentBook.putExtra(getResources().getString(R.string.scenarioDescrExtra), listScenario.get(position).getDescription());
                         else
