@@ -118,6 +118,8 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHourst, int selectedMinutest) {
                         startingTime_EditText.setText( String .format("%02d:%02d", selectedHourst,selectedMinutest) + ":00");
+                        initialH=selectedHourst;
+                        System.out.println("Selected starting hour "+ selectedHourst);
                     }
                 }, hour_st, minutest, true);//Yes 24 hour time
                 st_TimePicker.setTitle(select_stime_popup);
@@ -139,6 +141,8 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         endingTime_EditText.setText( String .format("%02d:%02d", selectedHour,selectedMinute) + ":00");
+                       finalH =selectedHour;
+                        System.out.println("Selected ending hour "+ selectedHour);
                     }
                 }, hour, minute, true);// 24 hour time
                 ending_time_TimePicker.setTitle(select_etime_popup);
@@ -203,13 +207,11 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
 
         EditText etStartingTime = findViewById(R.id.et_StartingTime_Daily_Schedule);
         final String stStartingTime = etStartingTime.getText().toString();
-        initialH= Integer.parseInt(stStartingTime.substring(0, 2));
         String stStartingTime_Error= getString(R.string.stime_error);
 
 
         EditText etEndingTime = findViewById(R.id.et_EndingTime_Daily_Schedule);
         final String strEndTime = etEndingTime.getText().toString();
-        finalH=Integer.parseInt(strEndTime.substring(0, 2));
         String strEndingtime_Error = getString(R.string.etime_error) ;
 
         EditText etCustomerName = findViewById(R.id.et_customerName);
@@ -230,7 +232,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         String scenarios_spinner_Error = getString(R.string.scenarios_spinner_Error);
 
         // check if spinner item is selected
-        if (spinner.getSelectedItemId() == -1 || spinner.getSelectedItemId() == 0)
+       if (spinner.getSelectedItemId() == -1)
         {
 
 
@@ -238,6 +240,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
             toast.show();
             return;
         }
+
 
          if(TextUtils.isEmpty(strEmail)) {
             strEmail="Empty";
@@ -258,6 +261,12 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
             toast.show();
             return;
         }
+        else if (initialH>finalH){
+            String time_selection_Error = getString(R.string.time_selection_Error);
+            Toast toast = Toast.makeText(context, time_selection_Error, Toast.LENGTH_LONG);
+            toast.show();
+            return;
+        }
         else if(TextUtils.isEmpty(strName)) {
             etCustomerName.setError(name_Error);
             return;
@@ -265,11 +274,6 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         else  if(TextUtils.isEmpty(strPhone)) {
             etCustomerPhone.setError(phone_Error);
             return;
-        }
-        else if (initialH>finalH){
-            String time_selection_Error = getString(R.string.time_selection_Error);
-            Toast toast = Toast.makeText(context, scenarios_spinner_Error, Toast.LENGTH_LONG);
-            toast.show();
         }
         else{
 
