@@ -1,17 +1,11 @@
 package com.nemeum.project.nemeumproject;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,16 +20,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpResponse;
@@ -57,15 +41,12 @@ import java.util.List;
 import models.Scenario;
 import models.Sport;
 
-public class ScenariosByFacility extends AppCompatActivity implements OnMapReadyCallback {
+public class ScenariosByFacility extends AppCompatActivity {
 
     private List<Scenario> listScenario = new ArrayList<>();
     private List<Sport> listSport = new ArrayList<>();
 
     private Context appContext;
-
-    private MapView nearMap;
-    private GoogleMap gMap;
 
     private Spinner spinnerCity;
     private Spinner spinnerSport;
@@ -108,14 +89,6 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        nearMap = findViewById(R.id.mapView);
-        nearMap.onCreate(savedInstanceState);
-        if (nearMap != null) {
-            nearMap.getMapAsync(this);
-        }
-        if(!playServicesAvailable())
-            nearMap.setVisibility(View.GONE);
 
         resultList = findViewById(R.id.scenariosList);
         CustomAdapter customResult = new CustomAdapter();
@@ -260,11 +233,13 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
         menu = findViewById(R.id.navigation);
         userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
 
-        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                userType.equals(getResources().getString(R.string.companyUserSP))){
+        if(userType.equals(getResources().getString(R.string.companyUserSP))){
             menu.getMenu().getItem(2).setVisible(false);
-        } else {
+        } else if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+            menu.getMenu().getItem(3).setVisible(false);
+        } else{
             menu.getMenu().getItem(3).setVisible(false);
         }
     }
@@ -342,8 +317,6 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
             e.printStackTrace();
         }
         ((BaseAdapter) resultList.getAdapter()).notifyDataSetChanged();
-
-
     }
 
     public synchronized void getAllSports() {
@@ -453,70 +426,6 @@ public class ScenariosByFacility extends AppCompatActivity implements OnMapReady
 
     public void getBack(View view) {
         finish();
-    }
-
-    private boolean playServicesAvailable(){
-        GoogleApiAvailability api = GoogleApiAvailability.getInstance();
-        int isAvailable = api.isGooglePlayServicesAvailable(appContext);
-        if(isAvailable == ConnectionResult.SUCCESS)
-            return true;
-        if(api.isUserResolvableError(isAvailable)) {
-            Dialog dialog = api.getErrorDialog(this, isAvailable, 0);
-            dialog.show();
-        } else {
-            Toast toast = Toast.makeText(appContext, R.string.playServicesErr, Toast.LENGTH_LONG);
-            toast.show();
-        }
-        return false;
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        double latitude, longitude;
-
-        gMap = googleMap;
-
-        //gMap.addMarker(new MarkerOptions()
-        //        .icon(BitmapDescriptorFactory.defaultMarker())
-        //        .anchor(0.0f, 1.0f)
-        //        .position(new LatLng(41.616751, 0.626416)));
-
-        if (ActivityCompat.checkSelfPermission(appContext, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(appContext, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            Toast.makeText(appContext, getResources().getString(R.string.permissionLocationErr), Toast.LENGTH_LONG ).show();
-        }
-
-        gMap.setMyLocationEnabled(true);
-        gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        gMap.getUiSettings().setMyLocationButtonEnabled(false);
-        gMap.getUiSettings().setZoomControlsEnabled(true);
-        gMap.getUiSettings().setZoomGesturesEnabled(true);
-
-        LocationManager locationManager = (LocationManager)
-                getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-
-        Location location = locationManager.getLastKnownLocation(locationManager
-                .getBestProvider(criteria, false));
-        if(location != null) {
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
-        } else {
-            latitude = 0;
-            longitude = 0;
-        }
-
-        MapsInitializer.initialize(appContext);
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        builder.include(new LatLng(latitude, longitude));
-        LatLngBounds bounds = builder.build();
-        int padding = 0;
-
-        // Updates the location and zoom of the MapView
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, 1, 1, padding);
-        gMap.moveCamera(cameraUpdate);
     }
 
     class CustomAdapter extends BaseAdapter {

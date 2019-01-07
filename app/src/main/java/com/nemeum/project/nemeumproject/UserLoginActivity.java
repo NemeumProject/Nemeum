@@ -52,6 +52,7 @@ public class UserLoginActivity extends AppCompatActivity {
         set_user_name = findViewById(R.id.user_names);
 
         menu.getMenu().getItem(2).setVisible(false);
+        menu.getMenu().getItem(3).setVisible(false);
         set_user_name.setText("Hello " + shared.getString("userName", "") + " !");
 
         findevent_btn.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +97,7 @@ public class UserLoginActivity extends AppCompatActivity {
         mybookings_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 myBookingsOnclick();
             }
         });

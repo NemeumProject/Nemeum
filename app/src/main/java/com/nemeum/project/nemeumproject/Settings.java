@@ -48,8 +48,7 @@ public class Settings extends AppCompatActivity {
                         }
                         return true;
                     case R.id.settingsButton:
-                        Intent intentSettings = new Intent(appContext, Settings.class);
-                        appContext.startActivity(intentSettings);
+                        Toast.makeText(appContext, R.string.alreadyOnSettingsErr, Toast.LENGTH_LONG).show();
                         return true;
                     case R.id.loginButton:
                         Intent intentLogin = new Intent(appContext, Login.class);
@@ -78,11 +77,13 @@ public class Settings extends AppCompatActivity {
         menu = findViewById(R.id.navigation);
         userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
 
-        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                userType.equals(getResources().getString(R.string.companyUserSP))){
+        if(userType.equals(getResources().getString(R.string.companyUserSP))){
             menu.getMenu().getItem(2).setVisible(false);
-        } else {
+        } else if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+            menu.getMenu().getItem(3).setVisible(false);
+        } else{
             menu.getMenu().getItem(3).setVisible(false);
         }
     }

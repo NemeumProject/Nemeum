@@ -70,19 +70,11 @@
             android:onClick="filterScenarios"/>
     </GridLayout>
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_below="@+id/refineLwt"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="5dp"/>
-
     <ListView
         android:id="@+id/scenariosList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/mapView"
+        android:layout_below="@id/refineLwt"
         android:layout_above="@id/navigation"
         android:divider="@null"/>
 

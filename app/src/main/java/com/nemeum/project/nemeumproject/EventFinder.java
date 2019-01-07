@@ -48,9 +48,9 @@ import models.Event;
 
 public class EventFinder extends AppCompatActivity {
 
-    private List<Event> listEvent = new ArrayList<>();
-    private List<Event> filteredEvent = new ArrayList<>();
-    private List<Button> listMonths = new ArrayList<>();
+    private List<Event> listEvent;
+    private List<Event> filteredEvent;
+    private List<Button> listMonths;
     private SharedPreferences SP;
     private TextView yearFilter;
     private String[] monthsArray;
@@ -68,6 +68,10 @@ public class EventFinder extends AppCompatActivity {
         CustomAdapter customResult;
         ArrayAdapter<Button> filterResult;
 
+        listEvent = new ArrayList<>();
+        filteredEvent = new ArrayList<>();
+        listMonths = new ArrayList<>();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_finder);
 
@@ -76,10 +80,11 @@ public class EventFinder extends AppCompatActivity {
 
         getEvents();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         checkRegisteredUser();
 
         customResult = new CustomAdapter();
@@ -200,11 +205,13 @@ public class EventFinder extends AppCompatActivity {
         menu = findViewById(R.id.navigation);
         userType = SP.getString(getResources().getString(R.string.userTypeSP), "");
 
-        if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-              userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-              userType.equals(getResources().getString(R.string.companyUserSP))){
+        if(userType.equals(getResources().getString(R.string.companyUserSP))){
             menu.getMenu().getItem(2).setVisible(false);
-        } else {
+        } else if(userType.equals(getResources().getString(R.string.individualUserSP)) ||
+                userType.equals(getResources().getString(R.string.trainerUserSP))){
+            menu.getMenu().getItem(2).setVisible(false);
+            menu.getMenu().getItem(3).setVisible(false);
+        } else{
             menu.getMenu().getItem(3).setVisible(false);
         }
     }
@@ -237,7 +244,7 @@ public class EventFinder extends AppCompatActivity {
         finish();
     }
 
-    private void getEvents(){
+    private synchronized void getEvents(){
         new Thread(new Runnable() {
 
             int numResults = 0;
@@ -349,8 +356,7 @@ public class EventFinder extends AppCompatActivity {
             eventTitle.setTypeface(null, Typeface.BOLD);
             eventDescription.setText(getResources().getString(R.string.eventResDescr) + " " + filteredEvent.get(position).getDescription());
 
-            String exhibitFormat = getResources().getString(R.string.date_format);
-            SimpleDateFormat sdf = new SimpleDateFormat(exhibitFormat, Locale.getDefault());
+            SimpleDateFormat sdf = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault());
             eventDate.setText(String.format(getResources().getString(R.string.eventResDate) + " " + sdf.format(filteredEvent.get(position).getDateEvent())));
             eventAddress.setText(getResources().getString(R.string.eventResAddress) + " " + filteredEvent.get(position).getAddress() + " - " + filteredEvent.get(position).getCity());
 

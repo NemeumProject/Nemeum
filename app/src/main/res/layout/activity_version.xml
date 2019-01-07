@@ -48,7 +48,7 @@
         android:layout_margin="5dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/versionCodeText"
-        android:text="@string/saveBackButtonTitle"
+        android:text="@string/backButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
         android:textColor="@color/colorFont"

@@ -15,6 +15,7 @@
     <string name="companyUserSP">Company</string>
     <string name="appLanguageSP">appLanguage</string>
     <string name="notLoggedSP">notLogged</string>
+    <string name="idUserSP">idUser</string>
 
     <!-- Strings related to database access -->
     <string name="urlDB">http://192.168.0.159:8080</string>
@@ -25,6 +26,11 @@
     <string name="userDB">/user</string>
     <string name="trainerDB">/trainer</string>
     <string name="eventDB">/event</string>
+    <string name="scenarioJoinDB">/joinScenario</string>
+    <string name="trainerUserDB">/traineruser</string>
+    <string name="trainerJoinDB">/joinTrainer</string>
+    <string name="trainerSportDB">/trainersport</string>
+    <string name="serviceDB">/service</string>
     <string name="dbAccessAccept">Accept</string>
     <string name="dbAccessContentType">Content-type</string>
     <string name="dbAccessAppJson">application/json</string>
@@ -49,6 +55,12 @@
     <string name="scenarioPriceJson">price</string>
     <string name="scenarioCompanyIdJson">idCompany</string>
     <string name="scenarioDescriptionJson">description</string>
+    <string name="scenarioCapacityJson">capacity</string>
+    <string name="scenarioAddressJson">address</string>
+    <string name="scenarioDateJson">dateScenario</string>
+    <string name="scenarioTitleJson">title</string>
+    <string name="scenarioImageJson">image</string>
+    <string name="scenarioIndoorJson">indoor</string>
     <string name="individualNameJson">firstName</string>
     <string name="individualEmailJson">email</string>
     <string name="individualPhoneJson">phone</string>
@@ -93,6 +105,13 @@
     <string name="userScenario_endScenarioJson">endScenario</string>
     <string name="userScenario_phoneJson">phone</string>
     <string name="userScenario_emailJson">email</string>
+    <string name="bookingTrainer_bookingTrainerIDJson">idBookingTrainer</string>
+    <string name="bookingTrainer_idUserJson">idUser</string>
+    <string name="bookingTrainer_idServiceJson">idService</string>
+    <string name="bookingTrainer_dateBookingJson">dateBooking</string>
+    <string name="bookingTrainer_startServiceJson">startBooking</string>
+    <string name="bookingTrainer_endServiceJson">endBooking</string>
+    <string name="bookingTrainer_piceJson">price</string>
 
     <!-- Strings related to login -->
     <string name="login_forgot_pass">Forgot Password?</string>
@@ -467,7 +486,8 @@
             Nemeum Team
     </string>
 
-    <string name="date_format"> dd/MM/yyyy</string>
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="hour_format">hh:mm</string>
     <string name="calendar_date_format">yyyy-MM-dd</string>
     <string name="pattern_date_format">yyyy-MM-dd hh:mm:ss</string>
     <string name="daily_Schedule_Title">Daily Schedule</string>
