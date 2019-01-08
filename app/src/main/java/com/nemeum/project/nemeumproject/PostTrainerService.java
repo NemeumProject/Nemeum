@@ -70,7 +70,7 @@ public class PostTrainerService extends AppCompatActivity {
         final Spinner TrainingEnd = findViewById(R.id.endTrainingTime);
         ArrayAdapter<CharSequence> TrainingEndAdapter = ArrayAdapter.createFromResource(this,R.array.hourEndFilter, R.layout.spinner_layout);
         TrainingEndAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        TrainingEnd.setAdapter(TrainingStartAdapter);
+        TrainingEnd.setAdapter(TrainingEndAdapter);
 
         idUser = (SP.getString("idUser", ""));
 

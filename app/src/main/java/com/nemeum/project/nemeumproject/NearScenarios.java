@@ -532,14 +532,24 @@ public class NearScenarios extends AppCompatActivity {
                 public void onClick(View v) {
 
                     if(!(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                            userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                            userType.equals(getResources().getString(R.string.companyUserSP))))
+                            userType.equals(getResources().getString(R.string.trainerUserSP))))
                     {
-                        NearScenarios.this.runOnUiThread(new Runnable() {
-                            public void run() {
-                                Toast.makeText(NearScenarios.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                        if(userType.equals(getResources().getString(R.string.companyUserSP)))
+                        {
+                            NearScenarios.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(NearScenarios.this, "Company user can't use this feature", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                        else
+                        {
+                            NearScenarios.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(NearScenarios.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
                     }
                     else
                     {

@@ -96,7 +96,7 @@ public class LanguageSelect extends AppCompatActivity {
 
     }
 
-    public void changeLangEs(View view){
+    /*public void changeLangEs(View view){
 
         if(LocaleManager.getLanguage(appContext).equals(getResources().getString(R.string.app_language_spanish))) {
 
@@ -108,7 +108,6 @@ public class LanguageSelect extends AppCompatActivity {
             toast.show();
 
             LocaleManager.setNewLocale(appContext, getResources().getString(R.string.app_language_spanish));
-
             restart();
         }
     }
@@ -147,6 +146,6 @@ public class LanguageSelect extends AppCompatActivity {
                 startActivity(i);
             }
         }.start();
-    }
+    }*/
 
 }

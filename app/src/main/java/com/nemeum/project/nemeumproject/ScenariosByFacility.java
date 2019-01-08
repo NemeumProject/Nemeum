@@ -481,14 +481,24 @@ public class ScenariosByFacility extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(!(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                            userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                            userType.equals(getResources().getString(R.string.companyUserSP))))
+                            userType.equals(getResources().getString(R.string.trainerUserSP))))
                     {
-                        ScenariosByFacility.this.runOnUiThread(new Runnable() {
-                            public void run() {
-                                Toast.makeText(ScenariosByFacility.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                        if(userType.equals(getResources().getString(R.string.companyUserSP)))
+                        {
+                            ScenariosByFacility.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(ScenariosByFacility.this, "Company user can't use this feature", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                        else
+                        {
+                            ScenariosByFacility.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(ScenariosByFacility.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
                     }
                     else
                     {

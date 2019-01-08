@@ -466,7 +466,7 @@ public class MyBookings extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.booking_result_layout, null);
 
 
-            Button editBookBtn = convertView.findViewById(R.id.editBookResult);
+            //Button editBookBtn = convertView.findViewById(R.id.editBookResult);
             Button cancelBookBtn = convertView.findViewById(R.id.cancelBookResult);
             TextView bookTitle = convertView.findViewById(R.id.myBookResultTitleText);
             TextView bookHours = convertView.findViewById(R.id.myBookResultHoursText);
@@ -483,14 +483,14 @@ public class MyBookings extends AppCompatActivity {
             if(!listBookings.get(position).getPrice().toString().equals("null"))
                 bookValue.setText(getResources().getString(R.string.bookingResPrice) + " " + listBookings.get(position).getPrice().toString() + "€ / hour");
 
-            editBookBtn.setOnClickListener(new View.OnClickListener() {
+            /*editBookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentPayment = new Intent(appContext, EditBook.class);
                     intentPayment.putExtra(getResources().getString(R.string.scenarioNameExtra), listBookings.get(position).getTitle());
                     appContext.startActivity(intentPayment);
                 }
-            });
+            });*/
 
             cancelBookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

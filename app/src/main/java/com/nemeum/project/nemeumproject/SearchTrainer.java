@@ -546,14 +546,24 @@ public class SearchTrainer extends AppCompatActivity {
                 public void onClick(View v) {
 
                     if(!(userType.equals(getResources().getString(R.string.individualUserSP)) ||
-                            userType.equals(getResources().getString(R.string.trainerUserSP)) ||
-                            userType.equals(getResources().getString(R.string.companyUserSP))))
+                            userType.equals(getResources().getString(R.string.trainerUserSP))))
                     {
-                        SearchTrainer.this.runOnUiThread(new Runnable() {
-                            public void run() {
-                                Toast.makeText(SearchTrainer.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                        if(userType.equals(getResources().getString(R.string.companyUserSP)))
+                        {
+                            SearchTrainer.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(SearchTrainer.this, "Company user can't use this feature", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                        else
+                        {
+                            SearchTrainer.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(SearchTrainer.this, "Please Login to Use This Feature", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
                     }
                     else
                     {

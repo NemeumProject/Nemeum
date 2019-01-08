@@ -26,35 +26,21 @@
         android:textAlignment="center"
         android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/englishButton"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:layout_above="@+id/spanishButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/englishButtonTitle"
-        android:textSize="15dp"
-        android:textAllCaps="false"
-        android:textColor="@color/colorFont"
-        android:background="@drawable/months_rounded"
-        android:backgroundTint="@color/colorPink"
-        android:onClick="changeLangEn"/>
-
-    <Button
+    <TextView
         android:id="@+id/spanishButton"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_margin="5dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:text="@string/spanishButtonTitle"
         android:textSize="15dp"
         android:textAllCaps="false"
-        android:textColor="@color/colorFont"
+        android:textAlignment="center"
+        android:textColor="@color/colorPink"
         android:background="@drawable/months_rounded"
-        android:backgroundTint="@color/colorPink"
-        android:onClick="changeLangEs"/>
+        android:backgroundTint="@color/colorBackground"
+        />
 
     <Button
         android:id="@+id/backButton"

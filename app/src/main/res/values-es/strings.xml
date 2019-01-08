@@ -262,6 +262,7 @@
     <!-- Strings for Booking Scenarios-->
     <string name="idscenario">id_scenario</string>
     <string name="iduser">id_user</string>
+    <string name="scenariotitle">Título del escenario</string>
     <string name="scenarioBookTitle">Citar Escenario</string>
     <string name="scenariobookstart">Inicio</string>
     <string name="scenariobookend">Fin</string>
@@ -316,7 +317,7 @@
     <string name="buttonSave">Guardar</string>
     <string name="buttonDelete">Borrar</string>
     <string name="buttonRegister">Registrar</string>
-    <string name="buttonCancel">Cancelar</string>
+    <string name="buttonCancel">Cancelar\nMi\nReserva</string>
     <string name="buttonFinish">Finalizar</string>
     <string name="buttonDatePayment">Elegir fecha y \n Metodo de pago</string>
     <string name="buttonYes">Sí</string>
@@ -475,7 +476,7 @@
     <string name="aboutButtonTitle">Sobre nosotros</string>v
     <string name="backButtonTitle">Volver</string>
     <string name="englishButtonTitle">Inglés</string>
-    <string name="spanishButtonTitle">Español</string>
+    <string name="spanishButtonTitle">Si desea cambiar el idioma de sus aplicaciones a inglés o español, puede cambiar desde la configuración de su teléfono</string>
     <string name="saveBackButtonTitle">Guardar y volver</string>
     <string name="onNotificationButtonTitle">Notificaciones ligadas</string>
     <string name="offNotificationButtonTitle">Notificaciones apagadas</string>
