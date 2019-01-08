@@ -18,7 +18,7 @@
     <string name="idUserSP">idUser</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.0.159:8080</string>
+    <string name="urlDB">http://192.168.30.147:8080</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
@@ -326,7 +326,7 @@
     <string name="buttonSave">Save</string>
     <string name="buttonDelete">Delete</string>
     <string name="buttonRegister">Register</string>
-    <string name="buttonCancel">Cancel\nMy\nBooking</string>
+    <string name="buttonCancel">Cancel</string>
     <string name="buttonBack">Back</string>
     <string name="buttonFinish">Finish</string>
     <string name="buttonDatePayment">Choose Date and \n Payment Method</string>

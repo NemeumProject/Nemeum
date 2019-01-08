@@ -35,6 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".BookTrainerPayment" />
         <activity android:name=".BookTrainer" />
         <activity android:name=".PostScenario" />
@@ -53,6 +54,7 @@
             android:name=".TrainerUserRegistration"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity android:name=".Login" />
+
         <activity android:name=".ForgetPassActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".EventFinder" />
