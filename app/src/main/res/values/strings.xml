@@ -111,7 +111,16 @@
     <string name="bookingTrainer_dateBookingJson">dateBooking</string>
     <string name="bookingTrainer_startServiceJson">startBooking</string>
     <string name="bookingTrainer_endServiceJson">endBooking</string>
-    <string name="bookingTrainer_piceJson">price</string>
+    <string name="bookingTrainer_priceJson">price</string>
+    <string name="trainerService_idPost">id_training_service_post</string>
+    <string name="trainerService_idSport">id_sport_training_type</string>
+    <string name="trainerService_idTrainer">id_trainer_user</string>
+    <string name="trainerService_trainingAddress">training_address</string>
+    <string name="trainerService_trainingCity">training_city</string>
+    <string name="trainerService_trainingDescription">training_desc</string>
+    <string name="trainerService_trainingPrice">training_price</string>
+    <string name="trainerService_trainingStart">training_start</string>
+    <string name="trainerService_trainingEnd">training_end</string>
 
     <!-- Strings related to login -->
     <string name="login_forgot_pass">Forgot Password?</string>
@@ -238,7 +247,7 @@
     <string name="bookingResPrice">Price:</string>
     <string name="bookingCancelTitle">Are you sure that you want to cancel?</string>
     <string name="bookingCancelSubtitle">We cannot refund your money.</string>
-    <string name="bookingEditionTitle">Edit Booking</string>
+    <string name="bookingPriceMarkEuro">€</string>
 
     <!-- Strings for Posting Trainer Service-->
     <string name="postingtrainerservice">Post Trainer Service </string>

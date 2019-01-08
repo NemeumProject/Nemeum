@@ -81,7 +81,6 @@
         <activity android:name=".BookScenarios" />
         <activity android:name=".BookScenarioPayment" />
         <activity android:name=".MyBookings" />
-        <activity android:name=".EditBook" />
         <activity android:name=".PostEvent" />
         <activity android:name=".IndividualUserDetail"></activity>
     </application>

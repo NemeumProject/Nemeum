@@ -34,8 +34,6 @@ import java.net.URI;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -148,8 +146,6 @@ public class MyBookings extends AppCompatActivity {
     public synchronized void getMyBookings() {
         getScenarioBookings();
         getServiceBookings();
-
-        Collections.sort(listBookings, new SortByDate());
     }
 
     private void getScenarioBookings() {
@@ -200,7 +196,13 @@ public class MyBookings extends AppCompatActivity {
 
                             booking.setAddress(listScenario.get(numResults).getAddress());
                             booking.setTitle(listScenario.get(numResults).getTitle());
-                            booking.setPrice(listScenario.get(numResults).getPrice() * (booking.getTimeEndScheduled().getHours() - booking.getTimeStartScheduled().getHours()));
+                            int hourStart = booking.getTimeStartScheduled().getHours();
+                            int hourEnd = booking.getTimeEndScheduled().getHours();
+
+                            if(hourEnd < hourStart)
+                                hourEnd += 12;
+
+                            booking.setPrice(listScenario.get(numResults).getPrice() * (hourEnd - hourStart));
                             numResults++;
                             listBookings.add(booking);
                     }
@@ -299,7 +301,7 @@ public class MyBookings extends AppCompatActivity {
                         parser = (JSONObject) parserList.get(numResults);
                         booking.setIdBooking(parser.getInt(getResources().getString(R.string.bookingTrainer_bookingTrainerIDJson)));
                         booking.setIdService(parser.getInt(getResources().getString(R.string.bookingTrainer_idServiceJson)));
-                        booking.setPrice(parser.getDouble(getResources().getString(R.string.bookingTrainer_piceJson)));
+                        booking.setPrice(parser.getDouble(getResources().getString(R.string.bookingTrainer_priceJson)));
                         String dateBookStart = parser.getString(getResources().getString(R.string.bookingTrainer_startServiceJson));
                         String dateBookEnd = parser.getString(getResources().getString(R.string.bookingTrainer_endServiceJson));
                         SimpleDateFormat dateFormat = new SimpleDateFormat(getResources().getString(R.string.pattern_date_format));
@@ -357,16 +359,16 @@ public class MyBookings extends AppCompatActivity {
                     parser = (JSONObject) parserArray.get(0);
 
                     TrainerService trainerService = new TrainerService();
-                    trainerService.setId_training_service_post(parser.getInt("id_training_service_post"));
-                    trainerService.setId_sport_training_type(parser.getInt("id_sport_training_type"));
-                    trainerService.setId_trainer_user(parser.getInt("id_trainer_user"));
-                    trainerService.setTraining_address(parser.getString("training_address"));
-                    trainerService.setTraining_city(parser.getString("training_city"));
-                    trainerService.setTraining_desc(parser.getString("training_desc"));
-                    trainerService.setTraining_price(parser.getDouble("training_price"));
-                    String startTime = parser.getString("training_start");
+                    trainerService.setId_training_service_post(parser.getInt(getResources().getString(R.string.trainerService_idPost)));
+                    trainerService.setId_sport_training_type(parser.getInt(getResources().getString(R.string.trainerService_idSport)));
+                    trainerService.setId_trainer_user(parser.getInt(getResources().getString(R.string.trainerService_idTrainer)));
+                    trainerService.setTraining_address(parser.getString(getResources().getString(R.string.trainerService_trainingAddress)));
+                    trainerService.setTraining_city(parser.getString(getResources().getString(R.string.trainerService_trainingCity)));
+                    trainerService.setTraining_desc(parser.getString(getResources().getString(R.string.trainerService_trainingDescription)));
+                    trainerService.setTraining_price(parser.getDouble(getResources().getString(R.string.trainerService_trainingPrice)));
+                    String startTime = parser.getString(getResources().getString(R.string.trainerService_trainingStart));
                     trainerService.setTraining_start(Time.valueOf(startTime));
-                    String endTime = parser.getString("training_end");
+                    String endTime = parser.getString(getResources().getString(R.string.trainerService_trainingEnd));
                     trainerService.setTraining_end(Time.valueOf(endTime));
 
                     listServices.add(trainerService);
@@ -402,7 +404,7 @@ public class MyBookings extends AppCompatActivity {
                     data = data.replaceFirst("null", "");
 
                     parser = (JSONObject)  new JSONArray(data).get(0);
-                    listTrainerName.add(parser.getString("firstName"));
+                    listTrainerName.add(parser.getString(getResources().getString(R.string.individualNameJson)));
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -413,34 +415,6 @@ public class MyBookings extends AppCompatActivity {
 
     public void getBack(View view) {
         finish();
-    }
-
-    class SortByDate implements Comparator<Booking>{
-        @Override
-        public int compare(Booking b1, Booking b2) {
-            if(b1.getTimeStartScheduled().getYear() != b2.getTimeStartScheduled().getYear())
-                if(b1.getTimeStartScheduled().getYear() > b2.getTimeStartScheduled().getYear())
-                    return  1;
-                else
-                    return -1;
-            else if(b1.getTimeStartScheduled().getMonth() != b2.getTimeStartScheduled().getMonth())
-                if(b1.getTimeStartScheduled().getMonth() > b2.getTimeStartScheduled().getMonth())
-                    return  1;
-                else
-                    return -1;
-            else if(b1.getTimeStartScheduled().getDay() != b2.getTimeStartScheduled().getDay())
-                if(b1.getTimeStartScheduled().getDay() > b2.getTimeStartScheduled().getDay())
-                    return  1;
-                else
-                    return -1;
-            else if(b1.getTimeStartScheduled().getHours() != b2.getTimeStartScheduled().getHours())
-                if(b1.getTimeStartScheduled().getHours() > b2.getTimeStartScheduled().getHours())
-                    return  1;
-                else
-                    return -1;
-            else
-                return 0;
-        }
     }
 
     class CustomAdapter extends BaseAdapter {
@@ -465,8 +439,6 @@ public class MyBookings extends AppCompatActivity {
 
             convertView = getLayoutInflater().inflate(R.layout.booking_result_layout, null);
 
-
-            //Button editBookBtn = convertView.findViewById(R.id.editBookResult);
             Button cancelBookBtn = convertView.findViewById(R.id.cancelBookResult);
             TextView bookTitle = convertView.findViewById(R.id.myBookResultTitleText);
             TextView bookHours = convertView.findViewById(R.id.myBookResultHoursText);
@@ -476,21 +448,12 @@ public class MyBookings extends AppCompatActivity {
 
             bookTitle.setText(listBookings.get(position).getTitle());
             SimpleDateFormat date = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault());
-            bookDate.setText(getResources().getString(R.string.bookingResDate) + date.format(listBookings.get(position).getTimeStartScheduled()));
+            bookDate.setText(getResources().getString(R.string.bookingResDate) + " " + date.format(listBookings.get(position).getTimeStartScheduled()));
             SimpleDateFormat hours = new SimpleDateFormat(getResources().getString(R.string.hour_format), Locale.getDefault());
-            bookHours.setText(getResources().getString(R.string.bookingResTime) + hours.format(listBookings.get(position).getTimeStartScheduled()) + " - " + hours.format(listBookings.get(position).getTimeEndScheduled()));
+            bookHours.setText(getResources().getString(R.string.bookingResTime) + " " + hours.format(listBookings.get(position).getTimeStartScheduled()) + " - " + hours.format(listBookings.get(position).getTimeEndScheduled()));
             bookPlace.setText(getResources().getString(R.string.bookingResAddress) + " " + listBookings.get(position).getAddress());
             if(!listBookings.get(position).getPrice().toString().equals("null"))
-                bookValue.setText(getResources().getString(R.string.bookingResPrice) + " " + listBookings.get(position).getPrice().toString() + "€ / hour");
-
-            /*editBookBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intentPayment = new Intent(appContext, EditBook.class);
-                    intentPayment.putExtra(getResources().getString(R.string.scenarioNameExtra), listBookings.get(position).getTitle());
-                    appContext.startActivity(intentPayment);
-                }
-            });*/
+                bookValue.setText(getResources().getString(R.string.bookingResPrice) + " " + listBookings.get(position).getPrice().toString() + getResources().getString(R.string.bookingPriceMarkEuro));
 
             cancelBookBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
