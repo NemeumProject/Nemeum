@@ -318,6 +318,7 @@
     <string name="buttonDelete">Borrar</string>
     <string name="buttonRegister">Registrar</string>
     <string name="buttonCancel">Cancelar\nMi\nReserva</string>
+    <string name="buttonBack">Atras</string>
     <string name="buttonFinish">Finalizar</string>
     <string name="buttonDatePayment">Elegir fecha y \n Metodo de pago</string>
     <string name="buttonYes">Sí</string>
@@ -515,6 +516,7 @@
     <string name="repeat_password">Repita su contraseña</string>
     <string name="premium">¿Premium?</string>
     <string name="forgot_password">¿Has olvidado la contraseña?</string>
+    <string name="contact_forgot">Si olvidó su contraseña, comuníquese con nuestro servicio de atención al cliente: +34123456</string>
     <string name="selectPhoto">Selecionar imagen de publicación</string>
 
     <!-- Data passed between intents names -->
