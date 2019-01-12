@@ -170,7 +170,7 @@ public class SearchTrainer extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 Object item = parentView.getItemAtPosition(position);
-                if(item.toString().equals("Sport Type") || item.toString().equals("Tipo de deporte")){
+                if(item.toString().equals("Sport type") || item.toString().equals("Tipo de deporte")){
                     idSport = null;
                 }else{
                     for(Sport sport : listSport){
