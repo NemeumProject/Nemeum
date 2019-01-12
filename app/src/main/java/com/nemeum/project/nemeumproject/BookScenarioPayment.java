@@ -333,6 +333,13 @@ public class BookScenarioPayment  extends Activity {
                         }
                         Intent intent2 = new Intent(BookScenarioPayment.this, NearScenarios.class);
                         startActivity(intent2);
+                    }else {
+                        BookScenarioPayment.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(BookScenarioPayment.this, "Error. Cannot be boooked with selected time", Toast.LENGTH_LONG).show();
+
+                            }
+                        });
                     }
                 }
                 catch (IOException e){

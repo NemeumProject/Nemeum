@@ -311,10 +311,11 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                             });
                             Intent intent1 = new Intent(activity_edit_daily_schedule.this, UserCompanyLoginActivity.class);
                             startActivity(intent1);
-                        }else{
+                        }else {
                             activity_edit_daily_schedule.this.runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Toast.makeText(activity_edit_daily_schedule.this,getResources().getString(R.string.bookingError),Toast.LENGTH_LONG).show();
+                                    Toast.makeText(activity_edit_daily_schedule.this, "Error. Cannot be boooked with selected time", Toast.LENGTH_LONG).show();
+
                                 }
                             });
                         }
