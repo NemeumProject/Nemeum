@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -41,7 +42,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -66,6 +66,7 @@ public class PostEvent extends AppCompatActivity {
     private Calendar eventCalendar;
     private SharedPreferences SP;
     private BottomNavigationView menu;
+    private ProgressBar progressBar;
     private String userType;
 
     @Override
@@ -83,6 +84,7 @@ public class PostEvent extends AppCompatActivity {
         eventDate = findViewById(R.id.eventDate);
         eventImage = findViewById(R.id.eventImg);
         submitEventBtn = findViewById(R.id.eventPost);
+        progressBar = findViewById(R.id.progressbar);
         eventCalendar = Calendar.getInstance();
 
         eventCity = findViewById(R.id.eventCity);
@@ -255,6 +257,8 @@ public class PostEvent extends AppCompatActivity {
 
             final Event event = new Event();
 
+            progressBar.setVisibility(View.VISIBLE);
+
             if(imagePath != null){
                 final ProgressDialog progress = new ProgressDialog(this);
                 progress.setTitle("Uploading...");
@@ -320,8 +324,18 @@ public class PostEvent extends AppCompatActivity {
                         httppost.setEntity(se);
                         HttpResponse response = httpclient.execute(httppost);
                         if(response.getStatusLine().getStatusCode() == 200) {
-                            Intent intent1 = new Intent(appContext, ActivityMainMock.class);
-                            startActivity(intent1);
+                            Intent detailSuccess = new Intent(appContext, EventDetail.class);
+
+                            if(event.getImage() != null)
+                                detailSuccess.putExtra(getResources().getString(R.string.eventImgStringExtra), event.getImage());
+                            detailSuccess.putExtra(getResources().getString(R.string.eventTitleExtra), event.getTitle());
+                            detailSuccess.putExtra(getResources().getString(R.string.eventDescrExtra), event.getDescription());
+                            detailSuccess.putExtra(getResources().getString(R.string.eventAddressExtra), event.getAddress());
+                            detailSuccess.putExtra(getResources().getString(R.string.eventCityExtra), event.getCity());
+                            detailSuccess.putExtra(getResources().getString(R.string.eventDateExtra), event.getDateEvent().toString());
+
+                            startActivity(detailSuccess);
+                            finish();
                         }else{
                             PostEvent.this.runOnUiThread(new Runnable() {
                                 public void run() {

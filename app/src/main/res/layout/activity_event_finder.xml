@@ -55,7 +55,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
             android:textColor="@color/colorPink"
-            android:textSize="15sp"/>
+            android:textSize="18sp"/>
 
         <ImageView
             android:id="@+id/nextYear"
@@ -73,7 +73,7 @@
             android:layout_centerHorizontal="true"
             android:text="@string/monthSelectTitle"
             android:textColor="@color/colorBlue"
-            android:textSize="12sp"/>
+            android:textSize="14sp"/>
     </RelativeLayout>
 
     <GridLayout

@@ -13,6 +13,7 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -88,7 +89,7 @@ public class EventFinder extends AppCompatActivity {
         checkRegisteredUser();
 
         customResult = new CustomAdapter();
-        layoutButtons = new LinearLayout.LayoutParams(dpToPx(appContext, 160), dpToPx(appContext, 20));
+        layoutButtons = new LinearLayout.LayoutParams(dpToPx(appContext, 160), dpToPx(appContext, 25));
 
         backYearBtn = findViewById(R.id.backYear);
         nextYearBtn = findViewById(R.id.nextYear);
@@ -133,7 +134,7 @@ public class EventFinder extends AppCompatActivity {
             btnMonth.setTextColor(getResources().getColor(R.color.colorWhite));
             btnMonth.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             btnMonth.setTextAppearance(Typeface.BOLD);
-            btnMonth.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
+            btnMonth.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
             btnMonth.setId(i + 1);
             btnMonth.setText(Arrays.asList(monthsArray).get(i) + " " + yearFilter.getText());
 
@@ -154,6 +155,22 @@ public class EventFinder extends AppCompatActivity {
 
         filterResult = new ArrayAdapter<>(appContext, R.layout.support_simple_spinner_dropdown_item, listMonths);
         resultList.setAdapter(customResult);
+
+        resultList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent detailEvent = new Intent(appContext, EventDetail.class);
+                if(listEvent.get(i).getImage() != null)
+                    detailEvent.putExtra(getResources().getString(R.string.eventImgStringExtra), listEvent.get(i).getImage());
+                detailEvent.putExtra(getResources().getString(R.string.eventTitleExtra), listEvent.get(i).getTitle());
+                detailEvent.putExtra(getResources().getString(R.string.eventDescrExtra), listEvent.get(i).getDescription());
+                detailEvent.putExtra(getResources().getString(R.string.eventAddressExtra), listEvent.get(i).getAddress());
+                detailEvent.putExtra(getResources().getString(R.string.eventCityExtra), listEvent.get(i).getCity());
+                SimpleDateFormat sdf = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault());
+                detailEvent.putExtra(getResources().getString(R.string.eventDateExtra), sdf.format(listEvent.get(i).getDateEvent()));
+                startActivity(detailEvent);
+            }
+        });
 
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -333,7 +350,7 @@ public class EventFinder extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             convertView = getLayoutInflater().inflate(R.layout.event_result_layout, null);
 

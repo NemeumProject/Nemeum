@@ -190,18 +190,18 @@
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_3">
 
         <ImageButton
-            android:id="@+id/findfacilitiesicon"
+            android:id="@+id/findscrenarioicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@mipmap/search_facilities"
-            android:contentDescription="@string/search_facilities"/>
+            android:background="@mipmap/search_scenario"
+            android:contentDescription="@string/search_scenario"/>
 
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:text="@string/search_facilities"
+            android:text="@string/search_scenario"
             android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>
@@ -223,18 +223,18 @@
         app:layout_constraintEnd_toStartOf="@id/linear_menu_book_4">
 
         <ImageButton
-            android:id="@+id/findscrenarioicon"
+            android:id="@+id/findfacilitiesicon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@mipmap/search_scenario"
-            android:contentDescription="@string/search_scenario"/>
+            android:background="@mipmap/search_facilities"
+            android:contentDescription="@string/search_facilities"/>
 
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:textSize="10sp"
             android:maxLines="2"
-            android:text="@string/search_scenario"
+            android:text="@string/search_facilities"
             android:textColor="@color/colorFont"
             android:textAlignment="center"
             android:layout_marginTop="5dp"/>

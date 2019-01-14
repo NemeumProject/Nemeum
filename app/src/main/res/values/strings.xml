@@ -128,7 +128,7 @@
     <!-- Strings related to home screen -->
     <string name="search_home">Home</string>
     <string name="search_trainer">Search\nTrainer</string>
-    <string name="search_facilities">Search\nFacilities</string>
+    <string name="search_facilities">Search\nCompany</string>
     <string name="search_event">Search\nEvents</string>
     <string name="search_scenario">Search\nScenario</string>
     <string name="create_event">Create\nEvent</string>
@@ -181,8 +181,11 @@
     <string name="eventCityHint">City</string>
     <string name="eventDateHint">Select date</string>
 
+    <!-- Strings for Event Details -->
+    <string name="detailedEventTitle">Detailed Event</string>
+
     <!-- Strings for Facility Finder -->
-    <string name="findFacilityTitle">Search Facilities</string>
+    <string name="findFacilityTitle">Search Companies</string>
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Search Scenario</string>
@@ -538,14 +541,20 @@
     <string name="trainerDescrExtra">chooseTrainerDescr</string>
     <string name="trainerAddressExtra">chooseTrainerAddress</string>
     <string name="trainerCityExtra">chooseTrainerCity</string>
-
-    <!-- Data passed between intents names -->
-    <string name="scenarioiduser">idusers</string>
-    <string name="scenarioid">idscenario</string>
     <string name="scenarioImgExtra">chooseImg</string>
     <string name="scenarioNameExtra">chooseName</string>
     <string name="scenarioPriceExtra">choosePrice</string>
     <string name="scenarioDescrExtra">chooseDescr</string>
+    <string name="eventImgStringExtra">chooseImgString</string>
+    <string name="eventTitleExtra">chooseTitle</string>
+    <string name="eventDescrExtra">chooseDescr</string>
+    <string name="eventAddressExtra">chooseAddress</string>
+    <string name="eventCityExtra">chooseCity</string>
+    <string name="eventDateExtra">chooseDate</string>
+
+    <!-- General data -->
+    <string name="scenarioiduser">idusers</string>
+    <string name="scenarioid">idscenario</string>
     <string name="bookingOK">Booking created successfully</string>
     <string name="bookingError">Error creating booking</string>
     <string name="joinScenarioDB">/joinScenario</string>

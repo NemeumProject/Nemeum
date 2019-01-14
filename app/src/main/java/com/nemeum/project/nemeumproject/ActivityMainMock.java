@@ -1,11 +1,9 @@
 package com.nemeum.project.nemeumproject;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -19,24 +17,8 @@ import android.widget.Toast;
 import android.support.v4.content.ContextCompat;
 import android.Manifest;
 
-import com.nemeum.project.nemeumproject.Entities.SQLiteConnectionHelper;
-import com.nemeum.project.nemeumproject.Utilities.Utilities;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URI;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Arrays;
 
 import models.Scenario;
@@ -65,7 +47,6 @@ public class ActivityMainMock extends AppCompatActivity {
         ImageButton findtrainer_btn;
 
         appContext = getApplicationContext();
-        checkLanguage();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mock);
@@ -151,15 +132,6 @@ public class ActivityMainMock extends AppCompatActivity {
             Intent intent3 = new Intent(appContext, UserCompanyLoginActivity.class);
             startActivity(intent3);
             finish();
-        }
-    }
-
-    private void checkLanguage() {
-        if(!LocaleManager.getLanguage(appContext).equals(Locale.getDefault().getLanguage())) {
-            if(LocaleManager.getLanguage(appContext) == null)
-                LocaleManager.setNewLocale(appContext, Locale.getDefault().getLanguage());
-            else
-                LocaleManager.setLocale(appContext);
         }
     }
 

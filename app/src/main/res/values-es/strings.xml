@@ -128,7 +128,7 @@
     <!-- Strings related to home screen -->
     <string name="search_home">Inicio</string>
     <string name="search_trainer">Buscar\nEntrenador</string>
-    <string name="search_facilities">Buscar\nInstalación</string>
+    <string name="search_facilities">Buscar\nEmpresas</string>
     <string name="search_event">Buscar\nEventos</string>
     <string name="search_scenario">Buscar\nEscenario</string>
     <string name="create_event">Crear\nEvento</string>
@@ -181,8 +181,11 @@
     <string name="eventCityHint">Ciudad</string>
     <string name="eventDateHint">Selecionar fecha</string>
 
+    <!-- Strings for Event Details -->
+    <string name="detailedEventTitle">Detalles del Evento</string>
+
     <!-- Strings for Facility Finder -->
-    <string name="findFacilityTitle">Buscar Instalaciones</string>
+    <string name="findFacilityTitle">Buscar Empresas</string>
 
     <!-- Strings for Scenario Finder -->
     <string name="findScenarioTitle">Buscar Escenarios</string>
@@ -538,14 +541,20 @@
     <string name="trainerDescrExtra">chooseTrainerDescr</string>
     <string name="trainerAddressExtra">chooseTrainerAddress</string>
     <string name="trainerCityExtra">chooseTrainerCity</string>
-
-    <!-- Data passed between intents names -->
-    <string name="scenarioiduser">idusers</string>
-    <string name="scenarioid">idscenario</string>
     <string name="scenarioNameExtra">chooseName</string>
     <string name="scenarioImgExtra">chooseImg</string>
     <string name="scenarioPriceExtra">choosePrice</string>
     <string name="scenarioDescrExtra">chooseDescr</string>
+    <string name="eventImgStringExtra">chooseImgString</string>
+    <string name="eventTitleExtra">chooseTitle</string>
+    <string name="eventDescrExtra">chooseDescr</string>
+    <string name="eventAddressExtra">chooseAddress</string>
+    <string name="eventCityExtra">chooseCity</string>
+    <string name="eventDateExtra">chooseDate</string>
+
+    <!-- General data -->
+    <string name="scenarioiduser">idusers</string>
+    <string name="scenarioid">idscenario</string>
     <string name="bookingOK">Reserva exitosa</string>
     <string name="bookingError">Error creando la reserva</string>
     <string name="joinScenarioDB">/joinScenario</string>
