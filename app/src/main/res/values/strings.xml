@@ -24,7 +24,7 @@
     <string name="scenariosDB">/scenario</string>
     <string name="listDB">/list</string>
     <string name="userDB">/user</string>
-    <string name="trainerDB">/trainer</string>
+    <string name="trainerDB">/traineruser</string>
     <string name="eventDB">/event</string>
     <string name="scenarioJoinDB">/joinScenario</string>
     <string name="trainerUserDB">/traineruser</string>
@@ -217,6 +217,8 @@
         <item>Volleyball</item>
         <item>Wheightlifting</item>
         <item>Wrestling</item>
+        <item>Bowling</item>
+        <item>Paddle</item>
     </string-array>
     <string-array name="cityFilter">
         <item>City</item>

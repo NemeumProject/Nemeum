@@ -95,7 +95,7 @@ public class ScenariosByFacility extends AppCompatActivity {
         resultList.setAdapter(customResult);
 
         List<String> sportName = new ArrayList<>();
-        sportName.add("Sport type");
+        sportName.add("Sport Type");
 
         for(Sport sport : listSport){
             sportName.add(sport.getName());
@@ -472,7 +472,7 @@ public class ScenariosByFacility extends AppCompatActivity {
                 scenarioValue.setText(listScenario.get(position).getPrice().toString() + "€ / hour");
 
             scenarioTitle.setText(listScenario.get(position).getTitle());
-            scenarioTitleDescr.setText("Scenario " + position);
+            scenarioTitleDescr.setText("Capacity:  " + listScenario.get(position).getCapacity().toString());
 
             if(!listScenario.get(position).getDescription().equals("null"))
                 scenarioDescription.setText(listScenario.get(position).getDescription());
