@@ -514,13 +514,13 @@
     <string name="pattern_date_format">yyyy-MM-dd hh:mm:ss</string>
     <string name="daily_Schedule_Title">Reservaciones</string>
     <string name="scenario_Daily_Schedule">Escenario</string>
-    <string name="starting_Time">Hora inicio</string>
-    <string name="ending_Time">Hora finalización</string>
-    <string name="customer_name">Nombre del cliente</string>
+    <string name="starting_Time">Hora inicio *</string>
+    <string name="ending_Time">Hora finalización *</string>
+    <string name="customer_name">Nombre del cliente *</string>
     <string name="user_Phone_Empty">El campo teléfono no puede estar en blanco</string>
     <string name="stime_error">El campo hora de inicio no puede estar en blanco</string>
     <string name="etime_error">El campo hora finalizacion no puede estar en blanco</string>
-    <string name="scenarios_spinner_Error">Seleccione un escenario</string>
+    <string name="scenarios_spinner_Error">Seleccione un escenario *</string>
     <string name="scenarios_edition">Edición de Escenarios </string>
     <string name="company_name">Nombre de la empresa</string>
     <string name="comercial_name">Nombre comercial</string>
@@ -597,9 +597,9 @@
         Su paquete especial para el nuevo año incluye 12 clases de su elección de ab blast, quema de grasa, BLT y barra Xtend por solo $ 2.100</string>
     <string name="getThatHeart4200">Mejore su ritmo cardíaco y aumente su metabolismo con una selección de clases para quemar grasa en flex.
         Su paquete especial para el nuevo año incluye 12 clases de su elección de ab blast, quemadura de grasa, BLT y barra Xtend por solo $ 4.200</string>
-    <string name="customerPhone">Teléfono del cliente</string>
+    <string name="customerPhone">Teléfono del cliente *</string>
     <string name="customerEmail">Correo electrónico del cliente</string>
-    <string name="select_date">Seleccione una fecha</string>
+    <string name="select_date">Seleccione una fecha *</string>
     <string name="select_Sport">Seleccione su deporte</string>
     <string name="edit_your_Location">Edite Su Localización</string>
     <string name="editScenarioTitle">Edite el título de su escenario</string>
