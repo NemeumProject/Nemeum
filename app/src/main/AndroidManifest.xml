@@ -2,23 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nemeum.project.nemeumproject">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <permission
-        android:name="com.nemeum.project.nemeumproject.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="com.nemeum.project.nemeumproject.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permissions.READ_GSERVICES" />
-
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/nemeum_logo"
@@ -26,7 +14,6 @@
         android:roundIcon="@mipmap/nemeum_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-library android:name="com.google.android.maps" />
 
         <activity android:name=".ActivityMainMock">
             <intent-filter>
@@ -35,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".BookTrainerPayment" />
         <activity android:name=".BookTrainer" />
         <activity android:name=".PostScenario" />
@@ -54,7 +40,6 @@
             android:name=".TrainerUserRegistration"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity android:name=".Login" />
-
         <activity android:name=".ForgetPassActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".EventFinder" />
@@ -71,20 +56,13 @@
         <activity android:name=".Version" />
         <activity android:name=".About" />
         <activity android:name=".ScenariosByFacility" />
-        <activity android:name=".activity_edit_trainer_service"/>
-
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCyeVZmJUkXVXAYdbBVxiHTOAjsF44nMzo" />
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
+        <activity android:name=".activity_edit_trainer_service" />
         <activity android:name=".BookScenarios" />
         <activity android:name=".BookScenarioPayment" />
         <activity android:name=".MyBookings" />
         <activity android:name=".PostEvent" />
-        <activity android:name=".IndividualUserDetail"></activity>
+        <activity android:name=".IndividualUserDetail" />
+        <activity android:name=".EventDetail"></activity>
     </application>
 
 </manifest>
