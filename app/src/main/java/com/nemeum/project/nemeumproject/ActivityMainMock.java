@@ -21,10 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
-import models.Scenario;
-
 public class ActivityMainMock extends AppCompatActivity {
-    private List<Scenario> listScenario = new ArrayList<>();
     private Context appContext;
     private BottomNavigationView menu;
     private SharedPreferences SP;
@@ -32,8 +29,6 @@ public class ActivityMainMock extends AppCompatActivity {
 
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
     private static final String[] REQUIRED_SDK_PERMISSIONS = new String[] {
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_NETWORK_STATE,
             Manifest.permission.INTERNET,
             Manifest.permission.WRITE_EXTERNAL_STORAGE };

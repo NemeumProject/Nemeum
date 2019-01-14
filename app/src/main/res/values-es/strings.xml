@@ -175,11 +175,11 @@
 
     <!-- Strings for Event Creation -->
     <string name="createEventTitle">Crear Evento</string>
-    <string name="eventTitleHint">Titulo del evento</string>
-    <string name="eventDescriptionHint">Descripción del evento</string>
-    <string name="eventLocationHint">Ubicación</string>
-    <string name="eventCityHint">Ciudad</string>
-    <string name="eventDateHint">Selecionar fecha</string>
+    <string name="eventTitleHint">Titulo del evento *</string>
+    <string name="eventDescriptionHint">Descripción del evento *</string>
+    <string name="eventLocationHint">Ubicación *</string>
+    <string name="eventCityHint">Ciudad *</string>
+    <string name="eventDateHint">Selecionar fecha *</string>
 
     <!-- Strings for Event Details -->
     <string name="detailedEventTitle">Detalles del Evento</string>
@@ -615,5 +615,5 @@
     <string name="time_selection_Error">La hora de inicio no puede ser superior a la hora de finalización</string>
     <string name="edit">Editar</string>
     <string name="city">Ciudad</string>
-
+    <string name="fieldsMandatory">Datos marcados con (*) son obligatorios</string>
 </resources>
