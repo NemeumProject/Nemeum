@@ -18,7 +18,7 @@
     <string name="idUserSP">idUser</string>
 
     <!-- Strings related to database access -->
-    <string name="urlDB">http://192.168.30.147:8080</string>
+    <string name="urlDB">https://nemeum.herokuapp.com</string>
     <string name="companyUserDB">/companyuser</string>
     <string name="loginDB">/login</string>
     <string name="scenariosDB">/scenario</string>
