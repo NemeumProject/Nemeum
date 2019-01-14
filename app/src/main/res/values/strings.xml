@@ -175,11 +175,11 @@
 
     <!-- Strings for Event Creation -->
     <string name="createEventTitle">Create Event</string>
-    <string name="eventTitleHint">Event title</string>
-    <string name="eventDescriptionHint">Event description</string>
-    <string name="eventLocationHint">Event location</string>
-    <string name="eventCityHint">City</string>
-    <string name="eventDateHint">Select date</string>
+    <string name="eventTitleHint">Event title *</string>
+    <string name="eventDescriptionHint">Event description *</string>
+    <string name="eventLocationHint">Event location *</string>
+    <string name="eventCityHint">City *</string>
+    <string name="eventDateHint">Select date *</string>
 
     <!-- Strings for Event Details -->
     <string name="detailedEventTitle">Detailed Event</string>
@@ -611,4 +611,5 @@
     <string name="time_selection_Error">Starting time cannot be higher that ending time</string>
     <string name="edit">Edit</string>
     <string name="city">City</string>
+    <string name="fieldsMandatory">Fields marked with (*) are mandatory</string>
 </resources>
