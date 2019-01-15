@@ -147,6 +147,21 @@ public class EventFinder extends AppCompatActivity {
                     resultList.clearChoices();
                     setFilteredEvents(btnMonth.getId());
                     resultList.setAdapter(new CustomAdapter());
+                    resultList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Intent detailEvent = new Intent(appContext, EventDetail.class);
+                            if(filteredEvent.get(i).getImage() != null)
+                                detailEvent.putExtra(getResources().getString(R.string.eventImgStringExtra), filteredEvent.get(i).getImage());
+                            detailEvent.putExtra(getResources().getString(R.string.eventTitleExtra), filteredEvent.get(i).getTitle());
+                            detailEvent.putExtra(getResources().getString(R.string.eventDescrExtra), filteredEvent.get(i).getDescription());
+                            detailEvent.putExtra(getResources().getString(R.string.eventAddressExtra), filteredEvent.get(i).getAddress());
+                            detailEvent.putExtra(getResources().getString(R.string.eventCityExtra), filteredEvent.get(i).getCity());
+                            SimpleDateFormat sdf = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault());
+                            detailEvent.putExtra(getResources().getString(R.string.eventDateExtra), sdf.format(filteredEvent.get(i).getDateEvent()));
+                            startActivity(detailEvent);
+                        }
+                    });
                 }
             });
             listMonths.add(btnMonth);
@@ -160,14 +175,14 @@ public class EventFinder extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent detailEvent = new Intent(appContext, EventDetail.class);
-                if(listEvent.get(i).getImage() != null)
-                    detailEvent.putExtra(getResources().getString(R.string.eventImgStringExtra), listEvent.get(i).getImage());
-                detailEvent.putExtra(getResources().getString(R.string.eventTitleExtra), listEvent.get(i).getTitle());
-                detailEvent.putExtra(getResources().getString(R.string.eventDescrExtra), listEvent.get(i).getDescription());
-                detailEvent.putExtra(getResources().getString(R.string.eventAddressExtra), listEvent.get(i).getAddress());
-                detailEvent.putExtra(getResources().getString(R.string.eventCityExtra), listEvent.get(i).getCity());
+                if(filteredEvent.get(i).getImage() != null)
+                    detailEvent.putExtra(getResources().getString(R.string.eventImgStringExtra), filteredEvent.get(i).getImage());
+                detailEvent.putExtra(getResources().getString(R.string.eventTitleExtra), filteredEvent.get(i).getTitle());
+                detailEvent.putExtra(getResources().getString(R.string.eventDescrExtra), filteredEvent.get(i).getDescription());
+                detailEvent.putExtra(getResources().getString(R.string.eventAddressExtra), filteredEvent.get(i).getAddress());
+                detailEvent.putExtra(getResources().getString(R.string.eventCityExtra), filteredEvent.get(i).getCity());
                 SimpleDateFormat sdf = new SimpleDateFormat(getResources().getString(R.string.date_format), Locale.getDefault());
-                detailEvent.putExtra(getResources().getString(R.string.eventDateExtra), sdf.format(listEvent.get(i).getDateEvent()));
+                detailEvent.putExtra(getResources().getString(R.string.eventDateExtra), sdf.format(filteredEvent.get(i).getDateEvent()));
                 startActivity(detailEvent);
             }
         });
