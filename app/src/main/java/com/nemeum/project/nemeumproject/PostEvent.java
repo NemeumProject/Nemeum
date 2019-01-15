@@ -260,31 +260,25 @@ public class PostEvent extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
 
             if(imagePath != null){
-                final ProgressDialog progress = new ProgressDialog(this);
-                progress.setTitle("Uploading...");
-                progress.show();
 
                 StorageReference reference = imageStorageReference.child("images/" + UUID.randomUUID().toString());
                 reference.putFile(imagePath)
                         .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                progress.dismiss();
                                 Toast.makeText(appContext, "Uploaded", Toast.LENGTH_LONG).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                progress.dismiss();
                                 Toast.makeText(appContext, "Failed " + e.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         })
                         .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                                double percentage = (100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                                progress.setMessage("Uploaded " + percentage + "%");
+
                             }
                         });
                 event.setImage("https://firebasestorage.googleapis.com/v0/b" + imageStorageReference.toString().substring(4) + "o/" + reference.getPath().substring(1).replace("/", "%2F") + "?alt=media");
@@ -332,7 +326,8 @@ public class PostEvent extends AppCompatActivity {
                             detailSuccess.putExtra(getResources().getString(R.string.eventDescrExtra), event.getDescription());
                             detailSuccess.putExtra(getResources().getString(R.string.eventAddressExtra), event.getAddress());
                             detailSuccess.putExtra(getResources().getString(R.string.eventCityExtra), event.getCity());
-                            detailSuccess.putExtra(getResources().getString(R.string.eventDateExtra), event.getDateEvent().toString());
+                            String date = df.format(eventCalendar.getTime()).split(" ")[0];
+                            detailSuccess.putExtra(getResources().getString(R.string.eventDateExtra), date);
 
                             startActivity(detailSuccess);
                             finish();
