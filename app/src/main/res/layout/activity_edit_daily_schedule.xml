@@ -331,6 +331,7 @@
             android:textAlignment="center"
             android:textCursorDrawable="@color/colorFont"
             android:cursorVisible="true"
+            android:maxLength="9"
             android:background="@drawable/months_rounded"
             android:inputType="phone" />
     </LinearLayout>
