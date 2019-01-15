@@ -16,6 +16,7 @@
     <string name="appLanguageSP">appLanguage</string>
     <string name="notLoggedSP">notLogged</string>
     <string name="idUserSP">idUser</string>
+    <string name="idCompanySP">idCompany</string>
 
     <!-- Strings related to database access -->
     <string name="urlDB">https://nemeum.herokuapp.com</string>

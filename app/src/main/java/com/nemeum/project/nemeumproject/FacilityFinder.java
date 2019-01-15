@@ -249,13 +249,12 @@ public class FacilityFinder extends AppCompatActivity {
                 facilityDescription.setText(listCompany.get(position).getDescription());
             }
             final int index = position;
-            final SharedPreferences registeredUserPref = getApplicationContext().getSharedPreferences(getResources().getString(R.string.userTypeSP), getApplicationContext().MODE_PRIVATE);
             scheduleBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     progressBar.setVisibility(View.VISIBLE);
-                    SharedPreferences.Editor registeredUserEditor = registeredUserPref.edit();
-                    registeredUserEditor.putString("idCompany", listCompany.get(index).getIdCompanyUser().toString());
+                    SharedPreferences.Editor registeredUserEditor = SP.edit();
+                    registeredUserEditor.putString(getResources().getString(R.string.idCompanySP), listCompany.get(index).getIdCompanyUser().toString());
                     registeredUserEditor.apply();
                     Intent intentBook = new Intent(appContext, ScenariosByFacility.class);
                     appContext.startActivity(intentBook);

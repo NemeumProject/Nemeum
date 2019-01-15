@@ -17,14 +17,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import org.apache.commons.codec.binary.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -40,8 +38,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +62,7 @@ public class SearchTrainer extends AppCompatActivity {
     private SharedPreferences SP;
     private BottomNavigationView menu;
     private String userType;
+    private EditText nameTrainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +89,7 @@ public class SearchTrainer extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        nameTrainer = findViewById(R.id.trainerNameSrch);
         resultList = findViewById(R.id.trainersList);
         CustomAdapter customResult = new CustomAdapter();
 
@@ -245,7 +243,6 @@ public class SearchTrainer extends AppCompatActivity {
 
     public synchronized void filterServices(View view){
         String name = null;
-        final EditText nameTrainer = findViewById(R.id.trainerNameSrch);
         String inputUser = nameTrainer.getText().toString();
         if(!inputUser.equals("") && inputUser != null){
             name = nameTrainer.getText().toString();
