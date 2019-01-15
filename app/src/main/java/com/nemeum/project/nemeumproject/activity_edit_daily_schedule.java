@@ -52,6 +52,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
     List<Scenario> listScenario = new ArrayList<>();
     ArrayList<String>scenarioList;
     String idScenario;
+    String scenarioName;
     int initialH, finalH;
 
     private String idCompany;
@@ -188,6 +189,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
         for(Scenario scenario : listScenario){
             if(item.toString().equals(scenario.getTitle())){
                 idScenario = scenario.getIdScenario().toString();
+                scenarioName= scenario.getTitle().toString();
                 System.out.println("idScenario  "+ idScenario);
             }
         }
@@ -311,6 +313,7 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                             });
                             Intent intent1 = new Intent(activity_edit_daily_schedule.this, activity_update_schedule_booking.class);
                             Bundle my_Bundle = new Bundle();
+                            my_Bundle.putString("scenarioName",scenarioName);
                             my_Bundle.putString("Date",str_date);
                             my_Bundle.putString("starting_Time",stStartingTime);
                             my_Bundle.putString("ending_Time",strEndTime);
