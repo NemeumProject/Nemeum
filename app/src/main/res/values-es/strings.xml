@@ -135,7 +135,7 @@
     <string name="create_scenario">Crear\nEscenario</string>
     <string name="edit_scenario">Editar\nEscenario</string>
     <string name="update_schedule">Atualizar\nAgenda</string>
-    <string name="my_bookings">Mis Citas</string>
+    <string name="my_bookings">Mis Reservas</string>
     <string name="create_service">Crear\nServicio</string>
     <string name="edit_service">Editar\nServicio</string>
     <string name="my_account">Mi Cuenta</string>
@@ -245,7 +245,7 @@
     </string-array>
 
     <!-- Strings for My Bookings -->
-    <string name="myBookingsTitle">Mis citas</string>
+    <string name="myBookingsTitle">Mis Reservas</string>
     <string name="bookingResTime">Hora:</string>
     <string name="bookingResDate">Fecha:</string>
     <string name="bookingResAddress">Ubicación:</string>
@@ -271,7 +271,7 @@
 
     <!-- Strings for Booking Trainer-->
     <string name="trainerBookTitle">Citar Entrenador</string>
-    <string name="BookingSuccess">Su cita fue creada correctamente</string>
+    <string name="BookingSuccess">Su reserva fue creada correctamente</string>
 
     <!-- Strings for Booking Scenarios-->
     <string name="idscenario">id_scenario</string>
@@ -460,7 +460,7 @@
     <string name="field_location_empty">La ubicación es obligatoria</string>
     <string name="field_city_empty">La ciudad es obligatoria</string>
     <string name="field_date_empty">La fecha es obligatoria</string>
-    <string name="booking_deleted">Reserva removida con éxito</string>
+    <string name="booking_deleted">Reserva eliminada con éxito</string>
 
     <!-- Strings for Trainer Posting -->
     <string name="trainer_posting">Nueva Publicación</string>

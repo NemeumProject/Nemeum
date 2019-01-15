@@ -309,7 +309,15 @@ public class activity_edit_daily_schedule extends AppCompatActivity implements A
                                     Toast.makeText(activity_edit_daily_schedule.this,getResources().getString(R.string.bookingOK),Toast.LENGTH_LONG).show();
                                 }
                             });
-                            Intent intent1 = new Intent(activity_edit_daily_schedule.this, UserCompanyLoginActivity.class);
+                            Intent intent1 = new Intent(activity_edit_daily_schedule.this, activity_update_schedule_booking.class);
+                            Bundle my_Bundle = new Bundle();
+                            my_Bundle.putString("Date",str_date);
+                            my_Bundle.putString("starting_Time",stStartingTime);
+                            my_Bundle.putString("ending_Time",strEndTime);
+                            my_Bundle.putString("customer_Name",strName);
+                            my_Bundle.putString("phone",strPhone);
+                            my_Bundle.putString("email",strEmail);
+                            intent1.putExtras(my_Bundle);
                             startActivity(intent1);
                         }else {
                             activity_edit_daily_schedule.this.runOnUiThread(new Runnable() {

@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/nemeum_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".ActivityMainMock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,7 +61,8 @@
         <activity android:name=".MyBookings" />
         <activity android:name=".PostEvent" />
         <activity android:name=".IndividualUserDetail" />
-        <activity android:name=".EventDetail"></activity>
+        <activity android:name=".EventDetail" />
+        <activity android:name=".activity_update_schedule_booking"></activity>
     </application>
 
 </manifest>
