@@ -135,7 +135,7 @@
     <string name="create_event">Crear\nEvento</string>
     <string name="create_scenario">Crear\nEscenario</string>
     <string name="edit_scenario">Editar\nEscenario</string>
-    <string name="update_schedule">Atualizar\nAgenda</string>
+    <string name="update_schedule">Actualizar\nAgenda</string>
     <string name="my_bookings">Mis Reservas</string>
     <string name="create_service">Crear\nServicio</string>
     <string name="edit_service">Editar\nServicio</string>

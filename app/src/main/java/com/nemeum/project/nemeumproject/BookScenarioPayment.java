@@ -331,8 +331,15 @@ public class BookScenarioPayment  extends Activity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        Intent intent2 = new Intent(BookScenarioPayment.this, NearScenarios.class);
-                        startActivity(intent2);
+                        if(userType.equals(getResources().getString(R.string.trainerUserSP)))
+                        {
+                            Intent intent2 = new Intent(BookScenarioPayment.this, UserTrainerLoginActivity.class);
+                            startActivity(intent2);
+                        }else if(userType.equals(getResources().getString(R.string.individualUserSP))){
+                            Intent intent2 = new Intent(BookScenarioPayment.this, UserLoginActivity.class);
+                            startActivity(intent2);
+                        }
+
                     }else {
                         BookScenarioPayment.this.runOnUiThread(new Runnable() {
                             public void run() {
